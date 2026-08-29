@@ -1,0 +1,100 @@
+site_name: Data Science Mastery Path
+site_description: A structured, module-wise Data Science training program from entry level to master level — statistics, EDA, visualization, experimentation and communication with Python.
+site_url: https://sigilipelli.github.io/data-science-mastery-path/
+repo_url: https://github.com/SIGILIPELLI/data-science-mastery-path
+repo_name: data-science-mastery-path
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Privacy Policy: privacy.md
+  - "Level 1 · Entry":
+      - Overview: level-1/index.md
+      - "01 · What Is Data Science?": level-1/01-what-is-data-science.md
+      - "02 · Python for Data Science": level-1/02-python-for-data-science.md
+      - "03 · Data Cleaning & Wrangling": level-1/03-data-cleaning-wrangling.md
+      - "04 · Exploratory Data Analysis (EDA)": level-1/04-exploratory-data-analysis.md
+      - "05 · Data Visualization Basics": level-1/05-data-visualization-basics.md
+      - "06 · Statistics Fundamentals": level-1/06-statistics-fundamentals.md
+      - "07 · Correlation & Basic Regression": level-1/07-correlation-basic-regression.md
+      - "08 · Working with Real-World Messy Datasets": level-1/08-messy-datasets.md
+      - "09 · Communicating Findings": level-1/09-communicating-findings.md
+      - "10 · Project — End-to-End Data Analysis Report": level-1/10-capstone-project.md
+  - "Level 2 · Intermediate":
+      - Overview: level-2/index.md
+      - "01 · Advanced pandas (groupby, merge, pivot)": level-2/01-advanced-pandas.md
+      - "02 · Statistical Testing Deep Dive": level-2/02-statistical-testing.md
+      - "03 · Advanced Visualization (plotly)": level-2/03-advanced-visualization.md
+      - "04 · Feature Engineering Basics": level-2/04-feature-engineering.md
+      - "05 · Intro to Machine Learning for Data Science": level-2/05-intro-machine-learning.md
+      - "06 · Time Series Analysis Basics": level-2/06-time-series-basics.md
+      - "07 · A/B Testing Fundamentals": level-2/07-ab-testing-fundamentals.md
+      - "08 · SQL for Data Scientists": level-2/08-sql-for-data-scientists.md
+      - "09 · Jupyter Notebook Best Practices": level-2/09-jupyter-best-practices.md
+      - "10 · Project — A/B Test Analysis": level-2/10-project-ab-test-analysis.md
+  - "Level 3 · Advanced":
+      - Overview: level-3/index.md
+      - "01 · Advanced Statistical Modeling": level-3/01-advanced-statistical-modeling.md
+      - "02 · Experimentation Platforms & Causal Inference Basics": level-3/02-causal-inference-basics.md
+      - "03 · Advanced Time Series Forecasting": level-3/03-advanced-time-series-forecasting.md
+      - "04 · Working with Big Data": level-3/04-working-with-big-data.md
+      - "05 · Model Interpretability": level-3/05-model-interpretability.md
+      - "06 · Data Storytelling for Executives": level-3/06-data-storytelling-executives.md
+      - "07 · Building Dashboards (Streamlit)": level-3/07-building-dashboards-streamlit.md
+      - "08 · Reproducible Research Practices": level-3/08-reproducible-research.md
+      - "09 · Data Ethics & Bias": level-3/09-data-ethics-bias.md
+      - "10 · Project — Interactive Data Dashboard": level-3/10-project-interactive-dashboard.md
+  - "Level 4 · Master":
+      - Overview: level-4/index.md
+      - "01 · Leading Data Science Teams": level-4/01-leading-data-science-teams.md
+      - "02 · Advanced Causal Inference": level-4/02-advanced-causal-inference.md
+      - "03 · Building a Data Science Platform": level-4/03-data-science-platform.md
+      - "04 · MLOps for Data Scientists": level-4/04-mlops-for-data-scientists.md
+      - "05 · Advanced Experimentation at Scale": level-4/05-advanced-experimentation-scale.md
+      - "06 · Data Science Strategy & Roadmapping": level-4/06-strategy-roadmapping.md
+      - "07 · Cross-Functional Stakeholder Management": level-4/07-stakeholder-management.md
+      - "08 · Ethics & Governance at Scale": level-4/08-ethics-governance-scale.md
+      - "09 · Career Growth: IC to Principal Data Scientist": level-4/09-career-growth.md
+      - "10 · Capstone — Full Data Science Project": level-4/10-capstone-full-project.md
