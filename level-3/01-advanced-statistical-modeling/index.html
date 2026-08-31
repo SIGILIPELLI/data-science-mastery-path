@@ -1316,6 +1316,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced Statistical Modeling
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1332,6 +1350,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-linear-regression-with-statsmodels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple linear regression with statsmodels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-model-fit-and-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking model fit and assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multicollinearity-when-predictors-overlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multicollinearity: when predictors overlap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-ridge-and-lasso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization: Ridge and Lasso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generalized-linear-models-modeling-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalized Linear Models: modeling counts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-linear-regression-with-statsmodels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple linear regression with statsmodels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-model-fit-and-assumptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking model fit and assumptions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multicollinearity-when-predictors-overlap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multicollinearity: when predictors overlap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regularization-ridge-and-lasso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regularization: Ridge and Lasso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generalized-linear-models-modeling-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalized Linear Models: modeling counts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,155 @@
 
 
 <h1 id="01-advanced-statistical-modeling">01 · Advanced Statistical Modeling<a class="headerlink" href="#01-advanced-statistical-modeling" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Level 1–2 covered simple regression and basic tests. Real analyses usually
+need models that handle multiple predictors, non-linear relationships, and
+non-normal outcomes. This module covers multiple linear regression,
+regularization, and generalized linear models (GLMs) with <code>statsmodels</code>.</p>
+<h2 id="multiple-linear-regression-with-statsmodels">Multiple linear regression with statsmodels<a class="headerlink" href="#multiple-linear-regression-with-statsmodels" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">300</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">houses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="s2">"sqft"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="s2">"bedrooms"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="s2">"age_years"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">})</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">houses</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="mi">50_000</span> <span class="o">+</span> <span class="mi">120</span> <span class="o">*</span> <span class="n">houses</span><span class="p">[</span><span class="s2">"sqft"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">8_000</span> <span class="o">*</span> <span class="n">houses</span><span class="p">[</span><span class="s2">"bedrooms"</span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="o">-</span> <span class="mi">900</span> <span class="o">*</span> <span class="n">houses</span><span class="p">[</span><span class="s2">"age_years"</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15_000</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"price ~ sqft + bedrooms + age_years"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">houses</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>==============================================================================
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>------------------------------------------------------------------------------
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Intercept   4.87e+04   3184.912     15.288      0.000    4.24e+04    5.49e+04
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sqft         119.7891     1.529     78.316      0.000     116.780     122.798
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>bedrooms    8079.4432   463.276     17.437      0.000    7167.798    8991.089
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>age_years   -897.7521    13.982    -64.209      0.000    -925.284    -870.221
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>==============================================================================
+</code></pre></div>
+<p>Each coefficient is the effect of that variable <em>holding the others
+constant</em> — <code>sqft</code>'s coefficient (~120) means an extra square foot adds
+about $120 to price, controlling for bedrooms and age. Always check <code>P&gt;|t|</code>
+(is the effect distinguishable from zero) alongside the confidence
+interval (how big might it really be), not just whether it's "significant."</p>
+<h2 id="checking-model-fit-and-assumptions">Checking model fit and assumptions<a class="headerlink" href="#checking-model-fit-and-assumptions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R-squared: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">rsquared</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">residuals</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">resid</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Residual mean: </span><span class="si">{</span><span class="n">residuals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, std: </span><span class="si">{</span><span class="n">residuals</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>R-squared: 0.972
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Residual mean: 0.00, std: 14876.4
+</code></pre></div>
+<p>R² near 1 says the three predictors explain most of the price variation
+(expected here — we simulated it that way). In real data, always plot
+residuals against fitted values: a random scatter supports the linear
+model; a curve or funnel shape (heteroscedasticity) means the model is
+missing structure or needs a transformation (e.g. modeling <code>log(price)</code>).</p>
+<h2 id="multicollinearity-when-predictors-overlap">Multicollinearity: when predictors overlap<a class="headerlink" href="#multicollinearity-when-predictors-overlap" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.outliers_influence</span><span class="w"> </span><span class="kn">import</span> <span class="n">variance_inflation_factor</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">houses</span><span class="p">[[</span><span class="s2">"sqft"</span><span class="p">,</span> <span class="s2">"bedrooms"</span><span class="p">,</span> <span class="s2">"age_years"</span><span class="p">]]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">X_with_const</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"const"</span><span class="p">),</span> <span class="n">X</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">vif</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="p">[</span><span class="n">variance_inflation_factor</span><span class="p">(</span><span class="n">X_with_const</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_with_const</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">vif</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sqft         1.02
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>bedrooms     1.02
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>age_years    1.01
+</code></pre></div>
+<p>A Variance Inflation Factor (VIF) near 1 means a predictor isn't well
+explained by the others — no multicollinearity problem. VIF above ~5–10
+signals that two or more predictors are redundant, which inflates
+coefficient standard errors and makes individual effects unstable (the
+model still predicts fine — it's the <em>interpretation</em> of each coefficient
+that becomes unreliable).</p>
+<h2 id="regularization-ridge-and-lasso">Regularization: Ridge and Lasso<a class="headerlink" href="#regularization-ridge-and-lasso" title="Permanent link">&para;</a></h2>
+<p>When you have many correlated predictors, or more predictors than you
+fully trust, regularization shrinks coefficients toward zero to reduce
+overfitting.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">X_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">y</span> <span class="o">=</span> <span class="n">houses</span><span class="p">[</span><span class="s2">"price"</span><span class="p">]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">lasso</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Ridge coefs:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Lasso coefs:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lasso</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Ridge coefs: [50652.4  8043.4 -14837.7]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Lasso coefs: [51012.8  7998.1 -14874.5]
+</code></pre></div>
+<p>Ridge shrinks all coefficients smoothly; Lasso can shrink some <em>exactly</em>
+to zero, effectively performing feature selection. With three genuinely
+useful, uncorrelated predictors like these neither shrinks much — the
+difference from OLS becomes visible when you have many noisy or redundant
+features.</p>
+<h2 id="generalized-linear-models-modeling-counts">Generalized Linear Models: modeling counts<a class="headerlink" href="#generalized-linear-models-modeling-counts" title="Permanent link">&para;</a></h2>
+<p>Linear regression assumes a continuous, roughly normal outcome. Count
+data (number of support tickets, website visits) is better modeled with a
+Poisson GLM.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">tickets</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"tenure_months"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">400</span><span class="p">)})</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.2</span> <span class="o">-</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="n">tickets</span><span class="p">[</span><span class="s2">"tenure_months"</span><span class="p">])</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">tickets</span><span class="p">[</span><span class="s2">"n_tickets"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">rate</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">glm</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">glm</span><span class="p">(</span><span class="s2">"n_tickets ~ tenure_months"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tickets</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>              <span class="n">family</span><span class="o">=</span><span class="nb">__import__</span><span class="p">(</span><span class="s2">"statsmodels.api"</span><span class="p">,</span> <span class="n">fromlist</span><span class="o">=</span><span class="p">[</span><span class="s2">"families"</span><span class="p">])</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Poisson</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Intercept        1.1928
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>tenure_months   -0.0197
+</code></pre></div>
+<p>The coefficient is on the <em>log</em> scale (Poisson GLMs use a log link): each
+extra month of tenure multiplies the expected ticket rate by
+<code>exp(-0.0197) ≈ 0.98</code>, i.e. about a 2% reduction per month.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple regression</td>
+<td><code>smf.ols("y ~ x1 + x2", data=df).fit()</code></td>
+</tr>
+<tr>
+<td>Check multicollinearity</td>
+<td><code>variance_inflation_factor(X, i)</code></td>
+</tr>
+<tr>
+<td>Shrink coefficients</td>
+<td><code>Ridge(alpha=...)</code>, <code>Lasso(alpha=...)</code></td>
+</tr>
+<tr>
+<td>Model counts</td>
+<td><code>smf.glm("y ~ x", data=df, family=sm.families.Poisson())</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Add a fourth predictor to <code>houses</code> — <code>has_garage</code> (a 0/1 column, randomly
+assigned) with no real effect on price — and refit the OLS model. Confirm
+its coefficient is not significant (<code>P&gt;|t|</code> well above 0.05), then fit a
+Lasso model with a large enough <code>alpha</code> to shrink that coefficient to
+exactly zero. Explain the difference in what each result tells you.</p>
 
 
 

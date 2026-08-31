@@ -942,6 +942,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced pandas (groupby, merge, pivot)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -958,6 +976,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groupby-split-apply-combine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        groupby: split, apply, combine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-group-stats-broadcast-back-to-every-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transform: group stats broadcast back to every row
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-combining-tables-on-a-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        merge: combining tables on a key
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivot_table-long-data-to-a-wide-summary-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pivot_table: long data to a wide summary grid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#melt-wide-back-to-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        melt: wide back to long
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groupby-split-apply-combine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        groupby: split, apply, combine
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-group-stats-broadcast-back-to-every-row" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        transform: group stats broadcast back to every row
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-combining-tables-on-a-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        merge: combining tables on a key
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pivot_table-long-data-to-a-wide-summary-grid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pivot_table: long data to a wide summary grid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#melt-wide-back-to-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        melt: wide back to long
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,158 @@
 
 
 <h1 id="01-advanced-pandas-groupby-merge-pivot">01 · Advanced pandas (groupby, merge, pivot)<a class="headerlink" href="#01-advanced-pandas-groupby-merge-pivot" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Level 1 covered pandas basics — loading data, selecting columns, filtering
+rows. Real analysis work lives in three operations you'll use every single
+day: <strong>groupby</strong> (aggregate within categories), <strong>merge</strong> (combine tables),
+and <strong>pivot</strong> (reshape long data into wide summaries).</p>
+<h2 id="groupby-split-apply-combine">groupby: split, apply, combine<a class="headerlink" href="#groupby-split-apply-combine" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">orders</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"East"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">,</span> <span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">],</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"product"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Widget"</span><span class="p">,</span> <span class="s2">"Gadget"</span><span class="p">,</span> <span class="s2">"Widget"</span><span class="p">,</span> <span class="s2">"Gadget"</span><span class="p">,</span> <span class="s2">"Widget"</span><span class="p">,</span> <span class="s2">"Widget"</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"revenue"</span><span class="p">:</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">"units"</span><span class="p">:</span>   <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">})</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">by_region</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"region"</span><span class="p">)[</span><span class="s2">"revenue"</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">"sum"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">,</span> <span class="s2">"count"</span><span class="p">])</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">by_region</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        sum        mean  count
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>region
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>East    610  203.333333      3
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>West    700  233.333333      3
+</code></pre></div>
+<p><code>groupby</code> splits the DataFrame into groups by the key column, applies an
+aggregation to each group independently, then stitches the results back
+into one table — pandas does the loop for you, in compiled C, which is why
+it's dramatically faster than a Python <code>for</code> loop over rows.</p>
+<p>Grouping by more than one key gives a hierarchical (MultiIndex) result:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">by_both</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"product"</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">total_revenue</span><span class="o">=</span><span class="p">(</span><span class="s2">"revenue"</span><span class="p">,</span> <span class="s2">"sum"</span><span class="p">),</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">avg_units</span><span class="o">=</span><span class="p">(</span><span class="s2">"units"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">),</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">by_both</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>                 total_revenue  avg_units
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>region product
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>East   Gadget              340        2.0
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>       Widget              270        4.5
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>West   Gadget              410        3.0
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>       Widget              290        4.5
+</code></pre></div>
+<p>The named-aggregation syntax (<code>total_revenue=("revenue", "sum")</code>) is the
+modern, readable way to compute several differently-named aggregates in one
+call — prefer it over renaming columns afterward.</p>
+<h2 id="transform-group-stats-broadcast-back-to-every-row">transform: group stats broadcast back to every row<a class="headerlink" href="#transform-group-stats-broadcast-back-to-every-row" title="Permanent link">&para;</a></h2>
+<p>Sometimes you don't want a summary table — you want each row annotated with
+its group's statistic (e.g. "revenue as a % of this region's total"):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">orders</span><span class="p">[</span><span class="s2">"region_total"</span><span class="p">]</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"region"</span><span class="p">)[</span><span class="s2">"revenue"</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s2">"sum"</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">orders</span><span class="p">[</span><span class="s2">"pct_of_region"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">orders</span><span class="p">[</span><span class="s2">"revenue"</span><span class="p">]</span> <span class="o">/</span> <span class="n">orders</span><span class="p">[</span><span class="s2">"region_total"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">orders</span><span class="p">[[</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"revenue"</span><span class="p">,</span> <span class="s2">"region_total"</span><span class="p">,</span> <span class="s2">"pct_of_region"</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  region  revenue  region_total  pct_of_region
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>0   East      120           610           19.7
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1   East      340           610           55.7
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2   West       90           700           12.9
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>3   West      410           700           58.6
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>4   East      150           610           24.6
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>5   West      200           700           28.6
+</code></pre></div>
+<p><code>transform</code> returns a Series the same length as the input, aligned by
+index — unlike <code>agg</code>, which collapses each group to one row. This is the
+standard pattern for "what share of the group does this row represent?"</p>
+<h2 id="merge-combining-tables-on-a-key">merge: combining tables on a key<a class="headerlink" href="#merge-combining-tables-on-a-key" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">customers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"East"</span><span class="p">,</span> <span class="s2">"West"</span><span class="p">,</span> <span class="s2">"North"</span><span class="p">],</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">"manager"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Priya"</span><span class="p">,</span> <span class="s2">"Tom"</span><span class="p">,</span> <span class="s2">"Aisha"</span><span class="p">],</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">})</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">merged</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">customers</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"left"</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">merged</span><span class="p">[[</span><span class="s2">"region"</span><span class="p">,</span> <span class="s2">"product"</span><span class="p">,</span> <span class="s2">"revenue"</span><span class="p">,</span> <span class="s2">"manager"</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  region product  revenue manager
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>0   East  Widget      120   Priya
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>1   East  Gadget      340   Priya
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2   West  Widget       90     Tom
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>3   West  Gadget      410     Tom
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>4   East  Widget      150   Priya
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>5   West  Widget      200     Tom
+</code></pre></div>
+<p><code>how="left"</code> keeps every row from <code>orders</code> (the left table) and attaches
+matching data from <code>customers</code>; a region with no match would get <code>NaN</code>.
+<code>"North"</code> from <code>customers</code> disappears entirely because no order matches
+it — that's the defining behavior of a left join. Use <code>how="inner"</code> to keep
+only rows that match on both sides, <code>how="outer"</code> to keep everything from
+both sides (filling unmatched cells with <code>NaN</code>), and always check
+<code>len(merged)</code> after a merge — an unexpected row-count change usually means
+your join key has duplicates you didn't account for.</p>
+<h2 id="pivot_table-long-data-to-a-wide-summary-grid">pivot_table: long data to a wide summary grid<a class="headerlink" href="#pivot_table-long-data-to-a-wide-summary-grid" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">pivot</span> <span class="o">=</span> <span class="n">orders</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">index</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"product"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"revenue"</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s2">"sum"</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>product  Gadget  Widget
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>region
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>East        340     420
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>West        410     290
+</code></pre></div>
+<p><code>pivot_table</code> is <code>groupby</code> + reshape in one step: it groups by the <code>index</code>
+and <code>columns</code> keys simultaneously and lays the aggregated values out as a
+grid, which is exactly the shape you want for a summary table or a heatmap.
+<code>fill_value=0</code> replaces combinations with no data (rather than <code>NaN</code>) —
+appropriate here since "no orders" really does mean zero revenue.</p>
+<h2 id="melt-wide-back-to-long">melt: wide back to long<a class="headerlink" href="#melt-wide-back-to-long" title="Permanent link">&para;</a></h2>
+<p>The inverse of pivoting — useful when a wide table needs to go back to
+one-row-per-observation for further analysis or plotting:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">wide</span> <span class="o">=</span> <span class="n">pivot</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">long</span> <span class="o">=</span> <span class="n">wide</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">"product"</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s2">"revenue"</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">long</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"region"</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  region product  revenue
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>0   East  Gadget      340
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>1   East  Widget      420
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>2   West  Gadget      410
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>3   West  Widget      290
+</code></pre></div>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aggregate within groups</td>
+<td><code>df.groupby("k").agg(name=("col", "sum"))</code></td>
+</tr>
+<tr>
+<td>Broadcast a group stat to every row</td>
+<td><code>df.groupby("k")["col"].transform("sum")</code></td>
+</tr>
+<tr>
+<td>Combine two tables on a key</td>
+<td><code>df.merge(other, on="k", how="left")</code></td>
+</tr>
+<tr>
+<td>Long → wide summary grid</td>
+<td><code>df.pivot_table(index=, columns=, values=, aggfunc=)</code></td>
+</tr>
+<tr>
+<td>Wide → long</td>
+<td><code>df.melt(id_vars=, var_name=, value_name=)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>orders</code> DataFrame above, compute each product's revenue as a
+percentage of its <em>own</em> total across both regions (not the region total).
+Then build a <code>pivot_table</code> showing average <code>units</code> per order by region and
+product, with missing combinations filled with <code>0</code>. Which region/product
+combination has the highest average units per order?</p>
 
 
 

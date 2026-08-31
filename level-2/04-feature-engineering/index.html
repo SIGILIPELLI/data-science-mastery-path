@@ -1026,6 +1026,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Feature Engineering Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1042,6 +1060,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encoding-categorical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoding categorical variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-numeric-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling numeric features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-new-features-from-existing-ones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating new features from existing ones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binning-a-continuous-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binning a continuous variable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2094,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#encoding-categorical-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoding categorical variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-numeric-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling numeric features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-new-features-from-existing-ones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating new features from existing ones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binning-a-continuous-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binning a continuous variable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2187,163 @@
 
 
 <h1 id="04-feature-engineering-basics">04 · Feature Engineering Basics<a class="headerlink" href="#04-feature-engineering-basics" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Raw columns rarely feed a model well. <strong>Feature engineering</strong> — transforming,
+combining, and encoding data into inputs a model can actually learn
+from — routinely matters more to model quality than the choice of
+algorithm.</p>
+<h2 id="encoding-categorical-variables">Encoding categorical variables<a class="headerlink" href="#encoding-categorical-variables" title="Permanent link">&para;</a></h2>
+<p>Models need numbers. Two standard encodings, and when to use each:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"city"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"NY"</span><span class="p">,</span> <span class="s2">"LA"</span><span class="p">,</span> <span class="s2">"NY"</span><span class="p">,</span> <span class="s2">"SF"</span><span class="p">,</span> <span class="s2">"LA"</span><span class="p">],</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"plan"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"basic"</span><span class="p">,</span> <span class="s2">"pro"</span><span class="p">,</span> <span class="s2">"pro"</span><span class="p">,</span> <span class="s2">"basic"</span><span class="p">,</span> <span class="s2">"enterprise"</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">})</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># One-hot: for nominal categories with no inherent order</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">one_hot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"city"</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"city"</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">one_hot</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>         plan  city_LA  city_NY  city_SF
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>0       basic    False     True    False
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1         pro     True    False    False
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2         pro    False     True    False
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>3       basic    False    False     True
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>4  enterprise     True    False    False
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Ordinal: for categories with a real order</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">plan_order</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"basic"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"pro"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"enterprise"</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df</span><span class="p">[</span><span class="s2">"plan_rank"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"plan"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plan_order</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  city        plan  plan_rank
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>0   NY       basic          0
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>1   LA         pro          1
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2   NY         pro          1
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>3   SF       basic          0
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>4   LA  enterprise          2
+</code></pre></div>
+<p>One-hot encoding creates a binary column per category with no implied
+ordering — correct for <code>city</code>, where "NY &gt; LA" would be meaningless. Ordinal
+encoding maps categories to numbers that preserve a real ranking — correct
+for <code>plan</code>, where enterprise genuinely represents "more" than basic. Using
+one-hot on <code>plan</code> would throw away the ordering information; using ordinal
+on <code>city</code> would invent a fake one.</p>
+<h2 id="scaling-numeric-features">Scaling numeric features<a class="headerlink" href="#scaling-numeric-features" title="Permanent link">&para;</a></h2>
+<p>Many algorithms (k-NN, SVMs, gradient descent-based models, PCA) are
+sensitive to feature scale — a column measured in thousands will dominate
+one measured in single digits purely due to units, not importance.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"income"</span><span class="p">:</span> <span class="p">[</span><span class="mi">42000</span><span class="p">,</span> <span class="mi">58000</span><span class="p">,</span> <span class="mi">39000</span><span class="p">,</span> <span class="mi">120000</span><span class="p">,</span> <span class="mi">65000</span><span class="p">],</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                      <span class="s2">"age"</span><span class="p">:</span>    <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">38</span><span class="p">]})</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">scaled</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">scaled</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[[-0.68 -0.85]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a> [ 0.05  0.05]
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> [-0.79 -1.15]
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a> [ 2.09  1.83]
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a> [ 0.32  0.36]]
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>[0. 0.] [1. 1.]
+</code></pre></div>
+<p><code>StandardScaler</code> rescales each column to mean 0, std 1 — after scaling,
+<code>income</code> and <code>age</code> are on the same footing, so a distance-based model
+won't silently over-weight income just because its raw numbers are bigger.
+<code>MinMaxScaler</code> (rescales to [0, 1]) is the alternative when you want a
+bounded range instead, e.g. for neural network inputs.</p>
+<div class="admonition warning">
+<p class="admonition-title">Fit the scaler on training data only</p>
+<p>Always call <code>.fit()</code> (or <code>.fit_transform()</code>) on the training split, then
+<code>.transform()</code> (not <code>.fit_transform()</code>) on validation/test data using the
+<em>same</em> fitted scaler. Fitting on the full dataset lets test-set
+statistics leak into training — a classic source of over-optimistic
+model scores.</p>
+</div>
+<h2 id="creating-new-features-from-existing-ones">Creating new features from existing ones<a class="headerlink" href="#creating-new-features-from-existing-ones" title="Permanent link">&para;</a></h2>
+<p>The highest-leverage feature engineering usually isn't a library call — it's
+domain knowledge encoded as arithmetic:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">txns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">"signup_date"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">"2024-01-01"</span><span class="p">,</span> <span class="s2">"2024-03-15"</span><span class="p">,</span> <span class="s2">"2024-06-01"</span><span class="p">]),</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">"last_purchase"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">"2024-06-01"</span><span class="p">,</span> <span class="s2">"2024-06-01"</span><span class="p">,</span> <span class="s2">"2024-06-01"</span><span class="p">]),</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="s2">"total_spent"</span><span class="p">:</span> <span class="p">[</span><span class="mi">450</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s2">"num_orders"</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">})</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">txns</span><span class="p">[</span><span class="s2">"tenure_days"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">txns</span><span class="p">[</span><span class="s2">"last_purchase"</span><span class="p">]</span> <span class="o">-</span> <span class="n">txns</span><span class="p">[</span><span class="s2">"signup_date"</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">txns</span><span class="p">[</span><span class="s2">"avg_order_value"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">txns</span><span class="p">[</span><span class="s2">"total_spent"</span><span class="p">]</span> <span class="o">/</span> <span class="n">txns</span><span class="p">[</span><span class="s2">"num_orders"</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">txns</span><span class="p">[[</span><span class="s2">"tenure_days"</span><span class="p">,</span> <span class="s2">"avg_order_value"</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>   tenure_days  avg_order_value
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>0          152             50.0
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>1           78             40.0
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2            0             30.0
+</code></pre></div>
+<p><code>avg_order_value</code> (spend per order) is often far more predictive of future
+behavior than <code>total_spent</code> alone, because it separates "spends a lot per
+purchase" from "has just been around longer and accumulated more orders."
+<code>tenure_days</code> turns two raw dates into a single interpretable number a model
+can use directly.</p>
+<h2 id="binning-a-continuous-variable">Binning a continuous variable<a class="headerlink" href="#binning-a-continuous-variable" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">ages</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">19</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"minor"</span><span class="p">,</span> <span class="s2">"young_adult"</span><span class="p">,</span> <span class="s2">"adult"</span><span class="p">,</span> <span class="s2">"senior"</span><span class="p">])</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"age"</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span> <span class="s2">"age_group"</span><span class="p">:</span> <span class="n">bins</span><span class="p">}))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>   age    age_group
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>0   19  young_adult
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>1   24  young_adult
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>2   31        adult
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>3   45        adult
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>4   52       senior
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>5   67       senior
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>6   15        minor
+</code></pre></div>
+<p>Binning trades precision for robustness and interpretability — useful when
+a model (or a human reading the model's rules) benefits from coarse
+categories, or when the relationship with the target is non-linear across
+ranges rather than a smooth trend.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominal category → dummy columns</td>
+<td><code>pd.get_dummies(df, columns=[...])</code></td>
+</tr>
+<tr>
+<td>Ordered category → rank number</td>
+<td><code>series.map({"low": 0, "high": 1})</code></td>
+</tr>
+<tr>
+<td>Standardize numeric features</td>
+<td><code>StandardScaler().fit_transform(X)</code></td>
+</tr>
+<tr>
+<td>Continuous → buckets</td>
+<td><code>pd.cut(series, bins=[...], labels=[...])</code></td>
+</tr>
+<tr>
+<td>Date difference → numeric</td>
+<td><code>(date_a - date_b).dt.days</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>txns</code> DataFrame above, add a feature <code>orders_per_month</code> computed
+as <code>num_orders / (tenure_days / 30)</code>, guarding against division by zero for
+the customer with <code>tenure_days == 0</code> (treat that case as <code>num_orders</code>
+itself). Then one-hot encode a new <code>channel</code> column you add
+(<code>["organic", "paid", "organic"]</code>) and combine it with the scaled numeric
+columns into a single model-ready DataFrame.</p>
 
 
 

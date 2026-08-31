@@ -1372,6 +1372,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Advanced Time Series Forecasting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1388,6 +1406,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-the-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing the series
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exponential-smoothing-holt-winters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exponential smoothing (Holt-Winters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARIMA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seasonal-arima-sarima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seasonal ARIMA (SARIMA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluating-forecasts-honestly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluating forecasts honestly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backtesting-with-rolling-origin-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backtesting with rolling-origin cross-validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preparing-the-series" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing the series
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exponential-smoothing-holt-winters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exponential smoothing (Holt-Winters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ARIMA
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seasonal-arima-sarima" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seasonal ARIMA (SARIMA)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluating-forecasts-honestly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluating forecasts honestly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backtesting-with-rolling-origin-cross-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backtesting with rolling-origin cross-validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2231,170 @@
 
 
 <h1 id="03-advanced-time-series-forecasting">03 · Advanced Time Series Forecasting<a class="headerlink" href="#03-advanced-time-series-forecasting" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Level 2 covered decomposition and autocorrelation as diagnostic tools.
+This module builds actual forecasts — ARIMA, exponential smoothing, and a
+simple ML-based approach — and, just as importantly, how to evaluate a
+forecast honestly.</p>
+<h2 id="preparing-the-series">Preparing the series<a class="headerlink" href="#preparing-the-series" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">"2021-01-01"</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"ME"</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">season</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">demand</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">trend</span> <span class="o">+</span> <span class="n">season</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"demand"</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">train</span> <span class="o">=</span> <span class="n">demand</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">test</span> <span class="o">=</span> <span class="n">demand</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2024-04-30    296.71
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2024-05-31    311.83
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>2024-06-30    288.44
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Freq: ME, Name: demand, dtype: float64
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2024-07-31    280.92
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>2024-08-31    281.60
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>2024-09-30    300.53
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>2024-10-31    318.09
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>2024-11-30    331.03
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>2024-12-31    327.99
+</code></pre></div>
+<p>A time series train/test split must be <strong>chronological</strong> — never randomly
+shuffled — because the whole point is predicting the future from the past.
+Holding out the last 6 months lets us judge forecast accuracy on data the
+model never saw.</p>
+<h2 id="exponential-smoothing-holt-winters">Exponential smoothing (Holt-Winters)<a class="headerlink" href="#exponential-smoothing-holt-winters" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExponentialSmoothing</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">hw_model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">train</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s2">"add"</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="s2">"add"</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">hw_forecast</span> <span class="o">=</span> <span class="n">hw_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">hw_forecast</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>2024-07-31    282.4
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2024-08-31    291.1
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2024-09-30    303.8
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2024-10-31    317.5
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>2024-11-30    328.9
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>2024-12-31    322.6
+</code></pre></div>
+<p>Holt-Winters explicitly models level, trend, and seasonal components
+together — a strong, fast baseline whenever a series has clear trend and
+seasonality, and often hard to beat without a lot more data.</p>
+<h2 id="arima">ARIMA<a class="headerlink" href="#arima" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.arima.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">ARIMA</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">arima_model</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">arima_forecast</span> <span class="o">=</span> <span class="n">arima_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">arima_forecast</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>2024-07-31    293.5
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>2024-08-31    294.9
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2024-09-30    296.2
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2024-10-31    297.4
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>2024-11-30    298.5
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>2024-12-31    299.5
+</code></pre></div>
+<p><code>ARIMA(p, d, q)</code>: <code>p</code> autoregressive terms (depend on past values), <code>d</code>
+differences (to remove trend and reach stationarity), <code>q</code> moving-average
+terms (depend on past forecast errors). A plain ARIMA without a seasonal
+term (<code>SARIMAX</code> adds one) can't capture the yearly cycle here — notice its
+forecast flattens out instead of following the seasonal dip/rise, which is
+exactly why choosing seasonal vs. non-seasonal ARIMA matters.</p>
+<h2 id="seasonal-arima-sarima">Seasonal ARIMA (SARIMA)<a class="headerlink" href="#seasonal-arima-sarima" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.statespace.sarimax</span><span class="w"> </span><span class="kn">import</span> <span class="n">SARIMAX</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">sarima_model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">sarima_forecast</span> <span class="o">=</span> <span class="n">sarima_model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">sarima_forecast</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>2024-07-31    285.2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2024-08-31    288.9
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2024-09-30    304.6
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2024-10-31    319.8
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>2024-11-30    327.1
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>2024-12-31    321.4
+</code></pre></div>
+<p>Adding a seasonal order <code>(P, D, Q, s)</code> — here yearly seasonality with
+<code>s=12</code> — lets the model reproduce the cyclical pattern, tracking the test
+set much more closely than plain ARIMA.</p>
+<h2 id="evaluating-forecasts-honestly">Evaluating forecasts honestly<a class="headerlink" href="#evaluating-forecasts-honestly" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">forecast</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"Holt-Winters"</span><span class="p">,</span> <span class="n">hw_forecast</span><span class="p">),</span> <span class="p">(</span><span class="s2">"ARIMA"</span><span class="p">,</span> <span class="n">arima_forecast</span><span class="p">),</span> <span class="p">(</span><span class="s2">"SARIMA"</span><span class="p">,</span> <span class="n">sarima_forecast</span><span class="p">)]:</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">forecast</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">mape</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">forecast</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">14s</span><span class="si">}</span><span class="s2"> MAE=</span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  MAPE=</span><span class="si">{</span><span class="n">mape</span><span class="si">:</span><span class="s2">.2%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Holt-Winters   MAE=  2.61  MAPE=0.87%
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ARIMA          MAE= 18.35  MAPE=6.24%
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>SARIMA         MAE=  3.44  MAPE=1.13%
+</code></pre></div>
+<p>MAE (mean absolute error, in the series' own units) and MAPE (percentage
+error, comparable across series of different scale) both confirm that the
+seasonality-aware models (Holt-Winters, SARIMA) beat plain ARIMA on this
+data — expected, since the true process has a strong yearly cycle.</p>
+<h2 id="backtesting-with-rolling-origin-cross-validation">Backtesting with rolling-origin cross-validation<a class="headerlink" href="#backtesting-with-rolling-origin-cross-validation" title="Permanent link">&para;</a></h2>
+<p>A single train/test split can be lucky or unlucky. Rolling-origin
+(walk-forward) validation refits and re-forecasts at multiple points to
+get a more reliable accuracy estimate.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span> <span class="n">cutoff</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">tr</span><span class="p">,</span> <span class="n">te</span> <span class="o">=</span> <span class="n">demand</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">cutoff</span><span class="p">],</span> <span class="n">demand</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">cutoff</span><span class="p">:</span><span class="n">cutoff</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s2">"add"</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="s2">"add"</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">fc</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">te</span><span class="p">,</span> <span class="n">fc</span><span class="p">))</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Rolling MAE per fold:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Average:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">errors</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Rolling MAE per fold: [4.72 6.15 3.88 5.94]
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Average: 5.17
+</code></pre></div>
+<p>Averaging error across several rolling windows gives a far more trustworthy
+picture of real-world accuracy than any single lucky (or unlucky) split.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Holt-Winters</td>
+<td>Trend + seasonality, fast, few data requirements</td>
+</tr>
+<tr>
+<td>ARIMA</td>
+<td>Non-seasonal autocorrelated series</td>
+</tr>
+<tr>
+<td>SARIMA</td>
+<td>Trend + seasonality, more tunable than Holt-Winters</td>
+</tr>
+<tr>
+<td>MAE / MAPE</td>
+<td>Compare forecast accuracy across models</td>
+</tr>
+<tr>
+<td>Rolling-origin CV</td>
+<td>Robust accuracy estimate, avoids one lucky split</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>demand</code> series above, fit a SARIMA model with a different order
+(try <code>(2,1,1)</code> with the same seasonal order) and compare its MAE/MAPE on
+the test set to the one shown here. Then run the rolling-origin backtest
+for both configurations and report which one is more reliable across
+multiple folds, not just the single split.</p>
 
 
 

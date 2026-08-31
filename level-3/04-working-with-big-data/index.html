@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#04-working-with-big-data-sampling-strategies-dask-basics" class="md-skip">
+        <a href="#04-working-with-big-data" class="md-skip">
           Skip to content
         </a>
       
@@ -1400,6 +1400,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Working with Big Data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1416,6 +1434,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-memory-footprint-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Know your memory footprint first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduce-memory-with-dtypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduce memory with dtypes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-in-chunks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading in chunks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-pushdown-formats-parquet-over-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query-pushdown formats: Parquet over CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-out-a-taste-of-dask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling out: a taste of Dask
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-reach-for-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to reach for what
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#know-your-memory-footprint-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Know your memory footprint first
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduce-memory-with-dtypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reduce memory with dtypes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-in-chunks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading in chunks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-pushdown-formats-parquet-over-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query-pushdown formats: Parquet over CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-out-a-taste-of-dask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scaling out: a taste of Dask
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-reach-for-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to reach for what
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2009,9 +2230,150 @@
   
 
 
-<h1 id="04-working-with-big-data-sampling-strategies-dask-basics">04 · Working with Big Data (sampling strategies, Dask basics)<a class="headerlink" href="#04-working-with-big-data-sampling-strategies-dask-basics" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<h1 id="04-working-with-big-data">04 · Working with Big Data<a class="headerlink" href="#04-working-with-big-data" title="Permanent link">&para;</a></h1>
+<p>pandas loads everything into memory — great up to a few million rows,
+painful beyond that. This module covers what to do when a dataset stops
+fitting comfortably in RAM: smarter pandas usage, chunked processing, and
+an introduction to distributed tools.</p>
+<h2 id="know-your-memory-footprint-first">Know your memory footprint first<a class="headerlink" href="#know-your-memory-footprint-first" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">2_000_000</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">"user_id"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="s2">"category"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">],</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="s2">"amount"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">})</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span><span class="p">,</span> <span class="s2">"MB"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>143.6 MB
+</code></pre></div>
+<p><code>memory_usage(deep=True)</code> is the honest number (the shallow default
+undercounts object/string columns badly). Before reaching for a
+"big data" tool, check whether the dataset actually needs one — 2 million
+rows of a few numeric columns is well within pandas' comfort zone.</p>
+<h2 id="reduce-memory-with-dtypes">Reduce memory with dtypes<a class="headerlink" href="#reduce-memory-with-dtypes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">before</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">df</span><span class="p">[</span><span class="s2">"category"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"category"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"category"</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">df</span><span class="p">[</span><span class="s2">"user_id"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"user_id"</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s2">"unsigned"</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">df</span><span class="p">[</span><span class="s2">"amount"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"amount"</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s2">"float"</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">after</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">before</span><span class="o">/</span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MB -&gt; </span><span class="si">{</span><span class="n">after</span><span class="o">/</span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MB"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>143.6 MB -&gt; 47.2 MB
+</code></pre></div>
+<p><code>category</code> dtype stores each unique string once and repeats integer codes
+— dramatic savings for low-cardinality text columns. <code>downcast</code> picks the
+smallest numeric type that fits the data's actual range
+(<code>uint32</code> instead of default <code>int64</code>, <code>float32</code> instead of <code>float64</code>).
+This alone often turns a "doesn't fit in memory" dataset into one that
+does.</p>
+<h2 id="reading-in-chunks">Reading in chunks<a class="headerlink" href="#reading-in-chunks" title="Permanent link">&para;</a></h2>
+<p>When a file genuinely doesn't fit in memory, process it incrementally
+instead of loading it all at once.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">chunk_totals</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"big_transactions.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">200_000</span><span class="p">):</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">chunk_totals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"category"</span><span class="p">)[</span><span class="s2">"amount"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">total_by_category</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">chunk_totals</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">total_by_category</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>category
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>A    412093.5
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>B    398217.1
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>C    405882.9
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>D    401556.7
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Name: amount, dtype: float64
+</code></pre></div>
+<p><code>chunksize</code> turns <code>read_csv</code> into an iterator of smaller DataFrames — each
+chunk is processed and its intermediate result (here, per-category sums)
+kept; the raw chunk is discarded, keeping peak memory bounded regardless
+of total file size. This pattern (aggregate per chunk, combine aggregates)
+works for sums, counts, and means; it's harder for things like exact
+medians that need to see all values at once.</p>
+<h2 id="query-pushdown-formats-parquet-over-csv">Query-pushdown formats: Parquet over CSV<a class="headerlink" href="#query-pushdown-formats-parquet-over-csv" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s2">"transactions.parquet"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Only reads the columns you actually need, and only matching row groups</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">subset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">"transactions.parquet"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"category"</span><span class="p">,</span> <span class="s2">"amount"</span><span class="p">])</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">subset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(2000000, 2)
+</code></pre></div>
+<p>Parquet is a columnar, compressed binary format: reading only the columns
+you need (<code>columns=[...]</code>) skips the rest of the file entirely on disk,
+unlike CSV which must be parsed row by row regardless of which columns you
+want. For repeated analysis on the same large dataset, converting once to
+Parquet pays for itself quickly in both file size and read speed.</p>
+<h2 id="scaling-out-a-taste-of-dask">Scaling out: a taste of Dask<a class="headerlink" href="#scaling-out-a-taste-of-dask" title="Permanent link">&para;</a></h2>
+<p>When a dataset is too large even for chunked pandas — or you want to use
+multiple cores without rewriting your logic — Dask provides a
+pandas-compatible API that operates on the data lazily, in parallel.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dask.dataframe</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dd</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">ddf</span> <span class="o">=</span> <span class="n">dd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"big_transactions.csv"</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">result</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"category"</span><span class="p">)[</span><span class="s2">"amount"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>category
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>A    20.06
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>B    19.91
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>C    20.03
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>D    19.98
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Name: amount, dtype: float64
+</code></pre></div>
+<p>Dask builds a task graph from pandas-like calls (<code>groupby</code>, <code>merge</code>, etc.)
+and only executes it when you call <code>.compute()</code> — it partitions the file
+into chunks automatically and can spread work across cores or even a
+cluster, all while you write nearly the same code you already know from
+pandas.</p>
+<h2 id="when-to-reach-for-what">When to reach for what<a class="headerlink" href="#when-to-reach-for-what" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pandas with better dtypes</strong>: usually the first and best fix — most
+  "big data" problems are actually "wasteful data types" problems.</li>
+<li><strong>Chunked pandas</strong>: file doesn't fit in memory, but the aggregation you
+  need can be computed incrementally.</li>
+<li><strong>Parquet</strong>: repeated reads of the same large dataset, especially when
+  you only need some columns.</li>
+<li><strong>Dask / Spark</strong>: dataset genuinely exceeds a single machine's memory
+  even chunked, or you need to parallelize heavy computation across cores
+  or a cluster.</li>
+</ul>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Fixes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>astype("category")</code>, <code>downcast=</code></td>
+<td>Wasteful default dtypes</td>
+</tr>
+<tr>
+<td><code>pd.read_csv(..., chunksize=N)</code></td>
+<td>File doesn't fit in memory</td>
+</tr>
+<tr>
+<td><code>to_parquet</code> / <code>read_parquet(columns=...)</code></td>
+<td>Slow repeated reads, unneeded columns</td>
+</tr>
+<tr>
+<td><code>dask.dataframe</code></td>
+<td>Needs parallelism or exceeds single-machine memory</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take the <code>df</code> DataFrame from the first example (2M rows). Measure its
+memory footprint before and after converting <code>category</code> to a category
+dtype and downcasting the numeric columns. Then write it to both CSV and
+Parquet, compare file sizes on disk, and time how long it takes to read
+back just the <code>amount</code> column from each format.</p>
 
 
 

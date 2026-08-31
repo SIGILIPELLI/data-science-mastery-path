@@ -1138,6 +1138,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · SQL for Data Scientists
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1154,6 +1172,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-sample-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up a sample database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-where-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELECT, WHERE, ORDER BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-combining-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JOIN: combining tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by-and-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GROUP BY and aggregates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#window-functions-per-row-context-without-collapsing-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Window functions: per-row context without collapsing rows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctes-naming-intermediate-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTEs: naming intermediate steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-sample-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up a sample database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-where-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SELECT, WHERE, ORDER BY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#join-combining-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JOIN: combining tables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by-and-aggregates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GROUP BY and aggregates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#window-functions-per-row-context-without-collapsing-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Window functions: per-row context without collapsing rows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ctes-naming-intermediate-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CTEs: naming intermediate steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2231,172 @@
 
 
 <h1 id="08-sql-for-data-scientists">08 · SQL for Data Scientists<a class="headerlink" href="#08-sql-for-data-scientists" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Most production data lives in a database, not a CSV. This module covers
+the SQL a data scientist uses daily — enough to pull and shape your own
+data instead of waiting on a data engineer — using Python's <code>sqlite3</code> so
+every example runs standalone.</p>
+<h2 id="setting-up-a-sample-database">Setting up a sample database<a class="headerlink" href="#setting-up-a-sample-database" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">":memory:"</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">orders</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"order_id"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">"customer_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="s2">"amount"</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="s2">"order_date"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="p">[</span><span class="s2">"2024-01-05"</span><span class="p">,</span> <span class="s2">"2024-02-10"</span><span class="p">,</span> <span class="s2">"2024-01-20"</span><span class="p">,</span> <span class="s2">"2024-03-01"</span><span class="p">,</span> <span class="s2">"2024-02-15"</span><span class="p">,</span> <span class="s2">"2024-03-10"</span><span class="p">]</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="p">),</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">})</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">customers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="s2">"customer_id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="s2">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Priya"</span><span class="p">,</span> <span class="s2">"Tom"</span><span class="p">,</span> <span class="s2">"Aisha"</span><span class="p">],</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="s2">"signup_date"</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">"2023-11-01"</span><span class="p">,</span> <span class="s2">"2023-12-15"</span><span class="p">,</span> <span class="s2">"2024-01-01"</span><span class="p">]),</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">})</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">orders</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">"orders"</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">customers</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">"customers"</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="select-where-order-by">SELECT, WHERE, ORDER BY<a class="headerlink" href="#select-where-order-by" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">SELECT order_id, customer_id, amount</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s2">FROM orders</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s2">WHERE amount &gt; 60</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">ORDER BY amount DESC</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s2">"""</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>   order_id  customer_id  amount
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>0         4            3     200
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1         2            1     120
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2         6            1      90
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>3         3            2      75
+</code></pre></div>
+<p><code>pd.read_sql</code> runs the query and returns a DataFrame directly — the
+standard bridge between a database and a pandas analysis.</p>
+<h2 id="join-combining-tables">JOIN: combining tables<a class="headerlink" href="#join-combining-tables" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s2">SELECT c.name, o.order_id, o.amount</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s2">FROM orders o</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">JOIN customers c ON o.customer_id = c.customer_id</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">ORDER BY c.name, o.order_id</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">"""</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    name  order_id  amount
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>0  Aisha         4     200
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1   Priya        1      50
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>2   Priya        2     120
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>3   Priya        6      90
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>4    Tom         3      75
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>5    Tom         5      40
+</code></pre></div>
+<p><code>JOIN</code> (an inner join by default) is SQL's <code>merge</code> — it matches rows across
+tables on the given key. Use <code>LEFT JOIN</code> to keep every row from the first
+table even without a match, exactly like pandas' <code>how="left"</code>.</p>
+<h2 id="group-by-and-aggregates">GROUP BY and aggregates<a class="headerlink" href="#group-by-and-aggregates" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s2">SELECT c.name, COUNT(*) AS n_orders, SUM(o.amount) AS total_spent</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s2">FROM orders o</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s2">JOIN customers c ON o.customer_id = c.customer_id</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s2">GROUP BY c.name</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s2">HAVING SUM(o.amount) &gt; 100</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s2">ORDER BY total_spent DESC</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s2">"""</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    name  n_orders  total_spent
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>0   Priya         3          260
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>1   Aisha         1          200
+</code></pre></div>
+<p><code>WHERE</code> filters rows before grouping; <code>HAVING</code> filters <em>after</em> aggregation
+(you can't write <code>WHERE SUM(amount) &gt; 100</code> — the aggregate doesn't exist
+yet at that stage of the query).</p>
+<h2 id="window-functions-per-row-context-without-collapsing-rows">Window functions: per-row context without collapsing rows<a class="headerlink" href="#window-functions-per-row-context-without-collapsing-rows" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">SELECT order_id, customer_id, amount,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">       SUM(amount) OVER (PARTITION BY customer_id) AS customer_total,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">       ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS order_seq</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">FROM orders</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s2">ORDER BY customer_id, order_seq</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="s2">"""</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>   order_id  customer_id  amount  customer_total  order_seq
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>0         1            1      50             260          1
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>1         2            1     120             260          2
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>2         6            1      90             260          3
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>3         3            2      75             115          1
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>4         5            2      40             115          2
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>5         4            3     200             200          1
+</code></pre></div>
+<p><code>OVER (PARTITION BY ...)</code> is the SQL equivalent of pandas' <code>groupby(...).transform(...)</code> —
+it computes a per-group value without collapsing rows, so you keep
+row-level detail <em>and</em> group context in the same result. <code>ROW_NUMBER()</code>
+numbers rows within each partition — handy for "each customer's first
+order" (<code>WHERE order_seq = 1</code>).</p>
+<h2 id="ctes-naming-intermediate-steps">CTEs: naming intermediate steps<a class="headerlink" href="#ctes-naming-intermediate-steps" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">q</span> <span class="o">=</span> <span class="s2">"""</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="s2">WITH customer_totals AS (</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s2">    SELECT customer_id, SUM(amount) AS total_spent</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s2">    FROM orders</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s2">    GROUP BY customer_id</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s2">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s2">SELECT c.name, ct.total_spent</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s2">FROM customer_totals ct</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="s2">JOIN customers c ON c.customer_id = ct.customer_id</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="s2">WHERE ct.total_spent &gt; 100</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s2">"""</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">conn</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>    name  total_spent
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>0  Priya          260
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>1  Aisha          200
+</code></pre></div>
+<p>A <code>WITH</code> clause (Common Table Expression) names an intermediate query so
+the final <code>SELECT</code> reads top-to-bottom like a pipeline — much more
+maintainable than nesting subqueries, and the standard style for anything
+non-trivial.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter rows</td>
+<td><code>WHERE condition</code></td>
+</tr>
+<tr>
+<td>Filter after aggregation</td>
+<td><code>HAVING condition</code></td>
+</tr>
+<tr>
+<td>Combine tables</td>
+<td><code>JOIN ... ON key</code> / <code>LEFT JOIN</code></td>
+</tr>
+<tr>
+<td>Per-group value, keep rows</td>
+<td><code>SUM(x) OVER (PARTITION BY k)</code></td>
+</tr>
+<tr>
+<td>Rank/number within group</td>
+<td><code>ROW_NUMBER() OVER (PARTITION BY k ORDER BY col)</code></td>
+</tr>
+<tr>
+<td>Named intermediate query</td>
+<td><code>WITH name AS (...) SELECT ...</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>orders</code>/<code>customers</code> tables above, write one query with a CTE
+that computes each customer's average order amount, then a final SELECT
+that returns only customers whose average order is above the overall
+average across all customers. (Hint: you'll need a second CTE or a
+subquery for the overall average.)</p>
 
 
 

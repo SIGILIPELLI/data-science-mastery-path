@@ -1512,6 +1512,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Reproducible Research Practices
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1528,6 +1546,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-reproducible-project-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A reproducible project layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pin-the-environment-not-just-the-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin the environment, not just the packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-every-source-of-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed every source of randomness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-your-data-not-just-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version your data, not just your code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-single-entry-point-that-reruns-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A single entry point that reruns everything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-assumptions-and-known-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document assumptions and known caveats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-reproducible-project-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A reproducible project layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pin-the-environment-not-just-the-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pin the environment, not just the packages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seed-every-source-of-randomness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seed every source of randomness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-your-data-not-just-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version your data, not just your code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-single-entry-point-that-reruns-everything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A single entry point that reruns everything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-assumptions-and-known-caveats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Document assumptions and known caveats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2231,162 @@
 
 
 <h1 id="08-reproducible-research-practices">08 · Reproducible Research Practices<a class="headerlink" href="#08-reproducible-research-practices" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>"It worked when I ran it" isn't the bar — the bar is "someone else (or you,
+in a year) can rerun this and get the same numbers." This module covers
+the concrete practices that make an analysis reproducible: project
+structure, dependency pinning, seeding, and data versioning.</p>
+<h2 id="a-reproducible-project-layout">A reproducible project layout<a class="headerlink" href="#a-reproducible-project-layout" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>churn-analysis/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── data/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   ├── raw/              # never edited by hand, never overwritten
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   └── processed/        # generated by scripts, safe to delete &amp; regenerate
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── notebooks/
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   └── 01-exploration.ipynb
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── src/
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   ├── clean.py
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│   ├── features.py
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   └── model.py
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── outputs/
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│   ├── figures/
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   └── models/
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── requirements.txt
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├── README.md
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>└── run_pipeline.py
+</code></pre></div>
+<p>The separation between <code>raw</code> (immutable, treated as read-only) and
+<code>processed</code> (fully regenerable from raw + code) is the core discipline:
+if <code>processed/</code> and <code>outputs/</code> can be deleted and rebuilt by running
+<code>run_pipeline.py</code>, the project is reproducible by construction.</p>
+<h2 id="pin-the-environment-not-just-the-packages">Pin the environment, not just the packages<a class="headerlink" href="#pin-the-environment-not-just-the-packages" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># requirements.txt — exact versions, not ranges
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pandas==2.2.2
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>numpy==1.26.4
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>scikit-learn==1.4.2
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>statsmodels==0.14.2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements-lock.txt<span class="w">   </span><span class="c1"># exact resolved versions, including transitive deps</span>
+</code></pre></div>
+<p><code>pandas&gt;=2.0</code> looks reasonable but silently lets a future install pull a
+version with different default behavior (pandas has changed defaults
+across major versions before). Pin exact versions for anything you expect
+someone to rerun later, and keep a full <code>pip freeze</code> lock file alongside
+the hand-written requirements for full transitive-dependency reproducibility.</p>
+<h2 id="seed-every-source-of-randomness">Seed every source of randomness<a class="headerlink" href="#seed-every-source-of-randomness" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_all_seeds</span><span class="p">(</span><span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">SEED</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="c1"># If using scikit-learn estimators with random_state, pass seed explicitly there too</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="c1"># If using TensorFlow/PyTorch, seed those libraries' generators as well</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">set_all_seeds</span><span class="p">()</span>
+</code></pre></div>
+<p>A script that calls <code>set_all_seeds()</code> once at the top, and passes
+<code>random_state=SEED</code> to every scikit-learn estimator and train/test split,
+removes "I can't reproduce your number" as a possible failure mode. Note
+that seeding doesn't guarantee bit-identical results across different
+library <em>versions</em> or hardware (some GPU operations are non-deterministic)
+— which is exactly why environment pinning matters too.</p>
+<h2 id="version-your-data-not-just-your-code">Version your data, not just your code<a class="headerlink" href="#version-your-data-not-just-your-code" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">file_hash</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">12</span><span class="p">]</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">file_hash</span><span class="p">(</span><span class="s2">"data/raw/transactions.csv"</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>a1f9c3e07b2d
+</code></pre></div>
+<p>Recording a hash of each raw input file (in the README, a manifest file,
+or a tool like DVC) answers the question "was this analysis run against
+the same data I have now?" — git tracks code changes well but is a poor
+fit for large data files; a hash-based manifest (or DVC/<code>git-lfs</code> for the
+files themselves) closes that gap cheaply.</p>
+<h2 id="a-single-entry-point-that-reruns-everything">A single entry point that reruns everything<a class="headerlink" href="#a-single-entry-point-that-reruns-everything" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># run_pipeline.py</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">src.clean</span><span class="w"> </span><span class="kn">import</span> <span class="n">clean_raw_data</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">src.features</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_features</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">src.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_and_evaluate</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">set_all_seeds</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="n">raw</span> <span class="o">=</span> <span class="n">clean_raw_data</span><span class="p">(</span><span class="s2">"data/raw/transactions.csv"</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="n">features</span> <span class="o">=</span> <span class="n">build_features</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">metrics</span> <span class="o">=</span> <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Final metrics:"</span><span class="p">,</span> <span class="n">metrics</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>run_pipeline.py
+</code></pre></div>
+<p>If a colleague can clone the repo, run <code>pip install -r requirements.txt</code>,
+then <code>python run_pipeline.py</code>, and get the same <code>metrics</code> you reported —
+the analysis is reproducible. If reproducing it requires "also run cells
+3, 7, then 5 in this notebook in that order, and don't forget to manually
+download this other file" — it isn't, no matter how correct the numbers
+are.</p>
+<h2 id="document-assumptions-and-known-caveats">Document assumptions and known caveats<a class="headerlink" href="#document-assumptions-and-known-caveats" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>## Known limitations (README.md excerpt)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>- Data covers Jan–Jun 2024 only; seasonal effects beyond H1 are extrapolated.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>- Customers with &lt; 3 transactions were excluded (see src/clean.py:excludes_low_activity).
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>- Churn label defined as "no purchase in 60 days" — a stricter/looser
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  window would change absolute churn rates but not the relative comparison.
+</code></pre></div>
+<p>A short, explicit "known limitations" section costs a few minutes to write
+and prevents a reader from unknowingly over-trusting a result outside the
+range it's valid for — arguably as important to reproducibility as the
+code itself, since it tells a re-runner what <em>not</em> to conclude even from
+a bit-identical rerun.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>What it guards against</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>raw/</code> vs <code>processed/</code> separation</td>
+<td>Accidentally overwriting original data</td>
+</tr>
+<tr>
+<td>Pinned <code>requirements.txt</code> + lock file</td>
+<td>"Works on my machine" dependency drift</td>
+</tr>
+<tr>
+<td>Seed every random operation</td>
+<td>Non-reproducible numbers</td>
+</tr>
+<tr>
+<td>Hash or version raw data files</td>
+<td>Unnoticed silent data changes</td>
+</tr>
+<tr>
+<td>One pipeline entry point</td>
+<td>Manual, undocumented multi-step reruns</td>
+</tr>
+<tr>
+<td>Documented limitations</td>
+<td>Results misapplied outside their valid scope</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take a notebook you've written for an earlier module in this path. Refactor
+it into the <code>src/</code> + <code>run_pipeline.py</code> structure shown above: move any
+function longer than ~10 lines into a <code>.py</code> module, add a <code>requirements.txt</code>
+with pinned versions, and confirm <code>python run_pipeline.py</code> reproduces the
+notebook's final numbers exactly.</p>
 
 
 

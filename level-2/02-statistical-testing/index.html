@@ -970,6 +970,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Statistical Testing Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -986,6 +1004,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chi-square-test-are-two-categorical-variables-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chi-square test: are two categorical variables related?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-way-anova-comparing-more-than-two-group-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-way ANOVA: comparing more than two group means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-parametric-alternatives-when-data-isnt-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-parametric alternatives: when data isn't normal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-test-decision-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a test: decision guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2083,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chi-square-test-are-two-categorical-variables-related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chi-square test: are two categorical variables related?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-way-anova-comparing-more-than-two-group-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-way ANOVA: comparing more than two group means
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-parametric-alternatives-when-data-isnt-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-parametric alternatives: when data isn't normal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-test-decision-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a test: decision guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2165,128 @@
 
 
 <h1 id="02-statistical-testing-deep-dive">02 · Statistical Testing Deep Dive<a class="headerlink" href="#02-statistical-testing-deep-dive" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Level 1 introduced the t-test. Real datasets throw more shapes at you:
+categorical vs. categorical, more than two groups, non-normal
+distributions. This module builds the decision tree for "which test do I
+run?"</p>
+<h2 id="chi-square-test-are-two-categorical-variables-related">Chi-square test: are two categorical variables related?<a class="headerlink" href="#chi-square-test-are-two-categorical-variables-related" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Rows = device type, columns = converted (0/1) — observed counts</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">[[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">]],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"Desktop"</span><span class="p">,</span> <span class="s2">"Mobile"</span><span class="p">],</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"No purchase"</span><span class="p">,</span> <span class="s2">"Purchase"</span><span class="p">],</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">chi2</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chi2_contingency</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dof</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>         No purchase  Purchase
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Desktop          180        20
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Mobile           150        50
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>14.815 0.00012 1
+</code></pre></div>
+<p>The chi-square test compares the <em>observed</em> counts in a contingency table
+against the counts you'd <em>expect</em> if the two variables were independent. A
+tiny p-value (0.00012) says: purchase rate really does depend on device
+type here (desktop converts at 10%, mobile at 25%) — this is not
+explainable by chance alone. Use chi-square whenever both variables are
+categorical (e.g. "does plan tier relate to churn?").</p>
+<h2 id="one-way-anova-comparing-more-than-two-group-means">One-way ANOVA: comparing more than two group means<a class="headerlink" href="#one-way-anova-comparing-more-than-two-group-means" title="Permanent link">&para;</a></h2>
+<p>A t-test only compares two groups. For three or more, use ANOVA — it tests
+whether <em>at least one</em> group mean differs from the rest:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">control</span>  <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">variant_a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">variant_b</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">58</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">f_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">control</span><span class="p">,</span> <span class="n">variant_a</span><span class="p">,</span> <span class="n">variant_b</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">f_stat</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">p_val</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>9.936 9e-05
+</code></pre></div>
+<p>A significant ANOVA (p &lt; 0.05) tells you <em>some</em> difference exists among the
+three groups, but not <em>which</em> pair differs. For that you need a post-hoc
+test with a multiple-comparisons correction (e.g. Tukey's HSD), because
+running three separate t-tests without correction inflates your false
+positive rate — exactly the p-hacking trap from Level 1.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">combinations</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">groups</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"control"</span><span class="p">:</span> <span class="n">control</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">:</span> <span class="n">variant_a</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="n">variant_b</span><span class="p">}</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">alpha_corrected</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="o">/</span> <span class="mi">3</span>  <span class="c1"># Bonferroni: 3 pairwise comparisons</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">for</span> <span class="p">(</span><span class="n">name1</span><span class="p">,</span> <span class="n">g1</span><span class="p">),</span> <span class="p">(</span><span class="n">name2</span><span class="p">,</span> <span class="n">g2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">combinations</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">flag</span> <span class="o">=</span> <span class="s2">"significant"</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">alpha_corrected</span> <span class="k">else</span> <span class="s2">"not significant"</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name1</span><span class="si">}</span><span class="s2"> vs </span><span class="si">{</span><span class="n">name2</span><span class="si">}</span><span class="s2">: p=</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">flag</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>control vs a: p=0.0433 -&gt; not significant
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>control vs b: p=0.0000 -&gt; significant
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>b vs a: p=0.0113 -&gt; not significant
+</code></pre></div>
+<p>With the Bonferroni-corrected threshold (0.0167 instead of 0.05),
+<code>control vs a</code> no longer clears the bar even though its raw p-value looked
+promising — this is the correction doing its job.</p>
+<h2 id="non-parametric-alternatives-when-data-isnt-normal">Non-parametric alternatives: when data isn't normal<a class="headerlink" href="#non-parametric-alternatives-when-data-isnt-normal" title="Permanent link">&para;</a></h2>
+<p>The t-test and ANOVA assume roughly normal data. When a distribution is
+heavily skewed (e.g. revenue, wait times) or you have a small sample,
+<strong>Mann-Whitney U</strong> is the non-parametric analogue of the two-sample t-test —
+it compares <em>ranks</em> instead of means:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">skewed_a</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">skewed_b</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">u_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">skewed_a</span><span class="p">,</span> <span class="n">skewed_b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">u_stat</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">p_val</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">skewed_a</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">skewed_b</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>337.0 0.1682
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2.98 4.7
+</code></pre></div>
+<p>Even though the medians look different (2.98 vs 4.7), the Mann-Whitney test
+says this could plausibly be chance with only 30 samples per group and this
+much variance in an exponential distribution.</p>
+<h2 id="choosing-a-test-decision-guide">Choosing a test: decision guide<a class="headerlink" href="#choosing-a-test-decision-guide" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 groups, continuous outcome, roughly normal</td>
+<td><code>stats.ttest_ind</code></td>
+</tr>
+<tr>
+<td>2 groups, continuous outcome, skewed / small n</td>
+<td><code>stats.mannwhitneyu</code></td>
+</tr>
+<tr>
+<td>3+ groups, continuous outcome</td>
+<td><code>stats.f_oneway</code> (ANOVA), then post-hoc</td>
+</tr>
+<tr>
+<td>2 categorical variables</td>
+<td><code>stats.chi2_contingency</code></td>
+</tr>
+<tr>
+<td>Paired before/after measurements</td>
+<td><code>stats.ttest_rel</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Generate three groups of 25 samples each from <code>rng.normal</code> with means 10,
+12, and 11 (same std of 3). Run a one-way ANOVA. If it's significant, run
+all three pairwise t-tests with a Bonferroni correction and report which
+pairs (if any) survive correction. Then repeat the whole experiment with
+group means 10, 10.5, and 10.2 — what happens to the ANOVA result, and why
+does that make sense?</p>
 
 
 

@@ -1718,6 +1718,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Advanced Causal Inference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1734,6 +1752,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#difference-in-differences-did" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difference-in-differences (DiD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumental-variables-iv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumental variables (IV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression-discontinuity-rd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regression discontinuity (RD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthetic-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#difference-in-differences-did" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difference-in-differences (DiD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrumental-variables-iv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instrumental variables (IV)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression-discontinuity-rd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regression discontinuity (RD)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthetic-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a method
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,205 @@
 
 
 <h1 id="02-advanced-causal-inference">02 · Advanced Causal Inference<a class="headerlink" href="#02-advanced-causal-inference" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 4 · Master.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Randomized experiments (Level 2) aren't always possible — you can't
+randomize who gets a minimum wage increase, a chronic illness, or a
+decade of tenure at a company. This module covers the main
+quasi-experimental methods used to estimate causal effects from
+observational data: difference-in-differences, instrumental variables,
+regression discontinuity, and synthetic control.</p>
+<h2 id="difference-in-differences-did">Difference-in-differences (DiD)<a class="headerlink" href="#difference-in-differences-did" title="Permanent link">&para;</a></h2>
+<p>Used when a treatment rolls out to one group but not another, at a known
+point in time, and you have pre/post data for both.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">n_per_group</span> <span class="o">=</span> <span class="mi">200</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="s2">"unit"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        <span class="s2">"group"</span><span class="p">:</span> <span class="s2">"treated"</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="s2">"period"</span><span class="p">:</span> <span class="s2">"pre"</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        <span class="s2">"outcome"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="p">}),</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="s2">"unit"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_per_group</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        <span class="s2">"group"</span><span class="p">:</span> <span class="s2">"control"</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        <span class="s2">"period"</span><span class="p">:</span> <span class="s2">"pre"</span><span class="p">,</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="s2">"outcome"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="p">}),</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        <span class="s2">"unit"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="s2">"group"</span><span class="p">:</span> <span class="s2">"treated"</span><span class="p">,</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="s2">"period"</span><span class="p">:</span> <span class="s2">"post"</span><span class="p">,</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        <span class="s2">"outcome"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">58</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">),</span>   <span class="c1"># +8 baseline drift +treatment</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="p">}),</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="s2">"unit"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_per_group</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n_per_group</span><span class="p">),</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="s2">"group"</span><span class="p">:</span> <span class="s2">"control"</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="s2">"period"</span><span class="p">:</span> <span class="s2">"post"</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="s2">"outcome"</span><span class="p">:</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">51</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">),</span>    <span class="c1"># +3 baseline drift only</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>    <span class="p">}),</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="p">])</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="n">df</span><span class="p">[</span><span class="s2">"is_treated"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"group"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"treated"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="n">df</span><span class="p">[</span><span class="s2">"is_post"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"period"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"post"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"outcome ~ is_treated * is_post"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"is_treated:is_post"</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>5.03
+</code></pre></div>
+<p>The <code>is_treated:is_post</code> coefficient is the DiD estimate: it nets out
+both groups' baseline post-period drift (the "difference" over time,
+"differenced" between groups), isolating the roughly +5 effect that's
+attributable to treatment rather than to a trend both groups would have
+seen anyway.</p>
+<p><strong>Key assumption — parallel trends</strong>: absent treatment, the two groups
+would have moved in parallel. This isn't testable directly on post-period
+data, but is commonly checked by plotting multiple <em>pre</em>-period points and
+confirming the groups track each other before treatment starts.</p>
+<h2 id="instrumental-variables-iv">Instrumental variables (IV)<a class="headerlink" href="#instrumental-variables-iv" title="Permanent link">&para;</a></h2>
+<p>Used when treatment assignment is confounded, but there's a variable (the
+<strong>instrument</strong>) that affects treatment without directly affecting the
+outcome except through treatment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Instrument Z → Treatment X → Outcome Y
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                   ↑
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>            Confounder U (affects both X and Y, unobserved)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Valid instrument Z must satisfy:
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  1. Relevance: Z is correlated with X
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  2. Exclusion: Z affects Y ONLY through X (no direct path Z → Y)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Two-stage least squares (2SLS), by hand</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Stage 1: regress treatment on instrument</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">stage1</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"X ~ Z"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iv_df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">iv_df</span><span class="p">[</span><span class="s2">"X_hat"</span><span class="p">]</span> <span class="o">=</span> <span class="n">stage1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">iv_df</span><span class="p">)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># Stage 2: regress outcome on the PREDICTED (instrument-driven) treatment</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">stage2</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"Y ~ X_hat"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iv_df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">stage2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"X_hat"</span><span class="p">])</span>   <span class="c1"># consistent estimate of the causal effect of X on Y</span>
+</code></pre></div>
+<p>The exclusion restriction can't be tested statistically — it's an
+assumption defended with domain argument (e.g. "distance to the nearest
+college affects whether someone attends college, but doesn't independently
+affect their wages except through education"). A weak or implausible
+exclusion argument makes an IV estimate no more trustworthy than the
+naive regression it was meant to fix.</p>
+<h2 id="regression-discontinuity-rd">Regression discontinuity (RD)<a class="headerlink" href="#regression-discontinuity-rd" title="Permanent link">&para;</a></h2>
+<p>Used when treatment is assigned by a hard cutoff on a running variable
+(a test score threshold for a scholarship, an age cutoff for a policy).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df</span><span class="p">[</span><span class="s2">"running_var"</span><span class="p">]</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">cutoff</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">df</span><span class="p">[</span><span class="s2">"treated"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"running_var"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">cutoff</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">df</span><span class="p">[</span><span class="s2">"outcome"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s2">"running_var"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s2">"treated"</span><span class="p">]</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Local linear regression within a bandwidth around the cutoff</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">bw</span> <span class="o">=</span> <span class="mi">15</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">local</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"running_var"</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="o">-</span><span class="n">bw</span><span class="p">,</span> <span class="n">bw</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">rd_model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"outcome ~ running_var * treated"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">local</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">rd_model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">"treated"</span><span class="p">])</span>   <span class="c1"># ~ discontinuity at the cutoff = causal effect</span>
+</code></pre></div>
+<p>The identifying idea: units just above and just below the cutoff are
+nearly identical in every other respect, so any jump in outcome exactly at
+the cutoff is attributable to treatment. Sensitivity to bandwidth choice
+(<code>bw</code> above) is a standard robustness check — report the estimate across
+a few bandwidths, not just one.</p>
+<h2 id="synthetic-control">Synthetic control<a class="headerlink" href="#synthetic-control" title="Permanent link">&para;</a></h2>
+<p>Used for a single treated unit (one state, one company, one market) with
+many untreated candidates, no natural instrument, and no sharp cutoff.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Weighted combination of control units that best matches</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># the treated unit's PRE-treatment outcome trajectory</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">nnls</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">pre_treated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span>          <span class="c1"># treated unit, pre-period</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">pre_controls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span>                        <span class="c1"># candidate donor units, pre-period</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">])</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">weights</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nnls</span><span class="p">(</span><span class="n">pre_controls</span><span class="p">,</span> <span class="n">pre_treated</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span> <span class="o">/</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>   <span class="c1"># non-negative weights summing to 1 — the "synthetic" twin</span>
+</code></pre></div>
+<p>Once weights are fit on the pre-period, the same weights construct a
+synthetic counterfactual for the <em>post</em>-period; the gap between the real
+treated unit and its synthetic twin post-treatment is the effect estimate.
+The pre-period fit quality is the main diagnostic — a synthetic control
+that doesn't track the real unit closely before treatment isn't credible
+as a counterfactual after it.</p>
+<h2 id="choosing-a-method">Choosing a method<a class="headerlink" href="#choosing-a-method" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatment rolls out to a group at a known time; have pre/post for a control group</td>
+<td>Difference-in-differences</td>
+</tr>
+<tr>
+<td>Confounded assignment, but a plausible external "nudge" exists</td>
+<td>Instrumental variables</td>
+</tr>
+<tr>
+<td>Treatment assigned by a hard cutoff on a running variable</td>
+<td>Regression discontinuity</td>
+</tr>
+<tr>
+<td>One treated unit, many untreated candidates, no cutoff/instrument</td>
+<td>Synthetic control</td>
+</tr>
+<tr>
+<td>None of the above hold and no randomization is possible</td>
+<td>Report correlational findings as such — don't force a causal method</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Core assumption</th>
+<th>Main threat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiD</td>
+<td>Parallel trends absent treatment</td>
+<td>Diverging trends for other reasons</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Relevance + exclusion restriction</td>
+<td>Weak or invalid instrument</td>
+</tr>
+<tr>
+<td>RD</td>
+<td>Continuity of confounders across cutoff</td>
+<td>Manipulation of running variable near cutoff</td>
+</tr>
+<tr>
+<td>Synthetic control</td>
+<td>Good pre-period fit implies good counterfactual</td>
+<td>Poor donor pool / pre-fit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take the DiD example above and add a third pre-period point per group.
+Plot both groups' trajectories and assess visually whether parallel
+trends looks plausible. Then re-estimate the DiD coefficient using only
+two of the three pre-periods and compare — how sensitive is the estimate
+to which pre-periods you include?</p>
 
 
 

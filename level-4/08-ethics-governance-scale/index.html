@@ -1886,6 +1886,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Ethics & Governance at Scale
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1902,6 +1920,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-ad-hoc-review-doesnt-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why ad-hoc review doesn't scale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-tiering-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk-tiering models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-model-card-as-the-governance-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A model card as the governance artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-structure-who-approves-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance structure: who approves what
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongoing-governance-not-just-launch-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ongoing governance, not just launch review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-ad-hoc-review-doesnt-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why ad-hoc review doesn't scale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-tiering-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk-tiering models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-model-card-as-the-governance-artifact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A model card as the governance artifact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#governance-structure-who-approves-what" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Governance structure: who approves what
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ongoing-governance-not-just-launch-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ongoing governance, not just launch review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,163 @@
 
 
 <h1 id="08-ethics-governance-at-scale">08 · Ethics &amp; Governance at Scale<a class="headerlink" href="#08-ethics-governance-at-scale" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 4 · Master.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Module 09 in Level 3 covered auditing a single model for bias. At the
+organizational level, the question changes: how do you make sure <em>every</em>
+model that touches a real decision gets that kind of scrutiny, without
+a manual review of each one becoming a bottleneck? This module covers
+governance structures that scale ethics review across many models and
+teams.</p>
+<h2 id="why-ad-hoc-review-doesnt-scale">Why ad-hoc review doesn't scale<a class="headerlink" href="#why-ad-hoc-review-doesnt-scale" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>At 1 model:  the team that built it reviews it carefully. Works fine.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>At 50 models across 10 teams: 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  - No consistent bar for what "reviewed" means
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - High-stakes models (credit, hiring, healthcare) get the same
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    scrutiny as low-stakes ones (a recommendation widget) — or worse,
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    less, because the high-stakes team is under more delivery pressure
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  - No one has visibility into which models are even in production
+</code></pre></div>
+<p>The core governance failure at scale isn't usually malice — it's that
+without a structural forcing function, review effort correlates with
+team culture and time pressure rather than with actual stakes, which is
+backwards.</p>
+<h2 id="risk-tiering-models">Risk-tiering models<a class="headerlink" href="#risk-tiering-models" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">models</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="s2">"model"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Product recommender"</span><span class="p">,</span> <span class="s2">"Credit risk scoring"</span><span class="p">,</span> <span class="s2">"Resume screening"</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>              <span class="s2">"Ad click prediction"</span><span class="p">,</span> <span class="s2">"Loan pricing"</span><span class="p">],</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="s2">"affects_legally_protected_class"</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="s2">"reversible_if_wrong"</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="s2">"individual_level_decision"</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">})</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">risk_tier</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">high_risk_flags</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="n">row</span><span class="p">[</span><span class="s2">"affects_legally_protected_class"</span><span class="p">],</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="ow">not</span> <span class="n">row</span><span class="p">[</span><span class="s2">"reversible_if_wrong"</span><span class="p">],</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">row</span><span class="p">[</span><span class="s2">"individual_level_decision"</span><span class="p">],</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="p">])</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="k">if</span> <span class="n">high_risk_flags</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        <span class="k">return</span> <span class="s2">"high"</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">elif</span> <span class="n">high_risk_flags</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        <span class="k">return</span> <span class="s2">"medium"</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">return</span> <span class="s2">"low"</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="n">models</span><span class="p">[</span><span class="s2">"tier"</span><span class="p">]</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">risk_tier</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">models</span><span class="p">[[</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">"tier"</span><span class="p">]])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                 model    tier
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>0  Product recommender     low
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>1  Credit risk scoring    high
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>2     Resume screening    high
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>3   Ad click prediction     low
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>4        Loan pricing     high
+</code></pre></div>
+<p>A tiering rubric like this turns "which models need a full fairness
+audit" from a subjective, team-by-team judgment call into a mechanical
+classification applied consistently — high-tier models get mandatory
+review before launch; low-tier models get a lighter self-certified
+checklist, keeping review effort proportional to actual stakes rather
+than to which team happens to be conscientious.</p>
+<h2 id="a-model-card-as-the-governance-artifact">A model card as the governance artifact<a class="headerlink" href="#a-model-card-as-the-governance-artifact" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>model_card.md — required before a high-tier model reaches production
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>## Model: Loan Pricing v4
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- Intended use: pricing for personal loans $1k-$25k, US applicants
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- NOT intended for: business loans, non-US applicants, auto-decline
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  decisions without human review
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>## Training data
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>- Source, date range, size
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>- Known gaps: under-represents applicants with &lt; 6 months credit history
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>## Fairness evaluation
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>- Metrics used: equal opportunity, selection rate parity — see Module 09
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>- Groups evaluated: [protected attributes tested]
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>- Results: [gap sizes, mitigation applied if any]
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>## Performance
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>- Overall AUC / calibration
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>- Performance BY SUBGROUP, not just overall (a model can look fine in
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>  aggregate metrics while performing worse for a specific subgroup)
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>## Monitoring plan
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>- What triggers a re-review (drift threshold, complaint volume, time-based)
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>## Approved by
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>- [name, role, date] — the accountability record
+</code></pre></div>
+<p>The subgroup performance section is the one most often skipped and most
+important: an aggregate AUC of 0.85 can hide a model that performs at
+0.70 for a smaller subgroup — a gap invisible in the headline metric but
+directly relevant to whether the model should ship as-is.</p>
+<h2 id="governance-structure-who-approves-what">Governance structure: who approves what<a class="headerlink" href="#governance-structure-who-approves-what" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Low tier:   Self-certified checklist, no external review required
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Medium tier: Peer review from another DS team + model card
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>High tier:  Model card + fairness audit + sign-off from a designated
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>            review body (ethics committee, legal, or a senior
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>            cross-functional group depending on org size) BEFORE launch
+</code></pre></div>
+<p>Attaching the review requirement to launch (a gate, not a suggestion) is
+what makes it actually happen under deadline pressure — a review step
+that's "recommended" rather than blocking is the first thing cut when a
+launch date is at risk, which is precisely when review matters most.</p>
+<h2 id="ongoing-governance-not-just-launch-review">Ongoing governance, not just launch review<a class="headerlink" href="#ongoing-governance-not-just-launch-review" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>A model approved at launch can still drift into a governance problem:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>- Retraining on new data can silently reintroduce a bias that was
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  mitigated in the original version — re-run the fairness audit on
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  every retrain of a high-tier model, not just the first launch
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>- A model built for one use case gets repurposed for another without
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  re-review ("we already have a risk score, let's use it for X too")
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>- Complaint/appeal data (if the decision has an appeals process) is a
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  monitoring signal governance should actually look at, not just file
+</code></pre></div>
+<p>The "repurposing without re-review" failure mode is common precisely
+because it looks efficient in the moment — reusing an existing risk
+score for a new decision context feels like avoiding duplicated work,
+but the original model card's "intended use" section exists specifically
+to flag that the fairness evaluation doesn't automatically transfer to a
+new use case.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Prevents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Risk tiering rubric</td>
+<td>Review effort misallocated relative to actual stakes</td>
+</tr>
+<tr>
+<td>Mandatory model card (high tier)</td>
+<td>Undocumented intended use, gaps, and evaluation</td>
+</tr>
+<tr>
+<td>Subgroup performance reporting</td>
+<td>Aggregate metrics hiding a poorly-served subgroup</td>
+</tr>
+<tr>
+<td>Launch gate (not a suggestion)</td>
+<td>Review being cut under deadline pressure</td>
+</tr>
+<tr>
+<td>Re-audit on retrain</td>
+<td>Bias silently reintroduced by a retraining cycle</td>
+</tr>
+<tr>
+<td>Re-review on repurposing</td>
+<td>A model's fairness evaluation not transferring to a new use case</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Apply the risk-tiering rubric to three models (real or hypothetical) from
+your own work or an earlier module. For the highest-tier one, draft the
+"Intended use / NOT intended for" and "Monitoring plan" sections of a
+model card in full.</p>
 
 
 

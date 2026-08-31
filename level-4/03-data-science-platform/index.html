@@ -1746,6 +1746,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Building a Data Science Platform
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1762,6 +1780,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-platform-is-and-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a platform is (and isn't)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-store-the-core-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature store: the core abstraction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking-as-organizational-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experiment tracking as organizational memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-registry-and-promotion-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model registry and promotion stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-scheduled-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration: scheduled pipelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-vs-buy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build vs. buy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-a-platform-is-and-isnt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a platform is (and isn't)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feature-store-the-core-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature store: the core abstraction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-tracking-as-organizational-memory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experiment tracking as organizational memory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-registry-and-promotion-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model registry and promotion stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-scheduled-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration: scheduled pipelines
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-vs-buy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build vs. buy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2231,190 @@
 
 
 <h1 id="03-building-a-data-science-platform">03 · Building a Data Science Platform<a class="headerlink" href="#03-building-a-data-science-platform" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 4 · Master.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Once an org has more than a handful of data scientists, the same problems
+get solved independently in every pod: feature computation, experiment
+tracking, model serving, scheduled jobs. A data science <strong>platform</strong> is
+the shared infrastructure that turns those from N reinvented wheels into
+one built well — this module covers what belongs in it, and what doesn't.</p>
+<h2 id="what-a-platform-is-and-isnt">What a platform is (and isn't)<a class="headerlink" href="#what-a-platform-is-and-isnt" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Platform SHOULD own:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  - Feature store (compute once, reuse across models)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  - Experiment tracking (params, metrics, artifacts — one place to look)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - Model registry + serving infrastructure
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - Scheduled job orchestration
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  - Shared compute (notebooks, training jobs) with sane defaults
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  - Data access + governance (who can query what, PII handling)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Platform should NOT own:
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  - Which model architecture a team chooses
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  - Business logic specific to one team's problem
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  - The actual analysis / decision-making
+</code></pre></div>
+<p>The failure mode in both directions is common: a platform team that tries
+to own modeling decisions becomes a bottleneck and a target of resentment;
+a platform team that only owns compute provisioning leaves every team
+re-solving feature computation and experiment tracking from scratch.</p>
+<h2 id="feature-store-the-core-abstraction">Feature store: the core abstraction<a class="headerlink" href="#feature-store-the-core-abstraction" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Without a feature store: every model's training script</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># recomputes "days_since_last_purchase" slightly differently,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># and inference computes it a THIRD way — training/serving skew.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># With a feature store: one definition, used everywhere</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">days_since_last_purchase</span><span class="p">(</span><span class="n">customer_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_of</span><span class="p">:</span> <span class="n">date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="sd">"""Single source of truth — used by both training pipelines and</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="sd">    the real-time serving path, so the feature can never silently diverge."""</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">last_purchase</span> <span class="o">=</span> <span class="n">lookup_last_purchase</span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span> <span class="n">as_of</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">as_of</span> <span class="o">-</span> <span class="n">last_purchase</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="k">if</span> <span class="n">last_purchase</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Feature store responsibilities:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>1. Offline store — historical feature values for training (point-in-time correct)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>2. Online store  — low-latency lookup for real-time inference
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>3. Registry      — feature definitions, owners, freshness SLAs
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>4. Consistency   — guarantee the SAME transformation logic produces both
+</code></pre></div>
+<p>The single most valuable property of a feature store is closing
+<strong>training/serving skew</strong> — the bug class where a feature is computed one
+way offline (in a notebook or batch job) and subtly differently online (in
+a low-latency service), producing a model that performs well in
+validation and poorly in production for reasons that don't show up in any
+offline metric.</p>
+<h2 id="experiment-tracking-as-organizational-memory">Experiment tracking as organizational memory<a class="headerlink" href="#experiment-tracking-as-organizational-memory" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">mlflow</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">"churn-model"</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">"xgb-v3-tuned"</span><span class="p">):</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_params</span><span class="p">({</span><span class="s2">"max_depth"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">"learning_rate"</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">"n_estimators"</span><span class="p">:</span> <span class="mi">300</span><span class="p">})</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="c1"># ... train model ...</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">"auc"</span><span class="p">:</span> <span class="mf">0.891</span><span class="p">,</span> <span class="s2">"precision_at_10pct"</span><span class="p">:</span> <span class="mf">0.62</span><span class="p">})</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">mlflow</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"model"</span><span class="p">)</span>
+</code></pre></div>
+<p>The value compounds over time, not per-run: without shared tracking, "did
+we already try a deeper tree for this problem?" requires asking around
+Slack; with it, it's a filtered query. A platform's job is making the
+logging call as close to zero-friction as <code>model.fit(...)</code> itself, or
+adoption stalls.</p>
+<h2 id="model-registry-and-promotion-stages">Model registry and promotion stages<a class="headerlink" href="#model-registry-and-promotion-stages" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Stage: None → Staging → Production → Archived
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mlflow.register_model(
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    model_uri="runs:/&lt;run_id&gt;/model",
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    name="churn-model",
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>)
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a># Promotion is a deliberate, auditable action — not implicit from training
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>client.transition_model_version_stage(
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    name="churn-model", version=3, stage="Production",
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>)
+</code></pre></div>
+<p>A registry with explicit stages (rather than "whichever model.pkl is in
+the deploy folder") gives you two things a folder can't: an audit trail of
+what was in production when, and a mechanical rollback path (<code>transition
+... stage="Archived"</code>, promote the prior version) when a new model
+underperforms after deploy.</p>
+<h2 id="orchestration-scheduled-pipelines">Orchestration: scheduled pipelines<a class="headerlink" href="#orchestration-scheduled-pipelines" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Airflow-style DAG definition (conceptual)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">airflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">DAG</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">airflow.operators.python</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonOperator</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">with</span> <span class="n">DAG</span><span class="p">(</span><span class="s2">"daily_feature_refresh"</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>         <span class="n">schedule</span><span class="o">=</span><span class="s2">"0 3 * * *"</span><span class="p">,</span> <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">dag</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">refresh_features</span> <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">task_id</span><span class="o">=</span><span class="s2">"refresh_customer_features"</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">python_callable</span><span class="o">=</span><span class="n">refresh_customer_features</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">retrain_check</span> <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="n">task_id</span><span class="o">=</span><span class="s2">"check_retrain_trigger"</span><span class="p">,</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="n">python_callable</span><span class="o">=</span><span class="n">check_retrain_trigger</span><span class="p">,</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">refresh_features</span> <span class="o">&gt;&gt;</span> <span class="n">retrain_check</span>
+</code></pre></div>
+<p>Orchestration is where "someone remembers to run this notebook every
+Monday" becomes "this runs at 3am, alerts on failure, and has a visible
+run history" — the platform-level shift from individual diligence to
+infrastructure that doesn't depend on anyone remembering anything.</p>
+<h2 id="build-vs-buy">Build vs. buy<a class="headerlink" href="#build-vs-buy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Build in-house when</th>
+<th>Buy/adopt OSS when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feature store</td>
+<td>Very specific latency/scale needs</td>
+<td>Feast, Tecton cover most needs</td>
+</tr>
+<tr>
+<td>Experiment tracking</td>
+<td>Rarely worth building</td>
+<td>MLflow, Weights &amp; Biases</td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td>Rarely worth building</td>
+<td>Airflow, Dagster, Prefect</td>
+</tr>
+<tr>
+<td>Model serving</td>
+<td>Custom latency/hardware constraints</td>
+<td>Seldon, BentoML, cloud-native endpoints</td>
+</tr>
+<tr>
+<td>Governance/access</td>
+<td>Usually org-specific</td>
+<td>Often needs custom layer over existing IAM</td>
+</tr>
+</tbody>
+</table>
+<p>The default should be adopting an existing tool and investing engineering
+effort in the <em>integration</em> (making it the path of least resistance for
+your specific teams) rather than in the underlying tool — most platform
+teams that build a bespoke feature store from scratch are solving a
+problem several open-source projects already solved.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Solves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Feature store</td>
+<td>Training/serving skew, duplicated feature logic</td>
+</tr>
+<tr>
+<td>Experiment tracking</td>
+<td>"What have we already tried?" institutional memory</td>
+</tr>
+<tr>
+<td>Model registry</td>
+<td>Auditable promotion and rollback</td>
+</tr>
+<tr>
+<td>Orchestration</td>
+<td>Scheduled pipelines that don't depend on human memory</td>
+</tr>
+<tr>
+<td>Governance layer</td>
+<td>Who can access what data, PII handling</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Pick a model you've built in an earlier module. Sketch (in a text diagram)
+what a minimal feature store entry for its top 3 features would look like:
+the transformation logic, an offline (training) computation path, and an
+online (serving) computation path. Identify any feature where those two
+paths could plausibly diverge today.</p>
 
 
 

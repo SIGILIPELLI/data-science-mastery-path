@@ -1540,6 +1540,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Data Ethics & Bias
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1556,6 +1574,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-bias-actually-enters-a-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where bias actually enters a pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-concrete-example-loan-approval-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A concrete example: loan approval model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-group-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring group fairness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditing-before-and-after-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditing before and after mitigation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mitigation-options-roughly-in-order-of-invasiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitigation options, roughly in order of invasiveness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#where-bias-actually-enters-a-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where bias actually enters a pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-concrete-example-loan-approval-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A concrete example: loan approval model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#measuring-group-fairness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Measuring group fairness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auditing-before-and-after-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auditing before and after mitigation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mitigation-options-roughly-in-order-of-invasiveness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitigation options, roughly in order of invasiveness
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,152 @@
 
 
 <h1 id="09-data-ethics-bias">09 · Data Ethics &amp; Bias<a class="headerlink" href="#09-data-ethics-bias" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>A model can be statistically excellent and still cause real harm — because
+the harm usually isn't a bug in the math, it's baked into the data, the
+labels, or the choice of what to optimize. This module covers the concrete
+checks a data scientist should run before shipping a model that touches
+people: where bias enters a pipeline, how to measure it, and what to do
+about it.</p>
+<h2 id="where-bias-actually-enters-a-pipeline">Where bias actually enters a pipeline<a class="headerlink" href="#where-bias-actually-enters-a-pipeline" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. Historical data     → reflects past decisions, which may have been biased
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>2. Sampling            → who is over/under-represented in your dataset
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>3. Labels              → proxies for the real target, chosen by humans
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>4. Features            → correlate with protected attributes even if excluded
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>5. Objective function  → optimizing accuracy ≠ optimizing fairness
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>6. Deployment context  → a fair model used unfairly is still a problem
+</code></pre></div>
+<p>The most common mistake is believing step 4 is solved by "we didn't include
+race/gender as a feature." Removing a protected attribute doesn't remove
+its information from the data if other features (zip code, name, school)
+correlate with it — a phenomenon usually called <strong>proxy discrimination</strong>.</p>
+<h2 id="a-concrete-example-loan-approval-model">A concrete example: loan approval model<a class="headerlink" href="#a-concrete-example-loan-approval-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="s2">"applicant_id"</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="s2">"zip_code"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"90210"</span><span class="p">,</span> <span class="s2">"90011"</span><span class="p">,</span> <span class="s2">"90210"</span><span class="p">,</span> <span class="s2">"90011"</span><span class="p">,</span> <span class="s2">"90210"</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                 <span class="s2">"90011"</span><span class="p">,</span> <span class="s2">"90210"</span><span class="p">,</span> <span class="s2">"90011"</span><span class="p">,</span> <span class="s2">"90210"</span><span class="p">,</span> <span class="s2">"90011"</span><span class="p">],</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="s2">"group"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">],</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="s2">"income"</span><span class="p">:</span> <span class="p">[</span><span class="mi">95000</span><span class="p">,</span> <span class="mi">42000</span><span class="p">,</span> <span class="mi">88000</span><span class="p">,</span> <span class="mi">39000</span><span class="p">,</span> <span class="mi">91000</span><span class="p">,</span> <span class="mi">45000</span><span class="p">,</span> <span class="mi">87000</span><span class="p">,</span> <span class="mi">41000</span><span class="p">,</span> <span class="mi">93000</span><span class="p">,</span> <span class="mi">44000</span><span class="p">],</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="s2">"approved"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">})</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># zip_code is a near-perfect proxy for group here</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"zip_code"</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">"group"</span><span class="p">]))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>group     A  B
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>zip_code
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>90011     0  5
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>90210     5  0
+</code></pre></div>
+<p>Dropping <code>group</code> from the model but keeping <code>zip_code</code> reproduces the same
+disparate outcome, just indirectly. Checking a candidate feature's
+correlation with any known protected/sensitive attribute — even when that
+attribute itself won't be modeled — is a standard pre-modeling audit step.</p>
+<h2 id="measuring-group-fairness">Measuring group fairness<a class="headerlink" href="#measuring-group-fairness" title="Permanent link">&para;</a></h2>
+<p>There is no single "fairness" metric — different definitions can be
+mutually incompatible for the same model. Three of the most commonly used:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">group_metrics</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">group_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pred_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_col</span><span class="p">):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="n">tp</span> <span class="o">=</span> <span class="p">((</span><span class="n">sub</span><span class="p">[</span><span class="n">pred_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="n">fp</span> <span class="o">=</span> <span class="p">((</span><span class="n">sub</span><span class="p">[</span><span class="n">pred_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="n">fn</span> <span class="o">=</span> <span class="p">((</span><span class="n">sub</span><span class="p">[</span><span class="n">pred_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">tn</span> <span class="o">=</span> <span class="p">((</span><span class="n">sub</span><span class="p">[</span><span class="n">pred_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">sub</span><span class="p">[</span><span class="n">label_col</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="s2">"group"</span><span class="p">:</span> <span class="n">g</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>            <span class="s2">"selection_rate"</span><span class="p">:</span> <span class="n">sub</span><span class="p">[</span><span class="n">pred_col</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>          <span class="c1"># demographic parity</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            <span class="s2">"tpr"</span><span class="p">:</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="c1"># equal opportunity</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>            <span class="s2">"fpr"</span><span class="p">:</span> <span class="n">fp</span> <span class="o">/</span> <span class="p">(</span><span class="n">fp</span> <span class="o">+</span> <span class="n">tn</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">fp</span> <span class="o">+</span> <span class="n">tn</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>  <span class="c1"># equalized odds (other half)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="p">})</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><strong>Demographic parity</strong> — equal <em>selection rate</em> across groups, regardless
+  of actual outcome. Appropriate when the decision itself should be
+  group-blind (e.g. ad exposure).</li>
+<li><strong>Equal opportunity</strong> — equal <em>true positive rate</em> across groups: among
+  people who should be approved, an equal share are approved regardless of
+  group.</li>
+<li><strong>Equalized odds</strong> — equal TPR <em>and</em> equal FPR across groups.</li>
+</ul>
+<p>It's a mathematical fact (not a modeling failure) that demographic parity
+and equal opportunity generally can't both hold exactly unless base rates
+are equal across groups — so the choice of which fairness definition to
+target is a policy decision, not a purely technical one, and should be made
+explicitly with stakeholders rather than defaulted to by whichever metric
+the library reports first.</p>
+<h2 id="auditing-before-and-after-mitigation">Auditing before and after mitigation<a class="headerlink" href="#auditing-before-and-after-mitigation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">"income"</span><span class="p">]]</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"approved"</span><span class="p">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">df</span><span class="p">[</span><span class="s2">"pred"</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">group_metrics</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">"group"</span><span class="p">,</span> <span class="s2">"pred"</span><span class="p">,</span> <span class="s2">"approved"</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  group  selection_rate  tpr  fpr
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>0     A             1.0  1.0  NaN
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1     B             0.0  0.0  NaN
+</code></pre></div>
+<p>A selection-rate gap this stark (1.0 vs 0.0) — even without <code>group</code> as a
+feature — confirms the proxy effect from <code>income</code> (which is correlated with
+<code>group</code> in this toy data): the audit step is what surfaces the problem, not
+avoidance of the feature by name.</p>
+<h2 id="mitigation-options-roughly-in-order-of-invasiveness">Mitigation options, roughly in order of invasiveness<a class="headerlink" href="#mitigation-options-roughly-in-order-of-invasiveness" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1. Reweight training examples so groups contribute equally to the loss
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2. Remove or transform proxy features found by correlation audit
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>3. Post-process thresholds per group to equalize a chosen fairness metric
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>4. Change the label/target itself if it's a poor proxy for the real goal
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>5. Decide the model shouldn't be deployed for this decision at all
+</code></pre></div>
+<p>Option 5 is a legitimate outcome of a fairness audit, not a failure of the
+project — some decisions (e.g. high-stakes ones with thin, biased
+historical data) may not currently be automatable responsibly regardless of
+technique.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Proxy discrimination</td>
+<td>Correlate candidate features with protected attributes, even if unused</td>
+</tr>
+<tr>
+<td>Demographic parity</td>
+<td>Equal selection rate across groups</td>
+</tr>
+<tr>
+<td>Equal opportunity</td>
+<td>Equal TPR across groups (for people who should be selected)</td>
+</tr>
+<tr>
+<td>Equalized odds</td>
+<td>Equal TPR and FPR across groups</td>
+</tr>
+<tr>
+<td>Impossibility results</td>
+<td>Parity and opportunity can't both hold exactly if base rates differ</td>
+</tr>
+<tr>
+<td>Mitigation</td>
+<td>Reweighting → feature removal → threshold adjustment → target redefinition → don't deploy</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Take a classifier from an earlier module (or the toy <code>df</code> above). Pick a
+sensitive attribute you have or can simulate, compute selection rate, TPR,
+and FPR per group, and write two sentences: which fairness definition
+matters most for this specific decision, and why the other definitions
+would be the wrong ones to optimize for here.</p>
 
 
 

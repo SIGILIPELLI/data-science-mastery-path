@@ -1428,6 +1428,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Model Interpretability
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1444,6 +1462,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#baseline-linear-model-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline: linear model coefficients
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree-based-feature-importance-and-its-blind-spot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tree-based feature importance (and its blind spot)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-importance-a-more-honest-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permutation importance: a more honest alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shap-values-per-prediction-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHAP values: per-prediction explanations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-dependence-how-does-one-feature-affect-predictions-on-average" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial dependence: how does one feature affect predictions on average?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the right tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2116,102 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#baseline-linear-model-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline: linear model coefficients
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tree-based-feature-importance-and-its-blind-spot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tree-based feature importance (and its blind spot)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-importance-a-more-honest-alternative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permutation importance: a more honest alternative
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shap-values-per-prediction-explanations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SHAP values: per-prediction explanations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-dependence-how-does-one-feature-affect-predictions-on-average" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial dependence: how does one feature affect predictions on average?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the right tool
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2231,164 @@
 
 
 <h1 id="05-model-interpretability">05 · Model Interpretability<a class="headerlink" href="#05-model-interpretability" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>A model that predicts well but can't explain <em>why</em> is a liability in most
+real settings — regulators, stakeholders, and your own debugging process
+all need to know what's driving predictions. This module covers the main
+tools: coefficients, feature importance, permutation importance, and SHAP.</p>
+<h2 id="baseline-linear-model-coefficients">Baseline: linear model coefficients<a class="headerlink" href="#baseline-linear-model-coefficients" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="s2">"income_k"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="s2">"debt_ratio"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="s2">"credit_score"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">680</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">})</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">logit</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span> <span class="o">+</span> <span class="mf">0.03</span> <span class="o">*</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"income_k"</span><span class="p">]</span> <span class="o">-</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"debt_ratio"</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"credit_score"</span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">loans</span><span class="p">[</span><span class="s2">"approved"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">logit</span><span class="p">)))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">X</span> <span class="o">=</span> <span class="n">loans</span><span class="p">[[</span><span class="s2">"income_k"</span><span class="p">,</span> <span class="s2">"debt_ratio"</span><span class="p">,</span> <span class="s2">"credit_score"</span><span class="p">]]</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">X_scaled</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"approved"</span><span class="p">])</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>income_k        0.847
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>debt_ratio     -1.203
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>credit_score    0.612
+</code></pre></div>
+<p>Because features were standardized first, coefficients are directly
+comparable: <code>debt_ratio</code> has the largest magnitude effect on the
+log-odds of approval, followed by income, then credit score. This kind
+of interpretability — one number per feature, sign and magnitude both
+meaningful — is the main reason to still reach for linear/logistic models
+even when a tree ensemble would predict slightly better.</p>
+<h2 id="tree-based-feature-importance-and-its-blind-spot">Tree-based feature importance (and its blind spot)<a class="headerlink" href="#tree-based-feature-importance-and-its-blind-spot" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"approved"</span><span class="p">])</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">forest</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>income_k        0.31
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>debt_ratio      0.46
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>credit_score    0.23
+</code></pre></div>
+<p>Built-in importance (mean decrease in impurity) is fast but biased toward
+high-cardinality, continuous features, and it says nothing about
+<em>direction</em> — you know <code>debt_ratio</code> matters, not whether higher debt ratio
+raises or lowers approval odds. It's a good first look, not a final
+explanation.</p>
+<h2 id="permutation-importance-a-more-honest-alternative">Permutation importance: a more honest alternative<a class="headerlink" href="#permutation-importance-a-more-honest-alternative" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">perm</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">forest</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">loans</span><span class="p">[</span><span class="s2">"approved"</span><span class="p">],</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">perm</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>income_k        0.052
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>debt_ratio      0.089
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>credit_score    0.031
+</code></pre></div>
+<p>Permutation importance shuffles one feature's values at a time and
+measures how much model performance <em>drops</em> — a feature the model
+genuinely relies on will hurt performance when scrambled. Unlike impurity
+importance, this works for any model type (not just trees) and isn't
+biased by feature cardinality, at the cost of being slower to compute.</p>
+<h2 id="shap-values-per-prediction-explanations">SHAP values: per-prediction explanations<a class="headerlink" href="#shap-values-per-prediction-explanations" title="Permanent link">&para;</a></h2>
+<p>Global importance answers "what matters overall?" SHAP answers "why did
+<em>this specific</em> prediction come out this way?" — critical when a customer
+asks "why was I denied?"</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">shap</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">TreeExplainer</span><span class="p">(</span><span class="n">forest</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># shap_values[1] = contributions toward the "approved" class</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Applicant </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: base=</span><span class="si">{</span><span class="n">explainer</span><span class="o">.</span><span class="n">expected_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, "</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>          <span class="sa">f</span><span class="s2">"contributions=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">shap_values</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Applicant 0: base=0.520, contributions=[ 0.041 -0.183  0.062]
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Applicant 1: base=0.520, contributions=[-0.028  0.095 -0.011]
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Applicant 2: base=0.520, contributions=[ 0.077 -0.061  0.144]
+</code></pre></div>
+<p>Each SHAP value is that feature's push away from the average prediction
+(<code>base</code>) for this one applicant, in the units of the model's output — a
+large negative <code>debt_ratio</code> contribution for applicant 0 (-0.183) means
+their debt ratio specifically pushed their approval probability down.
+Summed with the base value and the other contributions, they reconstruct
+the model's actual prediction for that row — this decomposition is what
+makes SHAP suitable for individual "why did the model say this" reports,
+not just aggregate summaries.</p>
+<h2 id="partial-dependence-how-does-one-feature-affect-predictions-on-average">Partial dependence: how does one feature affect predictions on average?<a class="headerlink" href="#partial-dependence-how-does-one-feature-affect-predictions-on-average" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">PartialDependenceDisplay</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">"Agg"</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial_dependence</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">pd_result</span> <span class="o">=</span> <span class="n">partial_dependence</span><span class="p">(</span><span class="n">forest</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s2">"debt_ratio"</span><span class="p">])</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pd_result</span><span class="p">[</span><span class="s2">"grid_values"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pd_result</span><span class="p">[</span><span class="s2">"average"</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[0.01 0.09 0.18 0.27 0.36 0.45 0.53]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[0.72  0.68  0.6   0.5   0.39  0.29  0.21]
+</code></pre></div>
+<p>Partial dependence sweeps one feature across its range (holding others at
+their observed distribution) and averages the model's predictions —
+showing here that predicted approval probability falls steadily as debt
+ratio rises, from ~72% at low debt to ~21% at high debt. This is the
+"average effect" complement to SHAP's per-row explanations.</p>
+<h2 id="choosing-the-right-tool">Choosing the right tool<a class="headerlink" href="#choosing-the-right-tool" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Need a single, portable, hand-interpretable number per feature</strong>: use
+  a linear/logistic model and read the coefficients.</li>
+<li><strong>Need a fast global ranking on a tree model</strong>: impurity-based
+  <code>feature_importances_</code>, treated as a first look, not gospel.</li>
+<li><strong>Need a trustworthy global ranking, model-agnostic</strong>: permutation
+  importance.</li>
+<li><strong>Need to explain one specific prediction to a person</strong>: SHAP.</li>
+<li><strong>Need to see the shape of a feature's average effect</strong>: partial
+  dependence.</li>
+</ul>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Answers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear coefficients</td>
+<td>"How much and which direction, overall?"</td>
+</tr>
+<tr>
+<td><code>feature_importances_</code></td>
+<td>"What does the tree split on most?" (biased)</td>
+</tr>
+<tr>
+<td><code>permutation_importance</code></td>
+<td>"What does performance depend on?" (honest, any model)</td>
+</tr>
+<tr>
+<td>SHAP</td>
+<td>"Why did this one prediction come out this way?"</td>
+</tr>
+<tr>
+<td>Partial dependence</td>
+<td>"What's the average shape of this feature's effect?"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>loans</code> example, pick one applicant your <code>forest</code> model denies
+(low predicted approval probability) and compute their SHAP values.
+Write a two-sentence, plain-English explanation of the denial suitable
+for a non-technical reader, based only on the sign and magnitude of their
+per-feature contributions.</p>
 
 
 

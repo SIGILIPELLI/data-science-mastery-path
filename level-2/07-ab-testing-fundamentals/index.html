@@ -1110,6 +1110,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · A/B Testing Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1126,6 +1144,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#designing-the-test-what-are-you-actually-comparing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing the test: what are you actually comparing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-size-how-many-users-do-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample size: how many users do you need?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-test-a-two-proportion-z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the test: a two-proportion z-test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-interval-on-the-lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence interval on the lift
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#designing-the-test-what-are-you-actually-comparing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing the test: what are you actually comparing?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-size-how-many-users-do-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample size: how many users do you need?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-test-a-two-proportion-z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the test: a two-proportion z-test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-interval-on-the-lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Confidence interval on the lift
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,134 @@
 
 
 <h1 id="07-ab-testing-fundamentals">07 · A/B Testing Fundamentals<a class="headerlink" href="#07-ab-testing-fundamentals" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Level 1 covered hypothesis testing in the abstract. A/B testing is that
+theory applied to the most common business question: "did this change
+actually help?" This module covers the design and analysis of a simple
+two-group experiment.</p>
+<h2 id="designing-the-test-what-are-you-actually-comparing">Designing the test: what are you actually comparing?<a class="headerlink" href="#designing-the-test-what-are-you-actually-comparing" title="Permanent link">&para;</a></h2>
+<p>An A/B test needs a clearly defined <strong>unit of randomization</strong> (usually
+users, not page views — the same user shouldn't see both variants), a
+<strong>primary metric</strong> decided <em>before</em> the test starts, and a <strong>minimum
+detectable effect (MDE)</strong> — the smallest lift you actually care about
+finding.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">n_per_group</span> <span class="o">=</span> <span class="mi">4000</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Control: 8% conversion. Treatment: true 9.5% conversion (a real 1.5pp lift).</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">control</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">treatment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.095</span><span class="p">,</span> <span class="n">n_per_group</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="s2">"group"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control"</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_group</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"treatment"</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_per_group</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="s2">"converted"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">control</span><span class="p">,</span> <span class="n">treatment</span><span class="p">]),</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">})</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)[</span><span class="s2">"converted"</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">"mean"</span><span class="p">,</span> <span class="s2">"count"</span><span class="p">]))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>             mean  count
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>group
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>control    0.0785   4000
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>treatment  0.0975   4000
+</code></pre></div>
+<h2 id="sample-size-how-many-users-do-you-need">Sample size: how many users do you need?<a class="headerlink" href="#sample-size-how-many-users-do-you-need" title="Permanent link">&para;</a></h2>
+<p>Before running a test, estimate the sample size needed to detect your MDE
+with reasonable power (typically 80%) at a chosen significance level
+(typically 5%).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.power</span><span class="w"> </span><span class="kn">import</span> <span class="n">NormalIndPower</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportion_effectsize</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">effect</span> <span class="o">=</span> <span class="n">proportion_effectsize</span><span class="p">(</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.095</span><span class="p">)</span>   <span class="c1"># Cohen's h</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">analysis</span> <span class="o">=</span> <span class="n">NormalIndPower</span><span class="p">()</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">n_required</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">solve_power</span><span class="p">(</span><span class="n">effect_size</span><span class="o">=</span><span class="n">effect</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">n_required</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>3775
+</code></pre></div>
+<p>Detecting a 1.5 percentage-point lift on an 8% baseline needs about 3,775
+users per group — this experiment (4,000 per group) is adequately powered.
+Skipping this step is the single most common A/B testing mistake: an
+underpowered test that finds "no significant difference" often just didn't
+have enough users to detect a real effect.</p>
+<h2 id="running-the-test-a-two-proportion-z-test">Running the test: a two-proportion z-test<a class="headerlink" href="#running-the-test-a-two-proportion-z-test" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">proportions_ztest</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">successes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)[</span><span class="s2">"converted"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)[</span><span class="s2">"converted"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">z_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">proportions_ztest</span><span class="p">(</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">[</span><span class="n">successes</span><span class="p">[</span><span class="s2">"treatment"</span><span class="p">],</span> <span class="n">successes</span><span class="p">[</span><span class="s2">"control"</span><span class="p">]],</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="p">[</span><span class="n">counts</span><span class="p">[</span><span class="s2">"treatment"</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s2">"control"</span><span class="p">]],</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"z = </span><span class="si">{</span><span class="n">z_stat</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>z = 2.26, p = 0.0239
+</code></pre></div>
+<p>With <code>p = 0.024 &lt; 0.05</code>, we reject the null hypothesis of no difference —
+the observed lift is unlikely to be due to chance alone.</p>
+<h2 id="confidence-interval-on-the-lift">Confidence interval on the lift<a class="headerlink" href="#confidence-interval-on-the-lift" title="Permanent link">&para;</a></h2>
+<p>A p-value tells you <em>whether</em> there's an effect; a confidence interval
+tells you <em>how big</em> it plausibly is — usually the more actionable number
+for a launch decision.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.proportion</span><span class="w"> </span><span class="kn">import</span> <span class="n">confint_proportions_2indep</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">ci_low</span><span class="p">,</span> <span class="n">ci_high</span> <span class="o">=</span> <span class="n">confint_proportions_2indep</span><span class="p">(</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">successes</span><span class="p">[</span><span class="s2">"treatment"</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s2">"treatment"</span><span class="p">],</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">successes</span><span class="p">[</span><span class="s2">"control"</span><span class="p">],</span> <span class="n">counts</span><span class="p">[</span><span class="s2">"control"</span><span class="p">],</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Lift 95% CI: [</span><span class="si">{</span><span class="n">ci_low</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ci_high</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Lift 95% CI: [0.0026, 0.0354]
+</code></pre></div>
+<p>The interval excludes zero (consistent with the significant p-value) and
+tells stakeholders the plausible range: the true lift is likely between
+0.26 and 3.54 percentage points — useful for a revenue-impact estimate,
+which a bare p-value can't give you.</p>
+<h2 id="common-pitfalls">Common pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Peeking</strong>: checking significance daily and stopping as soon as
+  <code>p &lt; 0.05</code> inflates the false-positive rate dramatically. Decide the
+  sample size (or test duration) in advance and stick to it, or use a
+  sequential-testing method designed for early stopping.</li>
+<li><strong>Multiple metrics</strong>: testing 10 metrics at <code>α = 0.05</code> gives roughly a
+  40% chance one is "significant" by chance alone. Pre-register a single
+  primary metric; treat others as secondary/exploratory.</li>
+<li><strong>Novelty effects</strong>: a lift in week one can fade by week three as users
+  adjust to the change — run long enough to see if the effect holds.</li>
+</ul>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample size for a proportion test</td>
+<td><code>NormalIndPower().solve_power(effect_size, alpha, power)</code></td>
+</tr>
+<tr>
+<td>Two-proportion z-test</td>
+<td><code>proportions_ztest([s1, s2], [n1, n2])</code></td>
+</tr>
+<tr>
+<td>CI on the difference</td>
+<td><code>confint_proportions_2indep(...)</code></td>
+</tr>
+<tr>
+<td>Effect size (Cohen's h)</td>
+<td><code>proportion_effectsize(p1, p2)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Re-run the simulation above with <code>n_per_group = 500</code> instead of 4,000
+(same true rates). Report the p-value and confidence interval — do you
+still detect the effect? Explain what this demonstrates about the sample
+size calculation earlier in the module.</p>
 
 
 

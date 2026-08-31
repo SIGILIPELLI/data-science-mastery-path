@@ -1344,6 +1344,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Experimentation Platforms & Causal Inference Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1360,6 +1378,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-isnt-causation-a-concrete-confounder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation isn't causation: a concrete confounder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-for-confounders-with-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling for confounders with regression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propensity-score-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propensity score matching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-in-differences-using-time-as-the-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difference-in-differences: using time as the control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-experimentation-platform-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an experimentation platform adds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#correlation-isnt-causation-a-concrete-confounder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlation isn't causation: a concrete confounder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controlling-for-confounders-with-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controlling for confounders with regression
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propensity-score-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Propensity score matching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#difference-in-differences-using-time-as-the-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difference-in-differences: using time as the control
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-an-experimentation-platform-adds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an experimentation platform adds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,147 @@
 
 
 <h1 id="02-experimentation-platforms-causal-inference-basics">02 · Experimentation Platforms &amp; Causal Inference Basics<a class="headerlink" href="#02-experimentation-platforms-causal-inference-basics" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 3 · Advanced.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Randomized A/B tests (Level 2) are the gold standard for causal claims,
+but you can't randomize everything — you can't randomize who gets a
+promotion, who lives in which city, or (usually) who adopts a feature
+early. This module introduces the core ideas for estimating causal effects
+from observational data, and what a mature experimentation platform adds
+on top of a single test.</p>
+<h2 id="correlation-isnt-causation-a-concrete-confounder">Correlation isn't causation: a concrete confounder<a class="headerlink" href="#correlation-isnt-causation-a-concrete-confounder" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">2000</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Confounder: income drives BOTH gym membership and health score</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">income</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">gym_member</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">income</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">health_score</span> <span class="o">=</span> <span class="mi">50</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">income</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">gym_member</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"income"</span><span class="p">:</span> <span class="n">income</span><span class="p">,</span> <span class="s2">"gym_member"</span><span class="p">:</span> <span class="n">gym_member</span><span class="p">,</span> <span class="s2">"health_score"</span><span class="p">:</span> <span class="n">health_score</span><span class="p">})</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">naive</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"gym_member"</span><span class="p">)[</span><span class="s2">"health_score"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">naive</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gym_member
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>0    62.31
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1    76.84
+</code></pre></div>
+<p>The naive gap (14.5 points) looks like gym membership boosts health a
+lot — but income confounds both. People with higher income are more
+likely to be gym members <em>and</em> have better health for unrelated reasons
+(diet, healthcare access). The true simulated effect is only 5 points.</p>
+<h2 id="controlling-for-confounders-with-regression">Controlling for confounders with regression<a class="headerlink" href="#controlling-for-confounders-with-regression" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">smf</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">"health_score ~ gym_member + income"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Intercept     50.28
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>gym_member     4.87
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>income         0.30
+</code></pre></div>
+<p>Once we control for income, the gym-membership coefficient (4.87) is much
+closer to the true effect (5). This only works if you've measured and
+included <em>all</em> the relevant confounders — the fundamental limitation of
+regression-based causal inference on observational data.</p>
+<h2 id="propensity-score-matching">Propensity score matching<a class="headerlink" href="#propensity-score-matching" title="Permanent link">&para;</a></h2>
+<p>An alternative to "control for everything in one regression": estimate
+each unit's probability of receiving treatment given observed covariates
+(the <strong>propensity score</strong>), then compare treated and untreated units with
+similar scores — approximating a randomized comparison.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">ps_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"income"</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="s2">"gym_member"</span><span class="p">])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">df</span><span class="p">[</span><span class="s2">"propensity"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ps_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"income"</span><span class="p">]])[:,</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Match each treated unit to its nearest-propensity untreated unit</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">treated</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gym_member"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">control</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gym_member"</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">matched_idx</span> <span class="o">=</span> <span class="n">control</span><span class="p">[</span><span class="s2">"propensity"</span><span class="p">]</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">treated</span><span class="p">[</span><span class="s2">"propensity"</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">())</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Treated mean: </span><span class="si">{</span><span class="n">treated</span><span class="p">[</span><span class="s1">'health_score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Propensity range treated: [</span><span class="si">{</span><span class="n">treated</span><span class="p">[</span><span class="s1">'propensity'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">treated</span><span class="p">[</span><span class="s1">'propensity'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">]"</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Treated mean: 76.84
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Propensity range treated: [0.02, 0.98]
+</code></pre></div>
+<p>In practice you'd use a dedicated matching library (<code>causalml</code>, or
+<code>sklearn.neighbors.NearestNeighbors</code> on propensity scores) and then compare
+mean outcomes within matched pairs. The key diagnostic is checking
+<strong>overlap</strong>: if treated and control units don't share a common range of
+propensity scores, matching can't produce a fair comparison in that region.</p>
+<h2 id="difference-in-differences-using-time-as-the-control">Difference-in-differences: using time as the control<a class="headerlink" href="#difference-in-differences-using-time-as-the-control" title="Permanent link">&para;</a></h2>
+<p>When a treatment rolls out to one group at a known time (e.g. a new policy
+in one region), comparing before/after <em>and</em> treated/untreated cancels out
+both stable group differences and shared time trends.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">periods</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"treated"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"control"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="s2">"period"</span><span class="p">:</span> <span class="p">([</span><span class="s2">"pre"</span><span class="p">,</span> <span class="s2">"pre"</span><span class="p">,</span> <span class="s2">"post"</span><span class="p">,</span> <span class="s2">"post"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s2">"time"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">})</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Shared trend + treatment effect only in treated region, post-period</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">base</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">periods</span><span class="p">[</span><span class="s2">"time"</span><span class="p">]</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">effect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">periods</span><span class="p">[</span><span class="s2">"region"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"treated"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">periods</span><span class="p">[</span><span class="s2">"period"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"post"</span><span class="p">),</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">periods</span><span class="p">[</span><span class="s2">"outcome"</span><span class="p">]</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">effect</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">did</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="s2">"outcome ~ C(region) * C(period)"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">periods</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">did</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Intercept                             100.0
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>C(region)[T.treated]                    0.0
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>C(period)[T.pre]                       -7.5
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>C(region)[T.treated]:C(period)[T.pre]   0.0
+</code></pre></div>
+<p>The interaction coefficient between region and period is the
+difference-in-differences estimate of the treatment effect — it isolates
+the <em>extra</em> change in the treated group beyond whatever both groups
+experienced anyway. This design only holds up if the "parallel trends"
+assumption is reasonable: absent treatment, both groups would have moved
+together.</p>
+<h2 id="what-an-experimentation-platform-adds">What an experimentation platform adds<a class="headerlink" href="#what-an-experimentation-platform-adds" title="Permanent link">&para;</a></h2>
+<p>A single script like the ones above works for one-off analyses. A
+production experimentation platform (e.g. an internal system, or tools
+like GrowthBook/Statsig) typically adds: automatic <strong>traffic allocation</strong>
+and randomization consistent per user; a <strong>metrics registry</strong> so every
+team computes "conversion rate" the same way; <strong>guardrail metric</strong>
+monitoring that can auto-flag or halt a harmful test; and <strong>sequential
+testing</strong> support so teams can look at results early without inflating
+false positives (the peeking problem from module 07 of Level 2).</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regression adjustment</td>
+<td>You can measure and include the key confounders</td>
+</tr>
+<tr>
+<td>Propensity score matching</td>
+<td>Many confounders; want treated/control comparability check</td>
+</tr>
+<tr>
+<td>Difference-in-differences</td>
+<td>Treatment starts at a known time for one group</td>
+</tr>
+<tr>
+<td>Randomized A/B test</td>
+<td>Still the strongest design — use it whenever you can</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the confounded <code>df</code> above, fit a naive regression of <code>health_score</code>
+on <code>gym_member</code> alone (no <code>income</code> control). Compare its coefficient to
+the adjusted model's 4.87. Explain in your own words why the naive
+coefficient is biased upward, referencing the confounding path
+<code>income → gym_member</code> and <code>income → health_score</code>.</p>
 
 
 

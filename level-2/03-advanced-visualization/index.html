@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#03-advanced-visualization-plotly-interactive-charts" class="md-skip">
+        <a href="#03-advanced-visualization-plotly" class="md-skip">
           Skip to content
         </a>
       
@@ -998,6 +998,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Advanced Visualization (plotly)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1014,6 +1032,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-basic-interactive-scatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A basic interactive scatter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faceted-small-multiples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faceted small multiples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-bar-with-hover-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive bar with hover detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heatmap-for-a-correlation-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heatmap for a correlation matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-reach-for-plotly-vs-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to reach for plotly vs. matplotlib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2094,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-basic-interactive-scatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A basic interactive scatter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faceted-small-multiples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Faceted small multiples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interactive-bar-with-hover-detail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive bar with hover detail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heatmap-for-a-correlation-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heatmap for a correlation matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-reach-for-plotly-vs-matplotlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to reach for plotly vs. matplotlib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2009,9 +2186,123 @@
   
 
 
-<h1 id="03-advanced-visualization-plotly-interactive-charts">03 · Advanced Visualization (plotly, interactive charts)<a class="headerlink" href="#03-advanced-visualization-plotly-interactive-charts" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<h1 id="03-advanced-visualization-plotly">03 · Advanced Visualization (plotly)<a class="headerlink" href="#03-advanced-visualization-plotly" title="Permanent link">&para;</a></h1>
+<p>Level 1's matplotlib charts are static images — great for reports, limited
+for exploration. <strong>Plotly</strong> produces interactive charts (hover tooltips,
+zoom, pan, toggle series) that render in Jupyter, HTML, or a browser, with
+almost the same amount of code.</p>
+<h2 id="a-basic-interactive-scatter">A basic interactive scatter<a class="headerlink" href="#a-basic-interactive-scatter" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="s2">"study_hours"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s2">"score"</span><span class="p">:</span>       <span class="p">[</span><span class="mi">52</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">88</span><span class="p">],</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s2">"cohort"</span><span class="p">:</span>      <span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">],</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">})</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"study_hours"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"score"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"cohort"</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">trendline</span><span class="o">=</span><span class="s2">"ols"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Study hours vs. score by cohort"</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">)</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">"study_scores.html"</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scatter 4
+</code></pre></div>
+<p><code>px.scatter</code> with <code>color="cohort"</code> automatically splits the data into
+colored series with a legend and hover labels — no manual loop over
+groups. <code>trendline="ols"</code> fits and overlays a regression line per group
+(requires <code>statsmodels</code> installed), doubling the trace count from 2 to 4.
+<code>fig.write_html(...)</code> saves a fully interactive standalone file you can
+open in any browser — no server needed.</p>
+<h2 id="faceted-small-multiples">Faceted small multiples<a class="headerlink" href="#faceted-small-multiples" title="Permanent link">&para;</a></h2>
+<p>When comparing more than 2-3 groups, one chart per group ("faceting") beats
+cramming everything into one:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s2">"month"</span><span class="p">:</span>  <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s2">"region"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"East"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"West"</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s2">"revenue"</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">170</span><span class="p">],</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">})</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">sales</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"month"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"revenue"</span><span class="p">,</span> <span class="n">facet_col</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Monthly revenue by region"</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">fig</span><span class="o">.</span><span class="n">data</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>['East', 'West']
+</code></pre></div>
+<p><code>facet_col="region"</code> draws one subplot per region sharing the same axes,
+which makes shapes directly comparable — far easier to read than one chart
+with two overlapping lines once you have more than a couple of categories.</p>
+<h2 id="interactive-bar-with-hover-detail">Interactive bar with hover detail<a class="headerlink" href="#interactive-bar-with-hover-detail" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">"revenue"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">summary</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"revenue"</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">"revenue"</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">color</span><span class="o">=</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Total revenue by region"</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">texttemplate</span><span class="o">=</span><span class="s2">"%</span><span class="si">{text:,}</span><span class="s2">"</span><span class="p">,</span> <span class="n">textposition</span><span class="o">=</span><span class="s2">"outside"</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s2">"records"</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[{'region': 'East', 'revenue': 785}, {'region': 'West', 'revenue': 755}]
+</code></pre></div>
+<p><code>text="revenue"</code> labels each bar with its value directly, removing the need
+for the viewer to eyeball the y-axis. <code>update_traces</code> reformats that label
+with thousands separators and moves it above the bar.</p>
+<h2 id="heatmap-for-a-correlation-matrix">Heatmap for a correlation matrix<a class="headerlink" href="#heatmap-for-a-correlation-matrix" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">4</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">])</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">metrics</span><span class="p">[</span><span class="s2">"b"</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.8</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># correlated with a</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">corr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">text_auto</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">"RdBu_r"</span><span class="p">,</span> <span class="n">zmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>0.94
+</code></pre></div>
+<p><code>px.imshow</code> on a correlation matrix with <code>text_auto=True</code> annotates every
+cell with its value and <code>color_continuous_scale="RdBu_r"</code> maps positive
+correlations to red and negative to blue with white at zero (<code>zmin</code>/<code>zmax</code>
+pin the scale so 0 always lands at white, not just the darkest observed
+value).</p>
+<h2 id="when-to-reach-for-plotly-vs-matplotlib">When to reach for plotly vs. matplotlib<a class="headerlink" href="#when-to-reach-for-plotly-vs-matplotlib" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Use case</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Static chart for a printed report / paper</td>
+<td>matplotlib</td>
+</tr>
+<tr>
+<td>Exploring data interactively in a notebook</td>
+<td>plotly</td>
+</tr>
+<tr>
+<td>Dashboard or app the audience will click around in</td>
+<td>plotly (pairs with Dash/Streamlit — Level 3)</td>
+</tr>
+<tr>
+<td>Full control over every pixel for publication</td>
+<td>matplotlib</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>metrics</code> DataFrame above, add a fifth column <code>"e"</code> that is
+<code>metrics["c"]</code> plus noise so it's moderately correlated (~0.5-0.7). Recompute
+the correlation heatmap with <code>px.imshow</code> and confirm <code>e</code> shows up as a
+medium-red cell against <code>c</code> but near-white against <code>b</code> and <code>d</code>. Then build a
+faceted scatter (<code>facet_col</code>) of <code>a</code> vs. <code>b</code>, <code>c</code> vs. <code>d</code>, and <code>c</code> vs. <code>e</code> to
+visually confirm the same relationships the heatmap shows.</p>
 
 
 

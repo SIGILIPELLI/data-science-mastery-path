@@ -1082,6 +1082,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Time Series Analysis Basics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1098,6 +1116,102 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-proper-time-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a proper time index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resampling-changing-the-time-granularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resampling: changing the time granularity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-windows-smoothing-and-moving-averages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling windows: smoothing and moving averages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposition-trend-seasonality-residual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decomposition: trend, seasonality, residual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autocorrelation-how-much-does-a-value-depend-on-its-past" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autocorrelation: how much does a value depend on its past?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1991,6 +2105,91 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-proper-time-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building a proper time index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resampling-changing-the-time-granularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resampling: changing the time granularity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rolling-windows-smoothing-and-moving-averages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rolling windows: smoothing and moving averages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decomposition-trend-seasonality-residual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decomposition: trend, seasonality, residual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autocorrelation-how-much-does-a-value-depend-on-its-past" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autocorrelation: how much does a value depend on its past?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cheat sheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2010,8 +2209,133 @@
 
 
 <h1 id="06-time-series-analysis-basics">06 · Time Series Analysis Basics<a class="headerlink" href="#06-time-series-analysis-basics" title="Permanent link">&para;</a></h1>
-<p>This module is part of Level 2 · Intermediate.</p>
-<p>More lessons are on the way — check back soon.</p>
+<p>Time series data — anything indexed by time (daily sales, sensor readings,
+website traffic) — breaks the "rows are independent" assumption most
+statistics rely on. This module covers the basic vocabulary and pandas
+tooling for working with it.</p>
+<h2 id="building-a-proper-time-index">Building a proper time index<a class="headerlink" href="#building-a-proper-time-index" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">"2024-01-01"</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"D"</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">season</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">dates</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">/</span> <span class="mi">7</span><span class="p">)</span>   <span class="c1"># weekly pattern</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">365</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">trend</span> <span class="o">+</span> <span class="n">season</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sales"</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2024-01-01    103.06
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2024-01-02    112.35
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>2024-01-03    119.53
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2024-01-04    118.75
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2024-01-05    110.36
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Freq: D, Name: sales, dtype: float64
+</code></pre></div>
+<p>A <code>DatetimeIndex</code> unlocks date-aware slicing (<code>sales["2024-03"]</code> for all of
+March), resampling, and rolling windows — always convert a date column
+with <code>pd.to_datetime</code> and set it as the index before analysis.</p>
+<h2 id="resampling-changing-the-time-granularity">Resampling: changing the time granularity<a class="headerlink" href="#resampling-changing-the-time-granularity" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">weekly</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">"W"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">weekly</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>2024-01-07    111.16
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2024-01-14    123.84
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2024-01-21    129.15
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>2024-01-28    132.40
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>2024-02-04    137.02
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Freq: W-SUN, dtype: float64
+</code></pre></div>
+<p><code>resample</code> is groupby for time: <code>"D"</code>, <code>"W"</code>, <code>"ME"</code> (month end), <code>"QE"</code>
+are the common frequencies. Aggregating up to weekly here averages out the
+day-of-week seasonality, making the underlying upward trend obvious.</p>
+<h2 id="rolling-windows-smoothing-and-moving-averages">Rolling windows: smoothing and moving averages<a class="headerlink" href="#rolling-windows-smoothing-and-moving-averages" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">sales_smoothed</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"raw"</span><span class="p">:</span> <span class="n">sales</span><span class="p">,</span> <span class="s2">"7d_avg"</span><span class="p">:</span> <span class="n">sales_smoothed</span><span class="p">})</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>              raw      7d_avg
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>2024-01-11  99.42  112.075714
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2024-01-12  95.02  113.845714
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>2024-01-13 103.31  115.313571
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>2024-01-14 132.66  116.978571
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>2024-01-15 121.36  118.404286
+</code></pre></div>
+<p>A rolling mean is the simplest way to see the trend through day-to-day
+noise. <code>center=True</code> aligns the window's label with its midpoint rather
+than its right edge — better for visualization, worse for forecasting
+(it peeks at "future" values relative to the label).</p>
+<h2 id="decomposition-trend-seasonality-residual">Decomposition: trend, seasonality, residual<a class="headerlink" href="#decomposition-trend-seasonality-residual" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.seasonal</span><span class="w"> </span><span class="kn">import</span> <span class="n">seasonal_decompose</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">result</span> <span class="o">=</span> <span class="n">seasonal_decompose</span><span class="p">(</span><span class="n">sales</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"additive"</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">trend</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">seasonal</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>2024-01-04    111.02
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>2024-01-05    111.85
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2024-01-06    112.71
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>dtype: float64
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>2024-01-01    10.83
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>2024-01-02    14.72
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>2024-01-03     8.19
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>2024-01-04    -6.41
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>2024-01-05   -14.68
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>2024-01-06   -10.31
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>2024-01-07    -2.34
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>Freq: D, dtype: float64
+</code></pre></div>
+<p><code>seasonal_decompose</code> splits a series into <strong>trend</strong> (slow-moving level),
+<strong>seasonal</strong> (repeating pattern, here weekly with <code>period=7</code>), and
+<strong>residual</strong> (what's left, ideally close to noise). This is the fastest
+way to check "is there really a weekly pattern here?" before building a
+forecasting model around it.</p>
+<h2 id="autocorrelation-how-much-does-a-value-depend-on-its-past">Autocorrelation: how much does a value depend on its past?<a class="headerlink" href="#autocorrelation-how-much-does-a-value-depend-on-its-past" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.tsaplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">acf</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">values</span> <span class="o">=</span> <span class="n">acf</span><span class="p">(</span><span class="n">sales</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>[1.   0.66 0.34 0.1  0.03 0.05 0.24 0.5  0.31 0.14 0.02]
+</code></pre></div>
+<p>The autocorrelation function (ACF) measures correlation between the series
+and a lagged copy of itself. The bump back up at lag 7 (0.24 → 0.5 pattern
+returning) confirms the weekly seasonality numerically, not just visually.</p>
+<h2 id="cheat-sheet">Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Set a date index</td>
+<td><code>df.set_index(pd.to_datetime(df["date"]))</code></td>
+</tr>
+<tr>
+<td>Change granularity</td>
+<td><code>series.resample("W").mean()</code></td>
+</tr>
+<tr>
+<td>Smooth with moving average</td>
+<td><code>series.rolling(7).mean()</code></td>
+</tr>
+<tr>
+<td>Split trend/season/residual</td>
+<td><code>seasonal_decompose(series, period=7)</code></td>
+</tr>
+<tr>
+<td>Check lag correlation</td>
+<td><code>acf(series, nlags=10)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
+<p>Using the <code>sales</code> series above, resample to monthly totals with <code>.resample("ME").sum()</code>
+and plot (or print) the result. Then compute a 30-day rolling standard
+deviation — does volatility change over the year, or stay roughly
+constant? Explain what that would mean for choosing a forecasting model.</p>
 
 
 
