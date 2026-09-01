@@ -1,8 +1,8 @@
 site_name: Data Science Mastery Path
 site_description: A structured, module-wise Data Science training program from entry level to master level — statistics, EDA, visualization, experimentation and communication with Python.
-site_url: https://sigilipelli.github.io/data-science-mastery-path/
-repo_url: https://github.com/SIGILIPELLI/data-science-mastery-path
-repo_name: data-science-mastery-path
+site_url: https://sigilipelli.github.io/data-science-skillmastery/
+repo_url: https://github.com/SIGILIPELLI/data-science-skillmastery
+repo_name: data-science-skillmastery
 
 theme:
   name: material
