@@ -1687,6 +1687,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2461,6 +2483,43 @@ gives you one page to make the case.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The <strong>pyramid principle</strong> (Barbara Minto's framework, from which this
+module's structure is drawn) isn't just a formatting preference — it's
+built around how working memory actually processes incoming information.
+Working memory holds roughly 4±1 chunks of new information at once before
+older chunks start getting displaced; a bottom-up narrative (data → method
+→ analysis → conclusion) forces the listener to hold every intermediate
+step in memory <em>while waiting</em> for the payoff, and any interruption (a
+question, a distraction) before the conclusion arrives loses the thread
+entirely. Leading with the conclusion converts the rest of the talk into
+elaboration of something already understood — each supporting point is now
+evaluated against a known claim rather than added to an unresolved stack,
+which is dramatically lower cognitive load and survives interruption.</p>
+<p><strong>The uncertainty-framing example</strong> is a direct application of the
+confidence-interval logic from Module 07/10 of Level 2: "$1.5M–$2.5M" is
+functionally a stated interval width communicating the same information a
+95% CI would (<code>estimate ± margin</code>), just in business language instead of
+"a two-proportion z-test at α=0.05." The "falsely precise" failure mode
+(a single point estimate with no stated uncertainty) is misleading for the
+same statistical reason a naive point estimate without a confidence
+interval is misleading in Level 2 — it implies a level of certainty the
+underlying sample size and assumptions don't actually support. Naming the
+assumption behind the number (the comparable program's 30% success rate)
+is what lets a sharp stakeholder attack the assumption instead of
+misreading the number as more solid than it is — the executive-communication
+equivalent of showing your model's inputs, not just its output.</p>
+<p><strong>Chart selection matching the claim</strong> works because different chart types
+encode different visual comparisons more or less efficiently for human
+perception (the same perceptual hierarchy — position and length read faster
+and more accurately than color or area — that Module 03's small-multiples
+discussion relies on). A bar chart of <code>churn_rate</code> by <code>segment</code> puts the
+comparison you're making (which segment churns more) directly onto length,
+the single most accurately-perceived visual channel; a pie chart or a
+stacked area chart would force the same comparison onto angle or stacked
+position, both of which measurably increase perception error in controlled
+studies. Choosing the chart is really choosing which visual channel the
+key comparison gets mapped to.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take the churn analysis from module 10 of Level 2 (the A/B test project)
 and rewrite its recommendation as a one-page executive summary using the

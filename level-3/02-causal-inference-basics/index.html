@@ -1564,6 +1564,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2449,6 +2471,50 @@ false positives (the peeking problem from module 07 of Level 2).</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The naive-vs-adjusted gap here is a textbook case of <strong>omitted variable
+bias</strong>, which has an exact algebraic form: the bias in a simple regression's
+coefficient equals <code>β_confounder × (covariance between the omitted variable
+and the treatment) / (variance of the treatment)</code>. Concretely, income
+affects health directly (<code>β_income = 0.30</code>) <em>and</em> is correlated with gym
+membership (higher-income people are more likely to be members) — so the
+naive <code>gym_member</code> coefficient soaks up both the true 5-point effect and a
+chunk of income's own effect that leaks through the correlation. Including
+<code>income</code> as a control in the regression works because OLS with multiple
+predictors estimates each coefficient <em>holding the others fixed</em>
+(Module 01) — it partials out the variation in <code>gym_member</code> that's
+explainable by <code>income</code>, leaving only the variation that's independent of
+it to be attributed to gym membership.</p>
+<p><strong>Propensity score matching</strong> takes a different route to the same goal.
+The propensity score <code>e(x) = P(treatment=1 | covariates=x)</code> is a single
+number summarizing "how likely was this unit to be treated, given what we
+observed about them." The key theorem this relies on (Rosenbaum &amp; Rubin) is
+that conditioning on the propensity score alone is sufficient to balance <em>all</em>
+observed covariates between treated and control — matching a treated and
+untreated unit with similar <code>e(x)</code> approximates comparing two units that
+were, observationally, equally likely to end up in either group, mimicking
+what randomization would have done directly. The <strong>overlap</strong> diagnostic
+matters because if no untreated unit exists with a propensity score near a
+particular treated unit's score, there is no valid comparison for that unit
+— the method can't manufacture information that isn't there, and matching
+on non-overlapping regions produces extrapolation, not causal inference.</p>
+<p>Both regression adjustment and propensity matching share the same hard
+limitation: they can only adjust for confounders you <strong>measured</strong>. An
+unmeasured confounder (say, "health consciousness" driving both gym
+membership and diet quality) biases both methods identically and
+undetectably from the data alone — which is precisely why a true randomized
+experiment is called the "gold standard": randomization balances <em>every</em>
+confounder, measured or not, by construction, not by modeling assumption.</p>
+<p><strong>Difference-in-differences</strong> sidesteps needing to measure confounders at
+all, as long as they're <em>time-invariant or trending identically</em> in both
+groups. Algebraically, DiD computes
+<code>(treated_post - treated_pre) - (control_post - control_pre)</code>. Any
+confounder that shifts both groups equally over time (a shared trend of
++5/period here) cancels exactly in the subtraction, leaving only the
+treated group's <em>extra</em> post-period jump — which is why the parallel-trends
+assumption (both groups would have moved together absent treatment) is the
+one thing DiD can't verify from the post-period data alone; it's checked by
+confirming the pre-period trends were actually parallel.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the confounded <code>df</code> above, fit a naive regression of <code>health_score</code>
 on <code>gym_member</code> alone (no <code>income</code> control). Compare its coefficient to

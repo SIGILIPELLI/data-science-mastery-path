@@ -1979,6 +1979,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2514,6 +2536,45 @@ problem several open-source projects already solved.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Training/serving skew</strong> has a precise mechanical origin: an offline batch
+job computing <code>days_since_last_purchase</code> typically has access to a full
+historical table and computes the feature by scanning it at a scheduled
+time; a real-time serving path typically hits a low-latency key-value store
+with only the <em>most recent</em> known state, often computed by a different
+codebase in a different language. Even a one-line difference — the batch
+job using <code>&lt;=</code> for "as of" cutoff, the serving path using <code>&lt;</code>, or a
+timezone mismatch in what "as of" means — produces a feature that is
+numerically different for the same customer at the same moment between
+training and inference. Because the model was fit on the batch definition,
+it silently underperforms in production against a subtly different
+distribution of the "same" feature — and because both paths <em>look</em>
+correct in isolation, this bug class is notoriously invisible until
+production metrics diverge from validation metrics. A feature store closes
+this by making both paths call the <em>literal same transformation function</em>
+(as in <code>days_since_last_purchase</code> above) against two different backing
+stores rather than maintaining the logic twice.</p>
+<p><strong>Point-in-time correctness</strong> in the offline store is the training-side
+half of the same problem: naively joining a "current" features table onto
+historical training rows leaks future information into the past — a
+customer's <code>days_since_last_purchase</code> computed from <em>today's</em> data joined
+onto a purchase from six months ago would already know about purchases
+that hadn't happened yet at that point in the customer's history. A
+correct offline store performs an <em>as-of join</em>, retrieving the feature's
+value exactly as it would have been known at each training example's
+timestamp — which is the specific mechanism that prevents this leakage
+class from inflating offline validation metrics in a way that doesn't
+survive to production.</p>
+<p><strong>Model registry stages</strong> exist because "rollback" needs to be a
+constant-time, one-command operation under time pressure (a production
+incident), not a git-archaeology exercise to find which <code>model.pkl</code> was
+deployed three weeks ago. Storing every trained model version with
+immutable metadata (params, metrics, training data hash) and moving a
+<em>pointer</em> (the stage label) between versions means a rollback is exactly
+one <code>transition_model_version_stage</code> call back to the last known-good
+version — no retraining, no file hunting, and the audit trail (who
+promoted what, when) is a byproduct of the same mechanism rather than a
+separate logging effort.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Pick a model you've built in an earlier module. Sketch (in a text diagram)
 what a minimal feature store entry for its top 3 features would look like:

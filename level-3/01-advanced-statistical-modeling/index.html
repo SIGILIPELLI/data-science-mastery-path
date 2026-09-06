@@ -1536,6 +1536,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2457,6 +2479,46 @@ extra month of tenure multiplies the expected ticket rate by
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>OLS coefficients</strong> come from minimizing the sum of squared residuals
+<code>Σ(yᵢ - ŷᵢ)²</code>, which has a closed-form solution: <code>β = (XᵀX)⁻¹Xᵀy</code>. That
+matrix inverse is exactly what breaks down under multicollinearity — if two
+columns of <code>X</code> are nearly linear combinations of each other, <code>XᵀX</code> becomes
+nearly singular (its determinant approaches 0), and the inverse blows up,
+which is mechanically <em>why</em> correlated predictors produce huge, unstable
+standard errors even though the model's overall predictions
+(<code>ŷ = Xβ</code>) stay accurate. <strong>VIF</strong> quantifies this directly:
+<code>VIF_j = 1 / (1 - R²_j)</code>, where <code>R²_j</code> comes from regressing predictor <code>j</code>
+on all the <em>other</em> predictors. If <code>sqft</code> can be predicted almost perfectly
+from <code>bedrooms</code> and <code>age_years</code>, <code>R²_j</code> approaches 1 and VIF explodes —
+VIF is literally measuring how redundant each column is with the rest of
+<code>X</code>, the same quantity that makes <code>XᵀX</code> singular.</p>
+<p><strong>Ridge and Lasso</strong> both add a penalty term to the loss the model
+minimizes, but different norms: Ridge adds <code>α·Σβⱼ²</code> (an L2 penalty), Lasso
+adds <code>α·Σ|βⱼ|</code> (an L1 penalty). Geometrically, minimizing squared error
+subject to a fixed budget on <code>Σβⱼ²</code> traces out a circular constraint region
+— the optimal point where the loss contours first touch that circle
+generally has <em>all</em> coefficients nonzero but shrunk. The L1 budget region is
+a diamond with corners on the axes (where some <code>βⱼ = 0</code>); loss contours are
+far more likely to first touch a corner than a smooth circle, which is the
+geometric reason Lasso zeroes out coefficients exactly while Ridge only
+shrinks them toward (but not to) zero. This is also why features must be
+scaled first (as done here with <code>StandardScaler</code>) — the penalty is applied
+uniformly to all <code>βⱼ</code>, so an unscaled feature with naturally larger
+coefficients would be penalized unfairly more or less than one on a
+different scale.</p>
+<p><strong>The Poisson GLM</strong> replaces OLS's assumption "errors are normally
+distributed around a linear mean" with "the outcome is drawn from a Poisson
+distribution whose <em>rate</em> depends on the predictors through a <em>log link</em>":
+<code>log(E[y|x]) = β₀ + β₁x</code>, equivalently <code>E[y|x] = e^(β₀+β₁x)</code>. The log link
+exists because a Poisson rate must be non-negative — a raw linear
+predictor <code>β₀+β₁x</code> can go negative, but exponentiating it can't — and it's
+also <em>why</em> coefficients are interpreted multiplicatively (<code>exp(β)</code> as a
+rate ratio) rather than additively: a one-unit increase in <code>x</code> doesn't add
+a fixed amount to the count, it multiplies the expected count by <code>e^β</code>.
+Fitting is done by maximum likelihood (no closed form, unlike OLS) via
+iteratively reweighted least squares, which repeatedly re-linearizes the
+problem around the current estimate until the coefficients converge.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Add a fourth predictor to <code>houses</code> — <code>has_garage</code> (a 0/1 column, randomly
 assigned) with no real effect on price — and refit the OLS model. Confirm

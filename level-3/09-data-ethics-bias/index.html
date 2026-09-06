@@ -1760,6 +1760,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2454,6 +2476,47 @@ technique.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Proxy discrimination</strong> is a straightforward consequence of how any
+statistical model actually learns: a model doesn't know or care about a
+feature's <em>label</em> (<code>zip_code</code> vs. <code>group</code>), only its statistical
+relationship to the target. If <code>zip_code</code> and <code>group</code> are correlated
+(mathematically, <code>corr(zip_code, group) ≈ 1</code> in the extreme case shown
+here), then a model trained on <code>zip_code</code> effectively has access to nearly
+all the information <code>group</code> would have provided — dropping <code>group</code> only
+removes the <em>column name</em>, not the information, because that information is
+redundantly encoded elsewhere in the feature set. This is why a correlation
+audit against every candidate feature (not just a glance at the feature
+list for obviously sensitive names) is the actual technical safeguard, not
+a naming convention.</p>
+<p><strong>The impossibility result</strong> for demographic parity vs. equal opportunity
+has an exact mathematical derivation, not just an empirical tendency.
+Demographic parity requires <code>P(pred=1 | group=A) = P(pred=1 | group=B)</code>.
+Equal opportunity requires <code>P(pred=1 | group=A, label=1) = P(pred=1 |
+group=B, label=1)</code>. Expanding selection rate by the law of total
+probability, <code>P(pred=1|group) = P(pred=1|group,label=1)·P(label=1|group) +
+P(pred=1|group,label=0)·P(label=0|group)</code>. If the base rates <code>P(label=1|group)</code>
+differ between groups (which they do whenever historical approval rates
+differ), then holding the TPR term equal across groups (equal opportunity)
+and holding the FPR term equal (part of equalized odds) generically forces
+the <em>overall</em> selection rate to differ across groups — you cannot satisfy
+both constraints simultaneously except in the special case where base rates
+happen to match exactly. This is a theorem (Chouldechova, Kleinberg et al.,
+2016-17), not a modeling shortcoming — which is exactly why the choice of
+fairness definition has to be a stated, deliberate tradeoff rather than
+something a metric library picks for you by default.</p>
+<p><strong>Reweighting</strong> (mitigation option 1) works by changing the loss function
+each training example contributes to: giving underrepresented-group
+examples a larger weight in the loss (<code>Σ wᵢ · loss(yᵢ, ŷᵢ)</code>) forces the
+optimizer to pay more attention to getting those examples right, directly
+counteracting an imbalance where the majority group's errors would
+otherwise dominate the average loss and get optimized away preferentially.
+<strong>Post-processing thresholds</strong> (option 3) works differently — after
+training, it picks a separate decision threshold per group on the same
+underlying predicted probability so that a chosen metric (e.g. TPR) is
+equalized across groups; the model itself doesn't change, only where the
+line between "predict 1" and "predict 0" is drawn for each group's score
+distribution.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take a classifier from an earlier module (or the toy <code>df</code> above). Pick a
 sensitive attribute you have or can simulate, compute selection rate, TPR,

@@ -1743,6 +1743,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2486,6 +2508,51 @@ a bit-identical rerun.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Random seeding</strong> works because "randomness" in software is almost always
+<em>pseudo</em>random: a deterministic algorithm (a linear congruential generator,
+or NumPy's PCG64) generates a long sequence of numbers that only <em>looks</em>
+statistically random, entirely determined by an internal state. Calling
+<code>np.random.seed(42)</code> initializes that internal state to a fixed, known
+starting point, so every subsequent "random" draw follows the exact same
+sequence every time the program runs — reproducibility here isn't
+suppressing randomness, it's making the specific pseudo-random sequence
+identical across runs. This is also precisely why seeding doesn't survive a
+library version change: if the underlying generator algorithm itself
+changes between versions (or NumPy switches its default bit generator, as
+it did between legacy <code>RandomState</code> and the newer <code>Generator</code> API), the same
+seed produces a <em>different</em> sequence — the seed pins a position in an
+algorithm's output stream, not an absolute set of values.</p>
+<p><strong>Hashing raw data files</strong> (<code>sha256</code>) works because a cryptographic hash
+function maps an input of any size to a fixed-size fingerprint such that
+changing even a single byte of the input changes the output completely and
+unpredictably (the avalanche effect) — there's no way to alter the file
+while keeping the same hash by chance. This makes a hash an extremely cheap
+way to answer "is this literally the same file" without diffing the whole
+file's contents or trusting a filename/timestamp (which say nothing about
+content) — it's the same integrity-checking mechanism used to verify
+downloaded software hasn't been corrupted or tampered with, applied here to
+catch a silently-replaced or accidentally-edited raw dataset.</p>
+<p><strong>Environment pinning</strong> matters mechanically because <code>pip</code>'s dependency
+resolver, given a range like <code>pandas&gt;=2.0</code>, will install whatever the
+<em>newest</em> version satisfying that range happens to be <em>at install time</em> —
+which is a moving target. Two people running <code>pip install -r
+requirements.txt</code> a year apart can silently get different pandas versions
+with different default arguments (pandas has changed things like default
+<code>observed=</code> behavior in groupby across versions), producing different
+numeric output from <em>identical</em> code. <code>pip freeze</code> captures the fully
+resolved dependency graph (including transitive dependencies your
+<code>requirements.txt</code> never names directly) at a point in time, which is the
+only way to guarantee the <em>exact</em> same code runs against the exact same
+library versions later.</p>
+<p><strong>The raw/processed separation</strong> is a specific application of
+idempotency: because <code>processed/</code> is produced purely as a pure function of
+<code>raw/</code> + code (no manual edits ever touch it), deleting and regenerating it
+from <code>run_pipeline.py</code> is guaranteed to be safe — there is no hidden state
+living only in the processed files that the code doesn't know how to
+recreate. The moment someone hand-edits a value inside <code>processed/</code>, that
+guarantee is broken and the project silently stops being reproducible from
+its own inputs.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take a notebook you've written for an earlier module in this path. Refactor
 it into the <code>src/</code> + <code>run_pipeline.py</code> structure shown above: move any

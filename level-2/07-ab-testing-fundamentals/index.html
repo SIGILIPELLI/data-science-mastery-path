@@ -1328,6 +1328,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2437,6 +2459,42 @@ which a bare p-value can't give you.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>A <strong>two-proportion z-test</strong> treats each group's conversion rate as a sample
+proportion <code>p̂ = conversions / n</code>, which is itself the mean of a bunch of
+0/1 (Bernoulli) outcomes. By the Central Limit Theorem, <code>p̂</code> is
+approximately normally distributed with standard error
+<code>SE = sqrt(p(1-p)/n)</code>. Under the null hypothesis that both groups truly have
+the same underlying conversion rate <code>p</code>, the test pools both groups'
+successes to estimate that common <code>p</code>, computes the pooled standard error of
+the <em>difference</em> <code>p̂₁ - p̂₂</code>, and reports
+<code>z = (p̂₁ - p̂₂) / SE_pooled</code>. Because <code>z</code> is (approximately) a draw from a
+standard normal distribution when the null is true, converting it to a
+p-value is a table lookup: <code>p = 2 * (1 - Φ(|z|))</code> for a two-sided test,
+where <code>Φ</code> is the standard normal CDF.</p>
+<p><strong>Sample size calculations</strong> invert this same formula to solve for <code>n</code>
+given a target detectable effect size, significance level (<code>α</code>, usually
+0.05 — your false-positive tolerance), and power (<code>1-β</code>, usually 0.80 — your
+probability of detecting the effect if it's real). Both <code>α</code> and <code>power</code>
+correspond to critical z-values (<code>z_α/2 ≈ 1.96</code>, <code>z_β ≈ 0.84</code> for the
+conventional settings), and the required <code>n</code> per group grows roughly as
+<code>(z_α/2 + z_β)² × [p₁(1-p₁) + p₂(1-p₂)] / (p₁-p₂)²</code> — meaning the required
+sample size grows with the <em>square</em> of how small an effect you want to
+detect, which is why detecting a 0.5 percentage-point lift can need 10-20x
+the sample of detecting a 5-point lift.</p>
+<p><strong>The confidence interval</strong> on the lift is built from the same standard
+error but without pooling (since it's not testing a null of "no
+difference," it's estimating the actual gap): <code>(p̂₁-p̂₂) ± z_α/2 × SE</code>. A
+95% CI has the specific long-run interpretation that if you reran this exact
+experiment many times, about 95% of such intervals would contain the true
+population difference — it does <em>not</em> mean "95% probability the true value
+is in this particular interval," a common misreading.</p>
+<p>The <strong>multiple-comparisons</strong> warning is a direct consequence of how p-values
+work: testing at <code>α=0.05</code> means a 5% false-positive rate <em>per test</em> under
+the null. Testing <code>k</code> independent metrics gives a chance of at least one
+false positive of <code>1 - (1-0.05)^k</code>, which is already ~40% at <code>k=10</code> — not
+because anything is wrong with any individual test, but because you're
+effectively buying 10 separate lottery tickets for a false "win."</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Re-run the simulation above with <code>n_per_group = 500</code> instead of 4,000
 (same true rates). Report the p-value and confidence interval — do you

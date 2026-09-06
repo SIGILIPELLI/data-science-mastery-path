@@ -1166,6 +1166,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2239,6 +2250,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2385,6 +2407,50 @@ much variance in an exponential distribution.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every test on this page is really the same three-step recipe wearing a
+different formula: (1) reduce your data to one number that captures the
+effect (a test statistic), (2) work out what the distribution of that number
+would look like if there were <em>truly no effect</em> (the null distribution), and
+(3) see how far into the tail of that null distribution your observed
+statistic falls (the p-value).</p>
+<p><strong>Chi-square</strong> builds its statistic as <code>Σ (observed - expected)² / expected</code>,
+summed over every cell of the contingency table. "Expected" comes from
+assuming independence: if row and column really are unrelated, the expected
+count in a cell is <code>(row total × column total) / grand total</code>. Squaring the
+differences means both directions of deviation count as evidence against
+independence, and dividing by <code>expected</code> normalizes so a miss of 5 in a cell
+expected to hold 10 counts far more than a miss of 5 in a cell expected to
+hold 1,000. Under the null, this statistic follows a chi-square distribution
+with <code>(rows-1)(cols-1)</code> degrees of freedom — that shape is a known
+mathematical fact (a sum of squared standard normals), which is what lets
+<code>scipy</code> convert your statistic into a p-value by table lookup rather than
+simulation.</p>
+<p><strong>ANOVA</strong>'s F-statistic is a ratio: <code>(variance *between* group means) /
+(variance *within* groups)</code>. If the groups were all drawn from the same
+population, both numerator and denominator estimate the same underlying
+variance, so F should hover near 1. A big F means the groups differ from
+each other by more than they differ internally — signal exceeds noise. F
+follows the F-distribution (a ratio of two chi-squares) with
+<code>(k-1, n-k)</code> degrees of freedom, again giving an exact p-value without
+simulation.</p>
+<p><strong>Non-parametric tests</strong> (Mann-Whitney, Kruskal-Wallis) throw away the raw
+values and use only their <em>ranks</em>. Replacing "4.7" with "this was the 12th
+smallest value out of 60" makes the test insensitive to the actual shape of
+the distribution — it no longer assumes normality — at the cost of some
+statistical power when the data genuinely is normal (ranks discard the
+magnitude of differences, only their order). The Mann-Whitney U statistic
+counts, for every pair of one observation from each group, how often the
+group-A value exceeds the group-B value; under the null of "the two
+distributions are identical," that count has a known distribution
+regardless of what the underlying shape is.</p>
+<p>Across all of these, a "roughly normal" and "large n" caveat exists because
+of the <strong>Central Limit Theorem</strong>: sample means (which is what t-tests and
+ANOVA ultimately compare) tend toward a normal distribution as n grows, even
+if the raw data isn't normal — which is why the t-test and ANOVA are more
+robust to non-normality than they look, but still break down with small n
+and heavy skew, which is exactly when you reach for the rank-based
+alternative instead.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Generate three groups of 25 samples each from <code>rng.normal</code> with means 10,
 12, and 11 (same std of 3). Run a one-way ANOVA. If it's significant, run

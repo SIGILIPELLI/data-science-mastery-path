@@ -1603,6 +1603,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2494,6 +2516,52 @@ picture of real-world accuracy than any single lucky (or unlucky) split.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Holt-Winters</strong> forecasts by maintaining three running estimates —
+level <code>ℓₜ</code>, trend <code>bₜ</code>, and seasonal component <code>sₜ</code> — each updated every
+period as a weighted average of the new observation and the prior estimate:
+<code>ℓₜ = α·(yₜ - sₜ₋ₘ) + (1-α)·(ℓₜ₋₁ + bₜ₋₁)</code>, and similarly for <code>bₜ</code> and
+<code>sₜ</code> with their own smoothing weights <code>β</code> and <code>γ</code>. Each weight controls how
+fast that component "forgets" older data — the model literally is an
+extrapolation of level + trend + the last full seasonal cycle, which is why
+it tracks strong, regular seasonality so well with relatively little data:
+it doesn't need to learn seasonality from scratch, it assumes the shape
+repeats and just tracks its slowly-evolving level and amplitude.</p>
+<p><strong>ARIMA's <code>(p,d,q)</code></strong> decomposes into three separate ideas. The <code>d</code>
+(differencing) term repeatedly computes <code>yₜ - yₜ₋₁</code> until the series becomes
+<em>stationary</em> — meaning its mean and variance don't drift over time — because
+the AR and MA math underneath assumes stationarity; a trending raw series
+violates that, which is exactly why plain (non-seasonal) ARIMA flattens out
+here: order <code>(1,1,1)</code> differences away the trend but has no mechanism at
+all for a repeating 12-month cycle, so its best guess after differencing
+converges toward a stable increment with no seasonal wiggle. The <code>p</code>
+(autoregressive) term expresses <code>yₜ</code> as a linear combination of its own
+past <code>p</code> values; the <code>q</code> (moving-average) term expresses it as a
+combination of the past <code>q</code> forecast <em>errors</em>, letting the model correct
+for how wrong it recently was, not just where the series has recently been.</p>
+<p><strong>SARIMA</strong> adds a second, seasonal difference-and-AR/MA structure operating
+at lag <code>s</code> (here 12) on top of the regular one: the seasonal order <code>(P,D,Q,s)</code>
+differences at lag 12 (<code>yₜ - yₜ₋₁₂</code>) to remove the yearly pattern the same
+way <code>d</code> removes trend, and adds AR/MA terms referencing <code>yₜ₋₁₂</code>,
+<code>yₜ₋₂₄</code>, etc. This is precisely the missing piece for plain ARIMA — it
+gives the model an explicit mechanism to say "this month should look like
+the same month last year, adjusted."</p>
+<p><strong>MAE vs. MAPE</strong>: MAE (<code>mean(|actual - forecast|)</code>) stays in the series'
+native units, so it's directly interpretable ("off by 2.6 units on
+average") but not comparable across series of different scales. MAPE
+(<code>mean(|actual - forecast| / |actual|)</code>) expresses the same error as a
+percentage of the actual value, making it comparable across series with
+different magnitudes — at the cost of being undefined/unstable when actual
+values are near zero, and asymmetric (it penalizes over-forecasting a small
+actual value far more than under-forecasting a large one).</p>
+<p><strong>Rolling-origin cross-validation</strong> exists because a single train/test
+split's error is itself a random variable — it depends on which 6 months
+happened to land in the test set. Refitting at multiple cutoffs and
+averaging the resulting errors estimates the <em>expected</em> forecast error
+rather than one draw of it, the time-series analogue of k-fold
+cross-validation — except folds must stay chronological (train only on data
+strictly before each test window) since a model can never legitimately see
+its own future during fitting.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>demand</code> series above, fit a SARIMA model with a different order
 (try <code>(2,1,1)</code> with the same seasonal order) and compare its MAE/MAPE on

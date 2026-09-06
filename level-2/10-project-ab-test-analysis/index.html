@@ -1423,6 +1423,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2477,6 +2499,37 @@ doesn't move that surface.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The <strong>randomization sanity check</strong> (comparing covariates like device mix or
+prior activity across arms) exists because a two-proportion z-test's
+validity rests entirely on the assumption that treatment and control differ
+<em>only</em> in the intervention — if randomization was broken (a bug routed more
+mobile users to treatment, say), any measured "lift" is confounded with that
+imbalance rather than caused by the treatment. Checking balance is itself
+just running the same statistical-testing machinery from Module 02 (a
+chi-square test on categorical covariates, a t-test on continuous ones) on
+variables that <em>shouldn't</em> differ — a significant result there is a red flag
+about the experiment's integrity, not a finding.</p>
+<p><strong>Segmenting the effect</strong> (Step 3) is where Simpson's Paradox becomes a real
+risk: a pooled effect is a weighted average of segment-level effects, and
+it's mathematically possible for every segment to show one direction of
+effect (or no effect) while the pooled number shows another, if segment
+sizes and effect sizes interact just right. Concretely here: if desktop
+users are a large chunk of the treatment-heavy sessions and mobile shows
+zero effect, the pooled test can still be significant purely on the
+strength of the desktop subgroup — which is exactly why Step 4 re-runs the
+formal test <em>within</em> the desktop segment alone rather than eyeballing the
+breakdown table. Without that re-test, you can't tell a real segment-
+specific effect from a segment split that happens to have fewer users and
+therefore just failed to reach significance by chance.</p>
+<p><strong>Why re-test rather than trust the segment table</strong>: splitting into segments
+after seeing the data is a form of the multiple-comparisons problem from
+Module 07 — the more ways you slice the data looking for "some group where
+it worked," the higher the chance you find one by chance alone even with no
+real effect anywhere. The discipline here (pre-register a primary metric,
+treat segment analysis as directional, then confirm with its own explicit
+test) is what keeps an A/B analysis from degenerating into p-hacking dressed
+up as segmentation.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend this analysis with a guardrail metric: simulate an <code>avg_session_time</code>
 column where treatment sessions on mobile take slightly longer (users

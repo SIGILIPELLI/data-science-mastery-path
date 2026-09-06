@@ -1715,6 +1715,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2474,6 +2496,43 @@ the script.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Streamlit's entire programming model rests on one mechanical rule: <strong>any
+widget interaction re-executes the whole script from top to bottom</strong> — there
+is no callback graph or partial re-render like a traditional web framework.
+When you move the <code>region_filter</code> multiselect, Streamlit doesn't call some
+registered "on change" function; it reruns <code>app.py</code> in its entirety, and on
+this rerun <code>st.multiselect</code> immediately returns the new selection (Streamlit
+tracks each widget's current value keyed by its position/label in the
+script and feeds it back in). This is what makes the code read like a
+plain, linear script with no event wiring — the "reactivity" is really just
+"rerun everything, cheaply."</p>
+<p>That rerun-everything model is also exactly why <code>@st.cache_data</code> exists and
+matters. Without it, <code>load_data()</code> — or a real database query — would
+re-execute on <em>every</em> widget nudge, even though its result never changed.
+<code>st.cache_data</code> works by hashing the function's arguments (and its source
+code) to build a cache key; on a rerun with the same arguments, Streamlit
+skips calling the function and returns the previously stored result
+directly, turning an O(script reruns × expensive work) cost into
+O(expensive work once) plus cheap cache lookups thereafter. The cache is
+invalidated automatically if the function's code or arguments change,
+which is why it's safe to leave in place during development.</p>
+<p><strong>Session state persistence</strong> (implicit here, since widget values must
+survive across reruns) is handled by Streamlit associating each widget
+instance with a stable key derived from its position and arguments in the
+script, storing its current value server-side between reruns — this is why
+two widgets with the exact same label and type can silently collide unless
+given an explicit <code>key=</code>, since Streamlit has no other way to tell them
+apart across reruns.</p>
+<p><strong>Deployment's <code>--server.address 0.0.0.0</code></strong> flag matters mechanically
+because Streamlit's dev server binds to <code>localhost</code> (<code>127.0.0.1</code>) by
+default, which only accepts connections originating from the same machine;
+binding to <code>0.0.0.0</code> tells the OS to accept connections on <em>any</em> network
+interface, which is what makes the app reachable from other machines at
+all (a container's own internal network, or the public internet, depending
+on what else fronts it) — without that flag, a dashboard "deployed" to a
+server would still only be visible to someone logged into that server
+directly.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend the dashboard above with a <code>st.selectbox</code> letting the user choose
 an aggregation level ("Daily", "Weekly", "Monthly"), and resample the

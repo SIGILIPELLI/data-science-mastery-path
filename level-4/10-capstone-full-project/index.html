@@ -2173,6 +2173,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#final-exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2296,6 +2307,17 @@
     <span class="md-ellipsis">
       
         Cheat sheet — the full pipeline this capstone exercised
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
       
     </span>
   </a>
@@ -2527,6 +2549,46 @@ prevent.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This capstone's five stages are worth reviewing as a single mechanism
+rather than five separate techniques, because the thing that actually
+prevents a bad recommendation is how they chain together.</p>
+<p><strong>Stage 1's descriptive gap (basic vs. enterprise churn) is confounded by
+construction, and Stage 2's model doesn't fix that.</strong> <code>LogisticRegression</code>
+fit on <code>plan_type</code>, <code>tenure_months</code>, <code>support_tickets</code>, and <code>logins</code>
+estimates each coefficient holding the others fixed (Module 01, Level 3) —
+so the huge <code>plan_type_enterprise</code> coefficient (-0.520) already accounts
+for the fact that enterprise customers also tend to have more logins and
+tenure. But "controlling for observed confounders" only removes bias from
+confounders you measured; a model can't distinguish "enterprise customers
+churn less <em>because</em> of the plan" from "the kind of customer who buys
+enterprise also churns less for unmeasured reasons (higher switching cost,
+dedicated account manager)" — which is exactly why Stage 4 explicitly
+declines to treat the coefficient as actionable and instead separates
+<code>plan_type</code>/<code>tenure_months</code> (descriptive, not interventions) from
+<code>logins</code>/<code>support_tickets</code> (things an actual program could change).</p>
+<p><strong>Why AUC 0.812 is evaluated as "plausible" rather than just "good."</strong> An
+implausibly high AUC (say, 0.99) on a churn model is a standard signal of
+label leakage — a feature that encodes information only available <em>after</em>
+the outcome is already known (e.g. a "cancellation survey submitted" flag
+correlating almost perfectly with churn). 0.81 sits in the range
+achievable from genuinely predictive, pre-outcome behavioral signal
+without being suspiciously perfect, which is why the module flags it as a
+sanity check worth doing on every model, not just this one.</p>
+<p><strong>Why Stage 4's randomized experiment is the only way to convert the
+Stage 3 correlations into a number a $500k allocation decision can actually
+rest on.</strong> The engagement-churn relationship found by the model is
+observational — Stage 4 names the specific alternative explanation
+(reverse causation: churn-prone customers disengage first, rather than
+disengagement causing churn) that a regression coefficient structurally
+cannot rule out (Module 02, Level 4). Randomizing who receives the
+engagement nudge breaks exactly that ambiguity: if only the <em>treated</em> group's
+churn rate improves relative to a randomized control, the "logins cause
+lower churn" direction is now supported by a design where reverse causation
+is impossible by construction — which is the whole reason the readout
+recommends deploying the <em>existing</em> correlational model for risk-flagging
+(a low-stakes, reversible use) while withholding full budget commitment
+until the causal check comes back.</p>
 <h2 id="final-exercise">Final exercise<a class="headerlink" href="#final-exercise" title="Permanent link">&para;</a></h2>
 <p>Extend this capstone with one additional stage: a risk-tiering pass
 (L4 Module 08) on the deployed risk model — is flagging "high churn

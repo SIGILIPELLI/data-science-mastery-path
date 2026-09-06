@@ -907,6 +907,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2501,6 +2523,38 @@ showed the mean of <code>spend</code>, not the full income distribution per regi
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>How a histogram actually turns numbers into bar heights.</strong> <code>bins=20</code>
+divides the observed range (<code>min</code> to <code>max</code>) into 20 equal-width intervals,
+then counts how many values fall into each interval — the bar height <em>is</em>
+that count (or, if <code>density=True</code>, the count rescaled so the total area
+under all bars sums to 1, which makes histograms of different sample sizes
+visually comparable). Bin width matters more than it looks: too few bins
+smooth away real structure like a second hump (bimodality); too many bins
+turn sampling noise into what looks like meaningful jaggedness. There's no
+universally correct bin count — but a common rule of thumb (Sturges' rule,
+<code>k ≈ log₂(n) + 1</code>) gives a reasonable starting point pandas/matplotlib
+approximate by default.</p>
+<p><strong>Why truncating a y-axis distorts perception, mechanically.</strong> A chart
+communicates magnitude through the <em>visual length</em> of a bar or the <em>slope</em>
+of a line, both computed as <code>(pixel_height_of_max - pixel_height_of_min)</code>
+mapped linearly onto the axis range you set. If four bars have values
+162–179 mapped onto a 0–200 axis, their pixel-height differences are small
+relative to the full bar height — correctly signaling "these are similar."
+Map the same four values onto a 150–180 axis instead, and the <em>identical</em>
+value differences now consume the <em>entire</em> available pixel range, so the
+rendering engine stretches small numeric gaps into large visual ones. The
+data and the axis labels can both be 100% accurate while the visual
+impression is completely wrong — the distortion lives entirely in the
+pixel-to-value mapping, which is exactly why "start bar charts at zero" is
+a rule about the <em>rendering</em>, not the data.</p>
+<p><strong>What a box plot's whiskers and box actually encode.</strong> The box spans Q1 to
+Q3 (the same IQR from Module 04); the line inside is the median, not the
+mean, so it's robust to the same outliers a mean would be pulled by; the
+whiskers extend to the most extreme data point still within 1.5×IQR of the
+box (the identical Tukey rule from Module 04); anything beyond that is
+drawn as an individual dot. A box plot is, mechanically, the IQR outlier
+rule and the five-number summary rendered as a picture.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>df</code> from this module, make a scatter plot of <code>age</code> vs. <code>spend</code>
 and compute their correlation. Then make a bar chart of average <code>age</code> per

@@ -1233,6 +1233,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2261,6 +2272,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2442,6 +2464,45 @@ ranges rather than a smooth trend.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>One-hot encoding</strong> (<code>get_dummies</code>) exists because most models can't
+interpret a category label as a number without implying a false ordering:
+if <code>"red"=0, "green"=1, "blue"=2</code>, a linear model reads <code>"blue"</code> as
+literally twice <code>"green"</code>, which is meaningless. One-hot instead gives each
+category its own binary column, so the model learns an independent
+coefficient per category. The tradeoff is dimensionality — a column with
+500 unique cities becomes 500 new columns — and the "dummy variable trap":
+if you keep all <code>k</code> columns for a <code>k</code>-category feature <em>and</em> fit an
+intercept, the columns become linearly dependent (they always sum to 1),
+which makes the design matrix singular for exact linear regression. That's
+why <code>get_dummies(..., drop_first=True)</code> exists — dropping one category
+folds it into the intercept and removes the redundancy, though tree-based
+models don't care because they never invert a matrix.</p>
+<p><strong>Scaling</strong> matters mechanically, not just for tidiness. Gradient descent
+(used to fit logistic regression, neural nets, etc.) takes steps proportional
+to the gradient in each feature's direction; if one feature ranges 0-1 and
+another 0-100,000, the loss surface becomes a long narrow valley and
+gradient descent zig-zags instead of heading straight to the minimum —
+scaling makes the valley closer to circular, so a single learning rate works
+for every feature simultaneously. Distance-based methods (k-NN, k-means,
+anything using Euclidean distance) are affected even more directly: an
+unscaled feature with a larger numeric range mechanically dominates the
+distance calculation regardless of how informative it actually is, since
+<code>distance = sqrt(Σ(xᵢ - yᵢ)²)</code> sums squared raw differences. <code>StandardScaler</code>
+transforms each feature to <code>(x - μ) / σ</code>, so every feature has mean 0 and
+unit variance — none of that dominance survives. Tree-based models
+(random forest, gradient boosting) are the exception: a split threshold
+<code>feature &gt; t</code> is invariant to any monotonic transformation of that feature,
+so scaling changes nothing about what a tree learns.</p>
+<p><strong>Binning</strong> deliberately discards information to buy two things: robustness
+to outliers (a value of $50,000 income and $500,000 income land in the same
+top bucket instead of one dominating a linear term) and the ability to model
+a non-monotonic relationship with a linear model (age's effect on some
+outcome might rise then fall — a single linear coefficient can't represent
+that, but bins each get their own coefficient, effectively giving the model
+a free-form step function). <code>pd.cut</code> assigns each value to an interval by a
+simple binary search over the bin edges, so the cost is purely the resolution
+you lose within each bin.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>txns</code> DataFrame above, add a feature <code>orders_per_month</code> computed
 as <code>num_orders / (tenure_days / 30)</code>, guarding against division by zero for

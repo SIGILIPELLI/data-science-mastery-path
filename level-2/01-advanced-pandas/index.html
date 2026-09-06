@@ -1160,6 +1160,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2460,6 +2482,51 @@ one-row-per-observation for further analysis or plotting:</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><code>groupby</code> looks like a single operation, but under the hood pandas executes
+it in three distinct passes, and understanding them explains both its
+performance and its footguns.</p>
+<ol>
+<li><strong>Split</strong> — pandas builds a hash table mapping each unique key value to
+   the integer row positions that share it. For <code>df.groupby("region")</code> this
+   means one hash bucket for <code>"East"</code> and one for <code>"West"</code>, each holding an
+   array of row indices — no data is copied yet, only positions.</li>
+<li><strong>Apply</strong> — for each bucket, pandas slices the original array(s) at those
+   positions and calls your aggregation function (<code>sum</code>, <code>mean</code>, or a custom
+   callable) on that slice. This is why <code>.agg("sum")</code> is fast (it dispatches
+   to a vectorized NumPy reduction per group) while <code>.apply(lambda g: ...)</code>
+   is slow — a Python-level function call and DataFrame construction happen
+   once <em>per group</em>, not once for the whole column.</li>
+<li><strong>Combine</strong> — the per-group results are stitched back together, and the
+   group keys become the new index (or a column, if you pass <code>as_index=False</code>).</li>
+</ol>
+<p><code>transform</code> runs the same split-apply machinery but skips the combine-into-
+smaller-frame step: it looks up, for every original row, which bucket it
+belonged to and writes that bucket's scalar result back at the row's
+original position. That's why <code>transform("sum")</code> returns a Series the exact
+same length as the input — it's a broadcast, not a reduction — and why it's
+the correct tool for "percent of group total" (<code>value / group_total</code>)
+instead of a <code>merge</code> back onto the aggregated result.</p>
+<p><code>merge</code> itself is a join algorithm choice made silently for you: pandas
+picks a hash join for equality merges on unindexed columns (build a hash
+table on the smaller side's key, probe it with the larger side) which is
+<code>O(n + m)</code>, versus the naive <code>O(n * m)</code> nested-loop comparison you'd get
+implementing a join by hand. The <code>how</code> parameter controls what happens to
+keys present on only one side: <code>inner</code> drops unmatched keys entirely,
+<code>left</code>/<code>right</code> keep one side's keys and fill the other side's columns with
+<code>NaN</code>, and <code>outer</code> keeps the union — and because a <code>NaN</code> in a previously
+integer column forces pandas to upcast that column to <code>float64</code> (integers
+can't represent "missing"), an unexpected <code>how="outer"</code> merge is a common
+source of a column silently changing dtype.</p>
+<p><code>pivot_table</code> and <code>melt</code> are inverses implemented as, respectively, a
+groupby-then-unstack (group by the <code>index</code>/<code>columns</code> pair, aggregate
+<code>values</code>, then reshape the group-key MultiIndex into a 2D grid) and a
+row-explosion (each original row becomes <code>len(value_vars)</code> new rows, one per
+column being unpivoted, with the original column name recorded in
+<code>var_name</code>). Reshaping never changes the total count of underlying data
+points — it only changes how they're arranged as rows vs. columns — which is
+a useful sanity check: <code>df.melt(...).shape[0]</code> should equal
+<code>len(df) * len(value_vars)</code> exactly.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>orders</code> DataFrame above, compute each product's revenue as a
 percentage of its <em>own</em> total across both regions (not the region total).

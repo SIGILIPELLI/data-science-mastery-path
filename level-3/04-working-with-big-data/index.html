@@ -1631,6 +1631,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2473,6 +2495,51 @@ pandas.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>Every pandas dtype has a fixed per-element byte cost: default <code>int64</code> and
+<code>float64</code> use 8 bytes per value regardless of the actual magnitude stored,
+and a default <code>object</code> column of strings stores a Python string object <em>per
+cell</em> — each with its own header overhead (~50 bytes even for short
+strings) plus pointer indirection, not a compact contiguous buffer the way
+numeric NumPy arrays are. <code>downcast="unsigned"</code> or <code>"float"</code> picks the
+smallest fixed-width type that can represent the column's actual range
+(e.g. <code>uint32</code> covers 0 to ~4 billion, more than enough for a <code>user_id</code>
+under 100,000, at a quarter the bytes of <code>int64</code>). The <code>category</code> dtype
+attacks the object-column problem differently: it stores the small set of
+distinct strings once in a lookup table and replaces every cell with a
+small integer <em>code</em> referencing that table — for a 4-value column repeated
+2 million times, this converts 2 million string objects into 2 million
+single-byte codes plus one 4-entry table, which is why the savings are so
+large specifically for low-cardinality text.</p>
+<p><strong>Chunked reading</strong> works because <code>chunksize</code> turns <code>read_csv</code> from "parse
+the whole file, then hand it to me" into a generator that parses and yields
+one bounded-size DataFrame at a time, discarding the buffer for the
+previous chunk before reading the next. This bounds <em>peak</em> memory to one
+chunk's size regardless of total file size — but it only works cleanly for
+aggregations that are <strong>decomposable</strong>: a sum, count, or per-category total
+can be computed chunk-by-chunk and combined (sum of sums = total sum), but
+an exact median or exact set of distinct values generally cannot, because
+they require comparing every value against every other value at once.</p>
+<p><strong>Parquet's</strong> speed advantage over CSV comes from two structural choices.
+It's columnar (values for one column are stored contiguously on disk,
+rather than CSV's row-by-row layout), so reading <code>columns=["amount"]</code>
+literally means seeking to and reading only that column's bytes — CSV has
+no way to skip columns since every row must be parsed character-by-character
+to even find where one column ends and the next begins. Parquet is also
+statically typed and compressed per column (integers, categories, and
+repeated strings compress far better when grouped with same-type
+neighbors than when interleaved row-by-row), which is why file size drops
+substantially on top of the read-speed gain.</p>
+<p><strong>Dask</strong> builds a <strong>task graph</strong> — a DAG of "read this partition," "apply
+this groupby to that partition," "combine these partial results" — and does
+no actual computation until <code>.compute()</code> is called (lazy evaluation). This
+matters mechanically because it lets Dask's scheduler see the <em>entire</em>
+pipeline before running anything, so it can decide how to partition work
+across cores (or machines) and only materialize small final results in the
+caller's memory, while each worker only ever holds one partition's worth of
+data — the same "process a bounded piece, combine the summaries" principle
+as chunked pandas, just automated and parallelized across a task graph
+instead of a manual Python loop.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take the <code>df</code> DataFrame from the first example (2M rows). Measure its
 memory footprint before and after converting <code>category</code> to a category

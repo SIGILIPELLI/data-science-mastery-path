@@ -924,6 +924,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2484,6 +2506,40 @@ one (small sample) is more honest about how little you actually know.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>What the t-statistic actually computes.</strong> <code>stats.ttest_ind</code> calculates
+<code>t = (x̄_a - x̄_b) / SE</code>, where the standard error <code>SE</code> is built from each
+group's variance and sample size (roughly <code>√(s_a²/n_a + s_b²/n_b)</code> for
+Welch's version, which SciPy uses by default when variances may differ).
+This is a <em>signal-to-noise ratio</em>: the numerator is the observed difference
+(the "signal"), and the denominator is how much that difference is expected
+to wobble from sample to sample just due to random sampling (the "noise").
+A t-statistic of -1.656 means the observed gap is only about 1.66 standard
+errors away from zero — under the assumption of no true difference, gaps
+that size or larger happen often enough by chance (about 10% of the time,
+matching <code>p = 0.1017</code>) that it isn't strong evidence of a real effect. The
+p-value itself comes from the t-distribution's cumulative density function:
+it's the area under that distribution's curve beyond the observed
+|t|-value, in both tails.</p>
+<p><strong>Why smaller samples produce wider confidence intervals, mechanically.</strong>
+The CI half-width is <code>t_critical × SEM</code>, where <code>SEM = s / √n</code> (the standard
+error of the mean). Because <code>n</code> is under a square root in the denominator,
+shrinking your sample by 4x only shrinks noise-reduction by 2x — quadrupling
+your data halves your CI width, not eliminates it. This square-root
+relationship is why "just collect a bit more data" often helps less than
+intuition suggests, and why genuinely tight estimates usually require
+sample sizes an order of magnitude larger, not just "some more."</p>
+<p><strong>Why repeated testing manufactures false positives.</strong> Each independent
+t-test at <code>p &lt; 0.05</code> has, by construction, a 5% chance of a false positive
+when there is truly no effect — that's what the threshold <em>means</em>. Running
+100 independent noise-vs-noise comparisons is like flipping 100 biased
+coins that each land "significant" 5% of the time: the expected count is
+<code>100 × 0.05 = 5</code>, and the simulation's actual count of 9 is well within
+normal sampling variation around that expectation. The Bonferroni fix
+(<code>alpha / n_tests</code>) works because it lowers each individual test's
+false-positive rate so that the <em>combined</em> probability of at least one false
+positive across all tests stays near the original 5%, by a direct
+union-bound argument.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Re-run the p-hacking simulation with <code>trials = 1000</code> and <code>alpha = 0.01</code>
 (count <code>p &lt; 0.01</code> instead of <code>p &lt; 0.05</code>). What fraction of the 1000

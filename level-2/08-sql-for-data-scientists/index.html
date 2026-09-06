@@ -1367,6 +1367,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2496,6 +2518,42 @@ non-trivial.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>SQL is declarative — you describe <em>what</em> result you want, and the query
+planner decides <em>how</em> to get it — but knowing its conceptual execution order
+(different from the order you type the clauses) explains a lot of otherwise
+confusing behavior: <code>FROM/JOIN</code> → <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code> →
+<code>SELECT</code> → <code>ORDER BY</code> → <code>LIMIT</code>. This ordering is exactly why <code>WHERE</code> can't
+reference a column alias defined in <code>SELECT</code> (the alias doesn't exist yet
+when <code>WHERE</code> runs) but <code>ORDER BY</code> can (it runs after <code>SELECT</code>), and why
+<code>HAVING</code> — not <code>WHERE</code> — is required to filter on an aggregate like
+<code>COUNT(*) &gt; 5</code>: at the point <code>WHERE</code> executes, no aggregation has happened
+yet, so there's no aggregate value to filter on.</p>
+<p><strong>JOIN</strong> is executed by the engine as a match against a join predicate
+(<code>ON a.key = b.key</code>). Conceptually it's a full cross product filtered down
+to matching pairs, but real engines never materialize the full product —
+they build a hash table on one side's join key (usually the smaller table)
+and probe it with the other side, giving <code>O(n+m)</code> performance instead of
+<code>O(n×m)</code>, the same trick pandas' <code>merge</code> uses under the hood (Module 01).
+<code>INNER JOIN</code> keeps only matched pairs; <code>LEFT JOIN</code> additionally keeps every
+left-side row with no match, filling the right side's columns with <code>NULL</code> —
+which is why a <code>COUNT()</code> after a <code>LEFT JOIN</code> can silently double-count if
+the "one" side of a one-to-many relationship isn't the side you joined from.</p>
+<p><strong>Window functions</strong> (<code>OVER (PARTITION BY ...)</code>) compute an aggregate per
+partition exactly like <code>GROUP BY</code>, but instead of collapsing each group to
+one row, they annotate every original row with its group's value — the SQL
+equivalent of pandas' <code>.transform()</code> versus <code>.agg()</code>. <code>ROW_NUMBER() OVER
+(PARTITION BY k ORDER BY col)</code> assigns rank purely by position after sorting
+within each partition, recomputed independently per partition — which is
+what makes "top-3 per category" queries possible without a self-join.</p>
+<p><strong>CTEs</strong> (<code>WITH name AS (...)</code>) are named subqueries evaluated (conceptually)
+once and referenced by name in the main query, letting you write a multi-
+stage transformation as readable sequential steps instead of nesting
+subqueries three deep. Most engines treat a CTE as an optimization fence or
+inline it into the outer query depending on the planner — functionally, the
+important guarantee is correctness and readability, not necessarily that
+it's materialized as a temp table (that varies by database and is a
+performance detail, not a semantics one).</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>orders</code>/<code>customers</code> tables above, write one query with a CTE
 that computes each customer's average order amount, then a final SELECT

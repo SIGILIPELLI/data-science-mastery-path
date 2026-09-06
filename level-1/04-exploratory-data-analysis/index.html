@@ -890,6 +890,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2519,6 +2541,38 @@ the "correlation ≠ causation" trap.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Where the IQR rule's "1.5×" actually comes from.</strong> Quartiles are computed
+by sorting the column and taking the values at the 25th and 75th percentile
+positions (pandas uses linear interpolation between the two nearest ranks
+when the percentile doesn't land exactly on a data point). For data that is
+<em>exactly</em> normally distributed, the interval <code>[Q1 - 1.5×IQR, Q3 + 1.5×IQR]</code>
+covers roughly 99.3% of the distribution — so under normality, only about
+0.7% of points are expected to fall outside it by chance. The constant 1.5
+was chosen by statistician John Tukey specifically to make "outlier" flags
+rare under normal-ish data while still being sensitive on realistic
+sample sizes; it isn't derived from anything about <em>your</em> specific dataset,
+which is why it's a heuristic starting point to investigate, not an
+automatic deletion rule.</p>
+<p><strong>Why quartiles (not mean ± std) are the right outlier detector here.</strong>
+Section "Step 1" already showed the max (260,000) is inflated by the very
+outliers you're trying to find — if you used mean and standard deviation to
+define "extreme," the outliers themselves would drag the mean and
+especially the std upward, shrinking how extreme they <em>appear</em> relative to
+that inflated spread (a phenomenon called masking). Quartiles are
+rank-based, like the median, so a few extreme values can't pull Q1 or Q3
+away from where the bulk of the data actually sits — which is exactly why
+they were used here instead.</p>
+<p><strong>What Pearson's <code>r</code> in <code>.corr()</code> is actually measuring.</strong> The formula is
+<code>r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / [√Σ(xᵢ - x̄)² · √Σ(yᵢ - ȳ)²]</code> — the numerator
+(covariance, unscaled) is positive when x and y tend to move in the same
+direction relative to their own means at the same time, negative when they
+move oppositely, and the denominator rescales by both variables' own spread
+so the result is always between -1 and 1 regardless of the columns' units.
+Because the formula only involves <em>linear</em> deviations from each mean, it is
+structurally blind to curved (e.g. U-shaped) relationships — a perfect
+parabola can produce <code>r ≈ 0</code> even though y is completely determined by x,
+which is the concrete mechanism behind the "linear-only" warning above.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>df</code> from this module, run the full EDA checklist on
 <code>tenure_months</code> alone: report its mean, median, IQR outlier bounds, and

@@ -801,6 +801,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2261,6 +2272,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2478,6 +2500,35 @@ is a <code>groupby</code> with the right aggregation functions.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Why vectorization is actually faster, not just shorter.</strong> A Python <code>for</code>
+loop over a list re-enters the Python interpreter for every single element:
+each <code>+</code> triggers a type check, a method dispatch, and a new object
+allocation, because Python objects (even a plain <code>int</code>) carry type
+information and reference-count metadata alongside their value. A NumPy
+array instead stores raw, fixed-type values (e.g. <code>float64</code>) packed
+contiguously in one memory block, with the dtype recorded once for the whole
+array. <code>x + y</code> on two such arrays calls a single pre-compiled C loop (a
+"ufunc," universal function) that walks both blocks of memory directly, with
+no per-element interpreter overhead and much better CPU cache locality
+because sequential memory access is what caches are optimized for. That's
+the entire source of the 10-100x speedup — it's not "NumPy is a better
+language," it's "NumPy skips the interpreter and the memory layout is
+cache-friendly."</p>
+<p><strong>Why a boolean mask filters in one pass.</strong> <code>v &gt; 25</code> doesn't loop in Python
+either — it produces a same-shaped boolean array by the same ufunc
+mechanism, and <code>v[mask]</code> then uses that boolean array to select only the
+<code>True</code> positions in a single compiled pass, copying matching elements into
+a new, smaller array.</p>
+<p><strong>Why <code>.groupby()</code> is fast at scale.</strong> Under the hood, <code>groupby("region")</code>
+builds a hash table mapping each distinct group label to the row indices
+that belong to it (conceptually similar to Python's own <code>dict</code>, but
+implemented in Cython over NumPy arrays) — one linear pass to build the
+hash table, then one pass per requested aggregate (<code>sum</code>, <code>mean</code>, <code>size</code>)
+that touches only the relevant column's cached indices per group. This is
+why <code>groupby(...).agg(...)</code> scales roughly linearly with row count rather
+than requiring one full table scan per group per aggregate, which is what a
+naive nested loop over unique regions would do.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Build a DataFrame of 8 rows with columns <code>product</code>, <code>price</code>, and
 <code>units_sold</code> (make up realistic numbers). Using vectorized operations only

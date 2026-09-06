@@ -930,6 +930,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2239,6 +2250,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2422,6 +2444,39 @@ the split, not the aggregate.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>How OLS actually finds "the best" line.</strong> <code>sm.OLS(...).fit()</code> solves for
+the intercept and slope that minimize the <strong>sum of squared residuals</strong>:
+<code>Σ(yᵢ - ŷᵢ)²</code>, where <code>ŷᵢ = intercept + slope × xᵢ</code> is the line's prediction
+for each point. Squaring (rather than, say, summing absolute errors)
+penalizes large misses disproportionately and — crucially — makes the
+problem solvable in closed form via calculus: setting the derivative of that
+sum with respect to both parameters to zero yields
+<code>slope = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / Σ(xᵢ - x̄)²</code>, which is exactly the
+covariance-over-variance formula, and <code>intercept = ȳ - slope × x̄</code>. No
+iterative search is needed for simple linear regression — it's a direct
+matrix computation (<code>(XᵀX)⁻¹Xᵀy</code> in the code's <code>sm.add_constant</code> +ols
+formulation), which is why fitting even a large regression is fast.</p>
+<p><strong>Why R² is exactly <code>r²</code> for simple linear regression.</strong> R² is defined as
+<code>1 - (SS_residual / SS_total)</code> — the fraction of the outcome's total
+variance the model's predictions explain versus a naive "always predict the
+mean" baseline. For a <em>single</em> predictor fit by OLS, this quantity is
+algebraically identical to squaring the Pearson correlation coefficient
+between x and y — which is why a correlation of 0.441 (Simpson's-paradox
+example aside) would map to an R² of about 0.194 if you regressed one
+variable on the other. This identity breaks once you add more predictors,
+where R² compounds contributions from each.</p>
+<p><strong>The arithmetic behind Simpson's paradox.</strong> An aggregate rate is a
+<em>weighted</em> average of subgroup rates, weighted by subgroup size:
+<code>overall_rate = (n_A × rate_A + n_B × rate_B) / (n_A + n_B)</code>. In the example,
+women were 20/(20+100) ≈ 17% of dept A's more-lenient pool but 100/(20+100)
+≈ 83% of dept B's stricter pool — so women's <em>aggregate</em> rate is dominated
+by the low-admission department they disproportionately applied to, while
+men's aggregate rate is dominated by the high-admission department they
+disproportionately applied to. The paradox isn't a statistical anomaly; it's
+a direct, mechanical consequence of unequal group sizes feeding into a
+weighted average, which is exactly why checking the <em>within-group</em> rates
+(unweighted by anything) is the fix.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Using the <code>sqft</code>/<code>price</code> regression above, add a new confounding variable
 <code>neighborhood</code> (two categories, e.g. <code>"urban"</code> and <code>"suburban"</code>) such that

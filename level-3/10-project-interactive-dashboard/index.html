@@ -1788,6 +1788,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2478,6 +2500,42 @@ handful of people need reliable access.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>This dashboard's structure is a direct, working instance of the rerun
+model explained in Module 07: every widget change in the sidebar
+(<code>st.multiselect</code>, <code>st.date_input</code>) triggers a full top-to-bottom
+re-execution of <code>app.py</code>. <code>@st.cache_data</code> on <code>load_data</code> is what keeps that
+affordable — it hashes the function's arguments (<code>path</code>) and, since <code>path</code>
+never changes between reruns, returns the previously-parsed DataFrame from
+memory instead of re-reading and re-parsing <code>sales.csv</code> from disk every
+single time a filter moves. The <code>mask</code>/<code>filtered</code> computation deliberately
+sits <em>outside</em> the cached function precisely because it depends on live
+widget state (<code>regions</code>, <code>date_range</code>) — caching it would either need to key
+the cache on every possible filter combination (defeating the purpose) or
+silently return stale results for a new filter selection.</p>
+<p>The <strong>weekly resample before charting</strong> (<code>dt.to_period("W")</code>) is the same
+decomposable-aggregation principle from Module 04: summing revenue per
+week is a reduction that can be recomputed cheaply on any filtered subset,
+which is why filtering-then-aggregating on each rerun is fast enough to
+feel instantaneous even though it re-executes on every interaction — 2,000
+rows grouped into ~26 weekly buckets is a trivial amount of computation
+compared to what a human perceives as lag.</p>
+<p><code>st.stop()</code> matters because of how Python (and Streamlit) handle
+exceptions during a rerun: if <code>filtered</code> is empty, <code>filtered['revenue'].mean()</code>
+returns <code>NaN</code> silently (not an error) but a downstream <code>px.line</code> or
+<code>groupby</code> on a truly empty frame can raise, and an uncaught exception mid-
+script would print a Python traceback directly into the deployed app for
+whoever's viewing it. Calling <code>st.stop()</code> after checking <code>filtered.empty</code>
+raises Streamlit's own internal <code>StopException</code>, which the Streamlit
+runtime catches and treats as "the script finished early, cleanly" — the
+rest of the script (all the charting code below) simply never executes for
+this rerun, and the user sees only the warning message instead of a crash.</p>
+<p><code>st.download_button</code>'s <code>data=filtered.to_csv(index=False).encode("utf-8")</code>
+line does the CSV serialization synchronously on every rerun that reaches
+that line — Streamlit needs the actual bytes ready immediately because
+there's no server-side "generate on click" callback in this model; the
+button's job is purely to hand the browser bytes that were already computed
+during the current script execution.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend <code>app.py</code> with a second tab (<code>st.tabs</code>) showing a month-over-month
 revenue growth rate per region, computed with <code>pct_change()</code> on a monthly

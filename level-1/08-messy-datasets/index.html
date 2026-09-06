@@ -991,6 +991,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2489,6 +2511,37 @@ filling, was the more honest option.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Why pandas silently changes a column's dtype based on its worst cell.</strong>
+When <code>pd.read_csv</code> parses a column, it scans the values and picks the most
+specific dtype that can represent <em>all</em> of them: if every cell parses as a
+number, the column becomes <code>int64</code> or <code>float64</code>; if even one cell is
+non-numeric text, the entire column falls back to <code>object</code>/<code>str</code>, because a
+NumPy-backed column requires one uniform, fixed-width type for every
+element (that uniformity is exactly what makes vectorized math fast — see
+Module 02). This "one bad apple downgrades the whole column" behavior is
+why a single stray <code>"unknown"</code> in a numeric column doesn't raise an error at
+load time — it just silently converts <code>amount</code> from something you can call
+<code>.sum()</code> on into something you can't, and the failure surfaces much later,
+at <code>.sum()</code> or <code>.corr()</code>, far from its actual cause.</p>
+<p><strong>How <code>.map(dict).fillna(original)</code> works as a lookup, mechanically.</strong>
+<code>.map()</code> performs a hash-table lookup for every value in the Series against
+the dictionary's keys — O(1) per lookup, O(n) total — and produces <code>NaN</code>
+for any value not present as a key (here, anything not in <code>country_map</code>,
+because <code>.strip().str.lower()</code> was applied first so keys only need to cover
+normalized variants). <code>.fillna(df["country"])</code> then aligns the original
+column back in by row position wherever the map produced <code>NaN</code>, which is
+what lets this pattern normalize <em>known</em> variants while passing unknown
+values through unchanged instead of turning them into missing data.</p>
+<p><strong>Why checking <code>notes</code> against <code>amount &lt; 0</code> is a stronger check than either
+column alone.</strong> This is a specific case of a general principle: any single
+column's plausible-looking value can still be wrong in context, but the
+<em>joint</em> distribution of two related columns is much harder to accidentally
+satisfy by coincidence. A negative amount could be a typo; a negative amount
+<em>and</em> a <code>notes</code> value containing "refund" is strong corroborating evidence
+from an independent source, which is why cross-column consistency checks
+catch classes of errors that per-column range checks (like the IQR rule)
+structurally cannot.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Add two more rows to <code>csv_text</code>: one with <code>amount = "unknown"</code> (a string in
 a numeric column) and one exact duplicate of an existing order. Reload the

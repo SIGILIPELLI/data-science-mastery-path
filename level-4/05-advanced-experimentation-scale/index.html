@@ -2024,6 +2024,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2283,6 +2294,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2467,6 +2489,49 @@ be materially overstating the long-run impact.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Benjamini-Hochberg's mechanism</strong>: sort all <code>m</code> p-values ascending, then
+find the largest <code>k</code> such that <code>p_(k) ≤ (k/m) × α</code>, and reject every
+hypothesis with a p-value at or below <code>p_(k)</code>. This adaptive threshold is
+why FDR control is less conservative than Bonferroni's flat <code>α/m</code> cutoff
+applied to every test: BH lets small p-values "borrow" a looser effective
+threshold from the fact that many of the largest p-values are probably
+true nulls, controlling the <em>expected proportion of false discoveries among
+rejections</em> (<code>E[false rejections / total rejections]</code>) rather than the
+probability of even one false rejection across the whole family. That
+distinction is exactly why it's the right tool for scanning a wide metrics
+dashboard (where you can tolerate a controlled small fraction of false
+leads among many candidate findings) versus confirming one pre-registered
+primary metric (where you want the strict, single-test guarantee).</p>
+<p><strong>Why interference biases estimated effects, not just "contaminates" them
+vaguely</strong>: an experiment's causal estimate is only valid under the Stable
+Unit Treatment Value Assumption (SUTVA) — that one user's assigned
+treatment doesn't affect another unit's outcome, and doesn't depend on
+what <em>other</em> experiment a user happens to be in. Two overlapping
+experiments on shared users violate the second half of SUTVA directly: the
+checkout-flow experiment's estimated effect is actually estimating
+<code>E[effect | some mixture of algo_variant conditions]</code>, not the checkout
+flow's effect in isolation — which is why the interaction model's fitted
+<code>algo_variant:checkout_variant</code> coefficient (on the logit scale, since this
+is a <code>smf.logit</code> model — testing whether the <em>combined log-odds</em> deviates
+from the sum of each variant's individual log-odds effect) is the only way
+to know whether "run both, report both effects independently" is even a
+valid thing to do for this particular pair.</p>
+<p><strong>Why peeking inflates false positives, quantitatively</strong>: a p-value crossing
+0.05 by chance at any <em>single</em> fixed sample size has (by construction)
+about a 5% probability under the null. Checking daily and stopping the
+first time it crosses 0.05 is equivalent to giving the null hypothesis 
+many independent chances to produce a false positive — the same multiple-
+comparisons math from the top of this page, just spread across time
+instead of across metrics. A random walk (which is roughly what a
+p-value's evolution looks like under the null as more data accumulates)
+is guaranteed to cross <em>any</em> fixed threshold with probability approaching 1
+if you're allowed to watch it indefinitely — which is precisely why
+classical significance testing requires the sample size/duration to be
+fixed <em>before</em> looking at results, and why sequential methods (alpha
+spending, mSPRT) instead allocate a shrinking error budget across looks so
+the <em>cumulative</em> false-positive rate across all peeks stays at the stated
+α.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Simulate two experiments sharing a user population (as in the 2x2 example
 above) where one variant genuinely interacts with the other (bake in a

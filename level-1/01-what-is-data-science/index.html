@@ -762,6 +762,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2239,6 +2250,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2428,6 +2450,35 @@ know where your work ends and a hand-off begins.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The <code>diff = ... mean() - ... mean()</code> line above looks like a throwaway
+one-liner, but it's worth pausing on what a "mean" actually computes and why
+that matters for the rest of this track. The sample mean is
+<code>x̄ = (1/n) * Σxᵢ</code> — every value gets equal weight. That single design choice
+is why a mean is sensitive to a handful of extreme values (you'll see this
+concretely with the planted outliers in Module 04) and why "the new flow
+raised average order value by $5.68" is silent about <em>distribution</em>: it could
+mean every customer spent a bit more, or it could mean 495 customers were
+unaffected and 5 whales spent enormously more.</p>
+<p>More importantly, <code>$5.68</code> on its own conflates two different questions that
+this track deliberately separates:</p>
+<ol>
+<li><strong>Effect size</strong> — how big is the observed difference? ($5.68, or about
+   10% relative to the $56.08 baseline.)</li>
+<li><strong>Statistical reliability</strong> — could a difference this size show up between
+   two groups that are <em>actually</em> identical, just from random sampling noise?</li>
+</ol>
+<p>Step 5 of the workflow ("analyze / model it") exists specifically because
+effect size alone answers neither question fully. Computing <code>diff</code> from 500
+random draws per group already contains sampling variability — draw a
+different 500 "old" and 500 "new" orders from the <em>same</em> underlying
+distribution and you'd get a nonzero difference by chance alone, sometimes
+larger than $5.68. The formal way to quantify "how often would chance alone
+produce a gap this large" is the <strong>hypothesis test</strong> machinery (specifically,
+a two-sample t-test comparing the difference in means against the pooled
+standard error) built in full in Module 06. Every workflow step from here
+forward exists to convert a raw arithmetic difference like this one into a
+claim you can actually defend.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Pick any statistic you've seen in the news this week (a headline like "X
 rose by Y%"). Write three sentences: (1) what question was the analyst

@@ -986,6 +986,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2239,6 +2250,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2426,6 +2448,36 @@ the axis range prominently so the reader isn't misled.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>The perceptual science behind why truncated axes lie.</strong> Human graphical
+perception research (notably Cleveland &amp; McGill's classic ranking of
+perceptual tasks) shows people judge <em>position along a common scale</em> and
+<em>length</em> far more accurately than they judge angle or area — which is
+exactly why bar/line charts are effective in the first place: they encode
+values as lengths and positions. But that same accuracy is precisely what
+makes truncation dangerous — because viewers are <em>good</em> at reading length
+differences, artificially inflating the length difference between two bars
+(by cropping the baseline) directly and reliably inflates the perceived
+magnitude of the underlying data, in a way viewers have no way to detect
+from the chart alone without checking the axis numbers explicitly.</p>
+<p><strong>Why pie charts are the worst-ranked common chart type perceptually.</strong>
+Following the same perceptual research, angle and area judgments are
+measurably less accurate than length/position judgments for the same
+underlying numeric differences — people reliably misjudge close pie-slice
+proportions (e.g. telling 31% from 35% apart) far more often than they
+misjudge equivalent bar heights, which is the empirical basis (not just
+convention) for "use a sorted bar chart instead of a pie chart."</p>
+<p><strong>Why "the headline first" isn't just a writing preference.</strong> This mirrors
+how working memory actually processes sequential information: readers form
+an interpretation of the <em>first</em> chart or sentence they see and then use it
+as an anchor for everything after (a well-documented cognitive bias called
+anchoring). Leading with twelve unlabeled charts forces every reader to
+build their own anchor from scratch — and different readers will anchor on
+different charts, producing different takeaways from <em>identical</em> data. Front
+loading the specific numeric claim ("revenue grew 6%") gives every reader
+the same anchor before they see any chart, which is why it reliably produces
+more consistent understanding across an audience than any downstream
+formatting choice can.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take any bar chart you've made in this track so far (Module 05's
 <code>spend_by_region</code> chart is a good candidate) and write the three-sentence

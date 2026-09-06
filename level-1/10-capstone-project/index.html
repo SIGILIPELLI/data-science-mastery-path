@@ -1047,6 +1047,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2305,6 +2316,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2522,6 +2544,44 @@ A/B Testing module in Level 2 covers how to test that properly.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>Why a linear regression of a 0/1 outcome ("linear probability model")
+produces predicted probabilities but isn't a probability <em>model</em>.</strong> Fitting
+<code>OLS(churned, engagement_score)</code> treats <code>churned</code> (0 or 1) as if it were any
+continuous number and finds the least-squares line through it exactly as in
+Module 07. The resulting <code>−0.0074</code> slope is a legitimate <em>average marginal
+effect</em> — "each extra engagement point is associated with about a 0.74
+percentage-point lower churn rate, on average across this range" — but
+nothing in the OLS math constrains predictions to stay within [0, 1]; a
+customer with a low enough engagement score would get a predicted "churn
+probability" above 1 or below 0, which is nonsensical. This is exactly why
+real churn-<em>prediction</em> systems use logistic regression instead, which
+passes the linear combination through the sigmoid function
+<code>1/(1+e^-z)</code> to guarantee outputs in [0, 1] — a technique Level 2's "Intro to
+Machine Learning" module covers. The linear version here is used because,
+for <em>inference</em> about the size and significance of one relationship (not
+production-grade prediction), it's simpler to interpret directly as a
+probability-point effect.</p>
+<p><strong>Why R² = 0.02 and p = 0.0137 aren't in tension.</strong> These answer different
+questions using different math. The p-value only asks: is the slope
+distinguishable from exactly zero, given the sample size? With n = 300, even
+a small, consistent effect produces a small standard error on the slope
+estimate, so a genuinely tiny but real effect can still be "significant."
+R² asks an entirely different question: of all the row-to-row variation in
+churned/not-churned, what fraction does this one feature explain? A signal
+can be statistically real (unlikely to be pure noise) while still being
+practically weak (leaving most of the outcome's variance unexplained) —
+which is precisely the combination seen here, and exactly why a
+well-reported analysis states both numbers rather than either alone.</p>
+<p><strong>Why checking <code>plan</code> as a potential confounder uses the same math as
+Simpson's paradox.</strong> If <code>plan</code> independently drives both <code>engagement_score</code>
+(e.g. pro users engage more because the product is stickier) and <code>churned</code>
+(pro users churn less because they've paid), then the observed
+engagement/churn association could be partly or entirely an artifact of
+<code>plan</code>, mechanically identical to how department choice explained the
+admission-rate reversal in Module 07 — which is why the fix is the same
+technique: compare churn rates within engagement buckets <em>separately</em> per
+plan, rather than trusting the pooled regression coefficient at face value.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Extend this analysis with one more variable: <code>tenure_days</code>. Run the same
 t-test (churned vs. active tenure), fit a regression of churn on tenure, and

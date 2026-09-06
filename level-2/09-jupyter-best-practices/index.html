@@ -1406,6 +1406,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2493,6 +2515,42 @@ loop on "what exactly produced this output."</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p>The root cause every practice on this page defends against is the same
+mechanical fact: a Jupyter notebook's <strong>kernel state is independent of cell
+order on the page</strong>. Each cell execution mutates one shared, persistent
+Python namespace, and the kernel only remembers <em>execution order</em> (the
+<code>[N]</code> number next to each cell), not <em>visual</em> order. If you define <code>x = 5</code>
+in cell 10, then go back and edit cell 3 to use <code>x</code>, cell 3 will run fine —
+because the namespace still has <code>x = 5</code> from the earlier execution — even
+though nobody could get that result by reading the notebook top to bottom.
+"Restart and Run All" is the only way to prove the notebook's <em>visual</em> order
+matches its <em>logical</em> dependency order, because it rebuilds the namespace
+from nothing and executes strictly top-to-bottom.</p>
+<p><strong>One cell, one idea</strong> matters because Jupyter's error model halts execution
+of a <em>cell</em> on the first uncaught exception but leaves every prior cell's
+state intact — so a giant cell that loads data, cleans it, and plots it will
+lose all three steps' progress on one bad line, while three separate cells
+let you fix and re-run just the failing step without re-running (and
+re-paying the cost of) the expensive data load above it.</p>
+<p><strong>Pinning dependencies</strong> (<code>requirements.txt</code> with exact versions, or a lock
+file) addresses the fact that <code>pandas.read_csv</code> defaults, <code>sklearn</code> model
+internals, and even floating-point reduction order in NumPy have changed
+across versions in ways that silently shift results — "reproducible" code
+that imports an unpinned library is only reproducible until that library's
+next release.</p>
+<p><strong>Clearing outputs before committing</strong> is about git's diff algorithm, which
+is line-based and has no concept of "this changed because I re-ran the
+cell, not because I changed the code": a notebook's JSON stores rendered
+outputs (including base64-encoded images) inline, so a re-run with no code
+change still produces a full diff of noise, and two people running the same
+notebook produce spurious merge conflicts purely from output-cell content.</p>
+<p><strong>Seeding randomness</strong> — anything using NumPy's <code>default_rng(seed)</code> or
+<code>random.seed()</code> — pins the pseudorandom number generator's internal state so
+the exact same sequence of "random" draws is produced on every run. Without
+it, a train/test split, a bootstrap resample, or a model's random weight
+initialization differs run to run, making "did my change actually help"
+undiagnosable from noise in the randomness alone.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take any notebook you've written with more than 10 cells. Run
 Kernel → Restart &amp; Run All. If it fails or produces different numbers,

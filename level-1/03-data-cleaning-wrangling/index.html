@@ -862,6 +862,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2327,6 +2338,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-it-actually-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Actually Works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exercise" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2557,6 +2579,38 @@ harder to trace back to their source.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="how-it-actually-works">How It Actually Works<a class="headerlink" href="#how-it-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>How <code>duplicated()</code>/<code>drop_duplicates()</code> actually detect duplicates.</strong>
+Pandas doesn't compare every row to every other row (an O(n²) operation that
+would be unusable on large data). Instead, for the specified <code>subset</code>
+columns it computes a hash of each row's values and groups rows by that
+hash — an O(n) pass, the same hash-table strategy <code>groupby</code> uses internally.
+Rows sharing a hash are then compared for exact equality (to guard against
+rare hash collisions), and <code>keep="first"</code> marks every row after the first
+occurrence within each equal-hash group as a duplicate. This is also why
+duplicate detection is sensitive to <em>exact</em> value equality: <code>"Basic"</code> and
+<code>"basic"</code> hash differently, which is precisely why Step 3 (text
+normalization) needs to happen independently of duplicate removal, not as a
+substitute for it.</p>
+<p><strong>Why <code>format="mixed"</code> can parse two different date strings in one column.</strong>
+<code>pd.to_datetime</code> normally compiles one strptime-style format string and
+applies it to every value for speed. <code>format="mixed"</code> instead falls back to
+per-value format inference: for each string, pandas' C-level date parser
+tries a cascade of common patterns (ISO <code>YYYY-MM-DD</code>, slash-separated
+<code>YYYY/MM/DD</code>, and others) until one matches, then converts the matched
+value into a <code>Timestamp</code> — a 64-bit integer count of nanoseconds since the
+Unix epoch (1970-01-01), which is what lets <code>datetime64</code> columns support
+fast arithmetic and comparison later. A string matching none of the
+cascade's patterns becomes <code>NaT</code>, pandas' <code>NaN</code>-equivalent for datetimes,
+which propagates safely through comparisons and aggregations instead of
+raising.</p>
+<p><strong>Why the median (not the mean) is the safer fill for skewed data.</strong> The
+mean is pulled toward extreme values because every point enters the <code>Σxᵢ/n</code>
+sum with equal weight; the median is the middle value after sorting, so it
+is a function only of rank/position, not magnitude — a single outlier
+10x too large moves the mean substantially but leaves the median completely
+unchanged, which is exactly the property that makes it the safer default
+for <code>fillna()</code> on real-world monetary columns that are rarely symmetric.</p>
 <h2 id="exercise">Exercise<a class="headerlink" href="#exercise" title="Permanent link">&para;</a></h2>
 <p>Take the cleaned <code>df</code> above and add one more issue to fix: a stray outlier
 row with <code>monthly_spend = 999999</code> (a clear data-entry error, not a real
