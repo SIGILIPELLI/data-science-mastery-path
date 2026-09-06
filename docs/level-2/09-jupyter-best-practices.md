@@ -145,6 +145,48 @@ loop on "what exactly produced this output."
 | Clear outputs before commit | Small, readable git history |
 | Seed randomness | Reproducible numbers |
 
+## How It Actually Works
+
+The root cause every practice on this page defends against is the same
+mechanical fact: a Jupyter notebook's **kernel state is independent of cell
+order on the page**. Each cell execution mutates one shared, persistent
+Python namespace, and the kernel only remembers *execution order* (the
+`[N]` number next to each cell), not *visual* order. If you define `x = 5`
+in cell 10, then go back and edit cell 3 to use `x`, cell 3 will run fine —
+because the namespace still has `x = 5` from the earlier execution — even
+though nobody could get that result by reading the notebook top to bottom.
+"Restart and Run All" is the only way to prove the notebook's *visual* order
+matches its *logical* dependency order, because it rebuilds the namespace
+from nothing and executes strictly top-to-bottom.
+
+**One cell, one idea** matters because Jupyter's error model halts execution
+of a *cell* on the first uncaught exception but leaves every prior cell's
+state intact — so a giant cell that loads data, cleans it, and plots it will
+lose all three steps' progress on one bad line, while three separate cells
+let you fix and re-run just the failing step without re-running (and
+re-paying the cost of) the expensive data load above it.
+
+**Pinning dependencies** (`requirements.txt` with exact versions, or a lock
+file) addresses the fact that `pandas.read_csv` defaults, `sklearn` model
+internals, and even floating-point reduction order in NumPy have changed
+across versions in ways that silently shift results — "reproducible" code
+that imports an unpinned library is only reproducible until that library's
+next release.
+
+**Clearing outputs before committing** is about git's diff algorithm, which
+is line-based and has no concept of "this changed because I re-ran the
+cell, not because I changed the code": a notebook's JSON stores rendered
+outputs (including base64-encoded images) inline, so a re-run with no code
+change still produces a full diff of noise, and two people running the same
+notebook produce spurious merge conflicts purely from output-cell content.
+
+**Seeding randomness** — anything using NumPy's `default_rng(seed)` or
+`random.seed()` — pins the pseudorandom number generator's internal state so
+the exact same sequence of "random" draws is produced on every run. Without
+it, a train/test split, a bootstrap resample, or a model's random weight
+initialization differs run to run, making "did my change actually help"
+undiagnosable from noise in the randomness alone.
+
 ## Exercise
 
 Take any notebook you've written with more than 10 cells. Run

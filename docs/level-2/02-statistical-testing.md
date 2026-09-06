@@ -120,6 +120,56 @@ much variance in an exponential distribution.
 | 2 categorical variables | `stats.chi2_contingency` |
 | Paired before/after measurements | `stats.ttest_rel` |
 
+## How It Actually Works
+
+Every test on this page is really the same three-step recipe wearing a
+different formula: (1) reduce your data to one number that captures the
+effect (a test statistic), (2) work out what the distribution of that number
+would look like if there were *truly no effect* (the null distribution), and
+(3) see how far into the tail of that null distribution your observed
+statistic falls (the p-value).
+
+**Chi-square** builds its statistic as `Σ (observed - expected)² / expected`,
+summed over every cell of the contingency table. "Expected" comes from
+assuming independence: if row and column really are unrelated, the expected
+count in a cell is `(row total × column total) / grand total`. Squaring the
+differences means both directions of deviation count as evidence against
+independence, and dividing by `expected` normalizes so a miss of 5 in a cell
+expected to hold 10 counts far more than a miss of 5 in a cell expected to
+hold 1,000. Under the null, this statistic follows a chi-square distribution
+with `(rows-1)(cols-1)` degrees of freedom — that shape is a known
+mathematical fact (a sum of squared standard normals), which is what lets
+`scipy` convert your statistic into a p-value by table lookup rather than
+simulation.
+
+**ANOVA**'s F-statistic is a ratio: `(variance *between* group means) /
+(variance *within* groups)`. If the groups were all drawn from the same
+population, both numerator and denominator estimate the same underlying
+variance, so F should hover near 1. A big F means the groups differ from
+each other by more than they differ internally — signal exceeds noise. F
+follows the F-distribution (a ratio of two chi-squares) with
+`(k-1, n-k)` degrees of freedom, again giving an exact p-value without
+simulation.
+
+**Non-parametric tests** (Mann-Whitney, Kruskal-Wallis) throw away the raw
+values and use only their *ranks*. Replacing "4.7" with "this was the 12th
+smallest value out of 60" makes the test insensitive to the actual shape of
+the distribution — it no longer assumes normality — at the cost of some
+statistical power when the data genuinely is normal (ranks discard the
+magnitude of differences, only their order). The Mann-Whitney U statistic
+counts, for every pair of one observation from each group, how often the
+group-A value exceeds the group-B value; under the null of "the two
+distributions are identical," that count has a known distribution
+regardless of what the underlying shape is.
+
+Across all of these, a "roughly normal" and "large n" caveat exists because
+of the **Central Limit Theorem**: sample means (which is what t-tests and
+ANOVA ultimately compare) tend toward a normal distribution as n grows, even
+if the raw data isn't normal — which is why the t-test and ANOVA are more
+robust to non-normality than they look, but still break down with small n
+and heavy skew, which is exactly when you reach for the rank-based
+alternative instead.
+
 ## Exercise
 
 Generate three groups of 25 samples each from `rng.normal` with means 10,

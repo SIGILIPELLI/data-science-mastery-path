@@ -165,6 +165,47 @@ handful of people need reliable access.
 | `st.download_button` | Let users take the exact filtered slice with them |
 | `st.expander` | Hide raw data by default without removing access to it |
 
+## How It Actually Works
+
+This dashboard's structure is a direct, working instance of the rerun
+model explained in Module 07: every widget change in the sidebar
+(`st.multiselect`, `st.date_input`) triggers a full top-to-bottom
+re-execution of `app.py`. `@st.cache_data` on `load_data` is what keeps that
+affordable — it hashes the function's arguments (`path`) and, since `path`
+never changes between reruns, returns the previously-parsed DataFrame from
+memory instead of re-reading and re-parsing `sales.csv` from disk every
+single time a filter moves. The `mask`/`filtered` computation deliberately
+sits *outside* the cached function precisely because it depends on live
+widget state (`regions`, `date_range`) — caching it would either need to key
+the cache on every possible filter combination (defeating the purpose) or
+silently return stale results for a new filter selection.
+
+The **weekly resample before charting** (`dt.to_period("W")`) is the same
+decomposable-aggregation principle from Module 04: summing revenue per
+week is a reduction that can be recomputed cheaply on any filtered subset,
+which is why filtering-then-aggregating on each rerun is fast enough to
+feel instantaneous even though it re-executes on every interaction — 2,000
+rows grouped into ~26 weekly buckets is a trivial amount of computation
+compared to what a human perceives as lag.
+
+`st.stop()` matters because of how Python (and Streamlit) handle
+exceptions during a rerun: if `filtered` is empty, `filtered['revenue'].mean()`
+returns `NaN` silently (not an error) but a downstream `px.line` or
+`groupby` on a truly empty frame can raise, and an uncaught exception mid-
+script would print a Python traceback directly into the deployed app for
+whoever's viewing it. Calling `st.stop()` after checking `filtered.empty`
+raises Streamlit's own internal `StopException`, which the Streamlit
+runtime catches and treats as "the script finished early, cleanly" — the
+rest of the script (all the charting code below) simply never executes for
+this rerun, and the user sees only the warning message instead of a crash.
+
+`st.download_button`'s `data=filtered.to_csv(index=False).encode("utf-8")`
+line does the CSV serialization synchronously on every rerun that reaches
+that line — Streamlit needs the actual bytes ready immediately because
+there's no server-side "generate on click" callback in this model; the
+button's job is purely to hand the browser bytes that were already computed
+during the current script execution.
+
 ## Exercise
 
 Extend `app.py` with a second tab (`st.tabs`) showing a month-over-month

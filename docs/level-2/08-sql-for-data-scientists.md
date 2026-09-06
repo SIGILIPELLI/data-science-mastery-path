@@ -170,6 +170,47 @@ non-trivial.
 | Rank/number within group | `ROW_NUMBER() OVER (PARTITION BY k ORDER BY col)` |
 | Named intermediate query | `WITH name AS (...) SELECT ...` |
 
+## How It Actually Works
+
+SQL is declarative — you describe *what* result you want, and the query
+planner decides *how* to get it — but knowing its conceptual execution order
+(different from the order you type the clauses) explains a lot of otherwise
+confusing behavior: `FROM/JOIN` → `WHERE` → `GROUP BY` → `HAVING` →
+`SELECT` → `ORDER BY` → `LIMIT`. This ordering is exactly why `WHERE` can't
+reference a column alias defined in `SELECT` (the alias doesn't exist yet
+when `WHERE` runs) but `ORDER BY` can (it runs after `SELECT`), and why
+`HAVING` — not `WHERE` — is required to filter on an aggregate like
+`COUNT(*) > 5`: at the point `WHERE` executes, no aggregation has happened
+yet, so there's no aggregate value to filter on.
+
+**JOIN** is executed by the engine as a match against a join predicate
+(`ON a.key = b.key`). Conceptually it's a full cross product filtered down
+to matching pairs, but real engines never materialize the full product —
+they build a hash table on one side's join key (usually the smaller table)
+and probe it with the other side, giving `O(n+m)` performance instead of
+`O(n×m)`, the same trick pandas' `merge` uses under the hood (Module 01).
+`INNER JOIN` keeps only matched pairs; `LEFT JOIN` additionally keeps every
+left-side row with no match, filling the right side's columns with `NULL` —
+which is why a `COUNT()` after a `LEFT JOIN` can silently double-count if
+the "one" side of a one-to-many relationship isn't the side you joined from.
+
+**Window functions** (`OVER (PARTITION BY ...)`) compute an aggregate per
+partition exactly like `GROUP BY`, but instead of collapsing each group to
+one row, they annotate every original row with its group's value — the SQL
+equivalent of pandas' `.transform()` versus `.agg()`. `ROW_NUMBER() OVER
+(PARTITION BY k ORDER BY col)` assigns rank purely by position after sorting
+within each partition, recomputed independently per partition — which is
+what makes "top-3 per category" queries possible without a self-join.
+
+**CTEs** (`WITH name AS (...)`) are named subqueries evaluated (conceptually)
+once and referenced by name in the main query, letting you write a multi-
+stage transformation as readable sequential steps instead of nesting
+subqueries three deep. Most engines treat a CTE as an optimization fence or
+inline it into the outer query depending on the planner — functionally, the
+important guarantee is correctness and readability, not necessarily that
+it's materialized as a temp table (that varies by database and is a
+performance detail, not a semantics one).
+
 ## Exercise
 
 Using the `orders`/`customers` tables above, write one query with a CTE

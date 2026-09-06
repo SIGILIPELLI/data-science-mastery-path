@@ -151,6 +151,49 @@ new use case.
 | Re-audit on retrain | Bias silently reintroduced by a retraining cycle |
 | Re-review on repurposing | A model's fairness evaluation not transferring to a new use case |
 
+## How It Actually Works
+
+**Why aggregate AUC can hide a subgroup failure — mechanically, not just
+"in principle."** AUC (area under the ROC curve) is computed from a
+model's *ranking* of scored examples across the full population — it
+asks "across all pairs of one positive and one negative example, how often
+does the model rank the positive higher?" A subgroup that's a small
+fraction of the total data (say, applicants with under 6 months of credit
+history) contributes proportionally few pairs to that overall calculation:
+even if the model ranks that subgroup's examples close to randomly (AUC
+≈0.5 for them specifically), the vastly larger well-represented majority's
+strong ranking can still pull the *overall* AUC up to 0.85. This isn't a
+flaw in AUC as a metric — it's doing exactly what it's defined to do
+(summarize ranking quality over the whole distribution it's given) — it's
+a flaw in reporting only the aggregate number when the underlying
+population isn't homogeneous, which is precisely why subgroup-level
+recomputation of the same metric is the fix, not a different metric.
+
+**Why risk-tiering as a mechanical rubric, rather than case-by-case
+judgment, actually changes outcomes.** A rubric built from objective,
+checkable flags (does this decision affect a legally protected class? is
+it individually reversible? is it made about an individual rather than in
+aggregate?) removes the correlation between "how much scrutiny a model
+gets" and "how much delivery pressure or political capital the team behind
+it has" — the exact failure mode named at the top of the page. This is the
+same mechanical-forcing-function logic behind why launch gates (a
+blocking review) work where "recommended" review doesn't: a rule enforced
+by process rather than by individual discretion is the only kind that
+reliably survives the specific moment (a deadline) when the incentive to
+skip it is highest.
+
+**Why re-auditing on retrain is not optional, mathematically.** A model's
+fairness properties (selection rate parity, equal opportunity — Module 09,
+Level 3) are functions of the *specific fitted model and the specific data
+it was trained on*, not durable properties of "the model" as an abstract
+concept. Retraining on new data changes the fitted parameters, and if the
+new training window has a different demographic composition, label
+distribution, or a newly introduced proxy correlation, the previously
+measured fairness gaps can reappear, shrink, or take a new form entirely —
+a fairness audit performed once, at launch, is a statement about that one
+fitted artifact, and carries no guarantee whatsoever about the artifact
+produced by the next retraining run.
+
 ## Exercise
 
 Apply the risk-tiering rubric to three models (real or hypothetical) from

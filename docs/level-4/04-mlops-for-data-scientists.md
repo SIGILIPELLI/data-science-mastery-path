@@ -153,6 +153,49 @@ change that shifts a feature's distribution overnight.
 | Data drift monitoring | Often the DS's job — you know what "normal" looks like |
 | Retraining trigger | Define explicitly; don't leave it to "someone will notice" |
 
+## How It Actually Works
+
+**Why feature order silently corrupts predictions**: a fitted scikit-learn
+model stores its learned coefficients (or split thresholds) positionally —
+`model.coef_[0]` is "whatever the first training column was," with no
+column-name awareness baked into the fitted object once it's serialized as
+a plain array. Feeding `[tenure_months, income, days_since_last_purchase]`
+at inference time when the model was trained on
+`[income, tenure_months, days_since_last_purchase]` doesn't raise any
+error — it just multiplies each coefficient against the wrong feature's
+value, producing a numerically valid but meaningless prediction. This is
+exactly the kind of bug that offline validation can't catch (validation
+data uses the same code path, so it's consistently "wrong" in the same
+consistent way) and that only shows up as unexplained production
+degradation — which is why enforcing `feature_order` explicitly at
+inference, rather than trusting dict ordering, converts a silent
+correctness bug into a loud `KeyError`.
+
+**The KS test for drift** works by comparing the two samples' empirical
+CDFs directly: `ks_2samp` computes the maximum vertical distance between
+the reference distribution's cumulative distribution function and the
+current distribution's, `D = max|F_ref(x) - F_current(x)|`. Under the null
+hypothesis that both samples come from the same underlying distribution,
+`D`'s sampling distribution is known (it depends only on the two sample
+sizes), which is what lets the test convert an observed `D` into a
+p-value without assuming any particular distributional shape for the
+feature itself — it's nonparametric, unlike a t-test's normality
+assumption, which matters because feature distributions in production
+(income, click counts) are routinely skewed.
+
+**Why drift monitoring matters more than label-based monitoring for many
+models**: true performance monitoring requires ground-truth labels, and for
+churn, fraud, or LTV-style targets, the label only exists 30-90 days (or
+more) after the prediction was made — a genuine reporting lag, not a
+tooling gap. A model that starts silently misfiring on day 1 due to an
+upstream schema change won't show up in a labeled performance metric until
+day 30+, but a KS test on the affected feature's distribution can flag the
+shift within the same monitoring cycle it happens in — drift is a
+*leading* indicator, label-based performance is a *lagging* one, and
+production monitoring needs both because drift without label deterioration
+can also be a false alarm (a benign shift the model happens to be robust
+to).
+
 ## Exercise
 
 Take a model from an earlier module. Write the `metadata.json` it should

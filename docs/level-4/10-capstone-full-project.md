@@ -196,6 +196,51 @@ prevent.
 | Risk-scoring deployment vs. experiment-before-reallocation | L4 Modules 04-05 |
 | Decision-focused readout structure | L4 Module 07 |
 
+## How It Actually Works
+
+This capstone's five stages are worth reviewing as a single mechanism
+rather than five separate techniques, because the thing that actually
+prevents a bad recommendation is how they chain together.
+
+**Stage 1's descriptive gap (basic vs. enterprise churn) is confounded by
+construction, and Stage 2's model doesn't fix that.** `LogisticRegression`
+fit on `plan_type`, `tenure_months`, `support_tickets`, and `logins`
+estimates each coefficient holding the others fixed (Module 01, Level 3) —
+so the huge `plan_type_enterprise` coefficient (-0.520) already accounts
+for the fact that enterprise customers also tend to have more logins and
+tenure. But "controlling for observed confounders" only removes bias from
+confounders you measured; a model can't distinguish "enterprise customers
+churn less *because* of the plan" from "the kind of customer who buys
+enterprise also churns less for unmeasured reasons (higher switching cost,
+dedicated account manager)" — which is exactly why Stage 4 explicitly
+declines to treat the coefficient as actionable and instead separates
+`plan_type`/`tenure_months` (descriptive, not interventions) from
+`logins`/`support_tickets` (things an actual program could change).
+
+**Why AUC 0.812 is evaluated as "plausible" rather than just "good."** An
+implausibly high AUC (say, 0.99) on a churn model is a standard signal of
+label leakage — a feature that encodes information only available *after*
+the outcome is already known (e.g. a "cancellation survey submitted" flag
+correlating almost perfectly with churn). 0.81 sits in the range
+achievable from genuinely predictive, pre-outcome behavioral signal
+without being suspiciously perfect, which is why the module flags it as a
+sanity check worth doing on every model, not just this one.
+
+**Why Stage 4's randomized experiment is the only way to convert the
+Stage 3 correlations into a number a $500k allocation decision can actually
+rest on.** The engagement-churn relationship found by the model is
+observational — Stage 4 names the specific alternative explanation
+(reverse causation: churn-prone customers disengage first, rather than
+disengagement causing churn) that a regression coefficient structurally
+cannot rule out (Module 02, Level 4). Randomizing who receives the
+engagement nudge breaks exactly that ambiguity: if only the *treated* group's
+churn rate improves relative to a randomized control, the "logins cause
+lower churn" direction is now supported by a design where reverse causation
+is impossible by construction — which is the whole reason the readout
+recommends deploying the *existing* correlational model for risk-flagging
+(a low-stakes, reversible use) while withholding full budget commitment
+until the causal check comes back.
+
 ## Final exercise
 
 Extend this capstone with one additional stage: a risk-tiering pass

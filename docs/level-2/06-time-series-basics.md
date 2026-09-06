@@ -132,6 +132,51 @@ returning) confirms the weekly seasonality numerically, not just visually.
 | Split trend/season/residual | `seasonal_decompose(series, period=7)` |
 | Check lag correlation | `acf(series, nlags=10)` |
 
+## How It Actually Works
+
+**Resampling** is a groupby in disguise: `resample("W")` buckets every
+timestamp into the week it falls in (using the index's datetime values as
+the group key rather than a column), then applies your aggregation
+(`.mean()`, `.sum()`) per bucket, exactly like `groupby` did in Module 01.
+The difference from a plain groupby is that resample also *fills in* time
+buckets that had zero rows (a day with no recorded observations becomes
+`NaN` rather than simply missing from the output), because it knows the
+full, regular calendar grid the data should live on — a plain groupby has no
+such notion of a "gap."
+
+**Rolling windows** compute a statistic over a sliding subsequence: for
+`rolling(7).mean()`, the value at position `i` is the mean of positions
+`i-6` through `i` inclusive. It's a low-pass filter — averaging cancels
+out high-frequency noise (day-to-day fluctuation) while preserving the
+lower-frequency trend, because random noise across 7 days tends to partially
+offset while a genuine trend pushes every day in a similar direction. The
+mechanical cost is that the first 6 values have no full window and come out
+`NaN` (or are computed on a partial window if `min_periods` is set), and any
+real change in the underlying data takes up to a full window-width to fully
+show up in the smoothed line — a rolling average necessarily lags the raw
+series.
+
+**Seasonal decomposition** models the series as a combination of trend,
+seasonal, and residual components — additively (`y = trend + season +
+residual`) when the seasonal swing stays a roughly constant absolute size,
+or multiplicatively (`y = trend × season × residual`) when the swing grows
+proportionally with the trend level. The trend is extracted first via a
+centered moving average with a window equal to the seasonal period (which is
+why `period=7` for weekly data), then the seasonal component is estimated by
+averaging the detrended values for each position-in-cycle (all Mondays
+together, all Tuesdays together, etc.) across every cycle in the data, and
+whatever's left after removing both is the residual.
+
+**Autocorrelation** at lag `k` is just the ordinary Pearson correlation
+between the series and a copy of itself shifted by `k` steps —
+`corr(yₜ, yₜ₋ₖ)`. A value near 0 at most lags with a spike back up at lag 7
+is a numerical fingerprint of weekly seasonality: it says "today's value
+predicts almost nothing about tomorrow, but it predicts quite a bit about
+the same day next week." This is exactly the signal that later forecasting
+models (ARIMA's autoregressive term, or a weekly seasonal component) are
+built to exploit — the ACF plot is effectively a diagnostic for which lags
+are worth feeding a forecasting model as predictors.
+
 ## Exercise
 
 Using the `sales` series above, resample to monthly totals with `.resample("ME").sum()`

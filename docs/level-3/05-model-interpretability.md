@@ -163,6 +163,62 @@ ratio rises, from ~72% at low debt to ~21% at high debt. This is the
 | SHAP | "Why did this one prediction come out this way?" |
 | Partial dependence | "What's the average shape of this feature's effect?" |
 
+## How It Actually Works
+
+**Logistic regression coefficients** are additive on the *log-odds* scale:
+`log(p/(1-p)) = β₀ + β₁x₁ + ...`. That's why standardizing features first is
+required for comparability — a one-unit change means something completely
+different for `income_k` (thousands of dollars) than `debt_ratio`
+(a 0-0.6 fraction), so comparing raw coefficients would just compare units,
+not importance. After standardizing (mean 0, unit variance), a one-unit
+change means "one standard deviation," making magnitudes genuinely
+comparable across features, and the coefficient's sign directly tells you
+the direction of the effect on log-odds (and therefore on probability,
+since the sigmoid is monotonic).
+
+**Impurity-based importance** sums, per feature, the total reduction in
+Gini impurity (or entropy) across every split that feature was chosen for,
+weighted by the number of samples the split affected (Module 05, Level 2).
+Its bias toward high-cardinality continuous features is mechanical: a
+continuous feature offers vastly more candidate split points than a
+low-cardinality categorical one, so it has more chances to be selected for
+a locally optimal split purely by having more options to try — not
+necessarily because it carries more real signal. It also can't distinguish
+direction because impurity reduction is a magnitude, not a sign.
+
+**Permutation importance** sidesteps that bias entirely by working at the
+*prediction* level instead of the tree-structure level: shuffle one
+feature's column (breaking its real relationship with the target while
+preserving its marginal distribution), rerun the model, and measure how
+much a performance metric (accuracy, log-loss) degrades. A feature the
+model has learned to rely on will hurt performance when scrambled
+regardless of whether it's a tree, a linear model, or a neural net — the
+method only touches inputs and outputs, never internal structure, which is
+exactly what makes it model-agnostic.
+
+**SHAP values** are grounded in cooperative game theory (Shapley values):
+treat each feature as a "player" contributing to the "payout" (the
+prediction), and fairly split credit for the gap between the average
+prediction and this specific prediction by averaging each feature's
+marginal contribution across every possible order in which features could
+be "added" to the model. That averaging-over-orderings is what guarantees
+the contributions sum exactly to `prediction - base_value` — a property
+(*efficiency*, one of the Shapley axioms) that ad hoc attribution schemes
+don't generally have. `TreeExplainer` computes this efficiently for tree
+ensembles using the tree structure directly rather than brute-force
+enumeration, which is what makes it fast enough to run per-prediction at
+scale.
+
+**Partial dependence** estimates `E_x[f(x_target, X_other)]` — the model's
+average prediction as one feature is swept across its range while every
+*other* feature keeps its actual observed values (averaged over the whole
+dataset at each swept point). It answers a population-average question
+("what's the shape of this feature's effect overall") rather than an
+individual one, and its main weakness is the same averaging: if the
+feature's effect depends heavily on another feature's value (an
+interaction), partial dependence can mask that by blending opposite effects
+together into one misleadingly smooth curve.
+
 ## Exercise
 
 Using the `loans` example, pick one applicant your `forest` model denies

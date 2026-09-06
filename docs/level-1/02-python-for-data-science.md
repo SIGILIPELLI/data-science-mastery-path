@@ -191,6 +191,39 @@ is a `groupby` with the right aggregation functions.
 | Reproducible random draw | `np.random.default_rng(42)` | — |
 | To/from NumPy | — | `df.to_numpy()` / `pd.DataFrame(arr)` |
 
+## How It Actually Works
+
+**Why vectorization is actually faster, not just shorter.** A Python `for`
+loop over a list re-enters the Python interpreter for every single element:
+each `+` triggers a type check, a method dispatch, and a new object
+allocation, because Python objects (even a plain `int`) carry type
+information and reference-count metadata alongside their value. A NumPy
+array instead stores raw, fixed-type values (e.g. `float64`) packed
+contiguously in one memory block, with the dtype recorded once for the whole
+array. `x + y` on two such arrays calls a single pre-compiled C loop (a
+"ufunc," universal function) that walks both blocks of memory directly, with
+no per-element interpreter overhead and much better CPU cache locality
+because sequential memory access is what caches are optimized for. That's
+the entire source of the 10-100x speedup — it's not "NumPy is a better
+language," it's "NumPy skips the interpreter and the memory layout is
+cache-friendly."
+
+**Why a boolean mask filters in one pass.** `v > 25` doesn't loop in Python
+either — it produces a same-shaped boolean array by the same ufunc
+mechanism, and `v[mask]` then uses that boolean array to select only the
+`True` positions in a single compiled pass, copying matching elements into
+a new, smaller array.
+
+**Why `.groupby()` is fast at scale.** Under the hood, `groupby("region")`
+builds a hash table mapping each distinct group label to the row indices
+that belong to it (conceptually similar to Python's own `dict`, but
+implemented in Cython over NumPy arrays) — one linear pass to build the
+hash table, then one pass per requested aggregate (`sum`, `mean`, `size`)
+that touches only the relevant column's cached indices per group. This is
+why `groupby(...).agg(...)` scales roughly linearly with row count rather
+than requiring one full table scan per group per aggregate, which is what a
+naive nested loop over unique regions would do.
+
 ## Exercise
 
 Build a DataFrame of 8 rows with columns `product`, `price`, and

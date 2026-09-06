@@ -154,6 +154,44 @@ one (small sample) is more honest about how little you actually know.
 | p-hacking | — | Testing many slices and reporting only the "hits" |
 | Bonferroni fix | `alpha / n_tests` | Adjusted threshold for multiple comparisons |
 
+## How It Actually Works
+
+**What the t-statistic actually computes.** `stats.ttest_ind` calculates
+`t = (x̄_a - x̄_b) / SE`, where the standard error `SE` is built from each
+group's variance and sample size (roughly `√(s_a²/n_a + s_b²/n_b)` for
+Welch's version, which SciPy uses by default when variances may differ).
+This is a *signal-to-noise ratio*: the numerator is the observed difference
+(the "signal"), and the denominator is how much that difference is expected
+to wobble from sample to sample just due to random sampling (the "noise").
+A t-statistic of -1.656 means the observed gap is only about 1.66 standard
+errors away from zero — under the assumption of no true difference, gaps
+that size or larger happen often enough by chance (about 10% of the time,
+matching `p = 0.1017`) that it isn't strong evidence of a real effect. The
+p-value itself comes from the t-distribution's cumulative density function:
+it's the area under that distribution's curve beyond the observed
+|t|-value, in both tails.
+
+**Why smaller samples produce wider confidence intervals, mechanically.**
+The CI half-width is `t_critical × SEM`, where `SEM = s / √n` (the standard
+error of the mean). Because `n` is under a square root in the denominator,
+shrinking your sample by 4x only shrinks noise-reduction by 2x — quadrupling
+your data halves your CI width, not eliminates it. This square-root
+relationship is why "just collect a bit more data" often helps less than
+intuition suggests, and why genuinely tight estimates usually require
+sample sizes an order of magnitude larger, not just "some more."
+
+**Why repeated testing manufactures false positives.** Each independent
+t-test at `p < 0.05` has, by construction, a 5% chance of a false positive
+when there is truly no effect — that's what the threshold *means*. Running
+100 independent noise-vs-noise comparisons is like flipping 100 biased
+coins that each land "significant" 5% of the time: the expected count is
+`100 × 0.05 = 5`, and the simulation's actual count of 9 is well within
+normal sampling variation around that expectation. The Bonferroni fix
+(`alpha / n_tests`) works because it lowers each individual test's
+false-positive rate so that the *combined* probability of at least one false
+positive across all tests stays near the original 5%, by a direct
+union-bound argument.
+
 ## Exercise
 
 Re-run the p-hacking simulation with `trials = 1000` and `alpha = 0.01`

@@ -175,6 +175,42 @@ Run through this on every new dataset, before writing a single conclusion:
 | Compare groups | `df.groupby("g")[["c1","c2"]].mean()` |
 | Linear relationships | `df.corr(numeric_only=True)` |
 
+## How It Actually Works
+
+**Where the IQR rule's "1.5×" actually comes from.** Quartiles are computed
+by sorting the column and taking the values at the 25th and 75th percentile
+positions (pandas uses linear interpolation between the two nearest ranks
+when the percentile doesn't land exactly on a data point). For data that is
+*exactly* normally distributed, the interval `[Q1 - 1.5×IQR, Q3 + 1.5×IQR]`
+covers roughly 99.3% of the distribution — so under normality, only about
+0.7% of points are expected to fall outside it by chance. The constant 1.5
+was chosen by statistician John Tukey specifically to make "outlier" flags
+rare under normal-ish data while still being sensitive on realistic
+sample sizes; it isn't derived from anything about *your* specific dataset,
+which is why it's a heuristic starting point to investigate, not an
+automatic deletion rule.
+
+**Why quartiles (not mean ± std) are the right outlier detector here.**
+Section "Step 1" already showed the max (260,000) is inflated by the very
+outliers you're trying to find — if you used mean and standard deviation to
+define "extreme," the outliers themselves would drag the mean and
+especially the std upward, shrinking how extreme they *appear* relative to
+that inflated spread (a phenomenon called masking). Quartiles are
+rank-based, like the median, so a few extreme values can't pull Q1 or Q3
+away from where the bulk of the data actually sits — which is exactly why
+they were used here instead.
+
+**What Pearson's `r` in `.corr()` is actually measuring.** The formula is
+`r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / [√Σ(xᵢ - x̄)² · √Σ(yᵢ - ȳ)²]` — the numerator
+(covariance, unscaled) is positive when x and y tend to move in the same
+direction relative to their own means at the same time, negative when they
+move oppositely, and the denominator rescales by both variables' own spread
+so the result is always between -1 and 1 regardless of the columns' units.
+Because the formula only involves *linear* deviations from each mean, it is
+structurally blind to curved (e.g. U-shaped) relationships — a perfect
+parabola can produce `r ≈ 0` even though y is completely determined by x,
+which is the concrete mechanism behind the "linear-only" warning above.
+
 ## Exercise
 
 Using the `df` from this module, run the full EDA checklist on

@@ -160,6 +160,49 @@ ranges rather than a smooth trend.
 | Continuous → buckets | `pd.cut(series, bins=[...], labels=[...])` |
 | Date difference → numeric | `(date_a - date_b).dt.days` |
 
+## How It Actually Works
+
+**One-hot encoding** (`get_dummies`) exists because most models can't
+interpret a category label as a number without implying a false ordering:
+if `"red"=0, "green"=1, "blue"=2`, a linear model reads `"blue"` as
+literally twice `"green"`, which is meaningless. One-hot instead gives each
+category its own binary column, so the model learns an independent
+coefficient per category. The tradeoff is dimensionality — a column with
+500 unique cities becomes 500 new columns — and the "dummy variable trap":
+if you keep all `k` columns for a `k`-category feature *and* fit an
+intercept, the columns become linearly dependent (they always sum to 1),
+which makes the design matrix singular for exact linear regression. That's
+why `get_dummies(..., drop_first=True)` exists — dropping one category
+folds it into the intercept and removes the redundancy, though tree-based
+models don't care because they never invert a matrix.
+
+**Scaling** matters mechanically, not just for tidiness. Gradient descent
+(used to fit logistic regression, neural nets, etc.) takes steps proportional
+to the gradient in each feature's direction; if one feature ranges 0-1 and
+another 0-100,000, the loss surface becomes a long narrow valley and
+gradient descent zig-zags instead of heading straight to the minimum —
+scaling makes the valley closer to circular, so a single learning rate works
+for every feature simultaneously. Distance-based methods (k-NN, k-means,
+anything using Euclidean distance) are affected even more directly: an
+unscaled feature with a larger numeric range mechanically dominates the
+distance calculation regardless of how informative it actually is, since
+`distance = sqrt(Σ(xᵢ - yᵢ)²)` sums squared raw differences. `StandardScaler`
+transforms each feature to `(x - μ) / σ`, so every feature has mean 0 and
+unit variance — none of that dominance survives. Tree-based models
+(random forest, gradient boosting) are the exception: a split threshold
+`feature > t` is invariant to any monotonic transformation of that feature,
+so scaling changes nothing about what a tree learns.
+
+**Binning** deliberately discards information to buy two things: robustness
+to outliers (a value of $50,000 income and $500,000 income land in the same
+top bucket instead of one dominating a linear term) and the ability to model
+a non-monotonic relationship with a linear model (age's effect on some
+outcome might rise then fall — a single linear coefficient can't represent
+that, but bins each get their own coefficient, effectively giving the model
+a free-form step function). `pd.cut` assigns each value to an interval by a
+simple binary search over the bin edges, so the cost is purely the resolution
+you lose within each bin.
+
 ## Exercise
 
 Using the `txns` DataFrame above, add a feature `orders_per_month` computed

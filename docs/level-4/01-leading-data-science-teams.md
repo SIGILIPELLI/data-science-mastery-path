@@ -118,6 +118,44 @@ stated explicitly rather than left implicit.
 | Impact × confidence / effort | Making prioritization tradeoffs explicit and defensible |
 | Failure-mode table | Self-checking your own first six months as a lead |
 
+## How It Actually Works
+
+The **impact × confidence / effort** formula is worth unpacking rather than
+treating as a magic score. It's a discrete, per-project approximation of
+*expected value per unit cost*: `impact` is a payoff estimate, `confidence`
+(scaled to 0-1 by dividing by 10) discounts that payoff by how likely it is
+to actually materialize — mathematically identical to computing
+`expected_value = payoff × P(success)`, the same expected-value logic behind
+sizing a bet or an A/B test's expected lift — and dividing by `effort_weeks`
+converts total value into value *per week of scarce team capacity*, which
+is the actual constraint being allocated. This is exactly why "Ad-hoc exec
+request" (low impact, but nearly free and highly certain) outranks "Churn
+model v2" (high impact, but expensive and uncertain) — the score isn't
+saying the churn model matters less, it's saying its expected value *per
+week invested* is lower, which is the right unit to rank by when weeks are
+the scarce resource being allocated across a whole backlog.
+
+The formula's blind spots are just as mechanical. It's linear and treats
+each project independently, so it can't represent dependencies (project B
+only has value if A ships first), option value (a small, low-scoring
+experiment that unlocks information for a much bigger future bet), or
+diminishing/increasing returns at the portfolio level (all high-effort
+strategic bets scoring lower doesn't mean the team should never do
+strategic work — it means the score is one input, not the decision).
+That's the actual justification for "the score doesn't replace judgment" —
+it's not a hedge, it's a precise statement of what a single scalar ranking
+structurally cannot capture.
+
+**Review-by-questions** scales for a specific structural reason: a
+rewrite's cost is proportional to the lead's own time on *every* piece of
+work reviewed (an O(n) bottleneck where n is team output), while a good
+question's cost is roughly constant per review but transfers the fixing
+work back to the analyst — which is also, not incidentally, how the
+analyst builds the judgment to not need the same question asked next time.
+A rewrite optimizes the current artifact; a question optimizes the
+analyst's future artifacts, which is the actual lever a lead has that an IC
+role doesn't.
+
 ## Exercise
 
 For your current (or a hypothetical) team's project backlog, score at

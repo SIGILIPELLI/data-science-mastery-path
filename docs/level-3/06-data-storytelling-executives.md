@@ -131,6 +131,47 @@ gives you one page to make the case.
 | Hedge with vague language | Give a concrete range tied to a stated assumption |
 | End with "more research needed" | End with a specific, actionable recommendation |
 
+## How It Actually Works
+
+The **pyramid principle** (Barbara Minto's framework, from which this
+module's structure is drawn) isn't just a formatting preference — it's
+built around how working memory actually processes incoming information.
+Working memory holds roughly 4±1 chunks of new information at once before
+older chunks start getting displaced; a bottom-up narrative (data → method
+→ analysis → conclusion) forces the listener to hold every intermediate
+step in memory *while waiting* for the payoff, and any interruption (a
+question, a distraction) before the conclusion arrives loses the thread
+entirely. Leading with the conclusion converts the rest of the talk into
+elaboration of something already understood — each supporting point is now
+evaluated against a known claim rather than added to an unresolved stack,
+which is dramatically lower cognitive load and survives interruption.
+
+**The uncertainty-framing example** is a direct application of the
+confidence-interval logic from Module 07/10 of Level 2: "$1.5M–$2.5M" is
+functionally a stated interval width communicating the same information a
+95% CI would (`estimate ± margin`), just in business language instead of
+"a two-proportion z-test at α=0.05." The "falsely precise" failure mode
+(a single point estimate with no stated uncertainty) is misleading for the
+same statistical reason a naive point estimate without a confidence
+interval is misleading in Level 2 — it implies a level of certainty the
+underlying sample size and assumptions don't actually support. Naming the
+assumption behind the number (the comparable program's 30% success rate)
+is what lets a sharp stakeholder attack the assumption instead of
+misreading the number as more solid than it is — the executive-communication
+equivalent of showing your model's inputs, not just its output.
+
+**Chart selection matching the claim** works because different chart types
+encode different visual comparisons more or less efficiently for human
+perception (the same perceptual hierarchy — position and length read faster
+and more accurately than color or area — that Module 03's small-multiples
+discussion relies on). A bar chart of `churn_rate` by `segment` puts the
+comparison you're making (which segment churns more) directly onto length,
+the single most accurately-perceived visual channel; a pie chart or a
+stacked area chart would force the same comparison onto angle or stacked
+position, both of which measurably increase perception error in controlled
+studies. Choosing the chart is really choosing which visual channel the
+key comparison gets mapped to.
+
 ## Exercise
 
 Take the churn analysis from module 10 of Level 2 (the A/B test project)

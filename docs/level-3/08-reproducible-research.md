@@ -157,6 +157,56 @@ a bit-identical rerun.
 | One pipeline entry point | Manual, undocumented multi-step reruns |
 | Documented limitations | Results misapplied outside their valid scope |
 
+## How It Actually Works
+
+**Random seeding** works because "randomness" in software is almost always
+*pseudo*random: a deterministic algorithm (a linear congruential generator,
+or NumPy's PCG64) generates a long sequence of numbers that only *looks*
+statistically random, entirely determined by an internal state. Calling
+`np.random.seed(42)` initializes that internal state to a fixed, known
+starting point, so every subsequent "random" draw follows the exact same
+sequence every time the program runs — reproducibility here isn't
+suppressing randomness, it's making the specific pseudo-random sequence
+identical across runs. This is also precisely why seeding doesn't survive a
+library version change: if the underlying generator algorithm itself
+changes between versions (or NumPy switches its default bit generator, as
+it did between legacy `RandomState` and the newer `Generator` API), the same
+seed produces a *different* sequence — the seed pins a position in an
+algorithm's output stream, not an absolute set of values.
+
+**Hashing raw data files** (`sha256`) works because a cryptographic hash
+function maps an input of any size to a fixed-size fingerprint such that
+changing even a single byte of the input changes the output completely and
+unpredictably (the avalanche effect) — there's no way to alter the file
+while keeping the same hash by chance. This makes a hash an extremely cheap
+way to answer "is this literally the same file" without diffing the whole
+file's contents or trusting a filename/timestamp (which say nothing about
+content) — it's the same integrity-checking mechanism used to verify
+downloaded software hasn't been corrupted or tampered with, applied here to
+catch a silently-replaced or accidentally-edited raw dataset.
+
+**Environment pinning** matters mechanically because `pip`'s dependency
+resolver, given a range like `pandas>=2.0`, will install whatever the
+*newest* version satisfying that range happens to be *at install time* —
+which is a moving target. Two people running `pip install -r
+requirements.txt` a year apart can silently get different pandas versions
+with different default arguments (pandas has changed things like default
+`observed=` behavior in groupby across versions), producing different
+numeric output from *identical* code. `pip freeze` captures the fully
+resolved dependency graph (including transitive dependencies your
+`requirements.txt` never names directly) at a point in time, which is the
+only way to guarantee the *exact* same code runs against the exact same
+library versions later.
+
+**The raw/processed separation** is a specific application of
+idempotency: because `processed/` is produced purely as a pure function of
+`raw/` + code (no manual edits ever touch it), deleting and regenerating it
+from `run_pipeline.py` is guaranteed to be safe — there is no hidden state
+living only in the processed files that the code doesn't know how to
+recreate. The moment someone hand-edits a value inside `processed/`, that
+guarantee is broken and the project silently stops being reproducible from
+its own inputs.
+
 ## Exercise
 
 Take a notebook you've written for an earlier module in this path. Refactor

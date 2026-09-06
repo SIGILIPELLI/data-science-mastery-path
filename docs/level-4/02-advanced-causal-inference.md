@@ -175,6 +175,51 @@ as a counterfactual after it.
 | RD | Continuity of confounders across cutoff | Manipulation of running variable near cutoff |
 | Synthetic control | Good pre-period fit implies good counterfactual | Poor donor pool / pre-fit |
 
+## How It Actually Works
+
+**2SLS's algebra explains why it fixes confounding.** If `X` is confounded
+by unobserved `U`, a direct regression `Y ~ X` picks up both the true
+causal effect and `U`'s leakage through `X`. Stage 1 (`X ~ Z`) produces
+`X̂`, the part of `X` that's explained *only* by the instrument `Z` — and
+because `Z` is uncorrelated with `U` by the exclusion restriction, `X̂` is
+now a version of the treatment that is, by construction, purged of the
+confounding correlation with `U`. Stage 2 (`Y ~ X̂`) therefore estimates the
+causal effect of the *instrument-driven variation* in treatment — an
+unbiased slope for the same reason isolating the "as-if random" component
+of `X` isolates it from any path through `U`. The whole method fails
+silently if `Z` has even a small direct effect on `Y` (exclusion
+violated): that unaccounted path shows up baked into the stage-2
+coefficient with no diagnostic to flag it, which is exactly why exclusion
+has to be argued from domain knowledge rather than checked from the data.
+
+**Regression discontinuity's validity is a continuity argument.** It relies
+on every *other* determinant of the outcome varying smoothly across the
+cutoff — no other reason for a jump exists at `running_var = 0` except the
+treatment rule flipping there. Fitting `outcome ~ running_var * treated`
+with an interaction term lets the slope of `running_var` differ on each
+side of the cutoff, so `treated`'s coefficient captures the *vertical jump*
+at the cutoff specifically, not a slope difference. The bandwidth tradeoff
+is a textbook bias-variance tradeoff: a narrow bandwidth keeps only units
+very close to the cutoff (where the "otherwise identical" assumption is
+most credible — lower bias) but leaves fewer data points (higher variance
+in the estimate); a wide bandwidth does the reverse. Reporting several
+bandwidths is a direct sensitivity check against exactly that tradeoff.
+
+**Synthetic control's weights come from constrained least squares.**
+`nnls` (non-negative least squares) finds weights minimizing
+`Σ(pre_treated - pre_controls · weights)²` subject to `weights ≥ 0` —
+finding the closest possible weighted blend of the donor pool's
+*pre-treatment trajectory* to the treated unit's own pre-treatment
+trajectory. Non-negativity (plus normalizing to sum to 1, an implicit
+convexity constraint) is what keeps this an interpolation of the donor
+pool's shapes rather than an unconstrained regression that could
+extrapolate wildly by giving some donors negative weight. The method's
+entire credibility rests on **pre-period fit quality**: if the fitted
+synthetic control can't closely reproduce the treated unit's known,
+verifiable pre-treatment trajectory, there's no reason to trust that the
+same weights produce a valid counterfactual for the unobservable
+post-treatment "what would have happened without treatment."
+
 ## Exercise
 
 Take the DiD example above and add a third pre-period point per group.

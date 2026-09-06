@@ -139,6 +139,48 @@ the script.
 | Sidebar controls | `with st.sidebar: ...` |
 | Run locally | `streamlit run app.py` |
 
+## How It Actually Works
+
+Streamlit's entire programming model rests on one mechanical rule: **any
+widget interaction re-executes the whole script from top to bottom** — there
+is no callback graph or partial re-render like a traditional web framework.
+When you move the `region_filter` multiselect, Streamlit doesn't call some
+registered "on change" function; it reruns `app.py` in its entirety, and on
+this rerun `st.multiselect` immediately returns the new selection (Streamlit
+tracks each widget's current value keyed by its position/label in the
+script and feeds it back in). This is what makes the code read like a
+plain, linear script with no event wiring — the "reactivity" is really just
+"rerun everything, cheaply."
+
+That rerun-everything model is also exactly why `@st.cache_data` exists and
+matters. Without it, `load_data()` — or a real database query — would
+re-execute on *every* widget nudge, even though its result never changed.
+`st.cache_data` works by hashing the function's arguments (and its source
+code) to build a cache key; on a rerun with the same arguments, Streamlit
+skips calling the function and returns the previously stored result
+directly, turning an O(script reruns × expensive work) cost into
+O(expensive work once) plus cheap cache lookups thereafter. The cache is
+invalidated automatically if the function's code or arguments change,
+which is why it's safe to leave in place during development.
+
+**Session state persistence** (implicit here, since widget values must
+survive across reruns) is handled by Streamlit associating each widget
+instance with a stable key derived from its position and arguments in the
+script, storing its current value server-side between reruns — this is why
+two widgets with the exact same label and type can silently collide unless
+given an explicit `key=`, since Streamlit has no other way to tell them
+apart across reruns.
+
+**Deployment's `--server.address 0.0.0.0`** flag matters mechanically
+because Streamlit's dev server binds to `localhost` (`127.0.0.1`) by
+default, which only accepts connections originating from the same machine;
+binding to `0.0.0.0` tells the OS to accept connections on *any* network
+interface, which is what makes the app reachable from other machines at
+all (a container's own internal network, or the public internet, depending
+on what else fronts it) — without that flag, a dashboard "deployed" to a
+server would still only be visible to someone logged into that server
+directly.
+
 ## Exercise
 
 Extend the dashboard above with a `st.selectbox` letting the user choose

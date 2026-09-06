@@ -117,6 +117,40 @@ value).
 | Dashboard or app the audience will click around in | plotly (pairs with Dash/Streamlit — Level 3) |
 | Full control over every pixel for publication | matplotlib |
 
+## How It Actually Works
+
+Plotly figures are not images — they're a JSON document (a `data` array of
+trace specs plus a `layout` dict) that a JavaScript library (plotly.js)
+renders into SVG or WebGL in the browser. That's the whole reason hovering
+and zooming work at all: the browser has every underlying data point sitting
+in memory as JSON and redraws from it on every mouse event, whereas a
+matplotlib PNG has already thrown the data away and baked pixels. This also
+explains file size — a plotly HTML export embeds the full dataset as JSON
+plus the ~3MB plotly.js bundle, versus matplotlib's PNG/SVG which encodes
+only rendered geometry.
+
+**Faceting (small multiples)** works by looping the same axes-building code
+once per subset instead of drawing every subset on one shared axes. The
+statistical justification (not just a stylistic choice) is that overlaying
+many groups on one plot forces you to disentangle them by color alone, which
+human vision is bad at past 4-5 categories; splitting into a grid trades
+that for position, which vision reads almost effortlessly, at the cost of
+making magnitude harder to compare across panels unless you fix the axis
+ranges — which is why faceting libraries share scales across facets by
+default.
+
+**The correlation heatmap** is a direct visual encoding of the correlation
+matrix `R` where `R[i,j] = cov(xᵢ, xⱼ) / (σᵢ · σⱼ)` — Pearson correlation,
+bounded in `[-1, 1]` by the Cauchy-Schwarz inequality (dividing covariance by
+the product of standard deviations normalizes away units and scale). A
+diverging colormap only reads correctly if 0 is anchored to a fixed color
+(usually white/neutral) rather than letting the colormap auto-scale to the
+observed min/max — because unlike a regular heatmap of counts, correlation
+has a semantically meaningful center (no relationship) that must map to the
+same visual position regardless of what range of correlations this
+particular dataset happens to produce, otherwise a mild positive correlation
+in one dataset and mild negative in another could render as the same color.
+
 ## Exercise
 
 Using the `metrics` DataFrame above, add a fifth column `"e"` that is

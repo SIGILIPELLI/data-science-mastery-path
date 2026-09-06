@@ -131,6 +131,43 @@ filed away while the original Q2 plan proceeds unchanged.
 | Resourcing tradeoff table | Reflexively adding headcount as the only lever |
 | Quarterly re-check against findings | A roadmap that ignores its own results |
 
+## How It Actually Works
+
+**The dependency table is a topological-sort problem in disguise.** Once
+initiatives are expressed as a directed graph (`depends_on` edges), a valid
+schedule is any ordering where every initiative appears after everything it
+depends on — exactly the graph-theoretic definition of a topological sort,
+and exactly why "Real-time churn scoring" can't be scheduled in the same or
+an earlier quarter than "Churn driver analysis": the edge between them
+would make the schedule invalid, in the same formal sense a cycle in a
+dependency graph makes *no* valid ordering exist at all (a warning sign
+worth checking for explicitly once a roadmap has more than a handful of
+initiatives).
+
+**The headcount lever's diminishing (and eventually negative) returns are
+a specific, quantifiable phenomenon**, not just intuition — the number of
+pairwise communication channels among `n` people on a tightly coupled
+project grows as `n(n-1)/2`, quadratically, while each additional person's
+marginal *output* capacity is only linear. Past a certain team size, the
+coordination overhead added by each new person (status syncs, merge
+conflicts in shared analysis, redundant discovery of the same edge case)
+outgrows their individual contribution — the well-documented reason adding
+people to a late project can make it later, and the concrete mechanism
+behind "coordination overhead grows non-linearly" in the resourcing table.
+
+**Stating confidence levels is a calibration exercise with a real, checkable
+outcome.** A well-calibrated forecaster's "medium confidence" claims should
+turn out correct roughly as often as the stated confidence implies (e.g. a
+run of "70% confident" predictions should be right about 70% of the time,
+not 95% or 40%) — this is literally what a Brier score or calibration curve
+measures in forecasting research. A team that tracks its own past
+confidence statements against what actually happened (did the "medium
+confidence, first pass on 18 months of data" driver analysis in fact need
+a Q2 follow-up experiment, as flagged?) builds a track record that makes
+future confidence claims informative rather than decorative — which is the
+literal mechanism behind "credibility earned by being right when you said
+medium and wrong less often when you said high."
+
 ## Exercise
 
 Take a company priority (real or invented, e.g. "reduce customer support

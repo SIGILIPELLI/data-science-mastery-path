@@ -186,6 +186,48 @@ A finished write-up, following Module 09's structure:
 | Regression | 07 | Quantifying the engagement/churn relationship, R² |
 | Communicating findings | 09 | The three-part report structure above |
 
+## How It Actually Works
+
+**Why a linear regression of a 0/1 outcome ("linear probability model")
+produces predicted probabilities but isn't a probability *model*.** Fitting
+`OLS(churned, engagement_score)` treats `churned` (0 or 1) as if it were any
+continuous number and finds the least-squares line through it exactly as in
+Module 07. The resulting `−0.0074` slope is a legitimate *average marginal
+effect* — "each extra engagement point is associated with about a 0.74
+percentage-point lower churn rate, on average across this range" — but
+nothing in the OLS math constrains predictions to stay within [0, 1]; a
+customer with a low enough engagement score would get a predicted "churn
+probability" above 1 or below 0, which is nonsensical. This is exactly why
+real churn-*prediction* systems use logistic regression instead, which
+passes the linear combination through the sigmoid function
+`1/(1+e^-z)` to guarantee outputs in [0, 1] — a technique Level 2's "Intro to
+Machine Learning" module covers. The linear version here is used because,
+for *inference* about the size and significance of one relationship (not
+production-grade prediction), it's simpler to interpret directly as a
+probability-point effect.
+
+**Why R² = 0.02 and p = 0.0137 aren't in tension.** These answer different
+questions using different math. The p-value only asks: is the slope
+distinguishable from exactly zero, given the sample size? With n = 300, even
+a small, consistent effect produces a small standard error on the slope
+estimate, so a genuinely tiny but real effect can still be "significant."
+R² asks an entirely different question: of all the row-to-row variation in
+churned/not-churned, what fraction does this one feature explain? A signal
+can be statistically real (unlikely to be pure noise) while still being
+practically weak (leaving most of the outcome's variance unexplained) —
+which is precisely the combination seen here, and exactly why a
+well-reported analysis states both numbers rather than either alone.
+
+**Why checking `plan` as a potential confounder uses the same math as
+Simpson's paradox.** If `plan` independently drives both `engagement_score`
+(e.g. pro users engage more because the product is stickier) and `churned`
+(pro users churn less because they've paid), then the observed
+engagement/churn association could be partly or entirely an artifact of
+`plan`, mechanically identical to how department choice explained the
+admission-rate reversal in Module 07 — which is why the fix is the same
+technique: compare churn rates within engagement buckets *separately* per
+plan, rather than trusting the pooled regression coefficient at face value.
+
 ## Exercise
 
 Extend this analysis with one more variable: `tenure_days`. Run the same

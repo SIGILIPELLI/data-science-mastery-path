@@ -152,6 +152,56 @@ pandas.
 | `to_parquet` / `read_parquet(columns=...)` | Slow repeated reads, unneeded columns |
 | `dask.dataframe` | Needs parallelism or exceeds single-machine memory |
 
+## How It Actually Works
+
+Every pandas dtype has a fixed per-element byte cost: default `int64` and
+`float64` use 8 bytes per value regardless of the actual magnitude stored,
+and a default `object` column of strings stores a Python string object *per
+cell* — each with its own header overhead (~50 bytes even for short
+strings) plus pointer indirection, not a compact contiguous buffer the way
+numeric NumPy arrays are. `downcast="unsigned"` or `"float"` picks the
+smallest fixed-width type that can represent the column's actual range
+(e.g. `uint32` covers 0 to ~4 billion, more than enough for a `user_id`
+under 100,000, at a quarter the bytes of `int64`). The `category` dtype
+attacks the object-column problem differently: it stores the small set of
+distinct strings once in a lookup table and replaces every cell with a
+small integer *code* referencing that table — for a 4-value column repeated
+2 million times, this converts 2 million string objects into 2 million
+single-byte codes plus one 4-entry table, which is why the savings are so
+large specifically for low-cardinality text.
+
+**Chunked reading** works because `chunksize` turns `read_csv` from "parse
+the whole file, then hand it to me" into a generator that parses and yields
+one bounded-size DataFrame at a time, discarding the buffer for the
+previous chunk before reading the next. This bounds *peak* memory to one
+chunk's size regardless of total file size — but it only works cleanly for
+aggregations that are **decomposable**: a sum, count, or per-category total
+can be computed chunk-by-chunk and combined (sum of sums = total sum), but
+an exact median or exact set of distinct values generally cannot, because
+they require comparing every value against every other value at once.
+
+**Parquet's** speed advantage over CSV comes from two structural choices.
+It's columnar (values for one column are stored contiguously on disk,
+rather than CSV's row-by-row layout), so reading `columns=["amount"]`
+literally means seeking to and reading only that column's bytes — CSV has
+no way to skip columns since every row must be parsed character-by-character
+to even find where one column ends and the next begins. Parquet is also
+statically typed and compressed per column (integers, categories, and
+repeated strings compress far better when grouped with same-type
+neighbors than when interleaved row-by-row), which is why file size drops
+substantially on top of the read-speed gain.
+
+**Dask** builds a **task graph** — a DAG of "read this partition," "apply
+this groupby to that partition," "combine these partial results" — and does
+no actual computation until `.compute()` is called (lazy evaluation). This
+matters mechanically because it lets Dask's scheduler see the *entire*
+pipeline before running anything, so it can decide how to partition work
+across cores (or machines) and only materialize small final results in the
+caller's memory, while each worker only ever holds one partition's worth of
+data — the same "process a bounded piece, combine the summaries" principle
+as chunked pandas, just automated and parallelized across a task graph
+instead of a manual Python loop.
+
 ## Exercise
 
 Take the `df` DataFrame from the first example (2M rows). Measure its

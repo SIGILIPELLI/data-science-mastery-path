@@ -107,6 +107,40 @@ A good data science write-up follows a predictable shape, in this order:
 | Claiming a relationship | Say "associated with," never "causes," unless from a controlled experiment |
 | One chart, one point | Split a chart that needs a paragraph to explain |
 
+## How It Actually Works
+
+**The perceptual science behind why truncated axes lie.** Human graphical
+perception research (notably Cleveland & McGill's classic ranking of
+perceptual tasks) shows people judge *position along a common scale* and
+*length* far more accurately than they judge angle or area — which is
+exactly why bar/line charts are effective in the first place: they encode
+values as lengths and positions. But that same accuracy is precisely what
+makes truncation dangerous — because viewers are *good* at reading length
+differences, artificially inflating the length difference between two bars
+(by cropping the baseline) directly and reliably inflates the perceived
+magnitude of the underlying data, in a way viewers have no way to detect
+from the chart alone without checking the axis numbers explicitly.
+
+**Why pie charts are the worst-ranked common chart type perceptually.**
+Following the same perceptual research, angle and area judgments are
+measurably less accurate than length/position judgments for the same
+underlying numeric differences — people reliably misjudge close pie-slice
+proportions (e.g. telling 31% from 35% apart) far more often than they
+misjudge equivalent bar heights, which is the empirical basis (not just
+convention) for "use a sorted bar chart instead of a pie chart."
+
+**Why "the headline first" isn't just a writing preference.** This mirrors
+how working memory actually processes sequential information: readers form
+an interpretation of the *first* chart or sentence they see and then use it
+as an anchor for everything after (a well-documented cognitive bias called
+anchoring). Leading with twelve unlabeled charts forces every reader to
+build their own anchor from scratch — and different readers will anchor on
+different charts, producing different takeaways from *identical* data. Front
+loading the specific numeric claim ("revenue grew 6%") gives every reader
+the same anchor before they see any chart, which is why it reliably produces
+more consistent understanding across an audience than any downstream
+formatting choice can.
+
 ## Exercise
 
 Take any bar chart you've made in this track so far (Module 05's

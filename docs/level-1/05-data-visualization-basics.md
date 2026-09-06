@@ -146,6 +146,42 @@ showed the mean of `spend`, not the full income distribution per region).
 | Always label axes | `ax.set_xlabel(...)`, `ax.set_ylabel(...)` |
 | Save a figure | `fig.savefig("name.png", dpi=150)` |
 
+## How It Actually Works
+
+**How a histogram actually turns numbers into bar heights.** `bins=20`
+divides the observed range (`min` to `max`) into 20 equal-width intervals,
+then counts how many values fall into each interval — the bar height *is*
+that count (or, if `density=True`, the count rescaled so the total area
+under all bars sums to 1, which makes histograms of different sample sizes
+visually comparable). Bin width matters more than it looks: too few bins
+smooth away real structure like a second hump (bimodality); too many bins
+turn sampling noise into what looks like meaningful jaggedness. There's no
+universally correct bin count — but a common rule of thumb (Sturges' rule,
+`k ≈ log₂(n) + 1`) gives a reasonable starting point pandas/matplotlib
+approximate by default.
+
+**Why truncating a y-axis distorts perception, mechanically.** A chart
+communicates magnitude through the *visual length* of a bar or the *slope*
+of a line, both computed as `(pixel_height_of_max - pixel_height_of_min)`
+mapped linearly onto the axis range you set. If four bars have values
+162–179 mapped onto a 0–200 axis, their pixel-height differences are small
+relative to the full bar height — correctly signaling "these are similar."
+Map the same four values onto a 150–180 axis instead, and the *identical*
+value differences now consume the *entire* available pixel range, so the
+rendering engine stretches small numeric gaps into large visual ones. The
+data and the axis labels can both be 100% accurate while the visual
+impression is completely wrong — the distortion lives entirely in the
+pixel-to-value mapping, which is exactly why "start bar charts at zero" is
+a rule about the *rendering*, not the data.
+
+**What a box plot's whiskers and box actually encode.** The box spans Q1 to
+Q3 (the same IQR from Module 04); the line inside is the median, not the
+mean, so it's robust to the same outliers a mean would be pulled by; the
+whiskers extend to the most extreme data point still within 1.5×IQR of the
+box (the identical Tukey rule from Module 04); anything beyond that is
+drawn as an individual dot. A box plot is, mechanically, the IQR outlier
+rule and the five-number summary rendered as a picture.
+
 ## Exercise
 
 Using the `df` from this module, make a scatter plot of `age` vs. `spend`

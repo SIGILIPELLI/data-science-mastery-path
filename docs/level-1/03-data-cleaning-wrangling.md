@@ -184,6 +184,42 @@ harder to trace back to their source.
 | Rename columns | `df.rename(columns={"old": "new"})` |
 | Check types after cleaning | `df.dtypes` |
 
+## How It Actually Works
+
+**How `duplicated()`/`drop_duplicates()` actually detect duplicates.**
+Pandas doesn't compare every row to every other row (an O(n²) operation that
+would be unusable on large data). Instead, for the specified `subset`
+columns it computes a hash of each row's values and groups rows by that
+hash — an O(n) pass, the same hash-table strategy `groupby` uses internally.
+Rows sharing a hash are then compared for exact equality (to guard against
+rare hash collisions), and `keep="first"` marks every row after the first
+occurrence within each equal-hash group as a duplicate. This is also why
+duplicate detection is sensitive to *exact* value equality: `"Basic"` and
+`"basic"` hash differently, which is precisely why Step 3 (text
+normalization) needs to happen independently of duplicate removal, not as a
+substitute for it.
+
+**Why `format="mixed"` can parse two different date strings in one column.**
+`pd.to_datetime` normally compiles one strptime-style format string and
+applies it to every value for speed. `format="mixed"` instead falls back to
+per-value format inference: for each string, pandas' C-level date parser
+tries a cascade of common patterns (ISO `YYYY-MM-DD`, slash-separated
+`YYYY/MM/DD`, and others) until one matches, then converts the matched
+value into a `Timestamp` — a 64-bit integer count of nanoseconds since the
+Unix epoch (1970-01-01), which is what lets `datetime64` columns support
+fast arithmetic and comparison later. A string matching none of the
+cascade's patterns becomes `NaT`, pandas' `NaN`-equivalent for datetimes,
+which propagates safely through comparisons and aggregations instead of
+raising.
+
+**Why the median (not the mean) is the safer fill for skewed data.** The
+mean is pulled toward extreme values because every point enters the `Σxᵢ/n`
+sum with equal weight; the median is the middle value after sorting, so it
+is a function only of rank/position, not magnitude — a single outlier
+10x too large moves the mean substantially but leaves the median completely
+unchanged, which is exactly the property that makes it the safer default
+for `fillna()` on real-world monetary columns that are rarely symmetric.
+
 ## Exercise
 
 Take the cleaned `df` above and add one more issue to fix: a stray outlier

@@ -163,6 +163,55 @@ print(long.sort_values("region").reset_index(drop=True))
 | Long → wide summary grid | `df.pivot_table(index=, columns=, values=, aggfunc=)` |
 | Wide → long | `df.melt(id_vars=, var_name=, value_name=)` |
 
+## How It Actually Works
+
+`groupby` looks like a single operation, but under the hood pandas executes
+it in three distinct passes, and understanding them explains both its
+performance and its footguns.
+
+1. **Split** — pandas builds a hash table mapping each unique key value to
+   the integer row positions that share it. For `df.groupby("region")` this
+   means one hash bucket for `"East"` and one for `"West"`, each holding an
+   array of row indices — no data is copied yet, only positions.
+2. **Apply** — for each bucket, pandas slices the original array(s) at those
+   positions and calls your aggregation function (`sum`, `mean`, or a custom
+   callable) on that slice. This is why `.agg("sum")` is fast (it dispatches
+   to a vectorized NumPy reduction per group) while `.apply(lambda g: ...)`
+   is slow — a Python-level function call and DataFrame construction happen
+   once *per group*, not once for the whole column.
+3. **Combine** — the per-group results are stitched back together, and the
+   group keys become the new index (or a column, if you pass `as_index=False`).
+
+`transform` runs the same split-apply machinery but skips the combine-into-
+smaller-frame step: it looks up, for every original row, which bucket it
+belonged to and writes that bucket's scalar result back at the row's
+original position. That's why `transform("sum")` returns a Series the exact
+same length as the input — it's a broadcast, not a reduction — and why it's
+the correct tool for "percent of group total" (`value / group_total`)
+instead of a `merge` back onto the aggregated result.
+
+`merge` itself is a join algorithm choice made silently for you: pandas
+picks a hash join for equality merges on unindexed columns (build a hash
+table on the smaller side's key, probe it with the larger side) which is
+`O(n + m)`, versus the naive `O(n * m)` nested-loop comparison you'd get
+implementing a join by hand. The `how` parameter controls what happens to
+keys present on only one side: `inner` drops unmatched keys entirely,
+`left`/`right` keep one side's keys and fill the other side's columns with
+`NaN`, and `outer` keeps the union — and because a `NaN` in a previously
+integer column forces pandas to upcast that column to `float64` (integers
+can't represent "missing"), an unexpected `how="outer"` merge is a common
+source of a column silently changing dtype.
+
+`pivot_table` and `melt` are inverses implemented as, respectively, a
+groupby-then-unstack (group by the `index`/`columns` pair, aggregate
+`values`, then reshape the group-key MultiIndex into a 2D grid) and a
+row-explosion (each original row becomes `len(value_vars)` new rows, one per
+column being unpivoted, with the original column name recorded in
+`var_name`). Reshaping never changes the total count of underlying data
+points — it only changes how they're arranged as rows vs. columns — which is
+a useful sanity check: `df.melt(...).shape[0]` should equal
+`len(df) * len(value_vars)` exactly.
+
 ## Exercise
 
 Using the `orders` DataFrame above, compute each product's revenue as a

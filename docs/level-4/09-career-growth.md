@@ -131,6 +131,47 @@ Signals internal growth is still the better bet:
 | Staff → Principal | Sets direction across the org, judged on org-wide outcomes |
 | Any level | Multiplier effect (mentorship, reusable frameworks) compounds faster than solo output |
 
+## How It Actually Works
+
+**Why staff-level work is structurally harder to attribute — the
+mechanism, not just the observation.** A single-owner project has a
+one-to-one mapping between effort and outcome that's trivial to state in a
+promotion packet ("I built X, it did Y"). Cross-team influence work (getting
+three teams to converge on one metric definition) produces its outcome
+through *other people's* subsequent decisions and executions — the causal
+chain from "you did the convincing" to "exec reporting got more reliable"
+runs through several other people's independent actions, which is exactly
+why it reads as diffuse and is easy to under-credit even when it's the
+higher-leverage piece of work: leverage, by definition, means your effort
+is multiplied through others rather than converted 1:1 into your own
+output.
+
+**The multiplier effect compounds mathematically, not just rhetorically.**
+If mentoring or a shared framework improves `k` other people's output by
+even a small factor `ε` each, the aggregate impact (`k × ε × their
+individual output`) scales with the number of people affected — and grows
+every period those people keep using what was taught or built, whereas an
+individual's solo output is bounded by their own single stream of hours.
+This is the same "why average across many uncorrelated things beats one
+big number" logic behind why organizations that measure staff+ impact
+explicitly weight reusable frameworks and mentee output alongside
+individually-shipped models — a multiplier applied across a growing
+denominator (more people, more time) mechanically outpaces a fixed
+numerator (one person's direct output) past some scale, even if the
+multiplier's individual effect looks small at any single point in time.
+
+**The self-audit table works as a gap-identification tool for the same
+reason a model's feature-importance or residual analysis does**: it forces
+an explicit, itemized comparison between current state and target state
+across independent dimensions, rather than one global "am I doing well"
+impression that tends to be dominated by whichever dimension is most
+recently salient (usually technical depth, since it's the most legible and
+frequently reinforced). Breaking the assessment into separate axes is what
+surfaces that a dimension can be systematically neglected (cross-team
+influence, mentorship) precisely because it never shows up as a blocking
+problem in day-to-day work — only in an explicit, deliberately structured
+audit against the next level's actual bar.
+
 ## Exercise
 
 Fill out the self-audit table above honestly for your actual current

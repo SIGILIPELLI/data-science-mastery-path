@@ -132,6 +132,47 @@ which a bare p-value can't give you.
 | CI on the difference | `confint_proportions_2indep(...)` |
 | Effect size (Cohen's h) | `proportion_effectsize(p1, p2)` |
 
+## How It Actually Works
+
+A **two-proportion z-test** treats each group's conversion rate as a sample
+proportion `p̂ = conversions / n`, which is itself the mean of a bunch of
+0/1 (Bernoulli) outcomes. By the Central Limit Theorem, `p̂` is
+approximately normally distributed with standard error
+`SE = sqrt(p(1-p)/n)`. Under the null hypothesis that both groups truly have
+the same underlying conversion rate `p`, the test pools both groups'
+successes to estimate that common `p`, computes the pooled standard error of
+the *difference* `p̂₁ - p̂₂`, and reports
+`z = (p̂₁ - p̂₂) / SE_pooled`. Because `z` is (approximately) a draw from a
+standard normal distribution when the null is true, converting it to a
+p-value is a table lookup: `p = 2 * (1 - Φ(|z|))` for a two-sided test,
+where `Φ` is the standard normal CDF.
+
+**Sample size calculations** invert this same formula to solve for `n`
+given a target detectable effect size, significance level (`α`, usually
+0.05 — your false-positive tolerance), and power (`1-β`, usually 0.80 — your
+probability of detecting the effect if it's real). Both `α` and `power`
+correspond to critical z-values (`z_α/2 ≈ 1.96`, `z_β ≈ 0.84` for the
+conventional settings), and the required `n` per group grows roughly as
+`(z_α/2 + z_β)² × [p₁(1-p₁) + p₂(1-p₂)] / (p₁-p₂)²` — meaning the required
+sample size grows with the *square* of how small an effect you want to
+detect, which is why detecting a 0.5 percentage-point lift can need 10-20x
+the sample of detecting a 5-point lift.
+
+**The confidence interval** on the lift is built from the same standard
+error but without pooling (since it's not testing a null of "no
+difference," it's estimating the actual gap): `(p̂₁-p̂₂) ± z_α/2 × SE`. A
+95% CI has the specific long-run interpretation that if you reran this exact
+experiment many times, about 95% of such intervals would contain the true
+population difference — it does *not* mean "95% probability the true value
+is in this particular interval," a common misreading.
+
+The **multiple-comparisons** warning is a direct consequence of how p-values
+work: testing at `α=0.05` means a 5% false-positive rate *per test* under
+the null. Testing `k` independent metrics gives a chance of at least one
+false positive of `1 - (1-0.05)^k`, which is already ~40% at `k=10` — not
+because anything is wrong with any individual test, but because you're
+effectively buying 10 separate lottery tickets for a false "win."
+
 ## Exercise
 
 Re-run the simulation above with `n_per_group = 500` instead of 4,000

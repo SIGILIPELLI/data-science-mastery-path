@@ -147,6 +147,43 @@ the exact opposite of the truth in every subgroup.
 | Are coefficients significant? | `model.pvalues` |
 | Check for Simpson's paradox | `df.groupby([confounder, group])[outcome].mean()` vs. aggregate |
 
+## How It Actually Works
+
+**How OLS actually finds "the best" line.** `sm.OLS(...).fit()` solves for
+the intercept and slope that minimize the **sum of squared residuals**:
+`Σ(yᵢ - ŷᵢ)²`, where `ŷᵢ = intercept + slope × xᵢ` is the line's prediction
+for each point. Squaring (rather than, say, summing absolute errors)
+penalizes large misses disproportionately and — crucially — makes the
+problem solvable in closed form via calculus: setting the derivative of that
+sum with respect to both parameters to zero yields
+`slope = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / Σ(xᵢ - x̄)²`, which is exactly the
+covariance-over-variance formula, and `intercept = ȳ - slope × x̄`. No
+iterative search is needed for simple linear regression — it's a direct
+matrix computation (`(XᵀX)⁻¹Xᵀy` in the code's `sm.add_constant` +ols
+formulation), which is why fitting even a large regression is fast.
+
+**Why R² is exactly `r²` for simple linear regression.** R² is defined as
+`1 - (SS_residual / SS_total)` — the fraction of the outcome's total
+variance the model's predictions explain versus a naive "always predict the
+mean" baseline. For a *single* predictor fit by OLS, this quantity is
+algebraically identical to squaring the Pearson correlation coefficient
+between x and y — which is why a correlation of 0.441 (Simpson's-paradox
+example aside) would map to an R² of about 0.194 if you regressed one
+variable on the other. This identity breaks once you add more predictors,
+where R² compounds contributions from each.
+
+**The arithmetic behind Simpson's paradox.** An aggregate rate is a
+*weighted* average of subgroup rates, weighted by subgroup size:
+`overall_rate = (n_A × rate_A + n_B × rate_B) / (n_A + n_B)`. In the example,
+women were 20/(20+100) ≈ 17% of dept A's more-lenient pool but 100/(20+100)
+≈ 83% of dept B's stricter pool — so women's *aggregate* rate is dominated
+by the low-admission department they disproportionately applied to, while
+men's aggregate rate is dominated by the high-admission department they
+disproportionately applied to. The paradox isn't a statistical anomaly; it's
+a direct, mechanical consequence of unequal group sizes feeding into a
+weighted average, which is exactly why checking the *within-group* rates
+(unweighted by anything) is the fix.
+
 ## Exercise
 
 Using the `sqft`/`price` regression above, add a new confounding variable

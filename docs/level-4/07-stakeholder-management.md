@@ -124,6 +124,45 @@ stakeholder) who wants to verify it in the appendix.
 | Readout to a time-pressed exec | Decision → answer → confidence → action, methods in appendix |
 | Feeling pressure to soften a result | Name the instinct; present the finding transparently anyway |
 
+## How It Actually Works
+
+**"The 90% CI includes zero" is a precise statistical fact worth unpacking
+for exactly this scenario.** A confidence interval that spans zero means
+the observed data is statistically consistent with "no true effect" at the
+stated confidence level — equivalently, a formal hypothesis test of "the
+lift is zero" against this same data would *fail* to reject the null at
+`α = 0.10`. Reporting the 3.4% point estimate alone presents one sample
+draw from a distribution of plausible outcomes as if it were a settled
+fact; reporting the interval is reporting the actual shape of what the
+data supports, which for a stakeholder deciding whether to commit budget
+is the entire decision-relevant content of the analysis — the point
+estimate is the single most likely value, not the range of values
+consistent with the evidence.
+
+**The clarifying-question step formally reduces the value-of-information
+mismatch between the analysis performed and the decision it needs to
+inform.** A broad root-cause analysis answering "why did revenue drop"
+carries information relevant to many possible follow-up decisions;
+a narrow decision ("pause the Q2 pricing change, yes or no") only needs the
+subset of that information bearing directly on the pricing change. Time
+spent characterizing causes irrelevant to that specific decision is not
+wasted in an absolute sense, but it is wasted *relative to the decision
+deadline* — which is exactly the failure mode "good analysis, wrong
+question" describes: the analysis was correct and thorough, but its
+information content didn't overlap enough with what the decision actually
+needed, discovered only after the effort was already spent.
+
+**Distinguishing "wrong about the data" from "disagree about the action"
+maps onto the actual logical structure of the disagreement**: the first is
+a claim about whether the estimate itself is correct (checkable — rerun
+the numbers, look for a bug, a confounder, a data quality issue) and has a
+factual resolution; the second is a claim about what to *do* given an
+estimate both sides now agree is correct, which depends on risk tolerance,
+competing priorities, and values the data alone can't settle. Treating a
+disagreement about action as if it were a disagreement about data (or vice
+versa) means arguing past each other indefinitely, because the evidence
+that would resolve one type of disagreement is irrelevant to the other.
+
 ## Exercise
 
 Take an analysis you've done in an earlier module. Write the five-part

@@ -158,6 +158,50 @@ extra month of tenure multiplies the expected ticket rate by
 | Shrink coefficients | `Ridge(alpha=...)`, `Lasso(alpha=...)` |
 | Model counts | `smf.glm("y ~ x", data=df, family=sm.families.Poisson())` |
 
+## How It Actually Works
+
+**OLS coefficients** come from minimizing the sum of squared residuals
+`Σ(yᵢ - ŷᵢ)²`, which has a closed-form solution: `β = (XᵀX)⁻¹Xᵀy`. That
+matrix inverse is exactly what breaks down under multicollinearity — if two
+columns of `X` are nearly linear combinations of each other, `XᵀX` becomes
+nearly singular (its determinant approaches 0), and the inverse blows up,
+which is mechanically *why* correlated predictors produce huge, unstable
+standard errors even though the model's overall predictions
+(`ŷ = Xβ`) stay accurate. **VIF** quantifies this directly:
+`VIF_j = 1 / (1 - R²_j)`, where `R²_j` comes from regressing predictor `j`
+on all the *other* predictors. If `sqft` can be predicted almost perfectly
+from `bedrooms` and `age_years`, `R²_j` approaches 1 and VIF explodes —
+VIF is literally measuring how redundant each column is with the rest of
+`X`, the same quantity that makes `XᵀX` singular.
+
+**Ridge and Lasso** both add a penalty term to the loss the model
+minimizes, but different norms: Ridge adds `α·Σβⱼ²` (an L2 penalty), Lasso
+adds `α·Σ|βⱼ|` (an L1 penalty). Geometrically, minimizing squared error
+subject to a fixed budget on `Σβⱼ²` traces out a circular constraint region
+— the optimal point where the loss contours first touch that circle
+generally has *all* coefficients nonzero but shrunk. The L1 budget region is
+a diamond with corners on the axes (where some `βⱼ = 0`); loss contours are
+far more likely to first touch a corner than a smooth circle, which is the
+geometric reason Lasso zeroes out coefficients exactly while Ridge only
+shrinks them toward (but not to) zero. This is also why features must be
+scaled first (as done here with `StandardScaler`) — the penalty is applied
+uniformly to all `βⱼ`, so an unscaled feature with naturally larger
+coefficients would be penalized unfairly more or less than one on a
+different scale.
+
+**The Poisson GLM** replaces OLS's assumption "errors are normally
+distributed around a linear mean" with "the outcome is drawn from a Poisson
+distribution whose *rate* depends on the predictors through a *log link*":
+`log(E[y|x]) = β₀ + β₁x`, equivalently `E[y|x] = e^(β₀+β₁x)`. The log link
+exists because a Poisson rate must be non-negative — a raw linear
+predictor `β₀+β₁x` can go negative, but exponentiating it can't — and it's
+also *why* coefficients are interpreted multiplicatively (`exp(β)` as a
+rate ratio) rather than additively: a one-unit increase in `x` doesn't add
+a fixed amount to the count, it multiplies the expected count by `e^β`.
+Fitting is done by maximum likelihood (no closed form, unlike OLS) via
+iteratively reweighted least squares, which repeatedly re-linearizes the
+problem around the current estimate until the coefficients converge.
+
 ## Exercise
 
 Add a fourth predictor to `houses` — `has_garage` (a 0/1 column, randomly

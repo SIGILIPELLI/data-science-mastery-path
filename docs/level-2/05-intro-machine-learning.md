@@ -156,6 +156,57 @@ trust the model at all.
 | Precision/recall/F1 | `classification_report(y_test, preds)` |
 | Feature importance | `model.feature_importances_` (tree models) |
 
+## How It Actually Works
+
+**Logistic regression** doesn't predict 0/1 directly — it fits a linear
+combination `z = β₀ + β₁x₁ + ... + βₙxₙ` and squashes it through the sigmoid
+`p = 1 / (1 + e⁻ᶻ)`, which maps any real number to `(0, 1)`. The coefficients
+`β` are found by maximizing the likelihood of the observed labels — no
+closed-form solution exists (unlike linear regression's normal equation), so
+solvers use iterative gradient-based optimization on the log-loss
+`-Σ [y·log(p) + (1-y)·log(1-p)]`, which penalizes confident-and-wrong
+predictions far more steeply than log-loss penalizes uncertainty. The
+decision boundary (`p = 0.5`) is a straight line/hyperplane in feature space
+— which is exactly why it's called a *linear* model and why it struggles
+when the true boundary between classes is curved.
+
+**Random forest** fixes a single decision tree's biggest weakness — high
+variance, since a tree fit to one bootstrap sample of the data can look very
+different from a tree fit to another — by averaging many trees. Each tree is
+trained on a bootstrap resample (drawing `n` rows with replacement, so each
+tree sees a slightly different dataset), and at every split each tree is
+only allowed to consider a random subset of features (typically `√p` of
+them for classification). Averaging predictions across many trees that are
+individually noisy but decorrelated from each other (because of the row and
+feature randomness) reduces variance without much increasing bias — an
+instance of the general "wisdom of crowds" fact that averaging `k`
+uncorrelated estimators reduces variance by roughly a factor of `k`.
+
+**Precision, recall, and the confusion matrix** exist because "accuracy"
+collapses two different error types into one number. Given actual positives
+and negatives crossed with predicted positives and negatives, you get four
+counts: true positives (TP), false positives (FP), true negatives (TN), and
+false negatives (FN). `Precision = TP / (TP + FP)` answers "of everything I
+flagged positive, how much was right?" — it's what you care about when a
+false alarm is costly. `Recall = TP / (TP + FN)` answers "of everything that
+was actually positive, how much did I catch?" — what matters when a missed
+case is costly (fraud, disease). On an imbalanced dataset (say 95% negative
+class), a model that always predicts negative gets 95% accuracy while
+having zero recall — which is precisely the failure mode precision/recall
+exist to expose.
+
+**Feature importance** from a tree ensemble is computed by summing, over
+every split in every tree that uses a given feature, how much that split
+reduced impurity (Gini impurity or entropy), weighted by how many samples
+passed through that split. A feature used near the root of many trees on
+large sample counts accumulates a high score; a feature never selected for
+any split scores zero. This is a measure of *how much the model relied on
+it*, not proof of a true causal or even correlational relationship in the
+real world — a leaked feature (one that encodes the answer, like a
+post-outcome timestamp) will show up with suspiciously high importance
+precisely because the model exploited it, which is why importance rankings
+double as a leakage detector.
+
 ## Exercise
 
 Using the `customers` DataFrame above, add a fourth feature — say,

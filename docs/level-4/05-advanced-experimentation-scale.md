@@ -160,6 +160,53 @@ Fix: either commit to a fixed sample size / duration set BEFORE the test
 | Overstated long-run lift | Novelty/primacy effect | Look at metric trend over time, not just endpoint average |
 | Inflated false positive rate | Peeking at p-values daily and stopping early | Fixed duration, or a proper sequential testing method |
 
+## How It Actually Works
+
+**Benjamini-Hochberg's mechanism**: sort all `m` p-values ascending, then
+find the largest `k` such that `p_(k) ≤ (k/m) × α`, and reject every
+hypothesis with a p-value at or below `p_(k)`. This adaptive threshold is
+why FDR control is less conservative than Bonferroni's flat `α/m` cutoff
+applied to every test: BH lets small p-values "borrow" a looser effective
+threshold from the fact that many of the largest p-values are probably
+true nulls, controlling the *expected proportion of false discoveries among
+rejections* (`E[false rejections / total rejections]`) rather than the
+probability of even one false rejection across the whole family. That
+distinction is exactly why it's the right tool for scanning a wide metrics
+dashboard (where you can tolerate a controlled small fraction of false
+leads among many candidate findings) versus confirming one pre-registered
+primary metric (where you want the strict, single-test guarantee).
+
+**Why interference biases estimated effects, not just "contaminates" them
+vaguely**: an experiment's causal estimate is only valid under the Stable
+Unit Treatment Value Assumption (SUTVA) — that one user's assigned
+treatment doesn't affect another unit's outcome, and doesn't depend on
+what *other* experiment a user happens to be in. Two overlapping
+experiments on shared users violate the second half of SUTVA directly: the
+checkout-flow experiment's estimated effect is actually estimating
+`E[effect | some mixture of algo_variant conditions]`, not the checkout
+flow's effect in isolation — which is why the interaction model's fitted
+`algo_variant:checkout_variant` coefficient (on the logit scale, since this
+is a `smf.logit` model — testing whether the *combined log-odds* deviates
+from the sum of each variant's individual log-odds effect) is the only way
+to know whether "run both, report both effects independently" is even a
+valid thing to do for this particular pair.
+
+**Why peeking inflates false positives, quantitatively**: a p-value crossing
+0.05 by chance at any *single* fixed sample size has (by construction)
+about a 5% probability under the null. Checking daily and stopping the
+first time it crosses 0.05 is equivalent to giving the null hypothesis 
+many independent chances to produce a false positive — the same multiple-
+comparisons math from the top of this page, just spread across time
+instead of across metrics. A random walk (which is roughly what a
+p-value's evolution looks like under the null as more data accumulates)
+is guaranteed to cross *any* fixed threshold with probability approaching 1
+if you're allowed to watch it indefinitely — which is precisely why
+classical significance testing requires the sample size/duration to be
+fixed *before* looking at results, and why sequential methods (alpha
+spending, mSPRT) instead allocate a shrinking error budget across looks so
+the *cumulative* false-positive rate across all peeks stays at the stated
+α.
+
 ## Exercise
 
 Simulate two experiments sharing a user population (as in the 2x2 example

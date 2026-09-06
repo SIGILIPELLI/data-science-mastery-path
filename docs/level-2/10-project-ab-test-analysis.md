@@ -153,6 +153,41 @@ A short, decision-ready summary — the actual deliverable stakeholders read:
 | Re-test significant segments individually | Confirms the segment story statistically |
 | Recommendation ties back to business action | The point of the whole analysis |
 
+## How It Actually Works
+
+The **randomization sanity check** (comparing covariates like device mix or
+prior activity across arms) exists because a two-proportion z-test's
+validity rests entirely on the assumption that treatment and control differ
+*only* in the intervention — if randomization was broken (a bug routed more
+mobile users to treatment, say), any measured "lift" is confounded with that
+imbalance rather than caused by the treatment. Checking balance is itself
+just running the same statistical-testing machinery from Module 02 (a
+chi-square test on categorical covariates, a t-test on continuous ones) on
+variables that *shouldn't* differ — a significant result there is a red flag
+about the experiment's integrity, not a finding.
+
+**Segmenting the effect** (Step 3) is where Simpson's Paradox becomes a real
+risk: a pooled effect is a weighted average of segment-level effects, and
+it's mathematically possible for every segment to show one direction of
+effect (or no effect) while the pooled number shows another, if segment
+sizes and effect sizes interact just right. Concretely here: if desktop
+users are a large chunk of the treatment-heavy sessions and mobile shows
+zero effect, the pooled test can still be significant purely on the
+strength of the desktop subgroup — which is exactly why Step 4 re-runs the
+formal test *within* the desktop segment alone rather than eyeballing the
+breakdown table. Without that re-test, you can't tell a real segment-
+specific effect from a segment split that happens to have fewer users and
+therefore just failed to reach significance by chance.
+
+**Why re-test rather than trust the segment table**: splitting into segments
+after seeing the data is a form of the multiple-comparisons problem from
+Module 07 — the more ways you slice the data looking for "some group where
+it worked," the higher the chance you find one by chance alone even with no
+real effect anywhere. The discipline here (pre-register a primary metric,
+treat segment analysis as directional, then confirm with its own explicit
+test) is what keeps an A/B analysis from degenerating into p-hacking dressed
+up as segmentation.
+
 ## Exercise
 
 Extend this analysis with a guardrail metric: simulate an `avg_session_time`

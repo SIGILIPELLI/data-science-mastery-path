@@ -116,6 +116,38 @@ A useful gut-check for any analysis, revisited throughout this track:
 | The 80% rule | Cleaning/understanding data usually dominates project time |
 | "So what?" test | Every finding should trace to a decision or action |
 
+## How It Actually Works
+
+The `diff = ... mean() - ... mean()` line above looks like a throwaway
+one-liner, but it's worth pausing on what a "mean" actually computes and why
+that matters for the rest of this track. The sample mean is
+`x̄ = (1/n) * Σxᵢ` — every value gets equal weight. That single design choice
+is why a mean is sensitive to a handful of extreme values (you'll see this
+concretely with the planted outliers in Module 04) and why "the new flow
+raised average order value by $5.68" is silent about *distribution*: it could
+mean every customer spent a bit more, or it could mean 495 customers were
+unaffected and 5 whales spent enormously more.
+
+More importantly, `$5.68` on its own conflates two different questions that
+this track deliberately separates:
+
+1. **Effect size** — how big is the observed difference? ($5.68, or about
+   10% relative to the $56.08 baseline.)
+2. **Statistical reliability** — could a difference this size show up between
+   two groups that are *actually* identical, just from random sampling noise?
+
+Step 5 of the workflow ("analyze / model it") exists specifically because
+effect size alone answers neither question fully. Computing `diff` from 500
+random draws per group already contains sampling variability — draw a
+different 500 "old" and 500 "new" orders from the *same* underlying
+distribution and you'd get a nonzero difference by chance alone, sometimes
+larger than $5.68. The formal way to quantify "how often would chance alone
+produce a gap this large" is the **hypothesis test** machinery (specifically,
+a two-sample t-test comparing the difference in means against the pooled
+standard error) built in full in Module 06. Every workflow step from here
+forward exists to convert a raw arithmetic difference like this one into a
+claim you can actually defend.
+
 ## Exercise
 
 Pick any statistic you've seen in the news this week (a headline like "X

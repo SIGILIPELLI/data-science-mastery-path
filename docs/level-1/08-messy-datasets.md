@@ -165,6 +165,41 @@ Every messy real-world dataset responds to the same sequence, in this order:
 | Rows that don't belong (refunds, tests) | Filter and analyze separately, don't silently exclude *or* silently include |
 | Wrong dtype on load | Check `.dtypes` immediately after `pd.read_csv` |
 
+## How It Actually Works
+
+**Why pandas silently changes a column's dtype based on its worst cell.**
+When `pd.read_csv` parses a column, it scans the values and picks the most
+specific dtype that can represent *all* of them: if every cell parses as a
+number, the column becomes `int64` or `float64`; if even one cell is
+non-numeric text, the entire column falls back to `object`/`str`, because a
+NumPy-backed column requires one uniform, fixed-width type for every
+element (that uniformity is exactly what makes vectorized math fast — see
+Module 02). This "one bad apple downgrades the whole column" behavior is
+why a single stray `"unknown"` in a numeric column doesn't raise an error at
+load time — it just silently converts `amount` from something you can call
+`.sum()` on into something you can't, and the failure surfaces much later,
+at `.sum()` or `.corr()`, far from its actual cause.
+
+**How `.map(dict).fillna(original)` works as a lookup, mechanically.**
+`.map()` performs a hash-table lookup for every value in the Series against
+the dictionary's keys — O(1) per lookup, O(n) total — and produces `NaN`
+for any value not present as a key (here, anything not in `country_map`,
+because `.strip().str.lower()` was applied first so keys only need to cover
+normalized variants). `.fillna(df["country"])` then aligns the original
+column back in by row position wherever the map produced `NaN`, which is
+what lets this pattern normalize *known* variants while passing unknown
+values through unchanged instead of turning them into missing data.
+
+**Why checking `notes` against `amount < 0` is a stronger check than either
+column alone.** This is a specific case of a general principle: any single
+column's plausible-looking value can still be wrong in context, but the
+*joint* distribution of two related columns is much harder to accidentally
+satisfy by coincidence. A negative amount could be a typo; a negative amount
+*and* a `notes` value containing "refund" is strong corroborating evidence
+from an independent source, which is why cross-column consistency checks
+catch classes of errors that per-column range checks (like the IQR rule)
+structurally cannot.
+
 ## Exercise
 
 Add two more rows to `csv_text`: one with `amount = "unknown"` (a string in

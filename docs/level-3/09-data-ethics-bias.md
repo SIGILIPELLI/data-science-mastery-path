@@ -141,6 +141,51 @@ technique.
 | Impossibility results | Parity and opportunity can't both hold exactly if base rates differ |
 | Mitigation | Reweighting → feature removal → threshold adjustment → target redefinition → don't deploy |
 
+## How It Actually Works
+
+**Proxy discrimination** is a straightforward consequence of how any
+statistical model actually learns: a model doesn't know or care about a
+feature's *label* (`zip_code` vs. `group`), only its statistical
+relationship to the target. If `zip_code` and `group` are correlated
+(mathematically, `corr(zip_code, group) ≈ 1` in the extreme case shown
+here), then a model trained on `zip_code` effectively has access to nearly
+all the information `group` would have provided — dropping `group` only
+removes the *column name*, not the information, because that information is
+redundantly encoded elsewhere in the feature set. This is why a correlation
+audit against every candidate feature (not just a glance at the feature
+list for obviously sensitive names) is the actual technical safeguard, not
+a naming convention.
+
+**The impossibility result** for demographic parity vs. equal opportunity
+has an exact mathematical derivation, not just an empirical tendency.
+Demographic parity requires `P(pred=1 | group=A) = P(pred=1 | group=B)`.
+Equal opportunity requires `P(pred=1 | group=A, label=1) = P(pred=1 |
+group=B, label=1)`. Expanding selection rate by the law of total
+probability, `P(pred=1|group) = P(pred=1|group,label=1)·P(label=1|group) +
+P(pred=1|group,label=0)·P(label=0|group)`. If the base rates `P(label=1|group)`
+differ between groups (which they do whenever historical approval rates
+differ), then holding the TPR term equal across groups (equal opportunity)
+and holding the FPR term equal (part of equalized odds) generically forces
+the *overall* selection rate to differ across groups — you cannot satisfy
+both constraints simultaneously except in the special case where base rates
+happen to match exactly. This is a theorem (Chouldechova, Kleinberg et al.,
+2016-17), not a modeling shortcoming — which is exactly why the choice of
+fairness definition has to be a stated, deliberate tradeoff rather than
+something a metric library picks for you by default.
+
+**Reweighting** (mitigation option 1) works by changing the loss function
+each training example contributes to: giving underrepresented-group
+examples a larger weight in the loss (`Σ wᵢ · loss(yᵢ, ŷᵢ)`) forces the
+optimizer to pay more attention to getting those examples right, directly
+counteracting an imbalance where the majority group's errors would
+otherwise dominate the average loss and get optimized away preferentially.
+**Post-processing thresholds** (option 3) works differently — after
+training, it picks a separate decision threshold per group on the same
+underlying predicted probability so that a chosen metric (e.g. TPR) is
+equalized across groups; the model itself doesn't change, only where the
+line between "predict 1" and "predict 0" is drawn for each group's score
+distribution.
+
 ## Exercise
 
 Take a classifier from an earlier module (or the toy `df` above). Pick a

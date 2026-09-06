@@ -154,6 +154,49 @@ problem several open-source projects already solved.
 | Orchestration | Scheduled pipelines that don't depend on human memory |
 | Governance layer | Who can access what data, PII handling |
 
+## How It Actually Works
+
+**Training/serving skew** has a precise mechanical origin: an offline batch
+job computing `days_since_last_purchase` typically has access to a full
+historical table and computes the feature by scanning it at a scheduled
+time; a real-time serving path typically hits a low-latency key-value store
+with only the *most recent* known state, often computed by a different
+codebase in a different language. Even a one-line difference — the batch
+job using `<=` for "as of" cutoff, the serving path using `<`, or a
+timezone mismatch in what "as of" means — produces a feature that is
+numerically different for the same customer at the same moment between
+training and inference. Because the model was fit on the batch definition,
+it silently underperforms in production against a subtly different
+distribution of the "same" feature — and because both paths *look*
+correct in isolation, this bug class is notoriously invisible until
+production metrics diverge from validation metrics. A feature store closes
+this by making both paths call the *literal same transformation function*
+(as in `days_since_last_purchase` above) against two different backing
+stores rather than maintaining the logic twice.
+
+**Point-in-time correctness** in the offline store is the training-side
+half of the same problem: naively joining a "current" features table onto
+historical training rows leaks future information into the past — a
+customer's `days_since_last_purchase` computed from *today's* data joined
+onto a purchase from six months ago would already know about purchases
+that hadn't happened yet at that point in the customer's history. A
+correct offline store performs an *as-of join*, retrieving the feature's
+value exactly as it would have been known at each training example's
+timestamp — which is the specific mechanism that prevents this leakage
+class from inflating offline validation metrics in a way that doesn't
+survive to production.
+
+**Model registry stages** exist because "rollback" needs to be a
+constant-time, one-command operation under time pressure (a production
+incident), not a git-archaeology exercise to find which `model.pkl` was
+deployed three weeks ago. Storing every trained model version with
+immutable metadata (params, metrics, training data hash) and moving a
+*pointer* (the stage label) between versions means a rollback is exactly
+one `transition_model_version_stage` call back to the last known-good
+version — no retraining, no file hunting, and the audit trail (who
+promoted what, when) is a byproduct of the same mechanism rather than a
+separate logging effort.
+
 ## Exercise
 
 Pick a model you've built in an earlier module. Sketch (in a text diagram)
