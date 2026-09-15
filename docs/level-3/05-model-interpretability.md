@@ -1,3 +1,7 @@
+---
+description: "Model Interpretability — A model that predicts well but can't explain why is a liability in most real settings — regulators, stakeholders, and your own…"
+---
+
 # 05 · Model Interpretability
 
 A model that predicts well but can't explain *why* is a liability in most

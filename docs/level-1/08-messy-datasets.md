@@ -1,3 +1,7 @@
+---
+description: "Working with Real-World Messy Datasets — Modules 03–07 introduced cleaning and analysis techniques individually. This module combines them on one dataset…"
+---
+
 # 08 · Working with Real-World Messy Datasets
 
 Modules 03–07 introduced cleaning and analysis techniques individually. This

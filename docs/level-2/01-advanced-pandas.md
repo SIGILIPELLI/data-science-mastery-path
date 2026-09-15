@@ -1,3 +1,7 @@
+---
+description: "Advanced pandas (groupby, merge, pivot) — Level 1 covered pandas basics — loading data, selecting columns, filtering rows. Real analysis work lives in…"
+---
+
 # 01 · Advanced pandas (groupby, merge, pivot)
 
 Level 1 covered pandas basics — loading data, selecting columns, filtering

@@ -1,3 +1,7 @@
+---
+description: "Exploratory Data Analysis (EDA) — EDA is the deliberate, structured process of looking at a dataset before you try to answer any specific question with it…"
+---
+
 # 04 · Exploratory Data Analysis (EDA)
 
 EDA is the deliberate, structured process of looking at a dataset before you

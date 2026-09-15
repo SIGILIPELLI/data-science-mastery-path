@@ -1,3 +1,7 @@
+---
+description: "Statistical Testing Deep Dive — The chi-square test compares the observed counts in a contingency table against the counts you'd expect if the two…"
+---
+
 # 02 · Statistical Testing Deep Dive
 
 Level 1 introduced the t-test. Real datasets throw more shapes at you:

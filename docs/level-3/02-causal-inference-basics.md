@@ -1,3 +1,7 @@
+---
+description: "Experimentation Platforms & Causal Inference Basics — Randomized A/B tests (Level 2) are the gold standard for causal claims, but you can't randomize…"
+---
+
 # 02 · Experimentation Platforms & Causal Inference Basics
 
 Randomized A/B tests (Level 2) are the gold standard for causal claims,

@@ -1,3 +1,7 @@
+---
+description: "Statistics Fundamentals — Every 'is this real, or is it noise?' question in data science is answered with statistics. This module covers the vocabulary…"
+---
+
 # 06 · Statistics Fundamentals
 
 Every "is this real, or is it noise?" question in data science is answered

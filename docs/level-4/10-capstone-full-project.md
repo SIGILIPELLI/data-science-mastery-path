@@ -1,3 +1,7 @@
+---
+description: "Capstone — Full Data Science Project from Question to Recommendation — This capstone runs one project through every stage this path has covered: framing a…"
+---
+
 # 10 · Capstone — Full Data Science Project from Question to Recommendation
 
 This capstone runs one project through every stage this path has covered:

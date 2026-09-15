@@ -1,3 +1,7 @@
+---
+description: "Project — Interactive Data Dashboard — This capstone ties together cleaning, aggregation, and visualization from earlier Level 3 modules into a single…"
+---
+
 # 10 · Project — Interactive Data Dashboard
 
 This capstone ties together cleaning, aggregation, and visualization from

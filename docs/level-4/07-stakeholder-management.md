@@ -1,3 +1,7 @@
+---
+description: "Cross-Functional Stakeholder Management — Technically correct analysis that never gets acted on has failed at its actual job. This module covers the…"
+---
+
 # 07 · Cross-Functional Stakeholder Management
 
 Technically correct analysis that never gets acted on has failed at its

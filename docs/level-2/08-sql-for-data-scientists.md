@@ -1,3 +1,7 @@
+---
+description: "SQL for Data Scientists — Most production data lives in a database, not a CSV. This module covers the SQL a data scientist uses daily — enough to pull and…"
+---
+
 # 08 · SQL for Data Scientists
 
 Most production data lives in a database, not a CSV. This module covers

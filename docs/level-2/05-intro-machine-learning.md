@@ -1,3 +1,7 @@
+---
+description: "Intro to Machine Learning for Data Science — Data scientists don't need to be ML researchers, but they do need to know how to frame a business question as…"
+---
+
 # 05 · Intro to Machine Learning for Data Science
 
 Data scientists don't need to be ML researchers, but they do need to know

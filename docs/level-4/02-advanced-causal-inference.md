@@ -1,3 +1,7 @@
+---
+description: "Advanced Causal Inference — Randomized experiments (Level 2) aren't always possible — you can't randomize who gets a minimum wage increase, a chronic…"
+---
+
 # 02 · Advanced Causal Inference
 
 Randomized experiments (Level 2) aren't always possible — you can't

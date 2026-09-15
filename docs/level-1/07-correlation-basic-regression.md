@@ -1,3 +1,7 @@
+---
+description: "Correlation & Basic Regression — Correlation quantifies how strongly two numeric variables move together; regression fits a line through the relationship…"
+---
+
 # 07 · Correlation & Basic Regression
 
 Correlation quantifies how strongly two numeric variables move together;

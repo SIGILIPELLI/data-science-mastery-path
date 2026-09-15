@@ -1,3 +1,7 @@
+---
+description: "Career Growth: IC to Principal Data Scientist — The skills that get someone promoted from junior to senior (technical correctness, independence) are not…"
+---
+
 # 09 · Career Growth: IC to Principal Data Scientist
 
 The skills that get someone promoted from junior to senior (technical

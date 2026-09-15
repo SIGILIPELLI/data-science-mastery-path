@@ -1,3 +1,7 @@
+---
+description: "Leading Data Science Teams — Moving from senior IC to team lead changes the job from 'produce good analysis' to 'create the conditions for a team to…"
+---
+
 # 01 · Leading Data Science Teams
 
 Moving from senior IC to team lead changes the job from "produce good

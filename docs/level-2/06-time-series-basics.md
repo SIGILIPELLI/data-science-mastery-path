@@ -1,3 +1,7 @@
+---
+description: "Time Series Analysis Basics — Time series data — anything indexed by time (daily sales, sensor readings, website traffic) — breaks the 'rows are…"
+---
+
 # 06 · Time Series Analysis Basics
 
 Time series data — anything indexed by time (daily sales, sensor readings,

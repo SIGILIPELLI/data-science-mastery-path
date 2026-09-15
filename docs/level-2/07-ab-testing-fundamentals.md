@@ -1,3 +1,7 @@
+---
+description: "A/B Testing Fundamentals — Level 1 covered hypothesis testing in the abstract. A/B testing is that theory applied to the most common business question…"
+---
+
 # 07 · A/B Testing Fundamentals
 
 Level 1 covered hypothesis testing in the abstract. A/B testing is that

@@ -1,3 +1,7 @@
+---
+description: "Building a Data Science Platform — Once an org has more than a handful of data scientists, the same problems get solved independently in every pod…"
+---
+
 # 03 · Building a Data Science Platform
 
 Once an org has more than a handful of data scientists, the same problems

@@ -1,3 +1,7 @@
+---
+description: "Data Storytelling for Executives — A technically correct analysis that doesn't change a decision has failed at its actual job. This module covers how to…"
+---
+
 # 06 · Data Storytelling for Executives
 
 A technically correct analysis that doesn't change a decision has failed

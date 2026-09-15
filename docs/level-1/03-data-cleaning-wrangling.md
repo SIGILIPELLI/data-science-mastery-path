@@ -1,3 +1,7 @@
+---
+description: "Data Cleaning & Wrangling — Real data is never clean. Duplicate rows, inconsistent text casing, mixed date formats, and missing values show up in almost…"
+---
+
 # 03 · Data Cleaning & Wrangling
 
 Real data is never clean. Duplicate rows, inconsistent text casing, mixed

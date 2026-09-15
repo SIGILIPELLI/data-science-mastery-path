@@ -1,3 +1,7 @@
+---
+description: "Advanced Statistical Modeling — Level 1–2 covered simple regression and basic tests. Real analyses usually need models that handle multiple predictors…"
+---
+
 # 01 · Advanced Statistical Modeling
 
 Level 1–2 covered simple regression and basic tests. Real analyses usually

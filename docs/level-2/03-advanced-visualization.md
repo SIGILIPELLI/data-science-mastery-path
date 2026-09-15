@@ -1,3 +1,7 @@
+---
+description: "Advanced Visualization (plotly) — Level 1's matplotlib charts are static images — great for reports, limited for exploration. Plotly produces interactive…"
+---
+
 # 03 · Advanced Visualization (plotly)
 
 Level 1's matplotlib charts are static images — great for reports, limited

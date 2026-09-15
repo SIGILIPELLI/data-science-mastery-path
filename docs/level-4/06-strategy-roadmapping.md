@@ -1,3 +1,7 @@
+---
+description: "Data Science Strategy & Roadmapping — A backlog of interesting projects isn't a strategy. This module covers how to build a data science roadmap that ties…"
+---
+
 # 06 · Data Science Strategy & Roadmapping
 
 A backlog of interesting projects isn't a strategy. This module covers

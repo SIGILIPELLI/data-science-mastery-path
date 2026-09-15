@@ -1,3 +1,7 @@
+---
+description: "Ethics & Governance at Scale — Module 09 in Level 3 covered auditing a single model for bias. At the organizational level, the question changes: how do…"
+---
+
 # 08 · Ethics & Governance at Scale
 
 Module 09 in Level 3 covered auditing a single model for bias. At the

@@ -1,3 +1,7 @@
+---
+description: "Python for Data Science — Data scientists spend most of their coding time in two libraries: NumPy, which stores numbers in fast, fixed-type arrays, and…"
+---
+
 # 02 · Python for Data Science
 
 Data scientists spend most of their coding time in two libraries: **NumPy**,

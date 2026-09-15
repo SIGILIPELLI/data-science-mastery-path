@@ -1,3 +1,7 @@
+---
+description: "Project — End-to-End Data Analysis Report — This capstone runs the full workflow from Module 01 on one dataset: a synthetic subscription product's…"
+---
+
 # 10 · Project — End-to-End Data Analysis Report
 
 This capstone runs the full workflow from Module 01 on one dataset: a

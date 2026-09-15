@@ -1,3 +1,7 @@
+---
+description: "Project — A/B Test Analysis — This capstone ties together module 07 (A/B testing) with the pandas, statistics, and SQL skills from the rest of Level 2.…"
+---
+
 # 10 · Project — A/B Test Analysis
 
 This capstone ties together module 07 (A/B testing) with the pandas,

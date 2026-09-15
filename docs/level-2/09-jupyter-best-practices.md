@@ -1,3 +1,7 @@
+---
+description: "Jupyter Notebook Best Practices — The single most valuable habit: before trusting a notebook's output (and definitely before sharing it), use Kernel →…"
+---
+
 # 09 · Jupyter Notebook Best Practices
 
 Notebooks are great for exploration and terrible for reproducibility if

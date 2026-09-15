@@ -1,3 +1,7 @@
+---
+description: "Building Dashboards (Streamlit) — Static reports go stale the moment new data arrives. Streamlit turns a plain Python script into an interactive web app …"
+---
+
 # 07 · Building Dashboards (Streamlit)
 
 Static reports go stale the moment new data arrives. Streamlit turns a

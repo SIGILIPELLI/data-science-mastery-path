@@ -1,3 +1,7 @@
+---
+description: "Working with Big Data — pandas loads everything into memory — great up to a few million rows, painful beyond that. This module covers what to do when a…"
+---
+
 # 04 · Working with Big Data
 
 pandas loads everything into memory — great up to a few million rows,

@@ -1,3 +1,7 @@
+---
+description: "Reproducible Research Practices — 'It worked when I ran it' isn't the bar — the bar is 'someone else (or you, in a year) can rerun this and get the same…"
+---
+
 # 08 · Reproducible Research Practices
 
 "It worked when I ran it" isn't the bar — the bar is "someone else (or you,

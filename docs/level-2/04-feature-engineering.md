@@ -1,3 +1,7 @@
+---
+description: "Feature Engineering Basics — Raw columns rarely feed a model well. Feature engineering — transforming, combining, and encoding data into inputs a model…"
+---
+
 # 04 · Feature Engineering Basics
 
 Raw columns rarely feed a model well. **Feature engineering** — transforming,

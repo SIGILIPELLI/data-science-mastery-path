@@ -1,3 +1,7 @@
+---
+description: "Advanced Time Series Forecasting — Level 2 covered decomposition and autocorrelation as diagnostic tools. This module builds actual forecasts — ARIMA…"
+---
+
 # 03 · Advanced Time Series Forecasting
 
 Level 2 covered decomposition and autocorrelation as diagnostic tools.

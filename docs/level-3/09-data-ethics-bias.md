@@ -1,3 +1,7 @@
+---
+description: "Data Ethics & Bias — A model can be statistically excellent and still cause real harm — because the harm usually isn't a bug in the math, it's baked into…"
+---
+
 # 09 · Data Ethics & Bias
 
 A model can be statistically excellent and still cause real harm — because

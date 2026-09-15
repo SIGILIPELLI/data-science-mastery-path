@@ -1,3 +1,7 @@
+---
+description: "Data Visualization Basics — A well-chosen chart answers a question in half a second that a table of numbers would take a minute to explain. This module…"
+---
+
 # 05 · Data Visualization Basics
 
 A well-chosen chart answers a question in half a second that a table of

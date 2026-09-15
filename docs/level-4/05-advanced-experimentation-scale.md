@@ -1,3 +1,7 @@
+---
+description: "Advanced Experimentation at Scale — A single A/B test with one metric and one comparison is straightforward. An org running hundreds of concurrent…"
+---
+
 # 05 · Advanced Experimentation at Scale
 
 A single A/B test with one metric and one comparison is straightforward.

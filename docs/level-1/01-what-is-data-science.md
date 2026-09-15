@@ -1,3 +1,7 @@
+---
+description: "What Is Data Science? — Data science is the practice of turning raw, messy data into decisions. It sits at the intersection of statistics (does this…"
+---
+
 # 01 · What Is Data Science?
 
 Data science is the practice of turning raw, messy data into decisions. It

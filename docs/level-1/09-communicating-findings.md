@@ -1,3 +1,7 @@
+---
+description: "Communicating Findings — An analysis nobody understands or acts on has zero impact, no matter how correct the statistics behind it are. This module covers…"
+---
+
 # 09 · Communicating Findings
 
 An analysis nobody understands or acts on has zero impact, no matter how

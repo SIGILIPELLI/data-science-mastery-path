@@ -1,3 +1,7 @@
+---
+description: "MLOps for Data Scientists — A model that scores 0.89 AUC in a notebook and is never deployed reliably delivers 0.00 business value. MLOps is the set of…"
+---
+
 # 04 · MLOps for Data Scientists
 
 A model that scores 0.89 AUC in a notebook and is never deployed reliably
