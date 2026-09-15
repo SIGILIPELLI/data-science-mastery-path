@@ -181,6 +181,10 @@ models (ARIMA's autoregressive term, or a weekly seasonal component) are
 built to exploit — the ACF plot is effectively a diagnostic for which lags
 are worth feeding a forecasting model as predictors.
 
+## 🔀 Related lessons on other tracks
+
+- [AI/ML — 03 · Time Series Forecasting Basics](https://sigilipelli.github.io/ai-ml-mastery-path/level-2/03-time-series/)
+
 ## Exercise
 
 Using the `sales` series above, resample to monthly totals with `.resample("ME").sum()`

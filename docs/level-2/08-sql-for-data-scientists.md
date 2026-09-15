@@ -215,6 +215,10 @@ important guarantee is correctness and readability, not necessarily that
 it's materialized as a temp table (that varies by database and is a
 performance detail, not a semantics one).
 
+## 🔀 Related lessons on other tracks
+
+- [Data Engineering — 03 · SQL for Data Engineers](https://sigilipelli.github.io/data-engineering-mastery-path/level-1/03-sql-for-data-engineers/)
+
 ## Exercise
 
 Using the `orders`/`customers` tables above, write one query with a CTE

@@ -201,6 +201,12 @@ version — no retraining, no file hunting, and the audit trail (who
 promoted what, when) is a byproduct of the same mechanism rather than a
 separate logging effort.
 
+## 🔀 Related lessons on other tracks
+
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [Azure — 08 · Data Platform at Scale (Synapse, Data Factory)](https://sigilipelli.github.io/azure-mastery-path/level-4/08-data-platform-at-scale/)
+- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
+
 ## Exercise
 
 Pick a model you've built in an earlier module. Sketch (in a text diagram)

@@ -207,6 +207,10 @@ a free-form step function). `pd.cut` assigns each value to an interval by a
 simple binary search over the bin edges, so the cost is purely the resolution
 you lose within each bin.
 
+## 🔀 Related lessons on other tracks
+
+- [AI/ML — 08 · Feature Engineering & Pipelines](https://sigilipelli.github.io/ai-ml-mastery-path/level-1/08-feature-engineering-pipelines/)
+
 ## Exercise
 
 Using the `txns` DataFrame above, add a feature `orders_per_month` computed

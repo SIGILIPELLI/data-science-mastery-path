@@ -172,6 +172,12 @@ future confidence claims informative rather than decorative — which is the
 literal mechanism behind "credibility earned by being right when you said
 medium and wrong less often when you said high."
 
+## 🔀 Related lessons on other tracks
+
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [ETL & Data Lake — 03 · Partitioning Strategy for a Data Lake](https://sigilipelli.github.io/etl-datalake-mastery-path/level-2/03-partitioning-strategy/)
+- [Tableau — 05 · Data Strategy & Self-Service BI Enablement](https://sigilipelli.github.io/tableau-mastery-path/level-4/06-data-strategy-self-service-bi/)
+
 ## Exercise
 
 Take a company priority (real or invented, e.g. "reduce customer support

@@ -224,6 +224,11 @@ is a function only of rank/position, not magnitude — a single outlier
 unchanged, which is exactly the property that makes it the safer default
 for `fillna()` on real-world monetary columns that are rarely symmetric.
 
+## 🔀 Related lessons on other tracks
+
+- [Excel — 09 · Data Validation & Cleaning](https://sigilipelli.github.io/excel-mastery-path/level-1/09-data-validation-cleaning/)
+- [Pyspark — 08 · Nulls Data Cleaning](https://sigilipelli.github.io/pyspark-mastery-path/level-2/08-nulls-data-cleaning/)
+
 ## Exercise
 
 Take the cleaned `df` above and add one more issue to fix: a stray outlier

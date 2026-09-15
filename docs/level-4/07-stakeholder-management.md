@@ -167,6 +167,12 @@ disagreement about action as if it were a disagreement about data (or vice
 versa) means arguing past each other indefinitely, because the evidence
 that would resolve one type of disagreement is irrelevant to the other.
 
+## 🔀 Related lessons on other tracks
+
+- [Product Lead — Advanced Stakeholder Management (Board-Level)](https://sigilipelli.github.io/product-lead-mastery-path/level-3/09-board-level-stakeholder-management/)
+- [Project Manager — 07 · Stakeholder Management Basics](https://sigilipelli.github.io/project-manager-mastery-path/level-1/07-stakeholder-management-basics/)
+- [AI Manager — 05 · Managing Cross-Functional AI Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-2/05-managing-cross-functional-ai-teams/)
+
 ## Exercise
 
 Take an analysis you've done in an earlier module. Write the five-part

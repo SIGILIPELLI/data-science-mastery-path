@@ -200,6 +200,10 @@ production monitoring needs both because drift without label deterioration
 can also be a false alarm (a benign shift the model happens to be robust
 to).
 
+## 🔀 Related lessons on other tracks
+
+- [Data Engineering — 06 · MLOps & Data Engineering Overlap](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/06-mlops-overlap/)
+
 ## Exercise
 
 Take a model from an earlier module. Write the `metadata.json` it should

@@ -210,6 +210,10 @@ there's no server-side "generate on click" callback in this model; the
 button's job is purely to hand the browser bytes that were already computed
 during the current script execution.
 
+## 🔀 Related lessons on other tracks
+
+- [Excel — 10 · Project — Interactive Sales Dashboard](https://sigilipelli.github.io/excel-mastery-path/level-2/10-project-interactive-sales-dashboard/)
+
 ## Exercise
 
 Extend `app.py` with a second tab (`st.tabs`) showing a month-over-month

@@ -152,6 +152,10 @@ standard error) built in full in Module 06. Every workflow step from here
 forward exists to convert a raw arithmetic difference like this one into a
 claim you can actually defend.
 
+## 🔀 Related lessons on other tracks
+
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+
 ## Exercise
 
 Pick any statistic you've seen in the news this week (a headline like "X

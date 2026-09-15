@@ -253,3 +253,7 @@ risk" on an individual customer a low, medium, or high-tier decision by
 that module's rubric, and does it change what you'd put in this model's
 model card? Write the model card's "Intended use / NOT intended for"
 section for this specific model.
+
+## 🔀 Related lessons on other tracks
+
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)

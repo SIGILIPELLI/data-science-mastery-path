@@ -160,6 +160,10 @@ A rewrite optimizes the current artifact; a question optimizes the
 analyst's future artifacts, which is the actual lever a lead has that an IC
 role doesn't.
 
+## 🔀 Related lessons on other tracks
+
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+
 ## Exercise
 
 For your current (or a hypothetical) team's project backlog, score at

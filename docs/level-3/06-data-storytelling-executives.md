@@ -176,6 +176,10 @@ position, both of which measurably increase perception error in controlled
 studies. Choosing the chart is really choosing which visual channel the
 key comparison gets mapped to.
 
+## 🔀 Related lessons on other tracks
+
+- [Tableau — 05 · Formatting & Storytelling with Data](https://sigilipelli.github.io/tableau-mastery-path/level-2/05-formatting-storytelling/)
+
 ## Exercise
 
 Take the churn analysis from module 10 of Level 2 (the A/B test project)

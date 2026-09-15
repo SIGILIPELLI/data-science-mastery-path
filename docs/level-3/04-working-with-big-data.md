@@ -206,6 +206,12 @@ data — the same "process a bounded piece, combine the summaries" principle
 as chunked pandas, just automated and parallelized across a task graph
 instead of a manual Python loop.
 
+## 🔀 Related lessons on other tracks
+
+- [Pyspark — 09 · Career Growth Big Data](https://sigilipelli.github.io/pyspark-mastery-path/level-4/09-career-growth-big-data/)
+- [Data Engineering — 08 · Working with Cloud Data Warehouses](https://sigilipelli.github.io/data-engineering-mastery-path/level-3/08-cloud-data-warehouses/)
+- [Product Manager — 06 · Working with Data Teams](https://sigilipelli.github.io/product-manager-mastery-path/level-2/06-working-with-data-teams/)
+
 ## Exercise
 
 Take the `df` DataFrame from the first example (2M rows). Measure its

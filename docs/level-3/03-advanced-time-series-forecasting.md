@@ -231,6 +231,10 @@ cross-validation — except folds must stay chronological (train only on data
 strictly before each test window) since a model can never legitimately see
 its own future during fitting.
 
+## 🔀 Related lessons on other tracks
+
+- [AI/ML — 03 · Time Series Forecasting Basics](https://sigilipelli.github.io/ai-ml-mastery-path/level-2/03-time-series/)
+
 ## Exercise
 
 Using the `demand` series above, fit a SARIMA model with a different order

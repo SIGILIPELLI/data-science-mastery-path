@@ -223,6 +223,10 @@ feature's effect depends heavily on another feature's value (an
 interaction), partial dependence can mask that by blending opposite effects
 together into one misleadingly smooth curve.
 
+## 🔀 Related lessons on other tracks
+
+- [AI/ML — 07 · Model Interpretability](https://sigilipelli.github.io/ai-ml-mastery-path/level-2/07-model-interpretability/)
+
 ## Exercise
 
 Using the `loans` example, pick one applicant your `forest` model denies
