@@ -213,8 +213,8 @@ double as a leakage detector.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
-- [AI/ML — 04 · CI/CD for Machine Learning](https://sigilipelli.github.io/ai-ml-mastery-path/level-4/04-ci-cd-ml/)
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://learnmasterypath.com/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [AI/ML — 04 · CI/CD for Machine Learning](https://learnmasterypath.com/ai-ml-mastery-path/level-4/04-ci-cd-ml/)
 
 ## Exercise
 

@@ -217,7 +217,7 @@ performance detail, not a semantics one).
 
 ## 🔀 Related lessons on other tracks
 
-- [Data Engineering — 03 · SQL for Data Engineers](https://sigilipelli.github.io/data-engineering-mastery-path/level-1/03-sql-for-data-engineers/)
+- [Data Engineering — 03 · SQL for Data Engineers](https://learnmasterypath.com/data-engineering-mastery-path/level-1/03-sql-for-data-engineers/)
 
 ## Exercise
 

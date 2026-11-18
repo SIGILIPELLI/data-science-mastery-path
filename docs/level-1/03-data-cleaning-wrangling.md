@@ -226,8 +226,8 @@ for `fillna()` on real-world monetary columns that are rarely symmetric.
 
 ## 🔀 Related lessons on other tracks
 
-- [Excel — 09 · Data Validation & Cleaning](https://sigilipelli.github.io/excel-mastery-path/level-1/09-data-validation-cleaning/)
-- [Pyspark — 08 · Nulls Data Cleaning](https://sigilipelli.github.io/pyspark-mastery-path/level-2/08-nulls-data-cleaning/)
+- [Excel — 09 · Data Validation & Cleaning](https://learnmasterypath.com/excel-mastery-path/level-1/09-data-validation-cleaning/)
+- [Pyspark — 08 · Nulls Data Cleaning](https://learnmasterypath.com/pyspark-mastery-path/level-2/08-nulls-data-cleaning/)
 
 ## Exercise
 

@@ -178,9 +178,9 @@ audit against the next level's actual bar.
 
 ## 🔀 Related lessons on other tracks
 
-- [Data Engineering — 09 · Career Growth in Data Engineering](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/09-career-growth/)
-- [Pyspark — 09 · Career Growth Big Data](https://sigilipelli.github.io/pyspark-mastery-path/level-4/09-career-growth-big-data/)
-- [Agile — 09 · Career Growth: Scrum Master to Agile Coach/Director](https://sigilipelli.github.io/agile-mastery-path/level-4/09-career-growth-scrum-master-to-coach/)
+- [Data Engineering — 09 · Career Growth in Data Engineering](https://learnmasterypath.com/data-engineering-mastery-path/level-4/09-career-growth/)
+- [Pyspark — 09 · Career Growth Big Data](https://learnmasterypath.com/pyspark-mastery-path/level-4/09-career-growth-big-data/)
+- [Agile — 09 · Career Growth: Scrum Master to Agile Coach/Director](https://learnmasterypath.com/agile-mastery-path/level-4/09-career-growth-scrum-master-to-coach/)
 
 ## Exercise
 

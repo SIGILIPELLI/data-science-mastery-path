@@ -203,9 +203,9 @@ separate logging effort.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
-- [Azure — 08 · Data Platform at Scale (Synapse, Data Factory)](https://sigilipelli.github.io/azure-mastery-path/level-4/08-data-platform-at-scale/)
-- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://learnmasterypath.com/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [Azure — 08 · Data Platform at Scale (Synapse, Data Factory)](https://learnmasterypath.com/azure-mastery-path/level-4/08-data-platform-at-scale/)
+- [Data Engineering — 01 · Enterprise Data Platform Architecture](https://learnmasterypath.com/data-engineering-mastery-path/level-4/01-enterprise-platform-architecture/)
 
 ## Exercise
 

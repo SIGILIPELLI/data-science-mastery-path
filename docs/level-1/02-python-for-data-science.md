@@ -230,8 +230,8 @@ naive nested loop over unique regions would do.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
-- [Data Engineering — 02 · Python for Data Engineering](https://sigilipelli.github.io/data-engineering-mastery-path/level-1/02-python-for-data-engineering/)
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://learnmasterypath.com/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [Data Engineering — 02 · Python for Data Engineering](https://learnmasterypath.com/data-engineering-mastery-path/level-1/02-python-for-data-engineering/)
 
 ## Exercise
 

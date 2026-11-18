@@ -178,7 +178,7 @@ key comparison gets mapped to.
 
 ## 🔀 Related lessons on other tracks
 
-- [Tableau — 05 · Formatting & Storytelling with Data](https://sigilipelli.github.io/tableau-mastery-path/level-2/05-formatting-storytelling/)
+- [Tableau — 05 · Formatting & Storytelling with Data](https://learnmasterypath.com/tableau-mastery-path/level-2/05-formatting-storytelling/)
 
 ## Exercise
 

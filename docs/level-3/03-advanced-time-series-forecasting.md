@@ -233,7 +233,7 @@ its own future during fitting.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI/ML — 03 · Time Series Forecasting Basics](https://sigilipelli.github.io/ai-ml-mastery-path/level-2/03-time-series/)
+- [AI/ML — 03 · Time Series Forecasting Basics](https://learnmasterypath.com/ai-ml-mastery-path/level-2/03-time-series/)
 
 ## Exercise
 

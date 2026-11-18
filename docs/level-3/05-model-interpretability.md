@@ -225,7 +225,7 @@ together into one misleadingly smooth curve.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI/ML — 07 · Model Interpretability](https://sigilipelli.github.io/ai-ml-mastery-path/level-2/07-model-interpretability/)
+- [AI/ML — 07 · Model Interpretability](https://learnmasterypath.com/ai-ml-mastery-path/level-2/07-model-interpretability/)
 
 ## Exercise
 

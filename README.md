@@ -6,7 +6,7 @@ project at the end of each level. Covers the day-to-day data science
 workflow: statistics, EDA, visualization, experimentation, and communicating
 findings — distinct from the model-building focus of the AI/ML track.
 
-**Live site:** https://sigilipelli.github.io/data-science-mastery-path/
+**Live site:** https://learnmasterypath.com/data-science-mastery-path/
 
 ## Contents
 
@@ -25,8 +25,8 @@ python3 -m venv .venv
 
 ## Related
 
-- [AI & Machine Learning Mastery Path](https://sigilipelli.github.io/ai-ml-mastery-path/)
-- [Python Mastery Path](https://sigilipelli.github.io/python-mastery-path/)
-- [R Mastery Path](https://sigilipelli.github.io/r-mastery-path/)
-- [RAG Mastery Path](https://sigilipelli.github.io/rag-mastery-path/)
-- [SQL Mastery Path](https://sigilipelli.github.io/sql-mastery-path/)
+- [AI & Machine Learning Mastery Path](https://learnmasterypath.com/ai-ml-mastery-path/)
+- [Python Mastery Path](https://learnmasterypath.com/python-mastery-path/)
+- [R Mastery Path](https://learnmasterypath.com/r-mastery-path/)
+- [RAG Mastery Path](https://learnmasterypath.com/rag-mastery-path/)
+- [SQL Mastery Path](https://learnmasterypath.com/sql-mastery-path/)

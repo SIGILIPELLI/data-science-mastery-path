@@ -209,7 +209,7 @@ you lose within each bin.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI/ML — 08 · Feature Engineering & Pipelines](https://sigilipelli.github.io/ai-ml-mastery-path/level-1/08-feature-engineering-pipelines/)
+- [AI/ML — 08 · Feature Engineering & Pipelines](https://learnmasterypath.com/ai-ml-mastery-path/level-1/08-feature-engineering-pipelines/)
 
 ## Exercise
 

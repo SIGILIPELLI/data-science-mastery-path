@@ -202,7 +202,7 @@ to).
 
 ## 🔀 Related lessons on other tracks
 
-- [Data Engineering — 06 · MLOps & Data Engineering Overlap](https://sigilipelli.github.io/data-engineering-mastery-path/level-4/06-mlops-overlap/)
+- [Data Engineering — 06 · MLOps & Data Engineering Overlap](https://learnmasterypath.com/data-engineering-mastery-path/level-4/06-mlops-overlap/)
 
 ## Exercise
 

@@ -154,7 +154,7 @@ claim you can actually defend.
 
 ## 🔀 Related lessons on other tracks
 
-- [AI Manager — 04 · Managing Data Science & ML Teams](https://sigilipelli.github.io/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
+- [AI Manager — 04 · Managing Data Science & ML Teams](https://learnmasterypath.com/ai-manager-mastery-path/level-1/04-managing-data-science-ml-teams/)
 
 ## Exercise
 
