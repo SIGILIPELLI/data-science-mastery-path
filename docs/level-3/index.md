@@ -1,3 +1,7 @@
+---
+description: "Level 3 (Advanced) of the free Data Science Mastery Path. Build on the Level 2 foundation with the advanced-level data science skills covered in this…"
+---
+
 # Level 3 · Advanced <span class="level-badge">Advanced Data Science</span>
 
 Goal: build on the Level 2 foundation with the advanced-level

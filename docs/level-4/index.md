@@ -1,3 +1,7 @@
+---
+description: "Level 4 (Master) of the free Data Science Mastery Path. Build on the Level 3 foundation with the master-level data science skills covered in this level's…"
+---
+
 # Level 4 · Master <span class="level-badge">Data Science Leadership & Scale</span>
 
 Goal: build on the Level 3 foundation with the master-level

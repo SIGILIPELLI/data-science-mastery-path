@@ -1,3 +1,7 @@
+---
+description: "Level 2 (Intermediate) of the free Data Science Mastery Path. Build on the Level 1 foundation with the intermediate-level data science skills covered in…"
+---
+
 # Level 2 · Intermediate <span class="level-badge">Applied Data Science</span>
 
 Goal: build on the Level 1 foundation with the intermediate-level

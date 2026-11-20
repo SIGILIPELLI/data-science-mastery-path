@@ -1,3 +1,7 @@
+---
+description: "Level 1 (Entry) of the free Data Science Mastery Path. Get comfortable with the day-to-day data science workflow — Python and pandas for wrangling…"
+---
+
 # Level 1 · Entry <span class="level-badge">Foundations</span>
 
 Goal: get comfortable with the day-to-day data science workflow — Python and
