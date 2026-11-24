@@ -19,8 +19,3 @@ data science skills covered in this level's modules.
 8. [Reproducible Research Practices](08-reproducible-research.md)
 9. [Data Ethics & Bias](09-data-ethics-bias.md)
 10. [Project — Interactive Data Dashboard](10-project-interactive-dashboard.md)
-
-!!! info "Content status"
-    Level 3 module content is being written — every page below has its
-    scope defined and will be filled in next. [Level 1](../level-1/index.md)
-    is complete and is the prerequisite for everything here.

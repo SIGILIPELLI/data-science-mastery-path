@@ -19,8 +19,3 @@ data science skills covered in this level's modules.
 8. [Ethics & Governance at Scale](08-ethics-governance-scale.md)
 9. [Career Growth: IC to Principal Data Scientist](09-career-growth.md)
 10. [Capstone — Full Data Science Project from Question to Recommendation](10-capstone-full-project.md)
-
-!!! info "Content status"
-    Level 4 module content is being written — every page below has its
-    scope defined and will be filled in next. [Level 1](../level-1/index.md)
-    is complete and is the prerequisite for everything here.

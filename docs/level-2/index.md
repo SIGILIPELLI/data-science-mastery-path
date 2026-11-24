@@ -19,8 +19,3 @@ data science skills covered in this level's modules.
 8. [SQL for Data Scientists](08-sql-for-data-scientists.md)
 9. [Jupyter Notebook Best Practices](09-jupyter-best-practices.md)
 10. [Project — A/B Test Analysis](10-project-ab-test-analysis.md)
-
-!!! info "Content status"
-    Level 2 module content is being written — every page below has its
-    scope defined and will be filled in next. [Level 1](../level-1/index.md)
-    is complete and is the prerequisite for everything here.
