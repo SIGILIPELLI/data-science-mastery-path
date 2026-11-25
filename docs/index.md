@@ -7,8 +7,7 @@ description: "Free data science course from beginner to advanced -- Python, pand
 
 A structured, module-wise Data Science training program that takes you from
 your first `pandas.read_csv()` to production-grade, master-level data
-science practice — with runnable Python code in every module and a
-hands-on project at the end of each level. The track is a broad,
+science practice — with runnable Python code in every module and a hands-on project at the end of Levels 1–3 and a capstone at the end of Level 4. The track is a broad,
 general-purpose foundation: statistics, exploratory data analysis, data
 visualization, experimentation, and communicating findings to a non-technical
 audience — the day-to-day workflow of a working data scientist.
@@ -28,7 +27,7 @@ audience — the day-to-day workflow of a working data scientist.
 - Every topic page has runnable code snippets — all you need is
   `pip install numpy pandas matplotlib seaborn scipy statsmodels`. Examples
   use small built-in or synthetic datasets, so there is nothing to download.
-- Each level ends with a project that combines everything learned in that level.
+- Levels 1–3 each end with a project that combines everything learned in that level, and Level 4 ends with the course capstone.
 - Use the search bar (top of the page) to jump straight to a topic.
 
 Start here → [Level 1 · Entry](level-1/index.md)
