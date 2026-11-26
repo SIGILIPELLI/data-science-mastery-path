@@ -1,6 +1,6 @@
 ---
 title: "Learn Data Science Free: Beginner to Master Course"
-description: "Free data science course from beginner to advanced -- Python, pandas, statistics, EDA, visualization and experimentation lessons with real projects. Part of a 42-course free library."
+description: "Free data science course from beginner to advanced -- Python, pandas, statistics, EDA, visualization and experimentation: 36 lessons, 3 projects and 1 capstone. Part of the free Mastery Path library."
 ---
 
 # Data Science Mastery Path
