@@ -1,0 +1,4206 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="179 Data Science interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Data Science Mastery Path.">
+      
+      
+      
+        <link rel="canonical" href="https://learnmasterypath.com/data-science-mastery-path/interview-questions/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../cheat-sheet/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+  <title>Data Science Interview Questions and Answers (179 Questions)</title>
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../stylesheets/progress-tracker.css">
+    
+      <link rel="stylesheet" href="../stylesheets/final-quiz.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-05VBGCXN12"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-05VBGCXN12');
+  </script>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mastery Path">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Data Science Interview Questions and Answers (179 Questions)">
+  <meta property="og:description" content="179 Data Science interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Data Science Mastery Path.">
+  <meta property="og:url" content="https://learnmasterypath.com/data-science-mastery-path/interview-questions/">
+  <meta property="og:image" content="https://learnmasterypath.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mastery Path: free structured courses, beginner to master">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Data Science Interview Questions and Answers (179 Questions)">
+  <meta name="twitter:description" content="179 Data Science interview questions with answers and explanations, from beginner to advanced, organised by level. Free, from the Data Science Mastery Path.">
+  <meta name="twitter:image" content="https://learnmasterypath.com/og-image.png">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440969811959397"
+     crossorigin="anonymous"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Mastery Path", "item": "https://learnmasterypath.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Data Science Mastery Path", "item": "https://learnmasterypath.com/data-science-mastery-path/"},
+      {"@type": "ListItem", "position": 3, "name": "Interview Questions", "item": "https://learnmasterypath.com/data-science-mastery-path/interview-questions/"}
+    ]
+  }
+  </script>
+  <style>
+    .md-banner a:hover { text-decoration: underline !important; }
+    .mp-related { margin-top: 2.4rem; padding-top: 1rem; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .78rem; }
+    .mp-related h2 { font-size: .9rem; margin: 0 0 .5rem; }
+    .mp-related ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .9rem; }
+    .mp-related li { margin: 0 !important; }
+  </style>
+  <script type="application/json" id="mp-course-meta">{"home": false, "id": "data-science-mastery-path", "name": "Data Science Mastery Path", "repo": "https://github.com/SIGILIPELLI/data-science-mastery-path", "src": "interview-questions.md", "url": "https://learnmasterypath.com/data-science-mastery-path/"}</script>
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/learn.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://learnmasterypath.com/assets/course.css?v=1">
+  <script src="https://learnmasterypath.com/assets/learn.js" defer></script>
+  <script src="https://learnmasterypath.com/assets/signup.js" defer></script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-science-interview-questions-and-answers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <a href="https://learnmasterypath.com/" style="color: inherit; text-decoration: none;">
+    &larr; Mastery Path &middot; all 100+ free courses
+  </a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/search/" style="color: inherit; text-decoration: none;">Search all courses</a>
+  <span style="opacity: .6; margin: 0 .6em;">|</span>
+  <a href="https://learnmasterypath.com/resume/" style="color: inherit; font-weight: 700; text-decoration: none;">
+    Got the skills? Free resume ATS check &rarr;
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Data Science Mastery Path" class="md-header__button md-logo" aria-label="Data Science Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Science Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Science Interview Questions and Answers (179 Questions)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SIGILIPELLI/data-science-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    data-science-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Questions
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../cheat-sheet/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Cheat Sheet
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 1 · Entry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-2/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 2 · Intermediate
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-3/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 3 · Advanced
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../level-4/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Level 4 · Master
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Final Quiz
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Data Science Mastery Path" class="md-nav__button md-logo" aria-label="Data Science Mastery Path" data-md-component="logo">
+      <svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg>
+    </a>
+    Data Science Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SIGILIPELLI/data-science-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    data-science-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is Data Science?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-python-for-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Python for Data Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-data-cleaning-wrangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Data Cleaning &amp; Wrangling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-exploratory-data-analysis-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Exploratory Data Analysis (EDA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-data-visualization-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Data Visualization Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-statistics-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Statistics Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-correlation-basic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Correlation &amp; Basic Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-working-with-real-world-messy-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Working with Real-World Messy Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-communicating-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Communicating Findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-end-to-end-data-analysis-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — End-to-End Data Analysis Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-pandas-groupby-merge-pivot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced pandas (groupby, merge, pivot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-statistical-testing-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Statistical Testing Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-advanced-visualization-plotly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Advanced Visualization (plotly)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-feature-engineering-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Feature Engineering Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-intro-to-machine-learning-for-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Intro to Machine Learning for Data Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-time-series-analysis-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Time Series Analysis Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-ab-testing-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · A/B Testing Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-sql-for-data-scientists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · SQL for Data Scientists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-jupyter-notebook-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Jupyter Notebook Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-ab-test-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — A/B Test Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-statistical-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced Statistical Modeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-experimentation-platforms-causal-inference-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Experimentation Platforms &amp; Causal Inference Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-advanced-time-series-forecasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Advanced Time Series Forecasting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-working-with-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Working with Big Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-model-interpretability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Model Interpretability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-data-storytelling-for-executives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Data Storytelling for Executives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-building-dashboards-streamlit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Building Dashboards (Streamlit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-reproducible-research-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Reproducible Research Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-data-ethics-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Data Ethics &amp; Bias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-interactive-data-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Interactive Data Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-leading-data-science-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Leading Data Science Teams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-advanced-causal-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Advanced Causal Inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-building-a-data-science-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Building a Data Science Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mlops-for-data-scientists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · MLOps for Data Scientists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-advanced-experimentation-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Advanced Experimentation at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-data-science-strategy-roadmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Data Science Strategy &amp; Roadmapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-cross-functional-stakeholder-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Cross-Functional Stakeholder Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-ethics-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Ethics &amp; Governance at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-career-growth-ic-to-principal-data-scientist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Career Growth: IC to Principal Data Scientist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-full-data-science-project-from-question-to-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Full Data Science Project from Question to Recommendation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ab-test-z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A/B test z-test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#least-squares-and-a-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least squares and a warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cheat Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-1/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 1 · Entry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 1 · Entry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/01-what-is-data-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · What Is Data Science?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/02-python-for-data-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Python for Data Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/03-data-cleaning-wrangling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Data Cleaning & Wrangling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/04-exploratory-data-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Exploratory Data Analysis (EDA)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/05-data-visualization-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Data Visualization Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/06-statistics-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Statistics Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/07-correlation-basic-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Correlation & Basic Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/08-messy-datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Working with Real-World Messy Datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/09-communicating-findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Communicating Findings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-1/10-capstone-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — End-to-End Data Analysis Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-2/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 2 · Intermediate
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 2 · Intermediate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/01-advanced-pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced pandas (groupby, merge, pivot)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/02-statistical-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Statistical Testing Deep Dive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/03-advanced-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Advanced Visualization (plotly)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/04-feature-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Feature Engineering Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/05-intro-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Intro to Machine Learning for Data Science
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/06-time-series-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Time Series Analysis Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/07-ab-testing-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · A/B Testing Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/08-sql-for-data-scientists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · SQL for Data Scientists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/09-jupyter-best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Jupyter Notebook Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-2/10-project-ab-test-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — A/B Test Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-3/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 3 · Advanced
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 3 · Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/01-advanced-statistical-modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Advanced Statistical Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/02-causal-inference-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Experimentation Platforms & Causal Inference Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/03-advanced-time-series-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Advanced Time Series Forecasting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/04-working-with-big-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Working with Big Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/05-model-interpretability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Model Interpretability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/06-data-storytelling-executives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Data Storytelling for Executives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/07-building-dashboards-streamlit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Building Dashboards (Streamlit)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/08-reproducible-research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Reproducible Research Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/09-data-ethics-bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Data Ethics & Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-3/10-project-interactive-dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Project — Interactive Data Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../level-4/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Level 4 · Master
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Level 4 · Master
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/01-leading-data-science-teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Leading Data Science Teams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/02-advanced-causal-inference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Advanced Causal Inference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/03-data-science-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Building a Data Science Platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/04-mlops-for-data-scientists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · MLOps for Data Scientists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/05-advanced-experimentation-scale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · Advanced Experimentation at Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/06-strategy-roadmapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Data Science Strategy & Roadmapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/07-stakeholder-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Cross-Functional Stakeholder Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/08-ethics-governance-scale/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Ethics & Governance at Scale
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/09-career-growth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · Career Growth: IC to Principal Data Scientist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../level-4/10-capstone-full-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · Capstone — Full Data Science Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Final Quiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#level-1-entry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 1 · Entry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 1 · Entry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-what-is-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · What Is Data Science?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-python-for-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Python for Data Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-data-cleaning-wrangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Data Cleaning &amp; Wrangling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-exploratory-data-analysis-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Exploratory Data Analysis (EDA)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-data-visualization-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Data Visualization Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-statistics-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Statistics Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-correlation-basic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Correlation &amp; Basic Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-working-with-real-world-messy-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Working with Real-World Messy Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-communicating-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Communicating Findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-end-to-end-data-analysis-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — End-to-End Data Analysis Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-2-intermediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 2 · Intermediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 2 · Intermediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-pandas-groupby-merge-pivot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced pandas (groupby, merge, pivot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-statistical-testing-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Statistical Testing Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-advanced-visualization-plotly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Advanced Visualization (plotly)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-feature-engineering-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Feature Engineering Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-intro-to-machine-learning-for-data-science" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Intro to Machine Learning for Data Science
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-time-series-analysis-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Time Series Analysis Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-ab-testing-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · A/B Testing Fundamentals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-sql-for-data-scientists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · SQL for Data Scientists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-jupyter-notebook-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Jupyter Notebook Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-ab-test-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — A/B Test Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-3-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 3 · Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 3 · Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-advanced-statistical-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Advanced Statistical Modeling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-experimentation-platforms-causal-inference-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Experimentation Platforms &amp; Causal Inference Basics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-advanced-time-series-forecasting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Advanced Time Series Forecasting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-working-with-big-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · Working with Big Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-model-interpretability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Model Interpretability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-data-storytelling-for-executives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Data Storytelling for Executives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-building-dashboards-streamlit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Building Dashboards (Streamlit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-reproducible-research-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Reproducible Research Practices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-data-ethics-bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Data Ethics &amp; Bias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-project-interactive-data-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Project — Interactive Data Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#level-4-master" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 4 · Master
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 4 · Master">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-leading-data-science-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01 · Leading Data Science Teams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-advanced-causal-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02 · Advanced Causal Inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-building-a-data-science-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03 · Building a Data Science Platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-mlops-for-data-scientists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04 · MLOps for Data Scientists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#05-advanced-experimentation-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05 · Advanced Experimentation at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#06-data-science-strategy-roadmapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        06 · Data Science Strategy &amp; Roadmapping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#07-cross-functional-stakeholder-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        07 · Cross-Functional Stakeholder Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#08-ethics-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        08 · Ethics &amp; Governance at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#09-career-growth-ic-to-principal-data-scientist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        09 · Career Growth: IC to Principal Data Scientist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-capstone-full-data-science-project-from-question-to-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 · Capstone — Full Data Science Project from Question to Recommendation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mixed-questions-across-all-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed questions across all levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-coding-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical coding questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practical coding questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ab-test-z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A/B test z-test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#least-squares-and-a-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Least squares and a warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  
+  
+
+
+<h1 id="data-science-interview-questions-and-answers">Data Science Interview Questions and Answers<a class="headerlink" href="#data-science-interview-questions-and-answers" title="Permanent link">&para;</a></h1>
+<p><strong>179 questions</strong> with the correct answer and a short explanation, organised from beginner (Level 1) to advanced (Level 4). Every question comes from a lesson in the free Data Science Mastery Path, so you can open the lesson to go deeper.</p>
+<div class="admonition tip">
+<p class="admonition-title">Practise, don't just read</p>
+<p>Each lesson also ends with an interactive quiz, and the <a href="../quiz/">final quiz</a> tests all four levels. Try to answer each question below before reading the answer.</p>
+</div>
+<h2 id="level-1-entry">Level 1 · Entry<a class="headerlink" href="#level-1-entry" title="Permanent link">&para;</a></h2>
+<h3 id="01-what-is-data-science"><a href="../level-1/01-what-is-data-science/">01 · What Is Data Science?</a><a class="headerlink" href="#01-what-is-data-science" title="Permanent link">&para;</a></h3>
+<p><strong>Q1.</strong> What does data science combine?</p>
+<p><strong>Answer:</strong> Statistics, programming and domain knowledge to turn data into decisions</p>
+<p>Each leg is needed.</p>
+<p><strong>Q2.</strong> Which question best starts a data science project?</p>
+<p><strong>Answer:</strong> A specific business question the analysis should answer</p>
+<p>Start from the decision.</p>
+<p><strong>Q3.</strong> What's the typical workflow order?</p>
+<p><strong>Answer:</strong> Question, data collection, cleaning, exploration, modeling/analysis, communication</p>
+<p>Iterate as you learn.</p>
+<p><strong>Q4.</strong> Why is domain knowledge important?</p>
+<p><strong>Answer:</strong> It tells you what the numbers mean and which results are plausible</p>
+<p>Context prevents silly conclusions.</p>
+<h3 id="02-python-for-data-science"><a href="../level-1/02-python-for-data-science/">02 · Python for Data Science</a><a class="headerlink" href="#02-python-for-data-science" title="Permanent link">&para;</a></h3>
+<p><strong>Q5.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">s</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">d</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pstdev</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> 5 4.5 4 2.0</p>
+<p>Mean 5, median 4.5, mode 4, population SD 2. Verified by running it.</p>
+<p><strong>Q6.</strong> Why use NumPy arrays over Python lists for numeric work?</p>
+<p><strong>Answer:</strong> Fixed-type contiguous arrays enable fast vectorized operations</p>
+<p>Avoid Python loops.</p>
+<p><strong>Q7.</strong> What is a pandas DataFrame?</p>
+<p><strong>Answer:</strong> A labeled, spreadsheet-like table built on NumPy</p>
+<p>Rows and named columns.</p>
+<p><strong>Q8.</strong> What's vectorization?</p>
+<p><strong>Answer:</strong> Applying operations to whole arrays at once instead of looping in Python</p>
+<p>Faster and cleaner.</p>
+<h3 id="03-data-cleaning-wrangling"><a href="../level-1/03-data-cleaning-wrangling/">03 · Data Cleaning &amp; Wrangling</a><a class="headerlink" href="#03-data-cleaning-wrangling" title="Permanent link">&para;</a></h3>
+<p><strong>Q9.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">rows</span><span class="o">=</span><span class="p">[(</span><span class="s1">'A'</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s1">'a '</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="s1">'B'</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="s1">'A'</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">clean</span><span class="o">=</span><span class="p">{(</span><span class="n">n</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">clean</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> [('A', 1), ('B', 2)]</p>
+<p>Normalize text, then deduplicate. Verified by running it.</p>
+<p><strong>Q10.</strong> What are common ways to handle missing values?</p>
+<p><strong>Answer:</strong> Drop, impute (mean/median/model) or flag, depending on why they're missing</p>
+<p>Understand the mechanism.</p>
+<p><strong>Q11.</strong> Why standardize text case and whitespace?</p>
+<p><strong>Answer:</strong> Otherwise 'USA' and 'usa ' count as different categories</p>
+<p>Normalize first.</p>
+<p><strong>Q12.</strong> Why keep the raw data untouched?</p>
+<p><strong>Answer:</strong> So cleaning is reproducible and reversible</p>
+<p>Script every step.</p>
+<h3 id="04-exploratory-data-analysis-eda"><a href="../level-1/04-exploratory-data-analysis/">04 · Exploratory Data Analysis (EDA)</a><a class="headerlink" href="#04-exploratory-data-analysis-eda" title="Permanent link">&para;</a></h3>
+<p><strong>Q13.</strong> What's the point of EDA?</p>
+<p><strong>Answer:</strong> Understand shape, distributions, outliers and relationships before answering a question</p>
+<p>Skipping it invites errors.</p>
+<p><strong>Q14.</strong> A column's mean is much higher than its median. What does that suggest?</p>
+<p><strong>Answer:</strong> Right skew or outliers pulling the mean</p>
+<p>Look at the distribution.</p>
+<p><strong>Q15.</strong> What does <code>df.describe()</code> summarize?</p>
+<p><strong>Answer:</strong> Count, mean, spread and quartiles of numeric columns</p>
+<p>First look.</p>
+<p><strong>Q16.</strong> Why check for duplicates and impossible values early?</p>
+<p><strong>Answer:</strong> They distort every later statistic</p>
+<p>Sanity checks.</p>
+<h3 id="05-data-visualization-basics"><a href="../level-1/05-data-visualization-basics/">05 · Data Visualization Basics</a><a class="headerlink" href="#05-data-visualization-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q17.</strong> Which chart shows a distribution of one numeric variable?</p>
+<p><strong>Answer:</strong> Histogram</p>
+<p>Bin choice matters.</p>
+<p><strong>Q18.</strong> Which chart shows the relationship between two numeric variables?</p>
+<p><strong>Answer:</strong> Scatter plot</p>
+<p>Look for trend and outliers.</p>
+<p><strong>Q19.</strong> Why should bar charts start at zero?</p>
+<p><strong>Answer:</strong> Truncated axes exaggerate differences</p>
+<p>Bar length encodes value.</p>
+<p><strong>Q20.</strong> What makes a chart honest and clear?</p>
+<p><strong>Answer:</strong> Labeled axes, units, a title that states the takeaway and minimal clutter</p>
+<p>Design for the reader.</p>
+<h3 id="06-statistics-fundamentals"><a href="../level-1/06-statistics-fundamentals/">06 · Statistics Fundamentals</a><a class="headerlink" href="#06-statistics-fundamentals" title="Permanent link">&para;</a></h3>
+<p><strong>Q21.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">d</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">m</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">);</span> <span class="n">sd</span><span class="o">=</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">sd</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)),</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> 11.0 1.581 0.707</p>
+<p>Sample SD uses n-1; standard error is sd/sqrt(n). Verified by running it.</p>
+<p><strong>Q22.</strong> What does a p-value of 0.03 mean?</p>
+<p><strong>Answer:</strong> If the null hypothesis were true, data this extreme would occur about 3% of the time</p>
+<p>It isn't the probability the hypothesis is true.</p>
+<p><strong>Q23.</strong> What does a 95% confidence interval mean?</p>
+<p><strong>Answer:</strong> The procedure captures the true value in about 95% of repeated samples</p>
+<p>Common misinterpretation.</p>
+<p><strong>Q24.</strong> Why does a larger sample narrow the CI?</p>
+<p><strong>Answer:</strong> Standard error shrinks as 1/sqrt(n)</p>
+<p>More data, more precision.</p>
+<h3 id="07-correlation-basic-regression"><a href="../level-1/07-correlation-basic-regression/">07 · Correlation &amp; Basic Regression</a><a class="headerlink" href="#07-correlation-basic-regression" title="Permanent link">&para;</a></h3>
+<p><strong>Q25.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span> <span class="n">mx</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">;</span> <span class="n">my</span><span class="o">=</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">b</span><span class="o">=</span><span class="nb">sum</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">mx</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="n">my</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="nb">sum</span><span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">mx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">my</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">mx</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> 0.6 2.2</p>
+<p>Least squares slope and intercept. Verified by running it.</p>
+<p><strong>Q26.</strong> Does correlation imply causation?</p>
+<p><strong>Answer:</strong> No: confounders, reverse causality and chance can create correlation</p>
+<p>Think about the mechanism.</p>
+<p><strong>Q27.</strong> What does R^2 measure?</p>
+<p><strong>Answer:</strong> The share of variance in y explained by the model</p>
+<p>Not proof of correctness.</p>
+<p><strong>Q28.</strong> What does an outlier do to a regression line?</p>
+<p><strong>Answer:</strong> It can pull the line substantially (high leverage)</p>
+<p>Inspect residuals.</p>
+<h3 id="08-working-with-real-world-messy-datasets"><a href="../level-1/08-messy-datasets/">08 · Working with Real-World Messy Datasets</a><a class="headerlink" href="#08-working-with-real-world-messy-datasets" title="Permanent link">&para;</a></h3>
+<p><strong>Q29.</strong> An order table has 'USA', 'U.S.A.' and 'United States'. What's the fix?</p>
+<p><strong>Answer:</strong> Map variants to one canonical value</p>
+<p>Normalization.</p>
+<p><strong>Q30.</strong> What should you do about missing customer ids?</p>
+<p><strong>Answer:</strong> Understand why, then decide to impute, flag or exclude, and document it</p>
+<p>Be transparent.</p>
+<p><strong>Q31.</strong> Why log every cleaning decision?</p>
+<p><strong>Answer:</strong> So the analysis can be reviewed and reproduced</p>
+<p>Reproducibility.</p>
+<p><strong>Q32.</strong> What's a sanity check after cleaning?</p>
+<p><strong>Answer:</strong> Row counts and totals reconcile with the source</p>
+<p>Verify.</p>
+<h3 id="09-communicating-findings"><a href="../level-1/09-communicating-findings/">09 · Communicating Findings</a><a class="headerlink" href="#09-communicating-findings" title="Permanent link">&para;</a></h3>
+<p><strong>Q33.</strong> What should lead a report to executives?</p>
+<p><strong>Answer:</strong> The finding and recommendation, then the supporting evidence</p>
+<p>Answer first.</p>
+<p><strong>Q34.</strong> What makes a chart title effective?</p>
+<p><strong>Answer:</strong> It states the takeaway ('Churn doubled after the price change')</p>
+<p>Tell the story.</p>
+<p><strong>Q35.</strong> Why state uncertainty and limitations?</p>
+<p><strong>Answer:</strong> Honest framing builds trust and prevents misuse</p>
+<p>Don't overclaim.</p>
+<p><strong>Q36.</strong> What's a good call to action?</p>
+<p><strong>Answer:</strong> A specific recommended next step with owner and expected impact</p>
+<p>Enable decisions.</p>
+<h3 id="10-project-end-to-end-data-analysis-report"><a href="../level-1/10-capstone-project/">10 · Project — End-to-End Data Analysis Report</a><a class="headerlink" href="#10-project-end-to-end-data-analysis-report" title="Permanent link">&para;</a></h3>
+<p><strong>Q37.</strong> What's the goal of the churn analysis?</p>
+<p><strong>Answer:</strong> Understand why customers leave and recommend actions</p>
+<p>Business question first.</p>
+<p><strong>Q38.</strong> Which comparison helps explain churn?</p>
+<p><strong>Answer:</strong> Churn rate by segment, tenure and engagement</p>
+<p>Compare groups.</p>
+<p><strong>Q39.</strong> Why report effect sizes with significance?</p>
+<p><strong>Answer:</strong> A significant result can still be tiny and unimportant</p>
+<p>Practical significance.</p>
+<p><strong>Q40.</strong> What ends the capstone?</p>
+<p><strong>Answer:</strong> A clear recommendation backed by evidence and caveats</p>
+<p>Decision-ready.</p>
+<h2 id="level-2-intermediate">Level 2 · Intermediate<a class="headerlink" href="#level-2-intermediate" title="Permanent link">&para;</a></h2>
+<h3 id="01-advanced-pandas-groupby-merge-pivot"><a href="../level-2/01-advanced-pandas/">01 · Advanced pandas (groupby, merge, pivot)</a><a class="headerlink" href="#01-advanced-pandas-groupby-merge-pivot" title="Permanent link">&para;</a></h3>
+<p><strong>Q41.</strong> What does this groupby return?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">s</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="s1">'n'</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="s1">'s'</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">select</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="k">avg</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Answer:</strong> n,15.0,2; s,5.0,1</p>
+<p>Aggregate within groups (same idea as pandas groupby). Verified by running it in SQLite (rows shown as comma-separated, separated by semicolons).</p>
+<p><strong>Q42.</strong> What's the risk of a many-to-many merge?</p>
+<p><strong>Answer:</strong> Row explosion duplicating records and inflating totals</p>
+<p>Check key uniqueness.</p>
+<p><strong>Q43.</strong> Why prefer vectorized pandas ops to .apply with a Python function?</p>
+<p><strong>Answer:</strong> They're much faster</p>
+<p>Avoid row loops.</p>
+<p><strong>Q44.</strong> What does <code>pd.merge(how='left')</code> keep?</p>
+<p><strong>Answer:</strong> All rows from the left table with matches where present</p>
+<p>Else NaN.</p>
+<h3 id="02-statistical-testing-deep-dive"><a href="../level-2/02-statistical-testing/">02 · Statistical Testing Deep Dive</a><a class="headerlink" href="#02-statistical-testing-deep-dive" title="Permanent link">&para;</a></h3>
+<p><strong>Q45.</strong> Which test compares the means of two independent groups?</p>
+<p><strong>Answer:</strong> Two-sample t-test (or Mann-Whitney if non-normal)</p>
+<p>Check assumptions.</p>
+<p><strong>Q46.</strong> Which test is for two categorical variables?</p>
+<p><strong>Answer:</strong> Chi-square test of independence</p>
+<p>Contingency table.</p>
+<p><strong>Q47.</strong> Which handles more than two group means?</p>
+<p><strong>Answer:</strong> ANOVA (with post-hoc tests)</p>
+<p>Multiple comparisons inflate false positives.</p>
+<p><strong>Q48.</strong> What is the multiple comparisons problem?</p>
+<p><strong>Answer:</strong> Running many tests raises the chance of false positives; correct for it</p>
+<p>Bonferroni, FDR.</p>
+<h3 id="03-advanced-visualization-plotly"><a href="../level-2/03-advanced-visualization/">03 · Advanced Visualization (plotly)</a><a class="headerlink" href="#03-advanced-visualization-plotly" title="Permanent link">&para;</a></h3>
+<p><strong>Q49.</strong> What does interactive Plotly add over static charts?</p>
+<p><strong>Answer:</strong> Hover, zoom and toggling series for exploration</p>
+<p>Good for exploring.</p>
+<p><strong>Q50.</strong> When use small multiples (facets)?</p>
+<p><strong>Answer:</strong> To compare the same chart across categories</p>
+<p>Easy comparison.</p>
+<p><strong>Q51.</strong> What's a heatmap good for?</p>
+<p><strong>Answer:</strong> Showing magnitudes across two categorical dimensions (e.g. correlation matrix)</p>
+<p>Use sensible color scales.</p>
+<p><strong>Q52.</strong> Why avoid rainbow color scales?</p>
+<p><strong>Answer:</strong> They mislead perception of magnitude and hurt accessibility</p>
+<p>Use perceptually uniform maps.</p>
+<h3 id="04-feature-engineering-basics"><a href="../level-2/04-feature-engineering/">04 · Feature Engineering Basics</a><a class="headerlink" href="#04-feature-engineering-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q53.</strong> What does one-hot encoding do?</p>
+<p><strong>Answer:</strong> Turns a categorical variable into binary columns per category</p>
+<p>Avoids false ordering.</p>
+<p><strong>Q54.</strong> Why scale features for some models?</p>
+<p><strong>Answer:</strong> Distance/gradient-based models are sensitive to feature magnitude</p>
+<p>Standardize.</p>
+<p><strong>Q55.</strong> What is data leakage in feature engineering?</p>
+<p><strong>Answer:</strong> Using information unavailable at prediction time (e.g. future data)</p>
+<p>Split before fitting transforms.</p>
+<p><strong>Q56.</strong> Why create interaction or date-part features?</p>
+<p><strong>Answer:</strong> Models can't infer them automatically from raw columns</p>
+<p>Domain knowledge.</p>
+<h3 id="05-intro-to-machine-learning-for-data-science"><a href="../level-2/05-intro-machine-learning/">05 · Intro to Machine Learning for Data Science</a><a class="headerlink" href="#05-intro-to-machine-learning-for-data-science" title="Permanent link">&para;</a></h3>
+<p><strong>Q57.</strong> What's a baseline model for?</p>
+<p><strong>Answer:</strong> A simple benchmark that any real model must beat</p>
+<p>Majority class or mean.</p>
+<p><strong>Q58.</strong> Why split train and test data?</p>
+<p><strong>Answer:</strong> To estimate performance on unseen data</p>
+<p>Avoid overfitting.</p>
+<p><strong>Q59.</strong> What is overfitting?</p>
+<p><strong>Answer:</strong> Model memorizes training noise and performs worse on new data</p>
+<p>Regularize, simplify.</p>
+<p><strong>Q60.</strong> Why is accuracy misleading on imbalanced data?</p>
+<p><strong>Answer:</strong> Predicting the majority class gets high accuracy but misses the minority</p>
+<p>Use precision/recall/AUC.</p>
+<h3 id="06-time-series-analysis-basics"><a href="../level-2/06-time-series-basics/">06 · Time Series Analysis Basics</a><a class="headerlink" href="#06-time-series-analysis-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q61.</strong> Why can't you randomly shuffle time series for validation?</p>
+<p><strong>Answer:</strong> It leaks the future into training; use time-based splits</p>
+<p>Respect order.</p>
+<p><strong>Q62.</strong> What are trend, seasonality and noise?</p>
+<p><strong>Answer:</strong> Long-term direction, repeating patterns and random variation</p>
+<p>Decomposition.</p>
+<p><strong>Q63.</strong> What does a rolling mean do?</p>
+<p><strong>Answer:</strong> Smooths noise by averaging a moving window</p>
+<p>Window size matters.</p>
+<p><strong>Q64.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">([</span><span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
+</code></pre></div>
+<p><strong>Answer:</strong> [2.0, 3.0, 4.0, 5.0]</p>
+<p>3-point rolling mean. Verified by running it.</p>
+<h3 id="07-ab-testing-fundamentals"><a href="../level-2/07-ab-testing-fundamentals/">07 · A/B Testing Fundamentals</a><a class="headerlink" href="#07-ab-testing-fundamentals" title="Permanent link">&para;</a></h3>
+<p><strong>Q65.</strong> What's the purpose of randomization in A/B tests?</p>
+<p><strong>Answer:</strong> To balance known and unknown confounders across groups</p>
+<p>Enables causal claims.</p>
+<p><strong>Q66.</strong> Why decide the sample size and metric before the test?</p>
+<p><strong>Answer:</strong> To avoid peeking and p-hacking</p>
+<p>Pre-registration.</p>
+<p><strong>Q67.</strong> What's wrong with stopping the test as soon as p&lt;0.05?</p>
+<p><strong>Answer:</strong> Repeated peeking inflates false positives</p>
+<p>Fix the horizon or use sequential methods.</p>
+<p><strong>Q68.</strong> What does statistical power mean?</p>
+<p><strong>Answer:</strong> The probability of detecting a real effect of a given size</p>
+<p>Plan sample size.</p>
+<h3 id="08-sql-for-data-scientists"><a href="../level-2/08-sql-for-data-scientists/">08 · SQL for Data Scientists</a><a class="headerlink" href="#08-sql-for-data-scientists" title="Permanent link">&para;</a></h3>
+<p><strong>Q69.</strong> What does this return?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">u</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">plan</span><span class="w"> </span><span class="nb">text</span><span class="p">);</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">'a'</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="s1">'b'</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="s1">'a'</span><span class="p">);</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">e</span><span class="p">(</span><span class="n">uid</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span><span class="w"> </span><span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">select</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">plan</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="k">coalesce</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">uid</span><span class="o">=</span><span class="n">u</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">plan</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">plan</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Answer:</strong> a,10; b,0</p>
+<p>LEFT JOIN keeps users without events. Verified by running it in SQLite (rows shown as comma-separated, separated by semicolons).</p>
+<p><strong>Q70.</strong> Why pull and aggregate data in SQL instead of pandas?</p>
+<p><strong>Answer:</strong> Databases aggregate large data efficiently near the source</p>
+<p>Push computation down.</p>
+<p><strong>Q71.</strong> What does <code>GROUP BY</code> plus <code>HAVING</code> do?</p>
+<p><strong>Answer:</strong> Filters groups after aggregation</p>
+<p>HAVING count(*)&gt;5.</p>
+<p><strong>Q72.</strong> Why use parameterized queries?</p>
+<p><strong>Answer:</strong> To prevent SQL injection and quoting bugs</p>
+<p>Bind values.</p>
+<h3 id="09-jupyter-notebook-best-practices"><a href="../level-2/09-jupyter-best-practices/">09 · Jupyter Notebook Best Practices</a><a class="headerlink" href="#09-jupyter-notebook-best-practices" title="Permanent link">&para;</a></h3>
+<p><strong>Q73.</strong> What's the main risk of notebooks?</p>
+<p><strong>Answer:</strong> Hidden state from out-of-order cell execution</p>
+<p>Restart and run all.</p>
+<p><strong>Q74.</strong> How do you keep a notebook reproducible?</p>
+<p><strong>Answer:</strong> Run top to bottom, pin dependencies and set seeds</p>
+<p>Rerun from scratch.</p>
+<p><strong>Q75.</strong> Where should reusable code go?</p>
+<p><strong>Answer:</strong> In modules imported by notebooks</p>
+<p>Test it.</p>
+<p><strong>Q76.</strong> Why strip outputs before committing?</p>
+<p><strong>Answer:</strong> Cleaner diffs and no accidental data leakage</p>
+<p>nbstripout.</p>
+<h3 id="10-project-ab-test-analysis"><a href="../level-2/10-project-ab-test-analysis/">10 · Project — A/B Test Analysis</a><a class="headerlink" href="#10-project-ab-test-analysis" title="Permanent link">&para;</a></h3>
+<p><strong>Q77.</strong> What do you check first in an experiment analysis?</p>
+<p><strong>Answer:</strong> Sample ratio mismatch and data quality</p>
+<p>Invalid assignment invalidates results.</p>
+<p><strong>Q78.</strong> What metrics should be reported?</p>
+<p><strong>Answer:</strong> Effect size with confidence interval, not only p-value</p>
+<p>Practical significance.</p>
+<p><strong>Q79.</strong> What does a guardrail metric protect?</p>
+<p><strong>Answer:</strong> Against harming something important like latency or revenue</p>
+<p>Check side effects.</p>
+<p><strong>Q80.</strong> What's the final deliverable?</p>
+<p><strong>Answer:</strong> A recommendation (ship, iterate, stop) with evidence and caveats</p>
+<p>Decision-ready.</p>
+<h2 id="level-3-advanced">Level 3 · Advanced<a class="headerlink" href="#level-3-advanced" title="Permanent link">&para;</a></h2>
+<h3 id="01-advanced-statistical-modeling"><a href="../level-3/01-advanced-statistical-modeling/">01 · Advanced Statistical Modeling</a><a class="headerlink" href="#01-advanced-statistical-modeling" title="Permanent link">&para;</a></h3>
+<p><strong>Q81.</strong> What does logistic regression model?</p>
+<p><strong>Answer:</strong> The probability of a binary outcome via log-odds</p>
+<p>Coefficients are log-odds.</p>
+<p><strong>Q82.</strong> What does regularization (L1/L2) do?</p>
+<p><strong>Answer:</strong> Penalizes large coefficients to reduce overfitting</p>
+<p>L1 can zero out features.</p>
+<p><strong>Q83.</strong> What's multicollinearity?</p>
+<p><strong>Answer:</strong> Highly correlated predictors that make coefficients unstable</p>
+<p>Check VIF.</p>
+<p><strong>Q84.</strong> Why check residuals?</p>
+<p><strong>Answer:</strong> To verify model assumptions like linearity and constant variance</p>
+<p>Diagnostics.</p>
+<h3 id="02-experimentation-platforms-causal-inference-basics"><a href="../level-3/02-causal-inference-basics/">02 · Experimentation Platforms &amp; Causal Inference Basics</a><a class="headerlink" href="#02-experimentation-platforms-causal-inference-basics" title="Permanent link">&para;</a></h3>
+<p><strong>Q85.</strong> Why is observational correlation not enough for causal claims?</p>
+<p><strong>Answer:</strong> Confounders can drive both variables</p>
+<p>Randomization or adjustment needed.</p>
+<p><strong>Q86.</strong> What's a confounder?</p>
+<p><strong>Answer:</strong> A variable influencing both treatment and outcome</p>
+<p>Adjust for it.</p>
+<p><strong>Q87.</strong> What does difference-in-differences estimate?</p>
+<p><strong>Answer:</strong> The effect of a treatment by comparing changes over time between treated and control groups</p>
+<p>Assumes parallel trends.</p>
+<p><strong>Q88.</strong> What's the gold standard for causal effects?</p>
+<p><strong>Answer:</strong> A randomized controlled experiment</p>
+<p>If feasible and ethical.</p>
+<h3 id="03-advanced-time-series-forecasting"><a href="../level-3/03-advanced-time-series-forecasting/">03 · Advanced Time Series Forecasting</a><a class="headerlink" href="#03-advanced-time-series-forecasting" title="Permanent link">&para;</a></h3>
+<p><strong>Q89.</strong> What does ARIMA model?</p>
+<p><strong>Answer:</strong> A series via autoregression, differencing and moving average terms</p>
+<p>Stationarity required.</p>
+<p><strong>Q90.</strong> What is stationarity?</p>
+<p><strong>Answer:</strong> Statistical properties like mean and variance don't change over time</p>
+<p>Differencing helps.</p>
+<p><strong>Q91.</strong> How do you evaluate forecasts?</p>
+<p><strong>Answer:</strong> On a held-out future window using metrics like MAE/MAPE</p>
+<p>Walk-forward validation.</p>
+<p><strong>Q92.</strong> Why compare to a naive forecast?</p>
+<p><strong>Answer:</strong> Complex models must beat 'same as last period' to be useful</p>
+<p>Baselines.</p>
+<h3 id="04-working-with-big-data"><a href="../level-3/04-working-with-big-data/">04 · Working with Big Data</a><a class="headerlink" href="#04-working-with-big-data" title="Permanent link">&para;</a></h3>
+<p><strong>Q93.</strong> What's the first approach when data doesn't fit in memory?</p>
+<p><strong>Answer:</strong> Sample, use chunked/streaming processing or a columnar engine like DuckDB/Parquet</p>
+<p>Avoid unnecessary scale.</p>
+<p><strong>Q94.</strong> Why prefer Parquet over CSV for large data?</p>
+<p><strong>Answer:</strong> Columnar compression and column pruning cut I/O</p>
+<p>Typed and fast.</p>
+<p><strong>Q95.</strong> When do you need Spark or Dask?</p>
+<p><strong>Answer:</strong> When single-machine tools can't handle volume or compute time</p>
+<p>Distributed.</p>
+<p><strong>Q96.</strong> Why push filters and aggregations early?</p>
+<p><strong>Answer:</strong> Reduce data volume before expensive steps</p>
+<p>Predicate pushdown.</p>
+<h3 id="05-model-interpretability"><a href="../level-3/05-model-interpretability/">05 · Model Interpretability</a><a class="headerlink" href="#05-model-interpretability" title="Permanent link">&para;</a></h3>
+<p><strong>Q97.</strong> What do SHAP values explain?</p>
+<p><strong>Answer:</strong> How much each feature contributed to a specific prediction</p>
+<p>Local and global views.</p>
+<p><strong>Q98.</strong> Why interpretability matters?</p>
+<p><strong>Answer:</strong> Trust, debugging, fairness and regulatory needs</p>
+<p>Understand failures.</p>
+<p><strong>Q99.</strong> What does permutation importance do?</p>
+<p><strong>Answer:</strong> Measures how much shuffling a feature hurts performance</p>
+<p>Model-agnostic.</p>
+<p><strong>Q100.</strong> Caution when reading feature importance?</p>
+<p><strong>Answer:</strong> Correlated features share importance and importance isn't causation</p>
+<p>Interpret carefully.</p>
+<h3 id="06-data-storytelling-for-executives"><a href="../level-3/06-data-storytelling-executives/">06 · Data Storytelling for Executives</a><a class="headerlink" href="#06-data-storytelling-for-executives" title="Permanent link">&para;</a></h3>
+<p><strong>Q101.</strong> What do executives need first?</p>
+<p><strong>Answer:</strong> The answer and the decision it implies</p>
+<p>Lead with the point.</p>
+<p><strong>Q102.</strong> Why limit slides to one message each?</p>
+<p><strong>Answer:</strong> Clarity and retention</p>
+<p>One chart, one takeaway.</p>
+<p><strong>Q103.</strong> How do you handle uncertainty with executives?</p>
+<p><strong>Answer:</strong> State it plainly with ranges and implications</p>
+<p>Honesty builds trust.</p>
+<p><strong>Q104.</strong> What's a good closing?</p>
+<p><strong>Answer:</strong> A recommendation with next steps and owners</p>
+<p>Drive action.</p>
+<h3 id="07-building-dashboards-streamlit"><a href="../level-3/07-building-dashboards-streamlit/">07 · Building Dashboards (Streamlit)</a><a class="headerlink" href="#07-building-dashboards-streamlit" title="Permanent link">&para;</a></h3>
+<p><strong>Q105.</strong> What does Streamlit do?</p>
+<p><strong>Answer:</strong> Turns Python scripts into interactive web apps with widgets</p>
+<p>Reruns the script on interaction.</p>
+<p><strong>Q106.</strong> What does @st.cache_data help with?</p>
+<p><strong>Answer:</strong> Avoiding recomputation of expensive data loading</p>
+<p>Faster apps.</p>
+<p><strong>Q107.</strong> Why keep business logic out of UI code?</p>
+<p><strong>Answer:</strong> Testability and reuse</p>
+<p>Separate concerns.</p>
+<p><strong>Q108.</strong> What should a dashboard answer?</p>
+<p><strong>Answer:</strong> A defined set of questions for a specific audience</p>
+<p>Avoid clutter.</p>
+<h3 id="08-reproducible-research-practices"><a href="../level-3/08-reproducible-research/">08 · Reproducible Research Practices</a><a class="headerlink" href="#08-reproducible-research-practices" title="Permanent link">&para;</a></h3>
+<p><strong>Q109.</strong> What makes an analysis reproducible?</p>
+<p><strong>Answer:</strong> Versioned code and data, pinned environment and fixed seeds</p>
+<p>Others can rerun it.</p>
+<p><strong>Q110.</strong> Why pin dependency versions?</p>
+<p><strong>Answer:</strong> Library updates can change results</p>
+<p>requirements.lock.</p>
+<p><strong>Q111.</strong> Why use Git for analysis?</p>
+<p><strong>Answer:</strong> History, review and collaboration</p>
+<p>Track changes.</p>
+<p><strong>Q112.</strong> What should be documented?</p>
+<p><strong>Answer:</strong> Data sources, assumptions and how to run</p>
+<p>README.</p>
+<h3 id="09-data-ethics-bias"><a href="../level-3/09-data-ethics-bias/">09 · Data Ethics &amp; Bias</a><a class="headerlink" href="#09-data-ethics-bias" title="Permanent link">&para;</a></h3>
+<p><strong>Q113.</strong> Where can bias enter a model?</p>
+<p><strong>Answer:</strong> Data collection, labels, features, evaluation and deployment</p>
+<p>Whole lifecycle.</p>
+<p><strong>Q114.</strong> Why evaluate performance by subgroup?</p>
+<p><strong>Answer:</strong> Averages can hide large gaps for some groups</p>
+<p>Disaggregate.</p>
+<p><strong>Q115.</strong> What is proxy discrimination?</p>
+<p><strong>Answer:</strong> Using a feature correlated with a protected attribute to the same effect</p>
+<p>Zip code as race proxy.</p>
+<p><strong>Q116.</strong> What should you do upon finding bias?</p>
+<p><strong>Answer:</strong> Document, mitigate, monitor and decide if the use is appropriate</p>
+<p>Responsible practice.</p>
+<h3 id="10-project-interactive-data-dashboard"><a href="../level-3/10-project-interactive-dashboard/">10 · Project — Interactive Data Dashboard</a><a class="headerlink" href="#10-project-interactive-data-dashboard" title="Permanent link">&para;</a></h3>
+<p><strong>Q117.</strong> What's the first step of the dashboard project?</p>
+<p><strong>Answer:</strong> Define the users and the questions it must answer</p>
+<p>Audience first.</p>
+<p><strong>Q118.</strong> Why add filters carefully?</p>
+<p><strong>Answer:</strong> Too many options confuse; offer those that matter</p>
+<p>Design for tasks.</p>
+<p><strong>Q119.</strong> How do you verify numbers in the dashboard?</p>
+<p><strong>Answer:</strong> Reconcile against source queries</p>
+<p>Trust matters.</p>
+<p><strong>Q120.</strong> What should you do about slow queries?</p>
+<p><strong>Answer:</strong> Cache or pre-aggregate</p>
+<p>Performance.</p>
+<h2 id="level-4-master">Level 4 · Master<a class="headerlink" href="#level-4-master" title="Permanent link">&para;</a></h2>
+<h3 id="01-leading-data-science-teams"><a href="../level-4/01-leading-data-science-teams/">01 · Leading Data Science Teams</a><a class="headerlink" href="#01-leading-data-science-teams" title="Permanent link">&para;</a></h3>
+<p><strong>Q121.</strong> What does a data science lead do beyond analysis?</p>
+<p><strong>Answer:</strong> Prioritizes problems, grows people and connects work to business outcomes</p>
+<p>Leadership.</p>
+<p><strong>Q122.</strong> How should work be prioritized?</p>
+<p><strong>Answer:</strong> By expected business value and feasibility</p>
+<p>Impact vs effort.</p>
+<p><strong>Q123.</strong> How do you grow team members?</p>
+<p><strong>Answer:</strong> Stretch assignments, feedback and review culture</p>
+<p>Mentoring.</p>
+<p><strong>Q124.</strong> What's a healthy review practice?</p>
+<p><strong>Answer:</strong> Code and analysis review for correctness and clarity</p>
+<p>Quality.</p>
+<h3 id="02-advanced-causal-inference"><a href="../level-4/02-advanced-causal-inference/">02 · Advanced Causal Inference</a><a class="headerlink" href="#02-advanced-causal-inference" title="Permanent link">&para;</a></h3>
+<p><strong>Q125.</strong> What does an instrumental variable need?</p>
+<p><strong>Answer:</strong> Affects treatment, affects outcome only through treatment, and is independent of confounders</p>
+<p>Hard to find valid ones.</p>
+<p><strong>Q126.</strong> What does propensity score matching do?</p>
+<p><strong>Answer:</strong> Balances observed covariates between treated and untreated units</p>
+<p>Unobserved confounding remains.</p>
+<p><strong>Q127.</strong> What's regression discontinuity?</p>
+<p><strong>Answer:</strong> Comparing units just above and below a threshold that determines treatment</p>
+<p>Local effect.</p>
+<p><strong>Q128.</strong> What's the limitation of all observational methods?</p>
+<p><strong>Answer:</strong> They depend on untestable assumptions</p>
+<p>Be transparent.</p>
+<h3 id="03-building-a-data-science-platform"><a href="../level-4/03-data-science-platform/">03 · Building a Data Science Platform</a><a class="headerlink" href="#03-building-a-data-science-platform" title="Permanent link">&para;</a></h3>
+<p><strong>Q129.</strong> What does a data science platform provide?</p>
+<p><strong>Answer:</strong> Shared compute, data access, experiment tracking and deployment tooling</p>
+<p>Productivity.</p>
+<p><strong>Q130.</strong> What does experiment tracking record?</p>
+<p><strong>Answer:</strong> Parameters, code version, data version and metrics</p>
+<p>Reproducibility.</p>
+<p><strong>Q131.</strong> Why standardize environments?</p>
+<p><strong>Answer:</strong> Reproducibility across people and machines</p>
+<p>Containers.</p>
+<p><strong>Q132.</strong> What does self-service enable?</p>
+<p><strong>Answer:</strong> Scientists work without waiting on infrastructure teams</p>
+<p>Guardrails.</p>
+<h3 id="04-mlops-for-data-scientists"><a href="../level-4/04-mlops-for-data-scientists/">04 · MLOps for Data Scientists</a><a class="headerlink" href="#04-mlops-for-data-scientists" title="Permanent link">&para;</a></h3>
+<p><strong>Q133.</strong> What does MLOps add to modeling?</p>
+<p><strong>Answer:</strong> Versioning, deployment, monitoring and retraining processes</p>
+<p>Operate models.</p>
+<p><strong>Q134.</strong> What's model drift?</p>
+<p><strong>Answer:</strong> Performance degrades as data distribution or relationships change</p>
+<p>Monitor and retrain.</p>
+<p><strong>Q135.</strong> Why version data and models?</p>
+<p><strong>Answer:</strong> To reproduce and roll back</p>
+<p>Registry.</p>
+<p><strong>Q136.</strong> What should a deployment include?</p>
+<p><strong>Answer:</strong> Tests, monitoring and a rollback plan</p>
+<p>Safe release.</p>
+<h3 id="05-advanced-experimentation-at-scale"><a href="../level-4/05-advanced-experimentation-scale/">05 · Advanced Experimentation at Scale</a><a class="headerlink" href="#05-advanced-experimentation-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Q137.</strong> What's CUPED?</p>
+<p><strong>Answer:</strong> Variance reduction using pre-experiment covariates to detect smaller effects</p>
+<p>Increases power.</p>
+<p><strong>Q138.</strong> What's a network effect problem in A/B tests?</p>
+<p><strong>Answer:</strong> Treated users influence control users, violating independence</p>
+<p>Cluster randomization.</p>
+<p><strong>Q139.</strong> Why run many experiments with a shared platform?</p>
+<p><strong>Answer:</strong> Consistency, guardrails and learning at scale</p>
+<p>Experimentation culture.</p>
+<p><strong>Q140.</strong> What risk does running many metrics create?</p>
+<p><strong>Answer:</strong> False positives; predefine primary metrics and correct</p>
+<p>Discipline.</p>
+<h3 id="06-data-science-strategy-roadmapping"><a href="../level-4/06-strategy-roadmapping/">06 · Data Science Strategy &amp; Roadmapping</a><a class="headerlink" href="#06-data-science-strategy-roadmapping" title="Permanent link">&para;</a></h3>
+<p><strong>Q141.</strong> What does a data strategy align?</p>
+<p><strong>Answer:</strong> Data and analytics investments with business goals</p>
+<p>Value-driven.</p>
+<p><strong>Q142.</strong> How do you prioritize roadmap items?</p>
+<p><strong>Answer:</strong> Impact, effort, risk and dependencies</p>
+<p>Transparent criteria.</p>
+<p><strong>Q143.</strong> Why include quick wins and long bets?</p>
+<p><strong>Answer:</strong> Build credibility while investing in capability</p>
+<p>Balanced portfolio.</p>
+<p><strong>Q144.</strong> How do you track progress?</p>
+<p><strong>Answer:</strong> Outcome metrics tied to business results</p>
+<p>Measure value.</p>
+<h3 id="07-cross-functional-stakeholder-management"><a href="../level-4/07-stakeholder-management/">07 · Cross-Functional Stakeholder Management</a><a class="headerlink" href="#07-cross-functional-stakeholder-management" title="Permanent link">&para;</a></h3>
+<p><strong>Q145.</strong> How do you handle a stakeholder demanding a result you can't support?</p>
+<p><strong>Answer:</strong> Explain evidence and limits, and offer alternatives</p>
+<p>Integrity.</p>
+<p><strong>Q146.</strong> What clarifies expectations early?</p>
+<p><strong>Answer:</strong> Agreeing the question, success criteria and timeline</p>
+<p>Scope.</p>
+<p><strong>Q147.</strong> Why communicate regularly?</p>
+<p><strong>Answer:</strong> Prevents surprises and builds trust</p>
+<p>Cadence.</p>
+<p><strong>Q148.</strong> What's a good way to deliver bad news?</p>
+<p><strong>Answer:</strong> Early, with facts, impact and a proposed path</p>
+<p>Be direct.</p>
+<h3 id="08-ethics-governance-at-scale"><a href="../level-4/08-ethics-governance-scale/">08 · Ethics &amp; Governance at Scale</a><a class="headerlink" href="#08-ethics-governance-at-scale" title="Permanent link">&para;</a></h3>
+<p><strong>Q149.</strong> What does AI governance include?</p>
+<p><strong>Answer:</strong> Policies, risk review, documentation and accountability</p>
+<p>Scale with risk.</p>
+<p><strong>Q150.</strong> What is a model card?</p>
+<p><strong>Answer:</strong> Documentation of a model's purpose, data, performance and limits</p>
+<p>Transparency.</p>
+<p><strong>Q151.</strong> Why do impact assessments matter?</p>
+<p><strong>Answer:</strong> Identify harms before deployment</p>
+<p>Proactive.</p>
+<p><strong>Q152.</strong> Who is accountable for a model's outcomes?</p>
+<p><strong>Answer:</strong> A named owner</p>
+<p>Assign ownership.</p>
+<h3 id="09-career-growth-ic-to-principal-data-scientist"><a href="../level-4/09-career-growth/">09 · Career Growth: IC to Principal Data Scientist</a><a class="headerlink" href="#09-career-growth-ic-to-principal-data-scientist" title="Permanent link">&para;</a></h3>
+<p><strong>Q153.</strong> What distinguishes senior data scientists?</p>
+<p><strong>Answer:</strong> Problem framing, judgment and influence beyond technical skill</p>
+<p>Scope grows.</p>
+<p><strong>Q154.</strong> How do you build credibility?</p>
+<p><strong>Answer:</strong> Deliver reliable, communicated results and own mistakes</p>
+<p>Track record.</p>
+<p><strong>Q155.</strong> What skills compound?</p>
+<p><strong>Answer:</strong> Statistics, communication and domain expertise</p>
+<p>Durable.</p>
+<p><strong>Q156.</strong> How do you choose a specialization?</p>
+<p><strong>Answer:</strong> Align interests, strengths and market needs</p>
+<p>Balance.</p>
+<h3 id="10-capstone-full-data-science-project-from-question-to-recommendation"><a href="../level-4/10-capstone-full-project/">10 · Capstone — Full Data Science Project from Question to Recommendation</a><a class="headerlink" href="#10-capstone-full-data-science-project-from-question-to-recommendation" title="Permanent link">&para;</a></h3>
+<p><strong>Q157.</strong> What does the capstone show?</p>
+<p><strong>Answer:</strong> An end-to-end project from question to communicated, deployed recommendation</p>
+<p>Full lifecycle.</p>
+<p><strong>Q158.</strong> How do you demonstrate rigor?</p>
+<p><strong>Answer:</strong> Validation, sensitivity checks and clear limitations</p>
+<p>Evidence.</p>
+<p><strong>Q159.</strong> What would make it production-ready?</p>
+<p><strong>Answer:</strong> Reproducibility, monitoring and documentation</p>
+<p>Operate it.</p>
+<p><strong>Q160.</strong> What's the final measure of success?</p>
+<p><strong>Answer:</strong> Business impact from decisions informed by the work</p>
+<p>Outcome.</p>
+<h2 id="mixed-questions-across-all-levels">Mixed questions across all levels<a class="headerlink" href="#mixed-questions-across-all-levels" title="Permanent link">&para;</a></h2>
+<p><strong>Q161.</strong> A manager asks for 'the data science'. What should you do first?</p>
+<p><strong>Answer:</strong> Clarify the business question and the decision the analysis will inform</p>
+<p>Start from the decision.</p>
+<p><strong>Q162.</strong> Customer names appear as 'USA', 'U.S.A.' and 'United States'. What's the correct cleaning step?</p>
+<p><strong>Answer:</strong> Map variants to one canonical value and log the rule</p>
+<p>Normalize and document.</p>
+<p><strong>Q163.</strong> What does this print?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">s</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">d</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="n">s</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> 21.6 2</p>
+<p>The outlier drags the mean but not the median. Verified by running it.</p>
+<p><strong>Q164.</strong> What does this print for a sample SD?</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">s</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">stdev</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]),</span><span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pstdev</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">]),</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<p><strong>Answer:</strong> 1.581 1.414</p>
+<p>Sample SD divides by n-1. Verified by running it.</p>
+<p><strong>Q165.</strong> A study finds p=0.03. Which statement is correct?</p>
+<p><strong>Answer:</strong> If there were no effect, data this extreme would occur about 3% of the time</p>
+<p>p-values aren't the probability a hypothesis is true.</p>
+<p><strong>Q166.</strong> Ice cream sales and drownings are correlated. What's the best explanation?</p>
+<p><strong>Answer:</strong> A confounder (hot weather) drives both</p>
+<p>Correlation isn't causation.</p>
+<p><strong>Q167.</strong> A model gets 95% accuracy predicting churn when 5% churn. What do you check?</p>
+<p><strong>Answer:</strong> Whether it just predicts 'no churn'; look at precision, recall and a baseline</p>
+<p>Imbalanced classes.</p>
+<p><strong>Q168.</strong> Features were standardized using the whole dataset before the train/test split. What went wrong?</p>
+<p><strong>Answer:</strong> Data leakage: test information influenced the training transform</p>
+<p>Fit transforms on training data only.</p>
+<p><strong>Q169.</strong> You shuffle a daily sales series randomly before splitting. What's the problem?</p>
+<p><strong>Answer:</strong> The model trains on the future to predict the past; use a time-based split</p>
+<p>Respect time order.</p>
+<p><strong>Q170.</strong> An A/B test is stopped as soon as p dips below 0.05. Why is that risky?</p>
+<p><strong>Answer:</strong> Repeated peeking inflates false positives; fix the horizon or use sequential methods</p>
+<p>Pre-register stopping rules.</p>
+<p><strong>Q171.</strong> The control and treatment groups are 55%/45% when 50/50 was intended. What do you suspect?</p>
+<p><strong>Answer:</strong> A sample ratio mismatch: assignment or logging is broken</p>
+<p>Fix before analysis.</p>
+<p><strong>Q172.</strong> An A/B test shows +0.2% lift, p=0.001 on 10 million users. How do you report it?</p>
+<p><strong>Answer:</strong> Statistically significant but tiny; judge practical significance and cost</p>
+<p>Effect size matters.</p>
+<p><strong>Q173.</strong> You ran 20 metric tests and one is p=0.04. What's the concern?</p>
+<p><strong>Answer:</strong> Multiple comparisons: expect about one false positive; correct or predefine primary metrics</p>
+<p>False discovery.</p>
+<p><strong>Q174.</strong> Observational data show treated users do better, but they self-selected. What do you use?</p>
+<p><strong>Answer:</strong> Causal methods (matching, diff-in-diff) with stated assumptions, ideally a randomized test</p>
+<p>Selection bias.</p>
+<p><strong>Q175.</strong> A model explains predictions with SHAP. What can you say?</p>
+<p><strong>Answer:</strong> Which features contributed to a prediction, not that they cause the outcome</p>
+<p>Interpretability isn't causality.</p>
+<p><strong>Q176.</strong> A dashboard loads slowly on 50 million rows. What helps?</p>
+<p><strong>Answer:</strong> Pre-aggregate or cache and query only what's needed</p>
+<p>Performance.</p>
+<p><strong>Q177.</strong> Your notebook gives different results when run top to bottom. Likely cause?</p>
+<p><strong>Answer:</strong> Hidden state from out-of-order cells; restart and run all with fixed seeds</p>
+<p>Reproducibility.</p>
+<p><strong>Q178.</strong> A hiring model's accuracy is 90% overall but 70% for one group. What next?</p>
+<p><strong>Answer:</strong> Investigate and mitigate the disparity before deployment</p>
+<p>Evaluate by subgroup.</p>
+<p><strong>Q179.</strong> An executive asks for a one-slide summary. What leads it?</p>
+<p><strong>Answer:</strong> The recommendation and the key evidence</p>
+<p>Answer first.</p>
+<h2 id="practical-coding-questions">Practical coding questions<a class="headerlink" href="#practical-coding-questions" title="Permanent link">&para;</a></h2>
+<h3 id="ab-test-z-test">A/B test z-test<a class="headerlink" href="#ab-test-z-test" title="Permanent link">&para;</a></h3>
+<p>Implement two_proportion_z(conv_a, n_a, conv_b, n_b) using the pooled-proportion z-test and a two-sided p-value from the normal CDF (math.erf). Analyze 200/2000 vs 250/2000 and then a small 200/2000 vs 210/2000 difference.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>import math
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>def two_proportion_z(conv_a, n_a, conv_b, n_b):
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    # return (p_a, p_b, z, two_sided_p) using the pooled-proportion z-test;
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    # p-value from the normal CDF: 0.5*(1+erf(z/sqrt(2)))
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    return 0, 0, 0, 1
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>p_a, p_b, z, p = two_proportion_z(200, 2000, 250, 2000)
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>print("A=%.3f B=%.3f lift=%.1f%%" % (p_a, p_b, (p_b - p_a) / p_a * 100))
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>print("z=%.2f p=%.4f" % (z, p))
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>print("significant at 5%:", p &lt; 0.05)
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>_, _, z2, p2 = two_proportion_z(200, 2000, 210, 2000)
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>print("small difference p=%.2f significant: %s" % (p2, p2 &lt; 0.05))
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>A=0.100 B=0.125 lift=25.0%
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>z=2.50 p=0.0124
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>significant at 5%: True
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>small difference p=0.60 significant: False
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+import math
+
+def two_proportion_z(conv_a, n_a, conv_b, n_b):
+    p_a, p_b = conv_a / n_a, conv_b / n_b
+    pooled = (conv_a + conv_b) / (n_a + n_b)
+    se = math.sqrt(pooled * (1 - pooled) * (1 / n_a + 1 / n_b))
+    z = (p_b - p_a) / se
+    p_value = 2 * (1 - 0.5 * (1 + math.erf(abs(z) / math.sqrt(2))))
+    return p_a, p_b, z, p_value
+
+p_a, p_b, z, p = two_proportion_z(200, 2000, 250, 2000)
+print("A=%.3f B=%.3f lift=%.1f%%" % (p_a, p_b, (p_b - p_a) / p_a * 100))
+print("z=%.2f p=%.4f" % (z, p))
+print("significant at 5%:", p &lt; 0.05)
+_, _, z2, p2 = two_proportion_z(200, 2000, 210, 2000)
+print("small difference p=%.2f significant: %s" % (p2, p2 &lt; 0.05))
+```
+
+A 2.5-point lift on 2,000 users per arm is unlikely under no difference, while a 0.5-point lift isn't distinguishable from noise. Report effect size and interval too. Verified by running the solution.
+</code></pre></div>
+<h3 id="least-squares-and-a-warning">Least squares and a warning<a class="headerlink" href="#least-squares-and-a-warning" title="Permanent link">&para;</a></h3>
+<p>Implement fit_line(x, y) returning slope, intercept and R-squared by ordinary least squares. Fit a clean linear dataset, predict x=7, and then fit data with one outlier to see how it distorts the line.</p>
+<p>Starter code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>def fit_line(x, y):
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    # ordinary least squares: return (slope, intercept, r_squared)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    return 0, 0, 0
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>x = [1, 2, 3, 4, 5, 6]
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>y = [2.1, 4.3, 5.9, 8.2, 9.9, 12.1]
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>m, c, r2 = fit_line(x, y)
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>print("slope=%.3f intercept=%.3f r2=%.4f" % (m, c, r2))
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>print("prediction for x=7: %.2f" % (c + m * 7))
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a># Anscombe-style warning: same fit, different shape
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>x2 = [1, 2, 3, 4, 5, 6]
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>y2 = [2, 4, 6, 8, 10, 30]
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>m2, c2, r22 = fit_line(x2, y2)
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>print("outlier fit slope=%.2f r2=%.2f" % (m2, r22))
+</code></pre></div>
+<p>Expected output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>slope=1.974 intercept=0.173 r2=0.9983
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>prediction for x=7: 13.99
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>outlier fit slope=4.57 r2=0.70
+</code></pre></div>
+<p>??? success "Show a solution"</p>
+<div class="highlight"><pre><span></span><code>```
+def fit_line(x, y):
+    n = len(x)
+    mx, my = sum(x) / n, sum(y) / n
+    sxx = sum((a - mx) ** 2 for a in x)
+    sxy = sum((a - mx) * (b - my) for a, b in zip(x, y))
+    slope = sxy / sxx
+    intercept = my - slope * mx
+    ss_res = sum((b - (intercept + slope * a)) ** 2 for a, b in zip(x, y))
+    ss_tot = sum((b - my) ** 2 for b in y)
+    return slope, intercept, 1 - ss_res / ss_tot
+
+x = [1, 2, 3, 4, 5, 6]
+y = [2.1, 4.3, 5.9, 8.2, 9.9, 12.1]
+m, c, r2 = fit_line(x, y)
+print("slope=%.3f intercept=%.3f r2=%.4f" % (m, c, r2))
+print("prediction for x=7: %.2f" % (c + m * 7))
+
+# Anscombe-style warning: same fit, different shape
+x2 = [1, 2, 3, 4, 5, 6]
+y2 = [2, 4, 6, 8, 10, 30]
+m2, c2, r22 = fit_line(x2, y2)
+print("outlier fit slope=%.2f r2=%.2f" % (m2, r22))
+```
+
+The first fit is nearly perfect, while one outlier at x=6 changes the slope sharply and drops R-squared. Always plot your data and inspect residuals. Verified by running the solution.
+</code></pre></div>
+<hr />
+<p>More free practice: the <a href="../">Data Science Mastery Path</a> curriculum, the <a href="https://learnmasterypath.com/interview-pack/">Interview Prep Pack</a> and the <a href="https://learnmasterypath.com/resume/">free resume ATS check</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+  
+  <nav class="mp-related" aria-label="Related free courses">
+    <h2>Related free courses</h2>
+    <ul>
+      <li><a href="https://learnmasterypath.com/data-engineering-mastery-path/">Data Engineering</a></li><li><a href="https://learnmasterypath.com/tableau-mastery-path/">Tableau</a></li><li><a href="https://learnmasterypath.com/excel-mastery-path/">Excel</a></li><li><a href="https://learnmasterypath.com/pyspark-mastery-path/">PySpark</a></li><li><a href="https://learnmasterypath.com/etl-datalake-mastery-path/">ETL & Data Lake</a></li>
+      <li><a href="https://learnmasterypath.com/">All 100+ courses &rarr;</a></li>
+    </ul>
+  </nav>
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cheat-sheet/" class="md-footer__link md-footer__link--next" aria-label="Next: Cheat Sheet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cheat Sheet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+  <div class="mp-foot">
+    <div class="mp-foot-inner">
+      <a class="mp-foot-brand" href="https://learnmasterypath.com/"><svg class="mp-mark" viewBox="0 0 160 160" role="img" aria-label="Mastery Path logo">
+  <circle cx="80" cy="80" r="74" fill="#FAF7EF" stroke="#2FA98D" stroke-width="5"/>
+  <rect class="mp-bar mp-bar-1" x="36" y="90" width="17" height="24" rx="5" fill="#2FA98D"/>
+  <rect class="mp-bar mp-bar-2" x="59" y="74" width="17" height="40" rx="5" fill="#7FC9B7"/>
+  <rect class="mp-bar mp-bar-3" x="82" y="56" width="17" height="58" rx="5" fill="#E0B457"/>
+  <rect class="mp-bar mp-bar-4" x="105" y="38" width="17" height="76" rx="5" fill="#C97B4A"/>
+  <circle class="mp-dot" cx="44.5" cy="82" r="7" fill="#22261f"/>
+</svg><span>Mastery Path</span></a>
+      <nav class="mp-sitelinks" aria-label="Site and legal links">
+        <a href="https://learnmasterypath.com/">All courses</a>
+        <a href="https://learnmasterypath.com/about.html">About</a>
+        <a href="https://learnmasterypath.com/contact.html">Contact</a>
+        <a href="https://learnmasterypath.com/data-science-mastery-path/privacy/">Privacy Policy</a>
+        <a href="https://learnmasterypath.com/terms.html">Terms</a>
+        <a href="https://learnmasterypath.com/data-science-mastery-path/license/">License</a>
+        <a href="https://learnmasterypath.com/verify/">Verify a certificate</a>
+      </nav>
+    </div>
+    <p class="mp-license-note">
+      © 2026 Vinod Kumar Sigilipelli · Except where otherwise noted, lesson content is licensed under
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and code examples under the
+      <a href="https://opensource.org/license/mit">MIT License</a>.
+    </p>
+  </div>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.path", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "content.code.copy", "content.code.annotate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/progress-tracker.js"></script>
+      
+        <script src="../javascripts/final-quiz.js"></script>
+      
+    
+  </body>
+</html>
